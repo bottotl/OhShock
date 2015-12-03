@@ -1,0 +1,384 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		13818F38B5000ACD6B55D528 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED188C99B1A508D38707934B /* libPods.a */; };
+		B8731D8F1C101E08007FDE06 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8731D8E1C101E08007FDE06 /* main.m */; };
+		B8731D921C101E08007FDE06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8731D911C101E08007FDE06 /* AppDelegate.m */; };
+		B8731D981C101E08007FDE06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8731D961C101E08007FDE06 /* Main.storyboard */; };
+		B8731D9A1C101E08007FDE06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8731D991C101E08007FDE06 /* Assets.xcassets */; };
+		B8731D9D1C101E08007FDE06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8731D9B1C101E08007FDE06 /* LaunchScreen.storyboard */; };
+		B8731DA51C101E70007FDE06 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B8731DA41C101E70007FDE06 /* Podfile */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8DEAB77422DEF8810F77280D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		B8731D8A1C101E08007FDE06 /* OhShock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OhShock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8731D8E1C101E08007FDE06 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B8731D901C101E08007FDE06 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B8731D911C101E08007FDE06 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B8731D971C101E08007FDE06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B8731D991C101E08007FDE06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B8731D9C1C101E08007FDE06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B8731D9E1C101E08007FDE06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8731DA41C101E70007FDE06 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		CC415E9156B90791E2AF3339 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		ED188C99B1A508D38707934B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B8731D871C101E08007FDE06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13818F38B5000ACD6B55D528 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2E580F8608D3B806AF18B7E3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ED188C99B1A508D38707934B /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6ECC8039BC321BF8653C7731 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CC415E9156B90791E2AF3339 /* Pods.debug.xcconfig */,
+				8DEAB77422DEF8810F77280D /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B8731D811C101E08007FDE06 = {
+			isa = PBXGroup;
+			children = (
+				B8731DA41C101E70007FDE06 /* Podfile */,
+				B8731D8C1C101E08007FDE06 /* OhShock */,
+				B8731D8B1C101E08007FDE06 /* Products */,
+				6ECC8039BC321BF8653C7731 /* Pods */,
+				2E580F8608D3B806AF18B7E3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B8731D8B1C101E08007FDE06 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B8731D8A1C101E08007FDE06 /* OhShock.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B8731D8C1C101E08007FDE06 /* OhShock */ = {
+			isa = PBXGroup;
+			children = (
+				B8731D901C101E08007FDE06 /* AppDelegate.h */,
+				B8731D911C101E08007FDE06 /* AppDelegate.m */,
+				B8731D961C101E08007FDE06 /* Main.storyboard */,
+				B8731D991C101E08007FDE06 /* Assets.xcassets */,
+				B8731D9B1C101E08007FDE06 /* LaunchScreen.storyboard */,
+				B8731D9E1C101E08007FDE06 /* Info.plist */,
+				B8731D8D1C101E08007FDE06 /* Supporting Files */,
+			);
+			path = OhShock;
+			sourceTree = "<group>";
+		};
+		B8731D8D1C101E08007FDE06 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B8731D8E1C101E08007FDE06 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B8731D891C101E08007FDE06 /* OhShock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8731DA11C101E08007FDE06 /* Build configuration list for PBXNativeTarget "OhShock" */;
+			buildPhases = (
+				BAE98176FED2D47A64188699 /* Check Pods Manifest.lock */,
+				B8731D861C101E08007FDE06 /* Sources */,
+				B8731D871C101E08007FDE06 /* Frameworks */,
+				B8731D881C101E08007FDE06 /* Resources */,
+				E5DC8CAEFA76DC5AF0966A11 /* Embed Pods Frameworks */,
+				C06E0ED2437FE1B9F503FA16 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OhShock;
+			productName = OhShock;
+			productReference = B8731D8A1C101E08007FDE06 /* OhShock.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B8731D821C101E08007FDE06 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Lintao Yu";
+				TargetAttributes = {
+					B8731D891C101E08007FDE06 = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 2NCX2WCTH8;
+					};
+				};
+			};
+			buildConfigurationList = B8731D851C101E08007FDE06 /* Build configuration list for PBXProject "OhShock" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B8731D811C101E08007FDE06;
+			productRefGroup = B8731D8B1C101E08007FDE06 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B8731D891C101E08007FDE06 /* OhShock */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B8731D881C101E08007FDE06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8731D9D1C101E08007FDE06 /* LaunchScreen.storyboard in Resources */,
+				B8731D9A1C101E08007FDE06 /* Assets.xcassets in Resources */,
+				B8731DA51C101E70007FDE06 /* Podfile in Resources */,
+				B8731D981C101E08007FDE06 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BAE98176FED2D47A64188699 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C06E0ED2437FE1B9F503FA16 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5DC8CAEFA76DC5AF0966A11 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B8731D861C101E08007FDE06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8731D921C101E08007FDE06 /* AppDelegate.m in Sources */,
+				B8731D8F1C101E08007FDE06 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B8731D961C101E08007FDE06 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B8731D971C101E08007FDE06 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B8731D9B1C101E08007FDE06 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B8731D9C1C101E08007FDE06 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B8731D9F1C101E08007FDE06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B8731DA01C101E08007FDE06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B8731DA21C101E08007FDE06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC415E9156B90791E2AF3339 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = OhShock/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jft0m.OhShock;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B8731DA31C101E08007FDE06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DEAB77422DEF8810F77280D /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = OhShock/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jft0m.OhShock;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B8731D851C101E08007FDE06 /* Build configuration list for PBXProject "OhShock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8731D9F1C101E08007FDE06 /* Debug */,
+				B8731DA01C101E08007FDE06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B8731DA11C101E08007FDE06 /* Build configuration list for PBXNativeTarget "OhShock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8731DA21C101E08007FDE06 /* Debug */,
+				B8731DA31C101E08007FDE06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B8731D821C101E08007FDE06 /* Project object */;
+}
