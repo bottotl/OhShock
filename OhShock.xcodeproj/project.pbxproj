@@ -7,28 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13818F38B5000ACD6B55D528 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED188C99B1A508D38707934B /* libPods.a */; };
+		54139C50F4F6851606260702 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55578DBB8A3395A0A274297 /* Pods.framework */; };
+		B83DA9A51C102F6300E66714 /* IFTTTCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B83DA9A21C102F6300E66714 /* IFTTTCircleView.m */; };
+		B83DA9A61C102F6300E66714 /* IFTTTJazzHandsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B83DA9A41C102F6300E66714 /* IFTTTJazzHandsViewController.m */; };
+		B83DA9A91C10340500E66714 /* IntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B83DA9A81C10340500E66714 /* IntroductionViewController.m */; };
+		B83DA9AC1C10364B00E66714 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = B83DA9AB1C10364B00E66714 /* UIView+Layout.m */; };
+		B83DA9B11C1042CA00E66714 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B83DA9B01C1042CA00E66714 /* LogInViewController.m */; };
 		B8731D8F1C101E08007FDE06 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8731D8E1C101E08007FDE06 /* main.m */; };
 		B8731D921C101E08007FDE06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8731D911C101E08007FDE06 /* AppDelegate.m */; };
-		B8731D981C101E08007FDE06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8731D961C101E08007FDE06 /* Main.storyboard */; };
 		B8731D9A1C101E08007FDE06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8731D991C101E08007FDE06 /* Assets.xcassets */; };
 		B8731D9D1C101E08007FDE06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8731D9B1C101E08007FDE06 /* LaunchScreen.storyboard */; };
-		B8731DA51C101E70007FDE06 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B8731DA41C101E70007FDE06 /* Podfile */; };
+		B8731DAD1C1027A5007FDE06 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = B8731DAC1C1027A5007FDE06 /* UIColor+expanded.m */; };
+		B8731DB11C1028B9007FDE06 /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = B8731DB01C1028B9007FDE06 /* UIImage+Common.m */; };
+		B8802FFE1C114D9300F604BD /* LTLogInService.m in Sources */ = {isa = PBXBuildFile; fileRef = B8802FFD1C114D9300F604BD /* LTLogInService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8DEAB77422DEF8810F77280D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A55578DBB8A3395A0A274297 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B83DA9A11C102F6300E66714 /* IFTTTCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTTTCircleView.h; sourceTree = "<group>"; };
+		B83DA9A21C102F6300E66714 /* IFTTTCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTTTCircleView.m; sourceTree = "<group>"; };
+		B83DA9A31C102F6300E66714 /* IFTTTJazzHandsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTTTJazzHandsViewController.h; sourceTree = "<group>"; };
+		B83DA9A41C102F6300E66714 /* IFTTTJazzHandsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTTTJazzHandsViewController.m; sourceTree = "<group>"; };
+		B83DA9A71C10340500E66714 /* IntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroductionViewController.h; sourceTree = "<group>"; };
+		B83DA9A81C10340500E66714 /* IntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroductionViewController.m; sourceTree = "<group>"; };
+		B83DA9AA1C10364B00E66714 /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
+		B83DA9AB1C10364B00E66714 /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
+		B83DA9AF1C1042CA00E66714 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
+		B83DA9B01C1042CA00E66714 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
 		B8731D8A1C101E08007FDE06 /* OhShock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OhShock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8731D8E1C101E08007FDE06 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B8731D901C101E08007FDE06 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B8731D911C101E08007FDE06 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B8731D971C101E08007FDE06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B8731D991C101E08007FDE06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8731D9C1C101E08007FDE06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8731D9E1C101E08007FDE06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B8731DA41C101E70007FDE06 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		B8731DAB1C1027A5007FDE06 /* UIColor+expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+expanded.h"; sourceTree = "<group>"; };
+		B8731DAC1C1027A5007FDE06 /* UIColor+expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+expanded.m"; sourceTree = "<group>"; };
+		B8731DAF1C1028B9007FDE06 /* UIImage+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Common.h"; sourceTree = "<group>"; };
+		B8731DB01C1028B9007FDE06 /* UIImage+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Common.m"; sourceTree = "<group>"; };
+		B8731DB21C10293D007FDE06 /* OhShockPrefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OhShockPrefix.pch; sourceTree = "<group>"; };
+		B8802FFC1C114D9300F604BD /* LTLogInService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTLogInService.h; sourceTree = "<group>"; };
+		B8802FFD1C114D9300F604BD /* LTLogInService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTLogInService.m; sourceTree = "<group>"; };
 		CC415E9156B90791E2AF3339 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		ED188C99B1A508D38707934B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,7 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13818F38B5000ACD6B55D528 /* libPods.a in Frameworks */,
+				54139C50F4F6851606260702 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,7 +67,7 @@
 		2E580F8608D3B806AF18B7E3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				ED188C99B1A508D38707934B /* libPods.a */,
+				A55578DBB8A3395A0A274297 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -60,10 +81,27 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B83DA9AD1C1042AC00E66714 /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				B8802FFB1C114D6700F604BD /* Service */,
+				B83DA9AF1C1042CA00E66714 /* LogInViewController.h */,
+				B83DA9B01C1042CA00E66714 /* LogInViewController.m */,
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
+		B83DA9AE1C1042BD00E66714 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
 		B8731D811C101E08007FDE06 = {
 			isa = PBXGroup;
 			children = (
-				B8731DA41C101E70007FDE06 /* Podfile */,
+				B8731DAA1C102799007FDE06 /* Util */,
 				B8731D8C1C101E08007FDE06 /* OhShock */,
 				B8731D8B1C101E08007FDE06 /* Products */,
 				6ECC8039BC321BF8653C7731 /* Pods */,
@@ -84,10 +122,12 @@
 			children = (
 				B8731D901C101E08007FDE06 /* AppDelegate.h */,
 				B8731D911C101E08007FDE06 /* AppDelegate.m */,
-				B8731D961C101E08007FDE06 /* Main.storyboard */,
 				B8731D991C101E08007FDE06 /* Assets.xcassets */,
 				B8731D9B1C101E08007FDE06 /* LaunchScreen.storyboard */,
 				B8731D9E1C101E08007FDE06 /* Info.plist */,
+				B8731DB41C102BFE007FDE06 /* Intro */,
+				B83DA9AD1C1042AC00E66714 /* LogIn */,
+				B83DA9AE1C1042BD00E66714 /* SignUp */,
 				B8731D8D1C101E08007FDE06 /* Supporting Files */,
 			);
 			path = OhShock;
@@ -96,9 +136,46 @@
 		B8731D8D1C101E08007FDE06 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B8731DB21C10293D007FDE06 /* OhShockPrefix.pch */,
 				B8731D8E1C101E08007FDE06 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B8731DAA1C102799007FDE06 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				B8731DAF1C1028B9007FDE06 /* UIImage+Common.h */,
+				B8731DB01C1028B9007FDE06 /* UIImage+Common.m */,
+				B8731DAB1C1027A5007FDE06 /* UIColor+expanded.h */,
+				B8731DAC1C1027A5007FDE06 /* UIColor+expanded.m */,
+				B83DA9AA1C10364B00E66714 /* UIView+Layout.h */,
+				B83DA9AB1C10364B00E66714 /* UIView+Layout.m */,
+			);
+			name = Util;
+			path = OhShock/Util;
+			sourceTree = "<group>";
+		};
+		B8731DB41C102BFE007FDE06 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				B83DA9A11C102F6300E66714 /* IFTTTCircleView.h */,
+				B83DA9A21C102F6300E66714 /* IFTTTCircleView.m */,
+				B83DA9A31C102F6300E66714 /* IFTTTJazzHandsViewController.h */,
+				B83DA9A41C102F6300E66714 /* IFTTTJazzHandsViewController.m */,
+				B83DA9A71C10340500E66714 /* IntroductionViewController.h */,
+				B83DA9A81C10340500E66714 /* IntroductionViewController.m */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
+		B8802FFB1C114D6700F604BD /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B8802FFC1C114D9300F604BD /* LTLogInService.h */,
+				B8802FFD1C114D9300F604BD /* LTLogInService.m */,
+			);
+			name = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,8 +241,6 @@
 			files = (
 				B8731D9D1C101E08007FDE06 /* LaunchScreen.storyboard in Resources */,
 				B8731D9A1C101E08007FDE06 /* Assets.xcassets in Resources */,
-				B8731DA51C101E70007FDE06 /* Podfile in Resources */,
-				B8731D981C101E08007FDE06 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,22 +299,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8731DB11C1028B9007FDE06 /* UIImage+Common.m in Sources */,
+				B83DA9A61C102F6300E66714 /* IFTTTJazzHandsViewController.m in Sources */,
 				B8731D921C101E08007FDE06 /* AppDelegate.m in Sources */,
+				B8802FFE1C114D9300F604BD /* LTLogInService.m in Sources */,
 				B8731D8F1C101E08007FDE06 /* main.m in Sources */,
+				B83DA9AC1C10364B00E66714 /* UIView+Layout.m in Sources */,
+				B83DA9B11C1042CA00E66714 /* LogInViewController.m in Sources */,
+				B83DA9A51C102F6300E66714 /* IFTTTCircleView.m in Sources */,
+				B8731DAD1C1027A5007FDE06 /* UIColor+expanded.m in Sources */,
+				B83DA9A91C10340500E66714 /* IntroductionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B8731D961C101E08007FDE06 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B8731D971C101E08007FDE06 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B8731D9B1C101E08007FDE06 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -337,6 +412,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREFIX_HEADER = OhShock/OhShockPrefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/JazzHands\"",
+					"$(PODS_ROOT)",
+				);
 				INFOPLIST_FILE = OhShock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jft0m.OhShock;
@@ -350,6 +432,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREFIX_HEADER = OhShock/OhShockPrefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/JazzHands\"",
+					"$(PODS_ROOT)",
+				);
 				INFOPLIST_FILE = OhShock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jft0m.OhShock;

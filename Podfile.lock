@@ -1,10 +1,45 @@
 PODS:
+  - AVOSCloudCrashReportingDynamic (3.1.6.7):
+    - AVOSCloudDynamic
+  - AVOSCloudDynamic (3.1.6.7)
+  - AVOSCloudIMDynamic (3.1.6.7):
+    - AVOSCloudDynamic
   - JazzHands (2.0.8)
+  - Masonry (0.6.3)
+  - ReactiveCocoa (4.0.4-alpha-4):
+    - ReactiveCocoa/UI (= 4.0.4-alpha-4)
+    - Result (~> 1.0)
+  - ReactiveCocoa/Core (4.0.4-alpha-4):
+    - ReactiveCocoa/no-arc
+    - Result (~> 1.0)
+  - ReactiveCocoa/no-arc (4.0.4-alpha-4):
+    - Result (~> 1.0)
+  - ReactiveCocoa/UI (4.0.4-alpha-4):
+    - ReactiveCocoa/Core
+    - Result (~> 1.0)
+  - Result (1.0.0)
+  - SMPageControl (1.2)
+  - TPKeyboardAvoiding (1.2.11)
 
 DEPENDENCIES:
+  - AVOSCloudCrashReportingDynamic
+  - AVOSCloudDynamic
+  - AVOSCloudIMDynamic
   - JazzHands
+  - Masonry
+  - ReactiveCocoa (~> 4.0.4-alpha-4)
+  - SMPageControl
+  - TPKeyboardAvoiding
 
 SPEC CHECKSUMS:
+  AVOSCloudCrashReportingDynamic: c1f08af471dc8a61fa2d4879052b1a83565029ef
+  AVOSCloudDynamic: 269c565fb92803a299a2745e2df40825f0f5db9d
+  AVOSCloudIMDynamic: 27543c36d033be5b35c60de3b19483002e1ae069
   JazzHands: 355dc5c2b6fc38ee460d0ed7836c69539263f477
+  Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
+  ReactiveCocoa: e459ea92099447802df20c4735e31e8139b06094
+  Result: feaaff535eb59c414c6c7f95e6145ab991b1b07f
+  SMPageControl: 922892813001cfaf059e86e6801f46a967e9ee29
+  TPKeyboardAvoiding: e5ce146b313de063957bfa75a13f1e9b0ff18ab7
 
 COCOAPODS: 0.39.0

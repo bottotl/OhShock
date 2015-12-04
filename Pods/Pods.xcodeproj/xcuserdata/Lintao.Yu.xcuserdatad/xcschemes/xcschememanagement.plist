@@ -9,7 +9,32 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Masonry.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ReactiveCocoa.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Result.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SMPageControl.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TPKeyboardAvoiding.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4EEBA168A980FE856FEAC4525802A9C2</key>
+		<key>10D9E8F02C1700DE7C01FF02034F8523</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>72B6ABDBF0AB1360BE2C50A6C23C55BC</key>
+		<key>186F3526CB3A1A9C8C40D00C3B2099E0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>25278F51280D9CFE8CDED7E9D096D182</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>435C0A5465DDB72198E58EC8CE8E06C0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6185DD958A7E1893828FA7FCF00B6BA2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7542F00FAE83A0AD58FEC4FB2E2B4077</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A9A83F63385AA43314397B8DD375464B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -82,3 +82,26 @@ strip_invalid_archs() {
   fi
 }
 
+
+if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${PODS_ROOT}/AVOSCloudCrashReportingDynamic/iOS/release-v3.1.6.7/Dynamic/AVOSCloudCrashReporting.framework"
+  install_framework "${PODS_ROOT}/AVOSCloudDynamic/iOS/release-v3.1.6.7/Dynamic/AVOSCloud.framework"
+  install_framework "${PODS_ROOT}/AVOSCloudIMDynamic/iOS/release-v3.1.6.7/Dynamic/AVOSCloudIM.framework"
+  install_framework "Pods/JazzHands.framework"
+  install_framework "Pods/Masonry.framework"
+  install_framework "Pods/ReactiveCocoa.framework"
+  install_framework "Pods/Result.framework"
+  install_framework "Pods/SMPageControl.framework"
+  install_framework "Pods/TPKeyboardAvoiding.framework"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${PODS_ROOT}/AVOSCloudCrashReportingDynamic/iOS/release-v3.1.6.7/Dynamic/AVOSCloudCrashReporting.framework"
+  install_framework "${PODS_ROOT}/AVOSCloudDynamic/iOS/release-v3.1.6.7/Dynamic/AVOSCloud.framework"
+  install_framework "${PODS_ROOT}/AVOSCloudIMDynamic/iOS/release-v3.1.6.7/Dynamic/AVOSCloudIM.framework"
+  install_framework "Pods/JazzHands.framework"
+  install_framework "Pods/Masonry.framework"
+  install_framework "Pods/ReactiveCocoa.framework"
+  install_framework "Pods/Result.framework"
+  install_framework "Pods/SMPageControl.framework"
+  install_framework "Pods/TPKeyboardAvoiding.framework"
+fi
