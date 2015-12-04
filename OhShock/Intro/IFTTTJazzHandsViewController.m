@@ -48,13 +48,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self configureViews];
     [self configureAnimations];
 }
-
+- (BOOL)prefersStatusBarHidden{
+    return YES;
+}
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];

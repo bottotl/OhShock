@@ -20,6 +20,8 @@
 		B8731DAD1C1027A5007FDE06 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = B8731DAC1C1027A5007FDE06 /* UIColor+expanded.m */; };
 		B8731DB11C1028B9007FDE06 /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = B8731DB01C1028B9007FDE06 /* UIImage+Common.m */; };
 		B8802FFE1C114D9300F604BD /* LTLogInService.m in Sources */ = {isa = PBXBuildFile; fileRef = B8802FFD1C114D9300F604BD /* LTLogInService.m */; };
+		B89770891C11933400EDC7B5 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89770881C11933400EDC7B5 /* SignUpViewController.m */; };
+		B897708D1C11938300EDC7B5 /* LTSignUpService.m in Sources */ = {isa = PBXBuildFile; fileRef = B897708C1C11938300EDC7B5 /* LTSignUpService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,10 @@
 		B8731DB21C10293D007FDE06 /* OhShockPrefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OhShockPrefix.pch; sourceTree = "<group>"; };
 		B8802FFC1C114D9300F604BD /* LTLogInService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTLogInService.h; sourceTree = "<group>"; };
 		B8802FFD1C114D9300F604BD /* LTLogInService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTLogInService.m; sourceTree = "<group>"; };
+		B89770871C11933400EDC7B5 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		B89770881C11933400EDC7B5 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		B897708B1C11938300EDC7B5 /* LTSignUpService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTSignUpService.h; sourceTree = "<group>"; };
+		B897708C1C11938300EDC7B5 /* LTSignUpService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTSignUpService.m; sourceTree = "<group>"; };
 		CC415E9156B90791E2AF3339 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +100,9 @@
 		B83DA9AE1C1042BD00E66714 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				B897708A1C11936100EDC7B5 /* Service */,
+				B89770871C11933400EDC7B5 /* SignUpViewController.h */,
+				B89770881C11933400EDC7B5 /* SignUpViewController.m */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -176,6 +185,15 @@
 				B8802FFD1C114D9300F604BD /* LTLogInService.m */,
 			);
 			name = Service;
+			sourceTree = "<group>";
+		};
+		B897708A1C11936100EDC7B5 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B897708B1C11938300EDC7B5 /* LTSignUpService.h */,
+				B897708C1C11938300EDC7B5 /* LTSignUpService.m */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,12 +320,14 @@
 				B8731DB11C1028B9007FDE06 /* UIImage+Common.m in Sources */,
 				B83DA9A61C102F6300E66714 /* IFTTTJazzHandsViewController.m in Sources */,
 				B8731D921C101E08007FDE06 /* AppDelegate.m in Sources */,
+				B897708D1C11938300EDC7B5 /* LTSignUpService.m in Sources */,
 				B8802FFE1C114D9300F604BD /* LTLogInService.m in Sources */,
 				B8731D8F1C101E08007FDE06 /* main.m in Sources */,
 				B83DA9AC1C10364B00E66714 /* UIView+Layout.m in Sources */,
 				B83DA9B11C1042CA00E66714 /* LogInViewController.m in Sources */,
 				B83DA9A51C102F6300E66714 /* IFTTTCircleView.m in Sources */,
 				B8731DAD1C1027A5007FDE06 /* UIColor+expanded.m in Sources */,
+				B89770891C11933400EDC7B5 /* SignUpViewController.m in Sources */,
 				B83DA9A91C10340500E66714 /* IntroductionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AssetsLibrary/AssetsLibrary.h>
+#import <Photos/Photos.h>
+//#import <AssetsLibrary/AssetsLibrary.h>
 
 
 @interface UIImage (Common)
@@ -17,7 +18,5 @@
 -(UIImage*)scaledToSize:(CGSize)targetSize;
 -(UIImage*)scaledToSize:(CGSize)targetSize highQuality:(BOOL)highQuality;
 -(UIImage*)scaledToMaxSize:(CGSize )size;
-+ (UIImage *)fullResolutionImageFromALAsset:(ALAsset *)asset;
-+ (UIImage *)fullScreenImageALAsset:(ALAsset *)asset;
 
 @end

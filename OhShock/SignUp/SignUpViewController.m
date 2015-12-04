@@ -1,25 +1,25 @@
 //
-//  LogInViewController.m
+//  SignUpViewController.m
 //  OhShock
 //
-//  Created by Lintao.Yu on 12/3/15.
+//  Created by Lintao.Yu on 12/4/15.
 //  Copyright © 2015 Lintao Yu. All rights reserved.
 //
 
-#import "LogInViewController.h"
+#import "SignUpViewController.h"
 #import "UIView+Layout.h"
 #import "TPKeyboardAvoidingScrollView.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
-#import "LTLogInService.h"
+#import "LTSignUpService.h"
 #import <AVOSCloud/AVOSCloud.h>
-#import "SignUpViewController.h"
 
 static CGFloat logoImageViewHeight = 60;
 static CGFloat logoImageViewWidth = 60;
 static CGFloat inputTextFieldHeight = 30 ;
 static NSString * logInBtnColor = @"#4F68D7";
 
-@interface LogInViewController ()<UIScrollViewDelegate>
+@interface SignUpViewController ()
+
 /// 用来放置其他控件
 @property (nonatomic, strong) TPKeyboardAvoidingScrollView *scrollView;
 /// 显示 logo
@@ -29,26 +29,24 @@ static NSString * logInBtnColor = @"#4F68D7";
 /// 密码输入框
 @property (nonatomic, strong) UITextField *passwordTextField;
 /// 登陆按钮
-@property (nonatomic, strong) UIButton *logInButton;
+@property (nonatomic, strong) UIButton *signupButton;
 /// 用于发送登陆请求
-@property (nonatomic, strong) LTLogInService *logInService;
+@property (nonatomic, strong) LTSignUpService *signUpService;
 /// 取消按钮
 @property (nonatomic, strong) UIButton *cancleButton;
 /// 忘记密码按钮
 @property (nonatomic, strong) UIButton *forgetButton;
-/// 注册按钮
-@property (nonatomic, strong) UIButton *signUpButton;
 
 @end
 
-@implementation LogInViewController
+@implementation SignUpViewController
 
 #pragma mark -
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.logInService = [LTLogInService new];
+    self.signUpService = [LTSignUpService new];
     
-    UIImageView *backgroundImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"loginBackgroundImage"]];
+    UIImageView *backgroundImage = [[UIImageView alloc]initWithImage:[UIImage imageWithColor:[UIColor whiteColor]]];
     backgroundImage.frame = [[UIScreen mainScreen] bounds];
     [self.view addSubview:backgroundImage];
     
@@ -91,12 +89,12 @@ static NSString * logInBtnColor = @"#4F68D7";
     self.passwordTextField.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 10, 0.1)];
     [self.scrollView addSubview:self.passwordTextField];
     
-    self.logInButton = [UIButton new];
-    [self.logInButton setBackgroundColor:[UIColor redColor]];
-    [self.logInButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
-    [self.logInButton setTitle:@"登陆" forState:UIControlStateNormal];
-    [self.logInButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [self.scrollView addSubview:self.logInButton];
+    self.signupButton = [UIButton new];
+    [self.signupButton setBackgroundColor:[UIColor redColor]];
+    [self.signupButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
+    [self.signupButton setTitle:@"注册" forState:UIControlStateNormal];
+    [self.signupButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.scrollView addSubview:self.signupButton];
     
     self.cancleButton = [UIButton new];
     [self.cancleButton setBackgroundColor:[UIColor clearColor]];
@@ -109,12 +107,6 @@ static NSString * logInBtnColor = @"#4F68D7";
     [self.forgetButton setTitle:@"忘记密码" forState:UIControlStateNormal];
     [self.forgetButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [self.view addSubview:self.forgetButton];
-    
-    self.signUpButton = [UIButton new];
-    [self.signUpButton setBackgroundColor:[UIColor clearColor]];
-    [self.signUpButton setTitle:@"注册" forState:UIControlStateNormal];
-    [self.signUpButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [self.view addSubview:self.signUpButton];
     
 #pragma mark 信号初始化
     RACSignal *validAccountSignal =
@@ -134,42 +126,38 @@ static NSString * logInBtnColor = @"#4F68D7";
                       }];
     
     [signUpActiveSignal subscribeNext:^(NSNumber *signupActive){
-        NSLog(@"can log in");
-        self.logInButton.enabled =[signupActive boolValue];
+        NSLog(@"signUpActiveSignal");
+        self.signupButton.enabled =[signupActive boolValue];
     }];
 #pragma mark -- 登陆按钮点击信号
-    [[[[self.logInButton
-       rac_signalForControlEvents:UIControlEventTouchUpInside]
-      doNext:^(id x) {
-          self.logInButton.enabled = NO;
-          self.logInButton.backgroundColor = [UIColor whiteColor];
-      }]
+    [[[[self.signupButton
+        rac_signalForControlEvents:UIControlEventTouchUpInside]
+       doNext:^(id x) {
+           self.signupButton.enabled = NO;
+           self.signupButton.backgroundColor = [UIColor whiteColor];
+       }]
       flattenMap:^id(id x){
-          return[self logInSignal];
+          return[self signUpSignal];
       }]
      subscribeNext:^(id x){
-         NSLog(@"Sign in result: %@", x);
-         self.logInButton.enabled = YES;
-         self.logInButton.backgroundColor = [UIColor redColor];
+         NSLog(@"Sign up result: %@", x);
+         self.signupButton.enabled = YES;
+         self.signupButton.backgroundColor = [UIColor redColor];
          if ([x isKindOfClass:[NSError class]]) {
              NSLog(@"error: %@",x);
          }else{
-             NSLog(@"登陆信息: %@",x);
+             NSLog(@"注册信息: %@",x);
          }
          
      }];
     
     [[[self.cancleButton rac_signalForControlEvents:UIControlEventTouchUpInside]
       doNext:^(id x) {
-        //self.cancleButton.enabled = FALSE;
-    }]subscribeNext:^(id x) {
-        [self dismissViewControllerAnimated:YES completion:nil];
-        //self.cancleButton.enabled = YES;
-    }];
-    
-    [[self.signUpButton rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
-        [self showViewController:[SignUpViewController new] sender:self];
-    }];
+          //self.cancleButton.enabled = FALSE;
+      }]subscribeNext:^(id x) {
+          [self dismissViewControllerAnimated:YES completion:nil];
+          //self.cancleButton.enabled = YES;
+      }];
     
 }
 #pragma mark - layout
@@ -191,11 +179,11 @@ static NSString * logInBtnColor = @"#4F68D7";
     self.passwordTextField.top     = self.accountTextField.bottom + 5;
     self.passwordTextField.layer.cornerRadius  = self.passwordTextField.height / 5 ;
     
-    self.logInButton.height  = inputTextFieldHeight;
-    self.logInButton.width   = self.scrollView.width * 2/3;
-    self.logInButton.top     = self.passwordTextField.bottom + 20;
-    self.logInButton.centerX = self.scrollView.centerX;
-    self.logInButton.layer.cornerRadius = self.logInButton.height/2;
+    self.signupButton.height  = inputTextFieldHeight;
+    self.signupButton.width   = self.scrollView.width * 2/3;
+    self.signupButton.top     = self.passwordTextField.bottom + 20;
+    self.signupButton.centerX = self.scrollView.centerX;
+    self.signupButton.layer.cornerRadius = self.signupButton.height/2;
     
     self.cancleButton.height = inputTextFieldHeight;
     self.cancleButton.width = 60;
@@ -206,11 +194,6 @@ static NSString * logInBtnColor = @"#4F68D7";
     self.forgetButton.width = 100;
     self.forgetButton.left = 20;
     self.forgetButton.bottom = self.view.bottom - 50 ;
-    
-    self.signUpButton.height = inputTextFieldHeight;
-    self.signUpButton.width = 100;
-    self.signUpButton.right = self.view.right - 20;
-    self.signUpButton.bottom = self.view.bottom - 50;
     
 }
 
@@ -247,23 +230,21 @@ static NSString * logInBtnColor = @"#4F68D7";
     }
 }
 #pragma mark - 登陆信号
-- (RACSignal *)logInSignal {
+- (RACSignal *)signUpSignal {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber){
-        [self.logInService
-         logInWithAccount:self.accountTextField.text
-         password:self.passwordTextField.text
-         complete:^(AVUser *user, NSError *error) {
-             if (!error) {
-                 [subscriber sendNext:user];
-                 [subscriber sendCompleted];
-             }else{
-                 [subscriber sendNext:error];
-                 [subscriber sendCompleted];
-             }
-         }];
+        [self.signUpService signUpWithAccount:self.accountTextField.text password:self.passwordTextField.text email:@"377632523@qq.com" phone:nil complete:^(BOOL succeeded, NSError * _Nullable error) {
+            if (!error) {
+                [subscriber sendNext:@(succeeded)];
+                [subscriber sendCompleted];
+            }else{
+                [subscriber sendNext:error];
+                [subscriber sendCompleted];
+            }
+            
+        }];
+        
         return nil;
     }];
 }
-
 
 @end

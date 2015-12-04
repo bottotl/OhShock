@@ -7,19 +7,17 @@
 //
 
 #import "LTLogInService.h"
+#import <AVOSCloud/AVOSCloud.h>
 
 @implementation LTLogInService
 
++ (id)currentUser{
+    return [AVUser currentUser];
+}
 - (void)logInWithAccount:(NSString *)account password:(NSString *)password complete:(LTLogInResponse)completeBlock{
-    
-    // for test
-    double delayInSeconds = 2.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        BOOL success = [account isEqualToString:@"1"] && [password isEqualToString:@"1"];
-        NSLog(@"登陆 ：%@",@(success));
-        completeBlock(success);
-    });
+    [AVUser logInWithUsernameInBackground:account password:password block:^(AVUser *user, NSError *error) {
+        completeBlock(user,error);
+    }];
 }
 
 @end

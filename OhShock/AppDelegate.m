@@ -8,7 +8,13 @@
 
 #import "AppDelegate.h"
 #import "IntroductionViewController.h"
+#import "LTLogInService.h"
+//leanCloud
+#import <AVOSCloud/AVOSCloud.h>
+#import <AVOSCloudIM/AVOSCloudIM.h>
 
+static NSString *AppID = @"AeqpkvIfdCdKWr080LveKfEl";
+static NSString *AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
 @interface AppDelegate ()
 
 @end
@@ -17,17 +23,37 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+
+    /////////////////////////////////////////////////////////////
+    /////////////////云服务注册////////////////////////////////////
+    
+    [AVOSCloud setApplicationId:AppID
+                      clientKey:AppKey];
+    
+    /////////////////////////////////////////////////////////////
+    /////////////////界面设置/////////////////////////////////////
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
-    //第一次打开应用
-    if (true) {
-        //跳转到引导界面
+    
+    /////////////////////////////////////////////////////////////
+    
+    
+    
+    /////////////////////////////////////////////////////////////
+    /////////////////业务逻辑/////////////////////////////////////
+    
+    //如果没有登陆
+    if (![LTLogInService currentUser]) {
+        //跳转到介绍登陆&注册
         [self setupIntroductionViewController];
     }else{
-        
+        //跳转到主业务逻辑页面
+        [self setupIntroductionViewController];
     }
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
@@ -41,6 +67,11 @@
 
 
 #pragma mark - Interface
+/**
+ *  @author Lintao Yu, 15-12-04 16:12:53
+ *
+ *  设置整个 APP 的原生控件的颜色样式之类（暂时不修改）
+ */
 - (void)customizeInterface {
 //    //设置Nav的背景色和title色
 //    UINavigationBar *navigationBarAppearance = [UINavigationBar appearance];

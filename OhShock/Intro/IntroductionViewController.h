@@ -7,7 +7,11 @@
 //
 
 #import "IFTTTJazzHandsViewController.h"
-
+/**
+ *  @author Lintao Yu
+ *
+ *  介绍应用功能&登陆&注册
+ */
 @interface IntroductionViewController : IFTTTJazzHandsViewController
 
 @end
