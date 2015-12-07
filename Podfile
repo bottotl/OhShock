@@ -8,6 +8,7 @@ pod 'SMPageControl'
 pod 'Masonry'
 pod 'TPKeyboardAvoiding'
 pod 'ReactiveCocoa', '~> 4.0.4-alpha-4'
+pod 'FMDB', '~> 2.5'
 
 # 云服务
 # leanCloud 存储

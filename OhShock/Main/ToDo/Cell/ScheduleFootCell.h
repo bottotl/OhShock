@@ -8,8 +8,7 @@
 
 #define JFScheduleFootCell @"ScheduleFootCell"
 
-#import "BaseCell.h"
 
-@interface ScheduleFootCell : BaseCell
+@interface ScheduleFootCell : UITableViewCell
 
 @end

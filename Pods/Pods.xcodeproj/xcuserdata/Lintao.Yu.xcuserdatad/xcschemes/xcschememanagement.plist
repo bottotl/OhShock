@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>FMDB.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>JazzHands.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,17 +57,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>18D4A43EDC29C23C0D77D77DE4E3E833</key>
+		<key>23CF27B2BA6AC7125EFFEDA8C5AA819F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>44280E01D488D6865A276DED5479B925</key>
+		<key>3D7BECB0C93EF457071FA0CEB922FC02</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A626CC1AA6B98FFBA4D6AF5C5EB5EF4E</key>
+		<key>574604F709B571E25BEB269224CE0730</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6037D0A3A8DE81511F612B2489CFE2C5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,17 +82,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BC4A54337DDB49A038835537E6388FA8</key>
+		<key>B63C96E4CD0B7686F2CBF9ADA5338670</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D88403C0973D54CBED00EF505C0C2F87</key>
+		<key>DEDC14C13F03A1E2866F3A01C5AEB5F0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FC472E0466C2EE0327E36703AD1F328D</key>
+		<key>E1C17B21E10F2D770CBF7BB7BCAB1A90</key>
 		<dict>
 			<key>primary</key>
 			<true/>
