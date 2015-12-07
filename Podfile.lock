@@ -6,6 +6,7 @@ PODS:
     - AVOSCloudDynamic
   - JazzHands (2.0.8)
   - Masonry (0.6.3)
+  - RDVTabBarController (1.1.9)
   - ReactiveCocoa (4.0.4-alpha-4):
     - ReactiveCocoa/UI (= 4.0.4-alpha-4)
     - Result (~> 1.0)
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - AVOSCloudIMDynamic
   - JazzHands
   - Masonry
+  - RDVTabBarController
   - ReactiveCocoa (~> 4.0.4-alpha-4)
   - SMPageControl
   - TPKeyboardAvoiding
@@ -37,6 +39,7 @@ SPEC CHECKSUMS:
   AVOSCloudIMDynamic: 27543c36d033be5b35c60de3b19483002e1ae069
   JazzHands: 355dc5c2b6fc38ee460d0ed7836c69539263f477
   Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
+  RDVTabBarController: 67794f7a7a37f8e32f046f85ac67d06ab92d624a
   ReactiveCocoa: e459ea92099447802df20c4735e31e8139b06094
   Result: feaaff535eb59c414c6c7f95e6145ab991b1b07f
   SMPageControl: 922892813001cfaf059e86e6801f46a967e9ee29

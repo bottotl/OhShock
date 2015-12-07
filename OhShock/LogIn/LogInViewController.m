@@ -13,6 +13,7 @@
 #import "LTLogInService.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import "SignUpViewController.h"
+#import "LTMainTabBarController.h"
 
 static CGFloat logoImageViewHeight = 60;
 static CGFloat logoImageViewWidth = 60;
@@ -155,6 +156,7 @@ static NSString * logInBtnColor = @"#4F68D7";
              NSLog(@"error: %@",x);
          }else{
              NSLog(@"登陆信息: %@",x);
+             [self presentViewController:[LTMainTabBarController new] animated:FALSE completion:nil];
          }
          
      }];

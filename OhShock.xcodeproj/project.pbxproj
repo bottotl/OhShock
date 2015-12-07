@@ -19,9 +19,18 @@
 		B8731D9D1C101E08007FDE06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8731D9B1C101E08007FDE06 /* LaunchScreen.storyboard */; };
 		B8731DAD1C1027A5007FDE06 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = B8731DAC1C1027A5007FDE06 /* UIColor+expanded.m */; };
 		B8731DB11C1028B9007FDE06 /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = B8731DB01C1028B9007FDE06 /* UIImage+Common.m */; };
+		B87F5CB81C155106002C7EE8 /* LTTodoTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87F5CB71C155106002C7EE8 /* LTTodoTabBarController.m */; };
+		B87F5CBB1C1558B4002C7EE8 /* LTTodoAllStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87F5CBA1C1558B4002C7EE8 /* LTTodoAllStyleViewController.m */; };
+		B87F5CBE1C1558C5002C7EE8 /* LTTodoCalenderStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87F5CBD1C1558C5002C7EE8 /* LTTodoCalenderStyleViewController.m */; };
+		B87F5CC21C1558DA002C7EE8 /* LTTodoTypeStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87F5CC11C1558DA002C7EE8 /* LTTodoTypeStyleViewController.m */; };
+		B87F5CC61C155AD3002C7EE8 /* LTGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87F5CC51C155AD3002C7EE8 /* LTGroupViewController.m */; };
+		B87F5CCA1C155B01002C7EE8 /* LTDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87F5CC91C155B01002C7EE8 /* LTDiscoverViewController.m */; };
+		B87F5CCE1C155B1C002C7EE8 /* LTMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87F5CCD1C155B1C002C7EE8 /* LTMeViewController.m */; };
+		B87F5CD21C156DFE002C7EE8 /* DWBubbleMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B87F5CD11C156DFE002C7EE8 /* DWBubbleMenuButton.m */; };
 		B8802FFE1C114D9300F604BD /* LTLogInService.m in Sources */ = {isa = PBXBuildFile; fileRef = B8802FFD1C114D9300F604BD /* LTLogInService.m */; };
 		B89770891C11933400EDC7B5 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89770881C11933400EDC7B5 /* SignUpViewController.m */; };
 		B897708D1C11938300EDC7B5 /* LTSignUpService.m in Sources */ = {isa = PBXBuildFile; fileRef = B897708C1C11938300EDC7B5 /* LTSignUpService.m */; };
+		B8A5CA8B1C1531C500F94D54 /* LTMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A5CA8A1C1531C500F94D54 /* LTMainTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,12 +58,30 @@
 		B8731DAF1C1028B9007FDE06 /* UIImage+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Common.h"; sourceTree = "<group>"; };
 		B8731DB01C1028B9007FDE06 /* UIImage+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Common.m"; sourceTree = "<group>"; };
 		B8731DB21C10293D007FDE06 /* OhShockPrefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OhShockPrefix.pch; sourceTree = "<group>"; };
+		B87F5CB61C155106002C7EE8 /* LTTodoTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTodoTabBarController.h; sourceTree = "<group>"; };
+		B87F5CB71C155106002C7EE8 /* LTTodoTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTodoTabBarController.m; sourceTree = "<group>"; };
+		B87F5CB91C1558B4002C7EE8 /* LTTodoAllStyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTodoAllStyleViewController.h; sourceTree = "<group>"; };
+		B87F5CBA1C1558B4002C7EE8 /* LTTodoAllStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTodoAllStyleViewController.m; sourceTree = "<group>"; };
+		B87F5CBC1C1558C5002C7EE8 /* LTTodoCalenderStyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTodoCalenderStyleViewController.h; sourceTree = "<group>"; };
+		B87F5CBD1C1558C5002C7EE8 /* LTTodoCalenderStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTodoCalenderStyleViewController.m; sourceTree = "<group>"; };
+		B87F5CC01C1558DA002C7EE8 /* LTTodoTypeStyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTodoTypeStyleViewController.h; sourceTree = "<group>"; };
+		B87F5CC11C1558DA002C7EE8 /* LTTodoTypeStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTodoTypeStyleViewController.m; sourceTree = "<group>"; };
+		B87F5CC41C155AD3002C7EE8 /* LTGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTGroupViewController.h; sourceTree = "<group>"; };
+		B87F5CC51C155AD3002C7EE8 /* LTGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroupViewController.m; sourceTree = "<group>"; };
+		B87F5CC81C155B01002C7EE8 /* LTDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTDiscoverViewController.h; sourceTree = "<group>"; };
+		B87F5CC91C155B01002C7EE8 /* LTDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTDiscoverViewController.m; sourceTree = "<group>"; };
+		B87F5CCC1C155B1C002C7EE8 /* LTMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMeViewController.h; sourceTree = "<group>"; };
+		B87F5CCD1C155B1C002C7EE8 /* LTMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMeViewController.m; sourceTree = "<group>"; };
+		B87F5CD01C156DFE002C7EE8 /* DWBubbleMenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWBubbleMenuButton.h; sourceTree = "<group>"; };
+		B87F5CD11C156DFE002C7EE8 /* DWBubbleMenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWBubbleMenuButton.m; sourceTree = "<group>"; };
 		B8802FFC1C114D9300F604BD /* LTLogInService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTLogInService.h; sourceTree = "<group>"; };
 		B8802FFD1C114D9300F604BD /* LTLogInService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTLogInService.m; sourceTree = "<group>"; };
 		B89770871C11933400EDC7B5 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		B89770881C11933400EDC7B5 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		B897708B1C11938300EDC7B5 /* LTSignUpService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTSignUpService.h; sourceTree = "<group>"; };
 		B897708C1C11938300EDC7B5 /* LTSignUpService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTSignUpService.m; sourceTree = "<group>"; };
+		B8A5CA891C1531C500F94D54 /* LTMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMainTabBarController.h; sourceTree = "<group>"; };
+		B8A5CA8A1C1531C500F94D54 /* LTMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMainTabBarController.m; sourceTree = "<group>"; };
 		CC415E9156B90791E2AF3339 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +137,7 @@
 		B8731D811C101E08007FDE06 = {
 			isa = PBXGroup;
 			children = (
+				B8A5CA881C15319700F94D54 /* Main */,
 				B8731DAA1C102799007FDE06 /* Util */,
 				B8731D8C1C101E08007FDE06 /* OhShock */,
 				B8731D8B1C101E08007FDE06 /* Products */,
@@ -178,6 +206,42 @@
 			path = Intro;
 			sourceTree = "<group>";
 		};
+		B87F5CC31C155AA4002C7EE8 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				B87F5CC41C155AD3002C7EE8 /* LTGroupViewController.h */,
+				B87F5CC51C155AD3002C7EE8 /* LTGroupViewController.m */,
+			);
+			path = Group;
+			sourceTree = "<group>";
+		};
+		B87F5CC71C155AE8002C7EE8 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				B87F5CC81C155B01002C7EE8 /* LTDiscoverViewController.h */,
+				B87F5CC91C155B01002C7EE8 /* LTDiscoverViewController.m */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		B87F5CCB1C155B0E002C7EE8 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				B87F5CCC1C155B1C002C7EE8 /* LTMeViewController.h */,
+				B87F5CCD1C155B1C002C7EE8 /* LTMeViewController.m */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		B87F5CCF1C156DFE002C7EE8 /* DWBubbleMenuButton */ = {
+			isa = PBXGroup;
+			children = (
+				B87F5CD01C156DFE002C7EE8 /* DWBubbleMenuButton.h */,
+				B87F5CD11C156DFE002C7EE8 /* DWBubbleMenuButton.m */,
+			);
+			path = DWBubbleMenuButton;
+			sourceTree = "<group>";
+		};
 		B8802FFB1C114D6700F604BD /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +258,36 @@
 				B897708C1C11938300EDC7B5 /* LTSignUpService.m */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		B8A5CA881C15319700F94D54 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B8A5CA891C1531C500F94D54 /* LTMainTabBarController.h */,
+				B8A5CA8A1C1531C500F94D54 /* LTMainTabBarController.m */,
+				B8A5CA8E1C15340600F94D54 /* ToDo */,
+				B87F5CC31C155AA4002C7EE8 /* Group */,
+				B87F5CC71C155AE8002C7EE8 /* Discover */,
+				B87F5CCB1C155B0E002C7EE8 /* Me */,
+			);
+			name = Main;
+			path = OhShock/Main;
+			sourceTree = "<group>";
+		};
+		B8A5CA8E1C15340600F94D54 /* ToDo */ = {
+			isa = PBXGroup;
+			children = (
+				B87F5CB61C155106002C7EE8 /* LTTodoTabBarController.h */,
+				B87F5CB71C155106002C7EE8 /* LTTodoTabBarController.m */,
+				B87F5CB91C1558B4002C7EE8 /* LTTodoAllStyleViewController.h */,
+				B87F5CBA1C1558B4002C7EE8 /* LTTodoAllStyleViewController.m */,
+				B87F5CBC1C1558C5002C7EE8 /* LTTodoCalenderStyleViewController.h */,
+				B87F5CBD1C1558C5002C7EE8 /* LTTodoCalenderStyleViewController.m */,
+				B87F5CC01C1558DA002C7EE8 /* LTTodoTypeStyleViewController.h */,
+				B87F5CC11C1558DA002C7EE8 /* LTTodoTypeStyleViewController.m */,
+				B87F5CCF1C156DFE002C7EE8 /* DWBubbleMenuButton */,
+			);
+			path = ToDo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,17 +411,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8A5CA8B1C1531C500F94D54 /* LTMainTabBarController.m in Sources */,
 				B8731DB11C1028B9007FDE06 /* UIImage+Common.m in Sources */,
+				B87F5CBE1C1558C5002C7EE8 /* LTTodoCalenderStyleViewController.m in Sources */,
+				B87F5CB81C155106002C7EE8 /* LTTodoTabBarController.m in Sources */,
 				B83DA9A61C102F6300E66714 /* IFTTTJazzHandsViewController.m in Sources */,
 				B8731D921C101E08007FDE06 /* AppDelegate.m in Sources */,
+				B87F5CC61C155AD3002C7EE8 /* LTGroupViewController.m in Sources */,
 				B897708D1C11938300EDC7B5 /* LTSignUpService.m in Sources */,
 				B8802FFE1C114D9300F604BD /* LTLogInService.m in Sources */,
 				B8731D8F1C101E08007FDE06 /* main.m in Sources */,
 				B83DA9AC1C10364B00E66714 /* UIView+Layout.m in Sources */,
 				B83DA9B11C1042CA00E66714 /* LogInViewController.m in Sources */,
+				B87F5CBB1C1558B4002C7EE8 /* LTTodoAllStyleViewController.m in Sources */,
+				B87F5CD21C156DFE002C7EE8 /* DWBubbleMenuButton.m in Sources */,
 				B83DA9A51C102F6300E66714 /* IFTTTCircleView.m in Sources */,
+				B87F5CCA1C155B01002C7EE8 /* LTDiscoverViewController.m in Sources */,
 				B8731DAD1C1027A5007FDE06 /* UIColor+expanded.m in Sources */,
+				B87F5CCE1C155B1C002C7EE8 /* LTMeViewController.m in Sources */,
 				B89770891C11933400EDC7B5 /* SignUpViewController.m in Sources */,
+				B87F5CC21C1558DA002C7EE8 /* LTTodoTypeStyleViewController.m in Sources */,
 				B83DA9A91C10340500E66714 /* IntroductionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,7 +466,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 3101658310@qq.com (B7QLJKAD5N)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 3101658310@qq.com (B7QLJKAD5N)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -385,6 +489,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "6d3d07a6-cacc-4b9d-a4ad-26b21f914fce";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -406,7 +511,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 3101658310@qq.com (B7QLJKAD5N)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 3101658310@qq.com (B7QLJKAD5N)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -421,6 +527,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "6d3d07a6-cacc-4b9d-a4ad-26b21f914fce";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -431,7 +538,8 @@
 			baseConfigurationReference = CC415E9156B90791E2AF3339 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 3101658310@qq.com (B7QLJKAD5N)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 3101658310@qq.com (B7QLJKAD5N)";
 				GCC_PREFIX_HEADER = OhShock/OhShockPrefix.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -443,6 +551,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jft0m.OhShock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6d3d07a6-cacc-4b9d-a4ad-26b21f914fce";
 			};
 			name = Debug;
 		};
@@ -451,7 +560,8 @@
 			baseConfigurationReference = 8DEAB77422DEF8810F77280D /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 3101658310@qq.com (B7QLJKAD5N)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 3101658310@qq.com (B7QLJKAD5N)";
 				GCC_PREFIX_HEADER = OhShock/OhShockPrefix.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -463,6 +573,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jft0m.OhShock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6d3d07a6-cacc-4b9d-a4ad-26b21f914fce";
 			};
 			name = Release;
 		};

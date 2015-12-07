@@ -12,6 +12,8 @@
 //leanCloud
 #import <AVOSCloud/AVOSCloud.h>
 #import <AVOSCloudIM/AVOSCloudIM.h>
+#import "LTMainTabBarController.h"
+
 
 static NSString *AppID = @"AeqpkvIfdCdKWr080LveKfEl";
 static NSString *AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
@@ -50,7 +52,7 @@ static NSString *AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
         [self setupIntroductionViewController];
     }else{
         //跳转到主业务逻辑页面
-        [self setupIntroductionViewController];
+        [self setupMainViewController];
     }
     [self.window makeKeyAndVisible];
     
@@ -65,6 +67,11 @@ static NSString *AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
     [self.window setRootViewController:intoVC];
 }
 
+#pragma mark 跳转到主业务逻辑页面
+- (void)setupMainViewController{
+    LTMainTabBarController *mainViewController = [LTMainTabBarController new];
+    [self.window setRootViewController:mainViewController];
+}
 
 #pragma mark - Interface
 /**
