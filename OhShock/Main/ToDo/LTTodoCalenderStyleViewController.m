@@ -12,8 +12,9 @@
 #import "ScheduleHeadCell.h"
 #import "ScheduleCell.h"
 #import "LKAlarmMamager.h"
+#import "XHPopMenu.h"
 
-#define JF_Calender_ContentView_Height 180
+#define JF_Calender_ContentView_Height 220
 
 @interface LTTodoCalenderStyleViewController ()<JTCalendarDataSource, UITableViewDataSource, UITableViewDelegate>
 {
@@ -22,6 +23,7 @@
 }
 
 @property (strong, nonatomic) NSMutableDictionary *offscreenCells;
+@property (nonatomic, strong) XHPopMenu *popMenu;
 
 //日程列表相关
 @property (strong, nonatomic) UITableView *tableView;
@@ -41,18 +43,30 @@
 
 @implementation LTTodoCalenderStyleViewController
 
+#pragma mark - life cycle
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
     [self.calendar reloadData]; // Must be call in viewDidAppear
-    
+    self.title = @"日历模式";
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    /**
+     右上角的“添加”的按钮
+     
+     - parameter showMenuOnView: 展示一列竖排的按钮
+     */
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showMenuOnView:)];
     
-    //初始化数据
+    /**
+     *  @author Lintao Yu, 15-12-07 19:12:20
+     *
+     *  数据&资源初始化
+     *
+     */
     self.offscreenCells = [NSMutableDictionary dictionary];
     self.tabBarController.title = @"按日历查看";
     
@@ -141,11 +155,15 @@
 //初始化限制
 -(void)createConstraints{
     [self.backView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.and.right.equalTo(self.view);
+        make.top.equalTo(self.mas_topLayoutGuide);
+        make.left.and.right.equalTo(self.view);
         make.bottom.equalTo(self.calendarContentView.mas_bottom);
     }];
     [self.calendarMenuView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.and.right.equalTo(self.view);
+        make.top.equalTo(self.mas_topLayoutGuide);
+        make.left.equalTo(self.view.mas_left);
+        make.right.equalTo(self.view.mas_right);
+        //make.top.left.and.right.equalTo(self.view);
         make.height.equalTo(@44);
     }];
     [self.calendarContentView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -392,6 +410,69 @@
                                               self.calendarContentView.layer.opacity = 1;
                                           }];
                      }];
+}
+#pragma mark “添加按钮”回调
+
+- (IBAction)showMenuOnView:(UIBarButtonItem *)buttonItem {
+    [self.popMenu showMenuOnView:self.navigationController.view atPoint:CGPointZero];
+}
+#pragma mark config popMenu
+- (XHPopMenu *)popMenu {
+    if (!_popMenu) {
+        NSMutableArray *popMenuItems = [[NSMutableArray alloc] initWithCapacity:3];
+        for (int i = 0; i < 3; i ++) {
+            NSString *imageName;
+            NSString *title;
+            switch (i) {
+                case 0: {
+                    imageName = @"contacts_add_newmessage";
+                    title = @"添加日程";
+                    break;
+                }
+                case 1: {
+                    imageName = @"contacts_add_friend";
+                    title = @"发表状态";
+                    break;
+                }
+                case 2:{
+                    imageName = @"contacts_add_friend";
+                    title = @"添加好友";
+                }
+                default:
+                    break;
+            }
+            XHPopMenuItem *popMenuItem = [[XHPopMenuItem alloc] initWithImage:[UIImage imageNamed:imageName] title:title];
+            [popMenuItems addObject:popMenuItem];
+        }
+        
+        //WEAKSELF
+        _popMenu = [[XHPopMenu alloc] initWithMenus:popMenuItems];
+        _popMenu.popMenuDidSlectedCompled = ^(NSInteger index, XHPopMenuItem *popMenuItems) {
+            if (index == 1) {
+                printf("发表状态 index 1\n");
+                //[weakSelf enterQRCodeController];
+            }else if (index == 0 ) {
+                printf("添加日程 index 0\n");
+                //[weakSelf enterCreateScheduleController];
+            }else if (index == 2 ) {
+                printf("添加好友 0\n");
+                //[weakSelf enterAddFriendController];
+            }
+            
+        };
+    }
+    return _popMenu;
+}
+- (void)enterCreateScheduleController {
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"ToDo" bundle:nil];
+//    UIViewController * view = [storyboard instantiateViewControllerWithIdentifier:@"CreateTodoViewController"];
+//    [self.navigationController pushViewController:view animated:YES];
+}
+
+-(void)enterAddFriendController{
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"ToDo" bundle:nil];
+//    UIViewController * view = [storyboard instantiateViewControllerWithIdentifier:@"JFFriendSearchViewController"];
+//    [self.navigationController pushViewController:view animated:YES];
 }
 
 

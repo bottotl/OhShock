@@ -34,8 +34,10 @@
     self.calenderStyle = [LTTodoCalenderStyleViewController new];
     self.allStyle      = [LTTodoAllStyleViewController new];
     self.typeStyle     = [LTTodoTypeStyleViewController new];
-    
-    self.viewControllers = @[self.calenderStyle,self.allStyle,self.typeStyle];
+    UINavigationController *calenderStyleNavigationController = [[UINavigationController alloc]initWithRootViewController:self.calenderStyle];
+    UINavigationController *allStyleNavigationController = [[UINavigationController alloc]initWithRootViewController:self.allStyle];
+    UINavigationController *typeStyleNavigationController = [[UINavigationController alloc]initWithRootViewController:self.typeStyle];
+    self.viewControllers = @[calenderStyleNavigationController,allStyleNavigationController,typeStyleNavigationController];
     [self setSelectedIndex:0];
     self.tabBar.hidden = YES;
     
@@ -43,7 +45,6 @@
     
 #pragma mark for debug
     self.allStyle.view.backgroundColor = [UIColor redColor];
-    self.calenderStyle.view.backgroundColor = [UIColor greenColor];
     self.typeStyle.view.backgroundColor = [UIColor blueColor];
 }
 

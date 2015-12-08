@@ -52,6 +52,9 @@
 		B8C4E43F1C158BF800536D57 /* LKDBUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E4361C158BF800536D57 /* LKDBUtils.m */; };
 		B8C4E4401C158BF800536D57 /* NSObject+LKDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E4381C158BF800536D57 /* NSObject+LKDBHelper.m */; };
 		B8C4E4411C158BF800536D57 /* NSObject+LKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E43A1C158BF800536D57 /* NSObject+LKModel.m */; };
+		B8C4E4491C15A2A100536D57 /* XHPopMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E4441C15A2A100536D57 /* XHPopMenu.m */; };
+		B8C4E44A1C15A2A100536D57 /* XHPopMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E4461C15A2A100536D57 /* XHPopMenuItem.m */; };
+		B8C4E44B1C15A2A100536D57 /* XHPopMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E4481C15A2A100536D57 /* XHPopMenuItemView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -146,6 +149,12 @@
 		B8C4E4381C158BF800536D57 /* NSObject+LKDBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LKDBHelper.m"; sourceTree = "<group>"; };
 		B8C4E4391C158BF800536D57 /* NSObject+LKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LKModel.h"; sourceTree = "<group>"; };
 		B8C4E43A1C158BF800536D57 /* NSObject+LKModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LKModel.m"; sourceTree = "<group>"; };
+		B8C4E4431C15A2A100536D57 /* XHPopMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHPopMenu.h; sourceTree = "<group>"; };
+		B8C4E4441C15A2A100536D57 /* XHPopMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHPopMenu.m; sourceTree = "<group>"; };
+		B8C4E4451C15A2A100536D57 /* XHPopMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHPopMenuItem.h; sourceTree = "<group>"; };
+		B8C4E4461C15A2A100536D57 /* XHPopMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHPopMenuItem.m; sourceTree = "<group>"; };
+		B8C4E4471C15A2A100536D57 /* XHPopMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHPopMenuItemView.h; sourceTree = "<group>"; };
+		B8C4E4481C15A2A100536D57 /* XHPopMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHPopMenuItemView.m; sourceTree = "<group>"; };
 		CC415E9156B90791E2AF3339 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -349,6 +358,7 @@
 				B87F5CBD1C1558C5002C7EE8 /* LTTodoCalenderStyleViewController.m */,
 				B87F5CC01C1558DA002C7EE8 /* LTTodoTypeStyleViewController.h */,
 				B87F5CC11C1558DA002C7EE8 /* LTTodoTypeStyleViewController.m */,
+				B8C4E4421C15A2A100536D57 /* XHPopMenu */,
 				B8C4E4201C15858B00536D57 /* Cell */,
 				B8C4E3FD1C15841E00536D57 /* JTCalender */,
 				B87F5CCF1C156DFE002C7EE8 /* DWBubbleMenuButton */,
@@ -435,6 +445,19 @@
 				B8C4E43A1C158BF800536D57 /* NSObject+LKModel.m */,
 			);
 			path = LKDBHelper;
+			sourceTree = "<group>";
+		};
+		B8C4E4421C15A2A100536D57 /* XHPopMenu */ = {
+			isa = PBXGroup;
+			children = (
+				B8C4E4431C15A2A100536D57 /* XHPopMenu.h */,
+				B8C4E4441C15A2A100536D57 /* XHPopMenu.m */,
+				B8C4E4451C15A2A100536D57 /* XHPopMenuItem.h */,
+				B8C4E4461C15A2A100536D57 /* XHPopMenuItem.m */,
+				B8C4E4471C15A2A100536D57 /* XHPopMenuItemView.h */,
+				B8C4E4481C15A2A100536D57 /* XHPopMenuItemView.m */,
+			);
+			path = XHPopMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -558,6 +581,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8C4E4491C15A2A100536D57 /* XHPopMenu.m in Sources */,
 				B8C4E43E1C158BF800536D57 /* LKDBHelper.m in Sources */,
 				B8C4E4171C15841E00536D57 /* JTCalendarContentView.m in Sources */,
 				B8A5CA8B1C1531C500F94D54 /* LTMainTabBarController.m in Sources */,
@@ -566,6 +590,7 @@
 				B87F5CBE1C1558C5002C7EE8 /* LTTodoCalenderStyleViewController.m in Sources */,
 				B87F5CB81C155106002C7EE8 /* LTTodoTabBarController.m in Sources */,
 				B83DA9A61C102F6300E66714 /* IFTTTJazzHandsViewController.m in Sources */,
+				B8C4E44A1C15A2A100536D57 /* XHPopMenuItem.m in Sources */,
 				B8731D921C101E08007FDE06 /* AppDelegate.m in Sources */,
 				B8C4E41B1C15841E00536D57 /* JTCalendarMenuView.m in Sources */,
 				B8C4E4291C15860800536D57 /* ScheduleCell.m in Sources */,
@@ -587,6 +612,7 @@
 				B83DA9A51C102F6300E66714 /* IFTTTCircleView.m in Sources */,
 				B8C4E43C1C158BF800536D57 /* LKAlarmMamager.m in Sources */,
 				B8C4E41F1C15841E00536D57 /* JTCircleView.m in Sources */,
+				B8C4E44B1C15A2A100536D57 /* XHPopMenuItemView.m in Sources */,
 				B87F5CCA1C155B01002C7EE8 /* LTDiscoverViewController.m in Sources */,
 				B8731DAD1C1027A5007FDE06 /* UIColor+expanded.m in Sources */,
 				B8C4E4161C15841E00536D57 /* JTCalendarAppearance.m in Sources */,
