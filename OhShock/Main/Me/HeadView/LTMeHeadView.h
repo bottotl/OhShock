@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+/**
+ *  @author Lintao Yu, 15-12-08 14:12:51
+ *
+ *  “我”页面的头部
+ */
 @interface LTMeHeadView : UIView
-
+@property (nonatomic, copy) NSString *avatorUrlString;
 @end

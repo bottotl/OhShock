@@ -7,15 +7,32 @@
 //
 
 #import "LTTapImageView.h"
+#import "UIImageView+WebCache.h"
+
+
+@interface LTTapImageView()
+
+@end
 
 @implementation LTTapImageView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)tap{
+    if (self.tapAction) {
+        self.tapAction(self);
+    }
 }
-*/
+-(void)setTapAction:(UITapImageViewTapBlock)tapAction{
+    self.tapAction = tapAction;
+    if (![self gestureRecognizers]) {
+        self.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
+        [self addGestureRecognizer:tap];
+    }
+}
+
+-(void)setImageWithUrl:(nullable NSURL *)imgUrl placeholderImage:(nullable UIImage *)placeholderImage tapBlock:(nullable UITapImageViewTapBlock)tapAction{
+    [self sd_setImageWithURL:imgUrl placeholderImage:placeholderImage];
+    [self setTapAction:tapAction];
+}
 
 @end

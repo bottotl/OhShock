@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>APParallaxHeader.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FMDB.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -15,6 +20,11 @@
 			<false/>
 		</dict>
 		<key>Masonry.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ODRefreshControl.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -39,6 +49,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SMPageControl.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,7 +67,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>15A63D38D51AC75C2BC75C602A433BB8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>186F3526CB3A1A9C8C40D00C3B2099E0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1ABA1364F52B400F9AB0D9C1C909F3B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,17 +87,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3D7BECB0C93EF457071FA0CEB922FC02</key>
+		<key>5CAC46FFDE4BDA72FE558BBB0949379C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>574604F709B571E25BEB269224CE0730</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6037D0A3A8DE81511F612B2489CFE2C5</key>
+		<key>89367FFF21B81BA31252DFA887EC8BA8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,17 +102,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B63C96E4CD0B7686F2CBF9ADA5338670</key>
+		<key>AB98FF6C072B97F9E36BDC0C19C92752</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DEDC14C13F03A1E2866F3A01C5AEB5F0</key>
+		<key>BA765F4272BE64C67DFBC948612C773F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E1C17B21E10F2D770CBF7BB7BCAB1A90</key>
+		<key>D50AA6CFB751A89F4829C8A2B4B65FD3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F388BC2D5A33A8E2836AE6108021D184</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F686501FE784A53DAA9A8026808446CD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

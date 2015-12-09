@@ -8,8 +8,13 @@ pod 'SMPageControl'
 pod 'Masonry'
 pod 'TPKeyboardAvoiding'
 pod 'ReactiveCocoa', '~> 4.0.4-alpha-4'
-pod 'FMDB', '~> 2.5'
+pod 'FMDB'
 
+pod 'SDWebImage'
+#  add parallax header view to scroll views
+pod 'APParallaxHeader'
+# 刷新头
+pod 'ODRefreshControl'
 # 云服务
 # leanCloud 存储
 pod 'AVOSCloudDynamic'

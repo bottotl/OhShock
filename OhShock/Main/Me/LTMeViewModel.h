@@ -10,4 +10,7 @@
 
 @interface LTMeViewModel : NSObject
 
+@property (nonatomic, strong,readonly) NSString *userName;
+@property (nonatomic, strong,readonly) NSString *avatorUrlString;
+
 @end

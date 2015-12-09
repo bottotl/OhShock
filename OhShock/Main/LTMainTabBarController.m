@@ -25,18 +25,19 @@
     [super viewDidLoad];
     //  这个是用来包含3个
     LTTodoTabBarController *todoTabBarController = [LTTodoTabBarController new];
+    
     LTGroupViewController *groupViewController = [LTGroupViewController new];
+    UINavigationController *groupViewNavigationController = [[UINavigationController alloc]initWithRootViewController:groupViewController];
+    
     LTDiscoverViewController *discoverViewController = [LTDiscoverViewController new];
+    UINavigationController *discoverViewNavigationController = [[UINavigationController alloc]initWithRootViewController:discoverViewController];
+    
     LTMeViewController *meViewController = [LTMeViewController new];
-    self.viewControllers = @[todoTabBarController,groupViewController,discoverViewController,meViewController];
+    UINavigationController *meViewNavigationController = [[UINavigationController alloc]initWithRootViewController:meViewController];
+    self.viewControllers = @[todoTabBarController,groupViewNavigationController,discoverViewNavigationController,meViewNavigationController];
     [self setSelectedIndex:0];
     
     [self customizeTabBarForController];
-    
-#pragma mark for debug
-    groupViewController.view.backgroundColor = [UIColor blackColor];
-    discoverViewController.view.backgroundColor = [UIColor grayColor];
-    meViewController.view.backgroundColor = [UIColor yellowColor];
 }
 
 //Set TabBarItems's image and name

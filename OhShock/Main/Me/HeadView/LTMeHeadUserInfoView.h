@@ -8,6 +8,26 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    Male,
+    Female,
+    UnKnow,
+} LTMeHeadUserSex;
+
+static CGFloat LTMeHeadUserInfoViewHeight = 30;
+static CGFloat LTMeHeadUserInfoViewWidth = 60;
+static CGFloat LTMeHeadUserInfoSexImageHeight = 20;
+static CGFloat LTMeHeadUserInfoSexImageWidth = 20;
+
+/**
+ *  @author Lintao Yu, 15-12-08 17:12:45
+ *
+ *  本控件对高度&宽度进行了限定,要修改直接修改
+    LTMeHeadUserInfoViewHeight or LTMeHeadUserInfoViewWidth
+ */
 @interface LTMeHeadUserInfoView : UIView
+
+@property (nonatomic, copy) NSString *userName;
+@property (nonatomic) LTMeHeadUserSex userSex;
 
 @end

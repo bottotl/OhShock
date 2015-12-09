@@ -55,6 +55,13 @@
 		B8C4E4491C15A2A100536D57 /* XHPopMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E4441C15A2A100536D57 /* XHPopMenu.m */; };
 		B8C4E44A1C15A2A100536D57 /* XHPopMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E4461C15A2A100536D57 /* XHPopMenuItem.m */; };
 		B8C4E44B1C15A2A100536D57 /* XHPopMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C4E4481C15A2A100536D57 /* XHPopMenuItemView.m */; };
+		B8D2D36E1C167AB800300164 /* LTDiscoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D2D36D1C167AB800300164 /* LTDiscoverCell.m */; };
+		B8D2D3721C169A8A00300164 /* LTDiscoverDynamicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D2D3711C169A8A00300164 /* LTDiscoverDynamicViewController.m */; };
+		B8D2D3761C16B1F100300164 /* LTMeHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D2D3751C16B1F100300164 /* LTMeHeadView.m */; };
+		B8D2D3791C16BDA400300164 /* LTMeHeadUserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D2D3781C16BDA400300164 /* LTMeHeadUserImageView.m */; };
+		B8D2D37F1C16CB0500300164 /* LTTapImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D2D37E1C16CB0500300164 /* LTTapImageView.m */; };
+		B8D2D3821C16CDFD00300164 /* LTMeHeadUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D2D3811C16CDFD00300164 /* LTMeHeadUserInfoView.m */; };
+		B8D2D3851C16EFC300300164 /* LTMeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D2D3841C16EFC300300164 /* LTMeViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -155,6 +162,20 @@
 		B8C4E4461C15A2A100536D57 /* XHPopMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHPopMenuItem.m; sourceTree = "<group>"; };
 		B8C4E4471C15A2A100536D57 /* XHPopMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHPopMenuItemView.h; sourceTree = "<group>"; };
 		B8C4E4481C15A2A100536D57 /* XHPopMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHPopMenuItemView.m; sourceTree = "<group>"; };
+		B8D2D36C1C167AB800300164 /* LTDiscoverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTDiscoverCell.h; sourceTree = "<group>"; };
+		B8D2D36D1C167AB800300164 /* LTDiscoverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTDiscoverCell.m; sourceTree = "<group>"; };
+		B8D2D3701C169A8A00300164 /* LTDiscoverDynamicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTDiscoverDynamicViewController.h; sourceTree = "<group>"; };
+		B8D2D3711C169A8A00300164 /* LTDiscoverDynamicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTDiscoverDynamicViewController.m; sourceTree = "<group>"; };
+		B8D2D3741C16B1F100300164 /* LTMeHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMeHeadView.h; sourceTree = "<group>"; };
+		B8D2D3751C16B1F100300164 /* LTMeHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMeHeadView.m; sourceTree = "<group>"; };
+		B8D2D3771C16BDA400300164 /* LTMeHeadUserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMeHeadUserImageView.h; sourceTree = "<group>"; };
+		B8D2D3781C16BDA400300164 /* LTMeHeadUserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMeHeadUserImageView.m; sourceTree = "<group>"; };
+		B8D2D37D1C16CB0500300164 /* LTTapImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTapImageView.h; sourceTree = "<group>"; };
+		B8D2D37E1C16CB0500300164 /* LTTapImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTapImageView.m; sourceTree = "<group>"; };
+		B8D2D3801C16CDFD00300164 /* LTMeHeadUserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMeHeadUserInfoView.h; sourceTree = "<group>"; };
+		B8D2D3811C16CDFD00300164 /* LTMeHeadUserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMeHeadUserInfoView.m; sourceTree = "<group>"; };
+		B8D2D3831C16EFC300300164 /* LTMeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMeViewModel.h; sourceTree = "<group>"; };
+		B8D2D3841C16EFC300300164 /* LTMeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMeViewModel.m; sourceTree = "<group>"; };
 		CC415E9156B90791E2AF3339 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -261,6 +282,8 @@
 				B8731DAC1C1027A5007FDE06 /* UIColor+expanded.m */,
 				B83DA9AA1C10364B00E66714 /* UIView+Layout.h */,
 				B83DA9AB1C10364B00E66714 /* UIView+Layout.m */,
+				B8D2D37D1C16CB0500300164 /* LTTapImageView.h */,
+				B8D2D37E1C16CB0500300164 /* LTTapImageView.m */,
 			);
 			name = Util;
 			path = OhShock/Util;
@@ -293,6 +316,8 @@
 			children = (
 				B87F5CC81C155B01002C7EE8 /* LTDiscoverViewController.h */,
 				B87F5CC91C155B01002C7EE8 /* LTDiscoverViewController.m */,
+				B8D2D36B1C167A2800300164 /* Cell */,
+				B8D2D36F1C169A5F00300164 /* Dynamic */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -302,6 +327,9 @@
 			children = (
 				B87F5CCC1C155B1C002C7EE8 /* LTMeViewController.h */,
 				B87F5CCD1C155B1C002C7EE8 /* LTMeViewController.m */,
+				B8D2D3831C16EFC300300164 /* LTMeViewModel.h */,
+				B8D2D3841C16EFC300300164 /* LTMeViewModel.m */,
+				B8D2D3731C16B1C700300164 /* HeadView */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -460,6 +488,37 @@
 			path = XHPopMenu;
 			sourceTree = "<group>";
 		};
+		B8D2D36B1C167A2800300164 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B8D2D36C1C167AB800300164 /* LTDiscoverCell.h */,
+				B8D2D36D1C167AB800300164 /* LTDiscoverCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B8D2D36F1C169A5F00300164 /* Dynamic */ = {
+			isa = PBXGroup;
+			children = (
+				B8D2D3701C169A8A00300164 /* LTDiscoverDynamicViewController.h */,
+				B8D2D3711C169A8A00300164 /* LTDiscoverDynamicViewController.m */,
+			);
+			path = Dynamic;
+			sourceTree = "<group>";
+		};
+		B8D2D3731C16B1C700300164 /* HeadView */ = {
+			isa = PBXGroup;
+			children = (
+				B8D2D3741C16B1F100300164 /* LTMeHeadView.h */,
+				B8D2D3751C16B1F100300164 /* LTMeHeadView.m */,
+				B8D2D3771C16BDA400300164 /* LTMeHeadUserImageView.h */,
+				B8D2D3781C16BDA400300164 /* LTMeHeadUserImageView.m */,
+				B8D2D3801C16CDFD00300164 /* LTMeHeadUserInfoView.h */,
+				B8D2D3811C16CDFD00300164 /* LTMeHeadUserInfoView.m */,
+			);
+			path = HeadView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -585,9 +644,11 @@
 				B8C4E43E1C158BF800536D57 /* LKDBHelper.m in Sources */,
 				B8C4E4171C15841E00536D57 /* JTCalendarContentView.m in Sources */,
 				B8A5CA8B1C1531C500F94D54 /* LTMainTabBarController.m in Sources */,
+				B8D2D36E1C167AB800300164 /* LTDiscoverCell.m in Sources */,
 				B8731DB11C1028B9007FDE06 /* UIImage+Common.m in Sources */,
 				B8C4E43D1C158BF800536D57 /* LKDB+Mapping.m in Sources */,
 				B87F5CBE1C1558C5002C7EE8 /* LTTodoCalenderStyleViewController.m in Sources */,
+				B8D2D37F1C16CB0500300164 /* LTTapImageView.m in Sources */,
 				B87F5CB81C155106002C7EE8 /* LTTodoTabBarController.m in Sources */,
 				B83DA9A61C102F6300E66714 /* IFTTTJazzHandsViewController.m in Sources */,
 				B8C4E44A1C15A2A100536D57 /* XHPopMenuItem.m in Sources */,
@@ -603,22 +664,27 @@
 				B8C4E4251C15859500536D57 /* ScheduleFootCell.m in Sources */,
 				B8731D8F1C101E08007FDE06 /* main.m in Sources */,
 				B83DA9AC1C10364B00E66714 /* UIView+Layout.m in Sources */,
+				B8D2D3721C169A8A00300164 /* LTDiscoverDynamicViewController.m in Sources */,
 				B83DA9B11C1042CA00E66714 /* LogInViewController.m in Sources */,
 				B8C4E43F1C158BF800536D57 /* LKDBUtils.m in Sources */,
 				B87F5CBB1C1558B4002C7EE8 /* LTTodoAllStyleViewController.m in Sources */,
 				B8C4E41C1C15841E00536D57 /* JTCalendarMonthView.m in Sources */,
 				B8C4E41E1C15841E00536D57 /* JTCalendarWeekView.m in Sources */,
+				B8D2D3821C16CDFD00300164 /* LTMeHeadUserInfoView.m in Sources */,
 				B87F5CD21C156DFE002C7EE8 /* DWBubbleMenuButton.m in Sources */,
 				B83DA9A51C102F6300E66714 /* IFTTTCircleView.m in Sources */,
 				B8C4E43C1C158BF800536D57 /* LKAlarmMamager.m in Sources */,
 				B8C4E41F1C15841E00536D57 /* JTCircleView.m in Sources */,
+				B8D2D3791C16BDA400300164 /* LTMeHeadUserImageView.m in Sources */,
 				B8C4E44B1C15A2A100536D57 /* XHPopMenuItemView.m in Sources */,
 				B87F5CCA1C155B01002C7EE8 /* LTDiscoverViewController.m in Sources */,
 				B8731DAD1C1027A5007FDE06 /* UIColor+expanded.m in Sources */,
 				B8C4E4161C15841E00536D57 /* JTCalendarAppearance.m in Sources */,
+				B8D2D3851C16EFC300300164 /* LTMeViewModel.m in Sources */,
 				B8C4E43B1C158BF800536D57 /* LKAlarmEvent.m in Sources */,
 				B87F5CCE1C155B1C002C7EE8 /* LTMeViewController.m in Sources */,
 				B8C4E41A1C15841E00536D57 /* JTCalendarMenuMonthView.m in Sources */,
+				B8D2D3761C16B1F100300164 /* LTMeHeadView.m in Sources */,
 				B8C4E41D1C15841E00536D57 /* JTCalendarMonthWeekDaysView.m in Sources */,
 				B89770891C11933400EDC7B5 /* SignUpViewController.m in Sources */,
 				B87F5CC21C1558DA002C7EE8 /* LTTodoTypeStyleViewController.m in Sources */,
