@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-static CGFloat LTMeHeadUserFollowerAndFolloweeViewHeight = 20;
-static CGFloat LTMeHeadUserFollowerAndFolloweeViewWidth = 160;
 /**
  *  @author Lintao Yu, 15-12-09 12:12:38
  *

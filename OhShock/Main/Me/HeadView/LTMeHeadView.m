@@ -62,7 +62,9 @@
 }
 
 -(void)layoutSubviews{
-    
+    [super layoutSubviews];
+    self.followInfoView.width = self.width;
+    self.followInfoView.height = 20;
     self.followInfoView.bottom = self.bottom - 10;
     self.followInfoView.centerX = self.bounds.size.width/2;
     

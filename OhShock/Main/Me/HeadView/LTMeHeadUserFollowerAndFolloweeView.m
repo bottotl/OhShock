@@ -8,8 +8,9 @@
 
 #import "LTMeHeadUserFollowerAndFolloweeView.h"
 #import "LTMeHeadUserFollowInfoView.h"
+#import "UIView+Layout.h"
 
-static CGFloat viewOffset = 5.0;
+
 @interface LTMeHeadUserFollowerAndFolloweeView ()
 /// 关注按钮
 @property (nonatomic, strong) LTMeHeadUserFollowInfoView *followeeInfoLabel;
@@ -31,7 +32,7 @@ static CGFloat viewOffset = 5.0;
 - (instancetype)initWithFrame:(CGRect)frame
 {
     
-    self = [super initWithFrame:CGRectMake(0, 0, LTMeHeadUserFollowerAndFolloweeViewWidth, LTMeHeadUserFollowerAndFolloweeViewHeight)];
+    self = [super initWithFrame:frame];
     if (self) {
         _followeeInfoLabel = [LTMeHeadUserFollowInfoView new];
         _followeeInfoLabel.info = @"关注";
@@ -60,27 +61,41 @@ static CGFloat viewOffset = 5.0;
     self.followerInfoLabel.num = followerNum;
 }
 
-- (void)updateConstraints{
-    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@2);
-        make.centerX.equalTo(self.mas_centerX);
-        make.centerY.equalTo(self.mas_centerY);
-        make.height.equalTo(self);
-    }];
+- (void)layoutSubviews{
+    [super layoutSubviews];
     
-    [self.followeeInfoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self);
-        make.centerY.equalTo(self);
-        make.right.equalTo(self.lineView.mas_left).offset(-viewOffset);
-    }];
+    self.lineView.height = self.height;
+    self.lineView.width = 2;
+    self.lineView.centerY = self.bounds.size.height / 2;
+    self.lineView.centerX = self.bounds.size.width /2;
     
-    [self.followerInfoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self);
-        make.centerY.equalTo(self);
-        make.left.equalTo(self.lineView.mas_right).offset(viewOffset);
-    }];
+    self.followeeInfoLabel.centerY = self.bounds.size.height / 2;
+    self.followeeInfoLabel.right = self.lineView.left;
     
-    [super updateConstraints];
+    self.followerInfoLabel.centerY = self.bounds.size.height /2;
+    self.followerInfoLabel.left = self.lineView.right;
 }
+
+//- (void)updateConstraints{
+//    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.width.equalTo(@2);
+//        make.centerX.equalTo(self.mas_centerX);
+//        make.centerY.equalTo(self.mas_centerY);
+//        make.height.equalTo(self);
+//    }];
+//    
+//    [self.followeeInfoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self);
+//        make.centerY.equalTo(self);
+//        make.right.equalTo(self.lineView.mas_left);
+//    }];
+//    [self.followerInfoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.right.equalTo(self);
+//        make.centerY.equalTo(self);
+//        make.left.equalTo(self.lineView.mas_right);
+//    }];
+//    
+//    [super updateConstraints];
+//}
 
 @end

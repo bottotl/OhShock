@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 static CGFloat LTMeHeadUserFollowInfoViewHeight = 30;
-static CGFloat LTMeHeadUserFollowInfoViewWidth = 40;
+static CGFloat LTMeHeadUserFollowInfoViewWidth = 80;
 
 /**
  *  @author Lintao Yu, 15-12-09 12:12:01

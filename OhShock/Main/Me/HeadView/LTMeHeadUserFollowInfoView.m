@@ -7,7 +7,7 @@
 //
 
 #import "LTMeHeadUserFollowInfoView.h"
-#import "Masonry.h"
+#import "UIView+Layout.h"
 
 @interface LTMeHeadUserFollowInfoView ()
 
@@ -31,13 +31,14 @@
     if (self) {
         _numLabel = [UILabel new];
         _numLabel.textColor = [UIColor whiteColor];
-        _numLabel.textAlignment = NSTextAlignmentRight;
+        _numLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_numLabel];
         
         _infoLabel = [UILabel new];
         _infoLabel.textColor = [UIColor whiteColor];
-        _infoLabel.textAlignment = NSTextAlignmentLeft;
+        _infoLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_infoLabel];
+        
     }
     return self;
 }
@@ -54,19 +55,31 @@
     [self setNeedsUpdateConstraints];
 }
 
--(void)updateConstraints{
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    self.numLabel.size = CGSizeMake(LTMeHeadUserFollowInfoViewWidth/2, LTMeHeadUserFollowInfoViewHeight);
+    self.infoLabel.size = CGSizeMake(LTMeHeadUserFollowInfoViewWidth/2, LTMeHeadUserFollowInfoViewHeight);
     
-    [self.numLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self);
-        make.right.equalTo(self.infoLabel.mas_left);
-        make.centerY.equalTo(self.mas_centerY);
-    }];
+    self.numLabel.centerY = self.bounds.size.height / 2;
+    self.infoLabel.centerY = self.bounds.size.height / 2;
     
-    [self.infoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.mas_right);
-        make.centerY.equalTo(self.mas_centerY);
-    }];
-    [super updateConstraints];
+    self.numLabel.left = 0;
+    self.infoLabel.left = self.numLabel.right;
 }
+
+//-(void)updateConstraints{
+//    
+//    [self.numLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self);
+//        make.right.equalTo(self.infoLabel.mas_left);
+//        make.centerY.equalTo(self.mas_centerY);
+//    }];
+//    
+//    [self.infoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.right.equalTo(self.mas_right);
+//        make.centerY.equalTo(self.mas_centerY);
+//    }];
+//    [super updateConstraints];
+//}
 
 @end
