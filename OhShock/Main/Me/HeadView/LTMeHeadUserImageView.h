@@ -8,7 +8,7 @@
 
 #import "LTTapImageView.h"
 
-static CGFloat LTMeHeadUserImageViewHeigthAndWidth = 55;
+static CGFloat LTMeHeadUserImageViewHeigthAndWidth = 100;
 /**
  *  @author Lintao Yu, 15-12-08 17:12:35
  *

@@ -47,7 +47,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)setRight:(CGFloat)right {
     CGRect frame = self.frame;
-    frame.size.width = right - frame.origin.x;
+    frame.origin.x = right - frame.size.width;
     self.frame = frame;
 }
 
@@ -61,7 +61,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)setBottom:(CGFloat)bottom {
     CGRect frame = self.frame;
-    frame.size.height = bottom - frame.origin.y;
+    frame.origin.y = bottom - frame.size.height;
     self.frame = frame;
 }
 

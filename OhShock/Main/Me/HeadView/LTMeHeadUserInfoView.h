@@ -15,9 +15,8 @@ typedef enum : NSUInteger {
 } LTMeHeadUserSex;
 
 static CGFloat LTMeHeadUserInfoViewHeight = 30;
-static CGFloat LTMeHeadUserInfoViewWidth = 60;
+static CGFloat LTMeHeadUserInfoViewWidth = 90;
 static CGFloat LTMeHeadUserInfoSexImageHeight = 20;
-static CGFloat LTMeHeadUserInfoSexImageWidth = 20;
 
 /**
  *  @author Lintao Yu, 15-12-08 17:12:45

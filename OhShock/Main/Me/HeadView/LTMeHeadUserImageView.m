@@ -22,7 +22,8 @@
     CGRect rect = CGRectMake(0, 0, LTMeHeadUserImageViewHeigthAndWidth, LTMeHeadUserImageViewHeigthAndWidth);
     self = [super initWithFrame:rect];
     if (self) {
-        
+        self.clipsToBounds = YES;
+        self.layer.cornerRadius = rect.size.height / 2;
     }
     return self;
 }

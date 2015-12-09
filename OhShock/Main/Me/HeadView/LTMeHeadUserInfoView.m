@@ -8,6 +8,7 @@
 
 #import "LTMeHeadUserInfoView.h"
 #import "UIView+Layout.h"
+#import "Masonry.h"
 
 
 static NSString *MaleImageName = @"jft0m";
@@ -35,8 +36,11 @@ static NSString *UnKnowImageName = @"jft0m";
     self = [super initWithFrame:CGRectMake(0, 0, LTMeHeadUserInfoViewHeight, LTMeHeadUserInfoViewHeight)];
     if (self) {
         _userNameLabel = [UILabel new];
-        _userSexIcon = [[UIImageView alloc]initWithFrame:CGRectZero];
+        _userNameLabel.textAlignment = NSTextAlignmentCenter;
+        [_userNameLabel setTintColor:[UIColor blackColor]];
         [self addSubview:_userNameLabel];
+        
+        _userSexIcon = [[UIImageView alloc]initWithFrame:CGRectZero];
         [self addSubview:_userSexIcon];
     }
     return self;
@@ -72,17 +76,21 @@ static NSString *UnKnowImageName = @"jft0m";
     self.userSexIcon.image = [UIImage imageNamed:imageName];
 }
 
--(void)layoutSubviews{
-    [super layoutSubviews];
+-(void)updateConstraints{
     
-    self.userSexIcon.size = CGSizeMake(LTMeHeadUserInfoSexImageWidth, LTMeHeadUserInfoSexImageHeight);
-    self.userSexIcon.right = self.right;
-    self.userSexIcon.centerY = self.bounds.size.height/2;
+    [self.userSexIcon mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.and.height.equalTo(@(LTMeHeadUserInfoSexImageHeight));
+        make.right.equalTo(self.mas_right);
+        make.centerY.equalTo(self.mas_centerY);
+    }];
     
-    self.userNameLabel.left = self.left;
-    self.userNameLabel.right = self.userSexIcon.left;
-    self.userNameLabel.centerY = self.bounds.size.height/2;
+    [self.userNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.mas_left);
+        make.centerY.equalTo(self.mas_centerY);
+        make.right.equalTo(self.userSexIcon.mas_left);
+    }];
     
+    [super updateConstraints];
 }
 
 @end

@@ -12,6 +12,7 @@
 #import "UIImage+Common.h"
 #import "ODRefreshControl.h"
 #import "LTMeHeadView.h"
+#import "RDVTabBarController.h"
 
 @interface LTMeViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -31,14 +32,13 @@
     self.tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.top = self.view.top;
-    self.tableView.left = self.view.left;
-    self.tableView.right = self.view.right;
-    self.tableView.bottom = self.view.bottom;
+    //RDVTabBarController *mainTabBar = self.tabBarController
+    self.tableView.size = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - self.topLayoutGuide.length);
+    
     [self.view addSubview:self.tableView];
     self.tableViewHeader = [LTMeHeadView new];
     self.tableViewHeader.contentMode = UIViewContentModeScaleAspectFill;
-    self.tableViewHeader.avatorUrlString = @"http://cdnq.duitang.com/uploads/item/201407/31/20140731215402_xXsve.jpeg";
+    self.tableViewHeader.avatorUrlString = @"https://coding.net//static/fruit_avatar/Fruit-2.png";
     [self.tableView addParallaxWithView:self.tableViewHeader andHeight:180];
     
     _refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
@@ -53,6 +53,8 @@
 
 - (void)viewDidLayoutSubviews{
     self.tableView.top = self.topLayoutGuide.length;
+    self.tableView.left = self.view.left;
+    
     //NSLog(@"bottomLayoutGuide:%@",self.bottomLayoutGuide);
     //self.tableView.bottom = self.bottomLayoutGuide.length;
 }

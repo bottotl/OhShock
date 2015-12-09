@@ -32,7 +32,9 @@
 
 -(void)setImageWithUrl:(nullable NSURL *)imgUrl placeholderImage:(nullable UIImage *)placeholderImage tapBlock:(nullable UITapImageViewTapBlock)tapAction{
     [self sd_setImageWithURL:imgUrl placeholderImage:placeholderImage];
-    [self setTapAction:tapAction];
+    if(tapAction){
+        [self setTapAction:tapAction];
+    }
 }
 
 @end

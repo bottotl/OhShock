@@ -13,6 +13,8 @@
 		B83DA9A91C10340500E66714 /* IntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B83DA9A81C10340500E66714 /* IntroductionViewController.m */; };
 		B83DA9AC1C10364B00E66714 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = B83DA9AB1C10364B00E66714 /* UIView+Layout.m */; };
 		B83DA9B11C1042CA00E66714 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B83DA9B01C1042CA00E66714 /* LogInViewController.m */; };
+		B84F6CE41C17E7C2008A043F /* LTMeHeadUserFollowerAndFolloweeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B84F6CE31C17E7C2008A043F /* LTMeHeadUserFollowerAndFolloweeView.m */; };
+		B84F6CE71C17E84C008A043F /* LTMeHeadUserFollowInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = B84F6CE61C17E84C008A043F /* LTMeHeadUserFollowInfoView.m */; };
 		B8731D8F1C101E08007FDE06 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8731D8E1C101E08007FDE06 /* main.m */; };
 		B8731D921C101E08007FDE06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8731D911C101E08007FDE06 /* AppDelegate.m */; };
 		B8731D9A1C101E08007FDE06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8731D991C101E08007FDE06 /* Assets.xcassets */; };
@@ -77,6 +79,10 @@
 		B83DA9AB1C10364B00E66714 /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
 		B83DA9AF1C1042CA00E66714 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		B83DA9B01C1042CA00E66714 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
+		B84F6CE21C17E7C2008A043F /* LTMeHeadUserFollowerAndFolloweeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMeHeadUserFollowerAndFolloweeView.h; sourceTree = "<group>"; };
+		B84F6CE31C17E7C2008A043F /* LTMeHeadUserFollowerAndFolloweeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMeHeadUserFollowerAndFolloweeView.m; sourceTree = "<group>"; };
+		B84F6CE51C17E84C008A043F /* LTMeHeadUserFollowInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMeHeadUserFollowInfoView.h; sourceTree = "<group>"; };
+		B84F6CE61C17E84C008A043F /* LTMeHeadUserFollowInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMeHeadUserFollowInfoView.m; sourceTree = "<group>"; };
 		B8731D8A1C101E08007FDE06 /* OhShock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OhShock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8731D8E1C101E08007FDE06 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B8731D901C101E08007FDE06 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -515,6 +521,10 @@
 				B8D2D3781C16BDA400300164 /* LTMeHeadUserImageView.m */,
 				B8D2D3801C16CDFD00300164 /* LTMeHeadUserInfoView.h */,
 				B8D2D3811C16CDFD00300164 /* LTMeHeadUserInfoView.m */,
+				B84F6CE21C17E7C2008A043F /* LTMeHeadUserFollowerAndFolloweeView.h */,
+				B84F6CE31C17E7C2008A043F /* LTMeHeadUserFollowerAndFolloweeView.m */,
+				B84F6CE51C17E84C008A043F /* LTMeHeadUserFollowInfoView.h */,
+				B84F6CE61C17E84C008A043F /* LTMeHeadUserFollowInfoView.m */,
 			);
 			path = HeadView;
 			sourceTree = "<group>";
@@ -648,6 +658,7 @@
 				B8731DB11C1028B9007FDE06 /* UIImage+Common.m in Sources */,
 				B8C4E43D1C158BF800536D57 /* LKDB+Mapping.m in Sources */,
 				B87F5CBE1C1558C5002C7EE8 /* LTTodoCalenderStyleViewController.m in Sources */,
+				B84F6CE71C17E84C008A043F /* LTMeHeadUserFollowInfoView.m in Sources */,
 				B8D2D37F1C16CB0500300164 /* LTTapImageView.m in Sources */,
 				B87F5CB81C155106002C7EE8 /* LTTodoTabBarController.m in Sources */,
 				B83DA9A61C102F6300E66714 /* IFTTTJazzHandsViewController.m in Sources */,
@@ -679,6 +690,7 @@
 				B8C4E44B1C15A2A100536D57 /* XHPopMenuItemView.m in Sources */,
 				B87F5CCA1C155B01002C7EE8 /* LTDiscoverViewController.m in Sources */,
 				B8731DAD1C1027A5007FDE06 /* UIColor+expanded.m in Sources */,
+				B84F6CE41C17E7C2008A043F /* LTMeHeadUserFollowerAndFolloweeView.m in Sources */,
 				B8C4E4161C15841E00536D57 /* JTCalendarAppearance.m in Sources */,
 				B8D2D3851C16EFC300300164 /* LTMeViewModel.m in Sources */,
 				B8C4E43B1C158BF800536D57 /* LKAlarmEvent.m in Sources */,

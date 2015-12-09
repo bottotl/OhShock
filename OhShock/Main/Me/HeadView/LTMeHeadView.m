@@ -12,12 +12,13 @@
 #import "LTMeHeadUserInfoView.h"
 #import "ReactiveCocoa.h"
 #import "UIImageView+WebCache.h"
+#import "LTMeHeadUserFollowerAndFolloweeView.h"
 
 @interface LTMeHeadView()
 
 @property (nonatomic, strong) LTMeHeadUserImageView *userAvator;
 @property (nonatomic, strong) LTMeHeadUserInfoView *userInfo;
-@property (nonatomic, strong) UIImageView *backgroudImageView;
+@property (nonatomic, strong) LTMeHeadUserFollowerAndFolloweeView *followInfoView;
 
 @end
 
@@ -25,37 +26,53 @@
 
 - (instancetype)init
 {
-    self = [super init];
+    self = [self initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, LTMeHeadViewHeight)];
+    
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
     if (self) {
-        _backgroudImageView = [UIImageView new];
-        [self addSubview:_backgroudImageView];
         
         _userAvator = [[LTMeHeadUserImageView alloc]init];
         _userAvator.contentMode = UIViewContentModeScaleAspectFit;
         [self addSubview:_userAvator];
         
         _userInfo = [LTMeHeadUserInfoView new];
+        [self addSubview:_userInfo];
+        [_userInfo setUserName:@"jft0m"];
+        [_userInfo setUserSex:Male];
         
+        _followInfoView = [LTMeHeadUserFollowerAndFolloweeView new];
+        [self addSubview:_followInfoView];
         
+        [RACObserve(self, avatorUrlString) subscribeNext:^(NSString *avatorUrlString) {
+            NSLog(@"%@",avatorUrlString);
+            self.userAvator.avatorUrlString = avatorUrlString;
+        }];
+        
+        [RACObserve(self.userAvator, image) subscribeNext:^(UIImage *avator) {
+            self.image = avator;
+            //[self setNeedsLayout];
+        }];
     }
-    [RACObserve(self, avatorUrlString) subscribeNext:^(NSString *avatorUrlString) {
-        NSLog(@"%@",avatorUrlString);
-        self.userAvator.avatorUrlString = avatorUrlString;
-    }];
-    
-    [RACObserve(self.userAvator, image) subscribeNext:^(UIImage *avator) {
-        self.backgroudImageView.image = avator;
-    }];
-    
     return self;
 }
 
 -(void)layoutSubviews{
     
-    self.backgroudImageView.frame = self.bounds;
+    self.followInfoView.bottom = self.bottom - 10;
+    self.followInfoView.centerX = self.bounds.size.width/2;
     
-    self.userAvator.top = self.top;
-    self.centerX = self.bounds.size.width/2;
+    self.userInfo.bottom = self.followInfoView.top - 10;
+    self.userInfo.centerX = self.bounds.size.width/2;
+    
+    self.userAvator.bottom = self.userInfo.top - 10 ;
+    self.userAvator.centerX = self.bounds.size.width/2;
+    
+    
     
 }
 
