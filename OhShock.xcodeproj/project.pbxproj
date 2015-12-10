@@ -21,7 +21,7 @@
 		B8731D9D1C101E08007FDE06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8731D9B1C101E08007FDE06 /* LaunchScreen.storyboard */; };
 		B8731DAD1C1027A5007FDE06 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = B8731DAC1C1027A5007FDE06 /* UIColor+expanded.m */; };
 		B8731DB11C1028B9007FDE06 /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = B8731DB01C1028B9007FDE06 /* UIImage+Common.m */; };
-		B87F5CB81C155106002C7EE8 /* LTTodoTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87F5CB71C155106002C7EE8 /* LTTodoTabBarController.m */; };
+		B87F5CB81C155106002C7EE8 /* LTTodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87F5CB71C155106002C7EE8 /* LTTodoViewController.m */; };
 		B87F5CBB1C1558B4002C7EE8 /* LTTodoAllStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87F5CBA1C1558B4002C7EE8 /* LTTodoAllStyleViewController.m */; };
 		B87F5CBE1C1558C5002C7EE8 /* LTTodoCalenderStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87F5CBD1C1558C5002C7EE8 /* LTTodoCalenderStyleViewController.m */; };
 		B87F5CC21C1558DA002C7EE8 /* LTTodoTypeStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87F5CC11C1558DA002C7EE8 /* LTTodoTypeStyleViewController.m */; };
@@ -95,8 +95,8 @@
 		B8731DAF1C1028B9007FDE06 /* UIImage+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Common.h"; sourceTree = "<group>"; };
 		B8731DB01C1028B9007FDE06 /* UIImage+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Common.m"; sourceTree = "<group>"; };
 		B8731DB21C10293D007FDE06 /* OhShockPrefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OhShockPrefix.pch; sourceTree = "<group>"; };
-		B87F5CB61C155106002C7EE8 /* LTTodoTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTodoTabBarController.h; sourceTree = "<group>"; };
-		B87F5CB71C155106002C7EE8 /* LTTodoTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTodoTabBarController.m; sourceTree = "<group>"; };
+		B87F5CB61C155106002C7EE8 /* LTTodoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTodoViewController.h; sourceTree = "<group>"; };
+		B87F5CB71C155106002C7EE8 /* LTTodoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTodoViewController.m; sourceTree = "<group>"; };
 		B87F5CB91C1558B4002C7EE8 /* LTTodoAllStyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTodoAllStyleViewController.h; sourceTree = "<group>"; };
 		B87F5CBA1C1558B4002C7EE8 /* LTTodoAllStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTodoAllStyleViewController.m; sourceTree = "<group>"; };
 		B87F5CBC1C1558C5002C7EE8 /* LTTodoCalenderStyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTodoCalenderStyleViewController.h; sourceTree = "<group>"; };
@@ -384,8 +384,8 @@
 		B8A5CA8E1C15340600F94D54 /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
-				B87F5CB61C155106002C7EE8 /* LTTodoTabBarController.h */,
-				B87F5CB71C155106002C7EE8 /* LTTodoTabBarController.m */,
+				B87F5CB61C155106002C7EE8 /* LTTodoViewController.h */,
+				B87F5CB71C155106002C7EE8 /* LTTodoViewController.m */,
 				B87F5CB91C1558B4002C7EE8 /* LTTodoAllStyleViewController.h */,
 				B87F5CBA1C1558B4002C7EE8 /* LTTodoAllStyleViewController.m */,
 				B87F5CBC1C1558C5002C7EE8 /* LTTodoCalenderStyleViewController.h */,
@@ -660,7 +660,7 @@
 				B87F5CBE1C1558C5002C7EE8 /* LTTodoCalenderStyleViewController.m in Sources */,
 				B84F6CE71C17E84C008A043F /* LTMeHeadUserFollowInfoView.m in Sources */,
 				B8D2D37F1C16CB0500300164 /* LTTapImageView.m in Sources */,
-				B87F5CB81C155106002C7EE8 /* LTTodoTabBarController.m in Sources */,
+				B87F5CB81C155106002C7EE8 /* LTTodoViewController.m in Sources */,
 				B83DA9A61C102F6300E66714 /* IFTTTJazzHandsViewController.m in Sources */,
 				B8C4E44A1C15A2A100536D57 /* XHPopMenuItem.m in Sources */,
 				B8731D921C101E08007FDE06 /* AppDelegate.m in Sources */,

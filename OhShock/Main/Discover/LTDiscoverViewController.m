@@ -10,10 +10,14 @@
 #import "UIView+Layout.h"
 #import "LTDiscoverCell.h"
 
+#import "LTDiscoverDynamicViewController.h"
+
 @interface LTDiscoverViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *dataSource;
+@property (nonatomic, strong) LTDiscoverDynamicViewController *dynamicViewController;
+
 
 @end
 
@@ -21,6 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _dynamicViewController = [LTDiscoverDynamicViewController new];
     
     self.tableView  = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     self.tableView.dataSource = self;
@@ -81,7 +87,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            
+            [self.navigationController showViewController:_dynamicViewController sender:self];
         }
     }
     if (indexPath.section == 1) {

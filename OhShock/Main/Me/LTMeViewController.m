@@ -12,7 +12,6 @@
 #import "UIImage+Common.h"
 #import "ODRefreshControl.h"
 #import "LTMeHeadView.h"
-#import "RDVTabBarController.h"
 
 @interface LTMeViewController ()<UITableViewDataSource,UITableViewDelegate>
 

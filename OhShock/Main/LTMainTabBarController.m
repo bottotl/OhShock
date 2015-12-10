@@ -7,15 +7,18 @@
 //
 
 #import "LTMainTabBarController.h"
-#import "LTTodoTabBarController.h"
+#import "LTTodoViewController.h"
 #import "LTGroupViewController.h"
 #import "LTDiscoverViewController.h"
 #import "LTMeViewController.h"
-#import "RDVTabBarItem.h"
+#import "UIImage+Common.h"
 
 @interface LTMainTabBarController ()
 
-//@property (nonatomic, strong)
+@property (nonatomic, strong) LTTodoViewController *todoTabBarController;
+@property (nonatomic, strong) LTGroupViewController *groupViewController;
+@property (nonatomic, strong) LTDiscoverViewController *discoverViewController;
+@property (nonatomic, strong) LTMeViewController *meViewController;
 
 @end
 
@@ -24,17 +27,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //  这个是用来包含3个
-    LTTodoTabBarController *todoTabBarController = [LTTodoTabBarController new];
+    _todoTabBarController = [LTTodoViewController new];
     
-    LTGroupViewController *groupViewController = [LTGroupViewController new];
-    UINavigationController *groupViewNavigationController = [[UINavigationController alloc]initWithRootViewController:groupViewController];
+    _groupViewController = [LTGroupViewController new];
+    UINavigationController *groupViewNavigationController = [[UINavigationController alloc]initWithRootViewController:_groupViewController];
     
-    LTDiscoverViewController *discoverViewController = [LTDiscoverViewController new];
-    UINavigationController *discoverViewNavigationController = [[UINavigationController alloc]initWithRootViewController:discoverViewController];
+    _discoverViewController = [LTDiscoverViewController new];
+    UINavigationController *discoverViewNavigationController = [[UINavigationController alloc]initWithRootViewController:_discoverViewController];
     
-    LTMeViewController *meViewController = [LTMeViewController new];
-    UINavigationController *meViewNavigationController = [[UINavigationController alloc]initWithRootViewController:meViewController];
-    self.viewControllers = @[todoTabBarController,groupViewNavigationController,discoverViewNavigationController,meViewNavigationController];
+    _meViewController = [LTMeViewController new];
+    UINavigationController *meViewNavigationController = [[UINavigationController alloc]initWithRootViewController:_meViewController];
+    self.viewControllers = @[_todoTabBarController,groupViewNavigationController,discoverViewNavigationController,meViewNavigationController];
     [self setSelectedIndex:0];
     
     [self customizeTabBarForController];
@@ -42,27 +45,19 @@
 
 //Set TabBarItems's image and name
 - (void)customizeTabBarForController {
-//    NSArray *tabBarItemSelectedImages = @[@"tabbar_normal", @"tabbar_normal", @"tabbar_normal", @"tabbar_normal"];
-//    NSArray *tabBarItemImages = @[@"tabbar_selected", @"tabbar_selected", @"tabbar_selected", @"tabbar_selected"];
-//    NSArray *tabBarItemTitles = @[@"日程",@"群组",@"发现",@"我"];
+    UITabBarItem *todoTabBarItem;
+    UITabBarItem *groupTabBarItem;
+    UITabBarItem *discoverTabBarItem;
+    UITabBarItem *meTabBarItem;
     
-    UIImage *finishedImage = nil;
-    UIImage *unfinishedImage = nil;
-    
-    RDVTabBar *tabBar = self.tabBar;
-    
-    [tabBar setFrame:CGRectMake(CGRectGetMinX(tabBar.frame), CGRectGetMinY(tabBar.frame), CGRectGetWidth(tabBar.frame), 63)];
-    
-    NSInteger index = 0;
-    for (RDVTabBarItem *item in [tabBar items]) {
-        [item setBackgroundSelectedImage:finishedImage withUnselectedImage:unfinishedImage];
-        UIImage *selectedimage = [UIImage imageNamed:@"tabbar_selected"];
-        UIImage *unselectedimage = [UIImage imageNamed:@"tabbar_normal"];
-        [item setFinishedSelectedImage:[selectedimage scaledToSize:CGSizeMake(40, 40)]
-           withFinishedUnselectedImage:[unselectedimage scaledToSize:CGSizeMake(40, 40)]];
-        
-        index++;
-    }
+    todoTabBarItem = [[UITabBarItem alloc]initWithTitle:nil  image:[[UIImage imageNamed:@"tabbar_normal"]scaledToSize:CGSizeMake(40, 40)] selectedImage:[[UIImage imageNamed:@"tabbar_selected"]scaledToSize:CGSizeMake(40, 40)]];
+    groupTabBarItem = [[UITabBarItem alloc]initWithTitle:nil  image:[[UIImage imageNamed:@"tabbar_normal"]scaledToSize:CGSizeMake(40, 40)] selectedImage:[[UIImage imageNamed:@"tabbar_selected"]scaledToSize:CGSizeMake(40, 40)]];
+    discoverTabBarItem = [[UITabBarItem alloc]initWithTitle:nil  image:[[UIImage imageNamed:@"tabbar_normal"]scaledToSize:CGSizeMake(40, 40)] selectedImage:[[UIImage imageNamed:@"tabbar_selected"]scaledToSize:CGSizeMake(40, 40)]];
+    meTabBarItem = [[UITabBarItem alloc]initWithTitle:nil  image:[[UIImage imageNamed:@"tabbar_normal"]scaledToSize:CGSizeMake(40, 40)] selectedImage:[[UIImage imageNamed:@"tabbar_selected"]scaledToSize:CGSizeMake(40, 40)]];
+    _todoTabBarController.tabBarItem = todoTabBarItem;
+    _groupViewController.tabBarItem = groupTabBarItem;
+    _discoverViewController.tabBarItem = discoverTabBarItem;
+    _meViewController.tabBarItem = meTabBarItem;
 }
 
 

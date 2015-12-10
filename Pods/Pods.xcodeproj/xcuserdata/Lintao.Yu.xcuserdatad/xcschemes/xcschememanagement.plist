@@ -34,11 +34,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>RDVTabBarController.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>ReactiveCocoa.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -87,12 +82,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5CAC46FFDE4BDA72FE558BBB0949379C</key>
+		<key>7834B995BCF749C05505B96FD06307C6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>89367FFF21B81BA31252DFA887EC8BA8</key>
+		<key>7E8491686D06E688A8A3ED15BFD246C7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,27 +97,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AB98FF6C072B97F9E36BDC0C19C92752</key>
+		<key>ADB8F7E28A1F2C1DEEA24B62BA96C1C1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BA765F4272BE64C67DFBC948612C773F</key>
+		<key>D6E7B6E4BE2C70E7B66B3ECAAA1C89B4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D50AA6CFB751A89F4829C8A2B4B65FD3</key>
+		<key>D9067DB990818840A84F27593FE05422</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F388BC2D5A33A8E2836AE6108021D184</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F686501FE784A53DAA9A8026808446CD</key>
+		<key>D91B7AE8180FBD2AA28AB1F4EE97119F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
