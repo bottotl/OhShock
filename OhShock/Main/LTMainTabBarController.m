@@ -43,17 +43,40 @@
     [self customizeTabBarForController];
 }
 
-//Set TabBarItems's image and name
+#pragma mark - 定制 TabBarItems
+/**
+ *  @author Lintao Yu, 15-12-11 13:12:29
+ *
+ *  Set TabBarItems's image and name
+ *  定制 TabBarItems's
+ *  setTitlePositionAdjustment 用来隐藏标题
+ */
 - (void)customizeTabBarForController {
-    UITabBarItem *todoTabBarItem;
-    UITabBarItem *groupTabBarItem;
-    UITabBarItem *discoverTabBarItem;
-    UITabBarItem *meTabBarItem;
+    UIImage *todoImage = [[[UIImage imageNamed:@"tabbar_normal"]scaledToSize:CGSizeMake(40, 40)] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *todoImageSelected = [[[UIImage imageNamed:@"tabbar_selected"]scaledToSize:CGSizeMake(40, 40)] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    todoTabBarItem = [[UITabBarItem alloc]initWithTitle:nil  image:[[UIImage imageNamed:@"tabbar_normal"]scaledToSize:CGSizeMake(40, 40)] selectedImage:[[UIImage imageNamed:@"tabbar_selected"]scaledToSize:CGSizeMake(40, 40)]];
-    groupTabBarItem = [[UITabBarItem alloc]initWithTitle:nil  image:[[UIImage imageNamed:@"tabbar_normal"]scaledToSize:CGSizeMake(40, 40)] selectedImage:[[UIImage imageNamed:@"tabbar_selected"]scaledToSize:CGSizeMake(40, 40)]];
-    discoverTabBarItem = [[UITabBarItem alloc]initWithTitle:nil  image:[[UIImage imageNamed:@"tabbar_normal"]scaledToSize:CGSizeMake(40, 40)] selectedImage:[[UIImage imageNamed:@"tabbar_selected"]scaledToSize:CGSizeMake(40, 40)]];
-    meTabBarItem = [[UITabBarItem alloc]initWithTitle:nil  image:[[UIImage imageNamed:@"tabbar_normal"]scaledToSize:CGSizeMake(40, 40)] selectedImage:[[UIImage imageNamed:@"tabbar_selected"]scaledToSize:CGSizeMake(40, 40)]];
+    UIImage *groupImage = [[[UIImage imageNamed:@"tabbar_normal"]scaledToSize:CGSizeMake(40, 40)] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *groupImageSelected = [[[UIImage imageNamed:@"tabbar_selected"]scaledToSize:CGSizeMake(40, 40)] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    UIImage *discoverImage = [[[UIImage imageNamed:@"tabbar_normal"]scaledToSize:CGSizeMake(40, 40)] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *discoverImageSelected = [[[UIImage imageNamed:@"tabbar_selected"]scaledToSize:CGSizeMake(40, 40)] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    UIImage *meImage = [[[UIImage imageNamed:@"tabbar_normal"]scaledToSize:CGSizeMake(40, 40)] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *meImageSelected = [[[UIImage imageNamed:@"tabbar_selected"]scaledToSize:CGSizeMake(40, 40)] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    
+    UITabBarItem *todoTabBarItem = [[UITabBarItem alloc]initWithTitle:nil  image:todoImage selectedImage:todoImageSelected];
+    [todoTabBarItem setTitlePositionAdjustment:UIOffsetMake(0, 15)];
+    
+    UITabBarItem *groupTabBarItem = [[UITabBarItem alloc]initWithTitle:nil  image:groupImage selectedImage:groupImageSelected];
+    [groupTabBarItem setTitlePositionAdjustment:UIOffsetMake(0, 15)];
+    
+    UITabBarItem *discoverTabBarItem = [[UITabBarItem alloc]initWithTitle:nil  image:discoverImage selectedImage:discoverImageSelected];
+    [discoverTabBarItem setTitlePositionAdjustment:UIOffsetMake(0, 15)];
+    
+    UITabBarItem *meTabBarItem = [[UITabBarItem alloc]initWithTitle:nil  image:meImage selectedImage:meImageSelected];
+    [meTabBarItem setTitlePositionAdjustment:UIOffsetMake(0, 15)];
+    
     _todoTabBarController.tabBarItem = todoTabBarItem;
     _groupViewController.tabBarItem = groupTabBarItem;
     _discoverViewController.tabBarItem = discoverTabBarItem;

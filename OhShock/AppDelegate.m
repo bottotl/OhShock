@@ -79,7 +79,7 @@ static NSString *AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
  *
  *  设置整个 APP 的原生控件的颜色样式之类（暂时不修改）
  */
-- (void)customizeInterface {
+- (void)customizeInterface {    
 //    //设置Nav的背景色和title色
 //    UINavigationBar *navigationBarAppearance = [UINavigationBar appearance];
 //    NSDictionary *textAttributes = nil;
