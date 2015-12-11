@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '993521CE0AA65C25619B6BEA'
+               BlueprintIdentifier = 'DE5EAF61F38C9C3DEE4B716F'
                BlueprintName = 'APParallaxHeader'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'APParallaxHeader.framework'>

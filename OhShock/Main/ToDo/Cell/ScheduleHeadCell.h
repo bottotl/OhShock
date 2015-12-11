@@ -8,6 +8,7 @@
 
 #define JFScheduleHeadCell @"ScheduleHeadCell"
 
+#import <UIKit/UIKit.h>
 @interface ScheduleHeadCell : UITableViewCell
 
 @end

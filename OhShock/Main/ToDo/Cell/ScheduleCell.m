@@ -16,6 +16,8 @@
 
 #import "ScheduleCell.h"
 #import "LKAlarmEvent.h"
+#import "UIColor+expanded.h"
+#import "Masonry.h"
 
 @interface ScheduleCell()
 //标记是否已经设置了限制

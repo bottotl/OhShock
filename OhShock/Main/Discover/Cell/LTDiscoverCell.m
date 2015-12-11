@@ -8,6 +8,7 @@
 
 #import "LTDiscoverCell.h"
 #import "UIView+Layout.h"
+#import "UIColor+expanded.h"
 
 @interface LTDiscoverCell()
 

@@ -85,9 +85,6 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/APParallaxHeader.framework"
-  install_framework "${PODS_ROOT}/AVOSCloudCrashReportingDynamic/iOS/release-v3.1.6.8/Dynamic/AVOSCloudCrashReporting.framework"
-  install_framework "${PODS_ROOT}/AVOSCloudDynamic/iOS/release-v3.1.6.8/Dynamic/AVOSCloud.framework"
-  install_framework "${PODS_ROOT}/AVOSCloudIMDynamic/iOS/release-v3.1.6.8/Dynamic/AVOSCloudIM.framework"
   install_framework "Pods/FMDB.framework"
   install_framework "Pods/JazzHands.framework"
   install_framework "Pods/Masonry.framework"
@@ -100,9 +97,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/APParallaxHeader.framework"
-  install_framework "${PODS_ROOT}/AVOSCloudCrashReportingDynamic/iOS/release-v3.1.6.8/Dynamic/AVOSCloudCrashReporting.framework"
-  install_framework "${PODS_ROOT}/AVOSCloudDynamic/iOS/release-v3.1.6.8/Dynamic/AVOSCloud.framework"
-  install_framework "${PODS_ROOT}/AVOSCloudIMDynamic/iOS/release-v3.1.6.8/Dynamic/AVOSCloudIM.framework"
   install_framework "Pods/FMDB.framework"
   install_framework "Pods/JazzHands.framework"
   install_framework "Pods/Masonry.framework"

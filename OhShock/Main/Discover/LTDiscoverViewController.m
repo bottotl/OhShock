@@ -9,7 +9,7 @@
 #import "LTDiscoverViewController.h"
 #import "UIView+Layout.h"
 #import "LTDiscoverCell.h"
-
+#import "Masonry.h"
 #import "LTDiscoverDynamicViewController.h"
 
 @interface LTDiscoverViewController ()<UITableViewDataSource,UITableViewDelegate>

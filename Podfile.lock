@@ -1,10 +1,5 @@
 PODS:
   - APParallaxHeader (0.1.6)
-  - AVOSCloudCrashReportingDynamic (3.1.6.8):
-    - AVOSCloudDynamic
-  - AVOSCloudDynamic (3.1.6.8)
-  - AVOSCloudIMDynamic (3.1.6.8):
-    - AVOSCloudDynamic
   - FMDB (2.5):
     - FMDB/standard (= 2.5)
   - FMDB/common (2.5)
@@ -24,7 +19,7 @@ PODS:
   - ReactiveCocoa/UI (4.0.4-alpha-4):
     - ReactiveCocoa/Core
     - Result (~> 1.0)
-  - Result (1.0.0)
+  - Result (1.0.1)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
@@ -33,9 +28,6 @@ PODS:
 
 DEPENDENCIES:
   - APParallaxHeader
-  - AVOSCloudCrashReportingDynamic
-  - AVOSCloudDynamic
-  - AVOSCloudIMDynamic
   - FMDB
   - JazzHands
   - Masonry
@@ -47,15 +39,12 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   APParallaxHeader: 854bc48a2487ca12c702f8a236fec0d89cdac5c3
-  AVOSCloudCrashReportingDynamic: 0a833f5c80dc32c5e6117615b371b6d3b66638c0
-  AVOSCloudDynamic: 3ca053b70e82eba205120ef9591f0b6e4b8687aa
-  AVOSCloudIMDynamic: cbdb24a248ca8054747ffef0109f99b081ee4e29
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   JazzHands: 355dc5c2b6fc38ee460d0ed7836c69539263f477
   Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
   ODRefreshControl: 907e6149d72dde488d5917ccfabee5bd8d711a20
   ReactiveCocoa: e459ea92099447802df20c4735e31e8139b06094
-  Result: feaaff535eb59c414c6c7f95e6145ab991b1b07f
+  Result: caef80340451e1f07492fa1e89117f83613bce24
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SMPageControl: 922892813001cfaf059e86e6801f46a967e9ee29
   TPKeyboardAvoiding: e5ce146b313de063957bfa75a13f1e9b0ff18ab7

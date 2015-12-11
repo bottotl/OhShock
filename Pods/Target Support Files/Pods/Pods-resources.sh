@@ -57,16 +57,6 @@ install_resource()
       ;;
   esac
 }
-if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "AVOSCloudCrashReportingDynamic/iOS/release-v3.1.6.8/Dynamic/AVOSCloudCrashReporting.framework"
-  install_resource "AVOSCloudDynamic/iOS/release-v3.1.6.8/Dynamic/AVOSCloud.framework"
-  install_resource "AVOSCloudIMDynamic/iOS/release-v3.1.6.8/Dynamic/AVOSCloudIM.framework"
-fi
-if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "AVOSCloudCrashReportingDynamic/iOS/release-v3.1.6.8/Dynamic/AVOSCloudCrashReporting.framework"
-  install_resource "AVOSCloudDynamic/iOS/release-v3.1.6.8/Dynamic/AVOSCloud.framework"
-  install_resource "AVOSCloudIMDynamic/iOS/release-v3.1.6.8/Dynamic/AVOSCloudIM.framework"
-fi
 
 mkdir -p "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

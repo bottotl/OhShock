@@ -12,6 +12,8 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "LTSignUpService.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "Masonry.h"
+#import "UIImage+Common.h"
 
 static CGFloat logoImageViewHeight = 60;
 static CGFloat logoImageViewWidth = 60;

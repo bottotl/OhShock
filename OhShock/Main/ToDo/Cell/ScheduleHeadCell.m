@@ -9,6 +9,7 @@
 
 
 #import "ScheduleHeadCell.h"
+#import "Masonry.h"
 @interface ScheduleHeadCell ()
 @property (nonatomic, strong) UIImageView *JFimageView;
 @property (nonatomic, strong) UIView *HorizontallineView;

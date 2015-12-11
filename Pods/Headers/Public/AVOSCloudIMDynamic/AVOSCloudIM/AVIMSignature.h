@@ -1,1 +1,0 @@
-../../../../AVOSCloudIMDynamic/iOS/release-v3.1.6.8/Dynamic/AVOSCloudIM.framework/Headers/AVIMSignature.h

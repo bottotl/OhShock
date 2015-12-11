@@ -14,6 +14,7 @@
 #import <AVOSCloud/AVOSCloud.h>
 #import "SignUpViewController.h"
 #import "LTMainTabBarController.h"
+#import "Masonry.h"
 
 static CGFloat logoImageViewHeight = 60;
 static CGFloat logoImageViewWidth = 60;

@@ -7,6 +7,7 @@
 //
 
 #define JFScheduleCell @"ScheduleCell"
+#import <UIKit/UIKit.h>
 
 @class LKAlarmEvent;
 @interface ScheduleCell : UITableViewCell

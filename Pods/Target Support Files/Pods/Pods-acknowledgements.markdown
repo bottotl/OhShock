@@ -23,18 +23,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-## AVOSCloudCrashReportingDynamic
-
-Copyright 2015 LeanCloud, Inc. See https://leancloud.cn/terms.html
-
-## AVOSCloudDynamic
-
-Copyright 2015 LeanCloud, Inc. See https://leancloud.cn/terms.html
-
-## AVOSCloudIMDynamic
-
-Copyright 2015 LeanCloud, Inc. See https://leancloud.cn/terms.html
-
 ## FMDB
 
 If you are using FMDB in your project, I'd love to hear about it.  Let Gus know

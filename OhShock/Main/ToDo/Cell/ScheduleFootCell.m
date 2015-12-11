@@ -7,6 +7,7 @@
 //
 
 #import "ScheduleFootCell.h"
+#import "Masonry.h"
 
 @interface ScheduleFootCell()
 

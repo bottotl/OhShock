@@ -14,12 +14,3 @@ pod 'SDWebImage'
 pod 'APParallaxHeader'
 # 刷新头
 pod 'ODRefreshControl'
-# 云服务
-# leanCloud 存储
-pod 'AVOSCloudDynamic'
-
-# 如果使用实时通信功能，可以添加：
-pod 'AVOSCloudIMDynamic'
-
-# 如果使用崩溃收集功能，可以添加：
-pod 'AVOSCloudCrashReportingDynamic'
