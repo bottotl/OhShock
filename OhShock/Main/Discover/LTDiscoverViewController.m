@@ -11,13 +11,15 @@
 #import "LTDiscoverCell.h"
 #import "Masonry.h"
 #import "LTDiscoverDynamicViewController.h"
+#import "LTDiscoverTodoViewController.h"
+#import "LTStatusTimelineViewController.h"
 
 @interface LTDiscoverViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *dataSource;
 @property (nonatomic, strong) LTDiscoverDynamicViewController *dynamicViewController;
-
+@property (nonatomic, strong) LTDiscoverTodoViewController *todoViewController;
 
 @end
 
@@ -25,8 +27,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     _dynamicViewController = [LTDiscoverDynamicViewController new];
+    _todoViewController = [LTDiscoverTodoViewController new];
     
     self.tableView  = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     self.tableView.dataSource = self;
@@ -36,8 +39,7 @@
     [self.tableView registerClass:[LTDiscoverCell class] forCellReuseIdentifier:LTDiscoverCellIdentifier];
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.bottom.right.equalTo(self.view);
-        make.top.equalTo(self.view.mas_topMargin);
+        make.left.right.bottom.and.top.equalTo(self.view);
     }];
     
     [self.view setNeedsLayout];
@@ -87,17 +89,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            [self.navigationController showViewController:_dynamicViewController sender:self];
+            [self.navigationController pushViewController:_dynamicViewController animated:YES];
         }
     }
     if (indexPath.section == 1) {
         if (indexPath.row == 0) {
-            
+            [self.navigationController pushViewController:_todoViewController animated:YES];
         }
     }
     if (indexPath.section == 2) {
         if (indexPath.row == 0) {
-            
+            [self.navigationController pushViewController:[LTStatusTimelineViewController new] animated:YES];
         }
     }
 }
