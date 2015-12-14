@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ReactiveCocoa.h"
 static CGFloat LTMeHeadUserFollowInfoViewHeight = 30;
 static CGFloat LTMeHeadUserFollowInfoViewWidth = 80;
 
@@ -21,5 +21,5 @@ static CGFloat LTMeHeadUserFollowInfoViewWidth = 80;
 @property (nonatomic, assign) NSInteger num;
 /// 展示信息
 @property (nonatomic, copy) NSString *info;
-
+- (RACSignal *)rac_OnClickSignal;
 @end

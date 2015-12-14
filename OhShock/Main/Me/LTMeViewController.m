@@ -12,6 +12,7 @@
 #import "UIImage+Common.h"
 #import "ODRefreshControl.h"
 #import "LTMeHeadView.h"
+#import "YYPhotoGroupView.h"
 
 @interface LTMeViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -41,11 +42,30 @@
     
     self.tableViewHeader = [LTMeHeadView new];
     self.tableViewHeader.contentMode = UIViewContentModeScaleAspectFill;
-    self.tableViewHeader.avatorUrlString = @"https://coding.net//static/fruit_avatar/Fruit-2.png";
+    self.tableViewHeader.avatorUrlString = @"http://img02.ishuhui.com/op/miao809/01-02.jpg";
     [self.tableView addParallaxWithView:self.tableViewHeader andHeight:LTMeHeadViewHeight];
     
     _refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
     [_refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    
+    
+    [[_tableViewHeader rac_avatorTapGesture]subscribeNext:^(id x) {
+        YYPhotoGroupItem *item = [YYPhotoGroupItem new];
+        item.thumbView = _tableViewHeader.userAvator;
+        item.largeImageURL = [NSURL URLWithString:self.tableViewHeader.avatorUrlString];
+        item.largeImageSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
+        YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:@[item]];
+        [v presentFromImageView:_tableViewHeader.userAvator toContainer:self.tabBarController.view animated:YES completion:nil];
+        NSLog(@"点击了头像%@",x);
+    }];
+    
+    [[_tableViewHeader rac_followeeTapGesture]subscribeNext:^(id x) {
+        NSLog(@"rac_followeeTapGesture");
+    }];
+    
+    [[_tableViewHeader rac_followerTapGesture]subscribeNext:^(id x) {
+        NSLog(@"rac_followerTapGesture");
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

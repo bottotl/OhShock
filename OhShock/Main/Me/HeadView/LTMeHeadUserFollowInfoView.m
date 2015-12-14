@@ -29,6 +29,8 @@
     
     self = [super initWithFrame:CGRectMake(0, 0, LTMeHeadUserFollowInfoViewWidth, LTMeHeadUserFollowInfoViewHeight)];
     if (self) {
+        self.userInteractionEnabled = YES;
+        
         _numLabel = [UILabel new];
         _numLabel.textColor = [UIColor whiteColor];
         _numLabel.textAlignment = NSTextAlignmentCenter;
@@ -67,19 +69,11 @@
     self.infoLabel.left = self.numLabel.right;
 }
 
-//-(void)updateConstraints{
-//    
-//    [self.numLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self);
-//        make.right.equalTo(self.infoLabel.mas_left);
-//        make.centerY.equalTo(self.mas_centerY);
-//    }];
-//    
-//    [self.infoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.right.equalTo(self.mas_right);
-//        make.centerY.equalTo(self.mas_centerY);
-//    }];
-//    [super updateConstraints];
-//}
+-(RACSignal *)rac_OnClickSignal{
+    
+    UITapGestureRecognizer *tap = [UITapGestureRecognizer new];
+    [self addGestureRecognizer:tap];
+    return tap.rac_gestureSignal;
+}
 
 @end

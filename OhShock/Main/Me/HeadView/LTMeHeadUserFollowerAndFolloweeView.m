@@ -34,6 +34,7 @@
     
     self = [super initWithFrame:frame];
     if (self) {
+        self.userInteractionEnabled = YES;
         _followeeInfoLabel = [LTMeHeadUserFollowInfoView new];
         _followeeInfoLabel.info = @"关注";
         _followeeInfoLabel.num = 0;
@@ -76,26 +77,12 @@
     self.followerInfoLabel.left = self.lineView.right;
 }
 
-//- (void)updateConstraints{
-//    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.width.equalTo(@2);
-//        make.centerX.equalTo(self.mas_centerX);
-//        make.centerY.equalTo(self.mas_centerY);
-//        make.height.equalTo(self);
-//    }];
-//    
-//    [self.followeeInfoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self);
-//        make.centerY.equalTo(self);
-//        make.right.equalTo(self.lineView.mas_left);
-//    }];
-//    [self.followerInfoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.right.equalTo(self);
-//        make.centerY.equalTo(self);
-//        make.left.equalTo(self.lineView.mas_right);
-//    }];
-//    
-//    [super updateConstraints];
-//}
+-(RACSignal *)rac_followeeOnclickSignal{
+    return [self.followeeInfoLabel rac_OnClickSignal];
+}
+-(RACSignal *)rac_followerOnclickSignal{
+    return [self.followerInfoLabel rac_OnClickSignal];
+    
+}
 
 @end

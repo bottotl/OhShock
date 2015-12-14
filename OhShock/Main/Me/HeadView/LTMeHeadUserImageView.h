@@ -7,6 +7,7 @@
 //
 
 #import "LTTapImageView.h"
+#import "ReactiveCocoa.h"
 
 static CGFloat LTMeHeadUserImageViewHeigthAndWidth = 100;
 @protocol LTMeHeadUserImageDelegate;
@@ -21,7 +22,7 @@ static CGFloat LTMeHeadUserImageViewHeigthAndWidth = 100;
 /// 用户头像对应的 url
 @property (nonatomic, strong) NSString *avatorUrlString;
 @property (nonatomic, weak) id<LTMeHeadUserImageDelegate> delegate;
-
+- (RACSignal *)rac_gestureSignal;
 @end
 
 @protocol LTMeHeadUserImageDelegate <NSObject>

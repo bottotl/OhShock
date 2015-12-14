@@ -22,20 +22,20 @@
     CGRect rect = CGRectMake(0, 0, LTMeHeadUserImageViewHeigthAndWidth, LTMeHeadUserImageViewHeigthAndWidth);
     self = [super initWithFrame:rect];
     if (self) {
+        self.contentMode = UIViewContentModeScaleToFill;
         self.clipsToBounds = YES;
         self.layer.cornerRadius = rect.size.height / 2;
         self.userInteractionEnabled = YES;
-        UITapGestureRecognizer *tapGesture = [UITapGestureRecognizer new];
-        [self addGestureRecognizer:tapGesture];
-        [[tapGesture rac_gestureSignal]subscribeNext:^(id x) {
-            NSLog(@"sda");
-        }];
     }
     
     
     return self;
 }
-
+- (RACSignal *)rac_gestureSignal{
+    UITapGestureRecognizer *tapGesture = [UITapGestureRecognizer new];
+    [self addGestureRecognizer:tapGesture];
+    return [tapGesture rac_gestureSignal];
+}
 #pragma mark - property
 
 - (void)setAvatorUrlString:(NSString *)avatorUrlString{

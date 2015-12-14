@@ -7,6 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ReactiveCocoa.h"
+#import "UIView+Layout.h"
+#import "LTMeHeadUserImageView.h"
+#import "LTMeHeadUserInfoView.h"
+#import "UIImageView+WebCache.h"
+#import "LTMeHeadUserFollowerAndFolloweeView.h"
 
 static CGFloat LTMeHeadViewHeight = 250;
 @protocol LTMeHeadDelegate;
@@ -18,8 +24,15 @@ static CGFloat LTMeHeadViewHeight = 250;
     所以在布局的时候需要相对于这个控件的底部进行布局
  */
 @interface LTMeHeadView : UIImageView
+/// 头像对应的 URL
 @property (nonatomic, copy) NSString *avatorUrlString;
 @property (nonatomic, weak) id<LTMeHeadDelegate> delegate;
+@property (nonatomic, strong) LTMeHeadUserImageView *userAvator;
+@property (nonatomic, strong) LTMeHeadUserInfoView *userInfo;
+@property (nonatomic, strong) LTMeHeadUserFollowerAndFolloweeView *followInfoView;
+-(RACSignal *)rac_avatorTapGesture;
+-(RACSignal *)rac_followeeTapGesture;
+-(RACSignal *)rac_followerTapGesture;
 @end
 
 @protocol LTMeHeadDelegate <NSObject>

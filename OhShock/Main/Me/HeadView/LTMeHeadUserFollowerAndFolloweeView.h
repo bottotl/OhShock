@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ReactiveCocoa.h"
 /**
  *  @author Lintao Yu, 15-12-09 12:12:38
  *
@@ -17,5 +18,6 @@
 @property (nonatomic, assign) NSInteger followeeNum;
 /// 粉丝数量
 @property (nonatomic, assign) NSInteger followerNum;
-
+-(RACSignal *)rac_followeeOnclickSignal;
+-(RACSignal *)rac_followerOnclickSignal;
 @end

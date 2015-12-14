@@ -7,18 +7,11 @@
 //
 
 #import "LTMeHeadView.h"
-#import "UIView+Layout.h"
-#import "LTMeHeadUserImageView.h"
-#import "LTMeHeadUserInfoView.h"
-#import "ReactiveCocoa.h"
-#import "UIImageView+WebCache.h"
-#import "LTMeHeadUserFollowerAndFolloweeView.h"
+
 
 @interface LTMeHeadView()
 
-@property (nonatomic, strong) LTMeHeadUserImageView *userAvator;
-@property (nonatomic, strong) LTMeHeadUserInfoView *userInfo;
-@property (nonatomic, strong) LTMeHeadUserFollowerAndFolloweeView *followInfoView;
+
 
 @end
 
@@ -37,14 +30,10 @@
     if (self) {
         self.userInteractionEnabled = YES;
         _userAvator = [[LTMeHeadUserImageView alloc]init];
-        _userAvator.contentMode = UIViewContentModeScaleAspectFit;
+        _userAvator.contentMode = UIViewContentModeScaleAspectFill;
         [self addSubview:_userAvator];
         
-        UITapGestureRecognizer *userAvatorTap = [UITapGestureRecognizer new];
-        [_userAvator addGestureRecognizer:userAvatorTap];
-        [[userAvatorTap rac_gestureSignal]subscribeNext:^(id x) {
-            NSLog(@"userAvatorTap");
-        }];
+        
         _userInfo = [LTMeHeadUserInfoView new];
         [self addSubview:_userInfo];
         [_userInfo setUserName:@"jft0m"];
@@ -64,6 +53,16 @@
         }];
     }
     return self;
+}
+-(RACSignal *)rac_avatorTapGesture{
+    return [_userAvator rac_gestureSignal];
+}
+
+-(RACSignal *)rac_followeeTapGesture{
+    return [_followInfoView rac_followeeOnclickSignal];
+}
+-(RACSignal *)rac_followerTapGesture{
+    return [_followInfoView rac_followerOnclickSignal];
 }
 
 -(void)layoutSubviews{
