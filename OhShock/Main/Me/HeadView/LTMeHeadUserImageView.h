@@ -9,6 +9,7 @@
 #import "LTTapImageView.h"
 
 static CGFloat LTMeHeadUserImageViewHeigthAndWidth = 100;
+@protocol LTMeHeadUserImageDelegate;
 /**
  *  @author Lintao Yu, 15-12-08 17:12:35
  *
@@ -19,5 +20,13 @@ static CGFloat LTMeHeadUserImageViewHeigthAndWidth = 100;
 @interface LTMeHeadUserImageView : LTTapImageView
 /// 用户头像对应的 url
 @property (nonatomic, strong) NSString *avatorUrlString;
+@property (nonatomic, weak) id<LTMeHeadUserImageDelegate> delegate;
 
 @end
+
+@protocol LTMeHeadUserImageDelegate <NSObject>
+
+-(void)LTMeHeadUserImageViewOnClick;
+
+@end
+

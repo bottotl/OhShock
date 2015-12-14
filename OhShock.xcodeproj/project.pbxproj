@@ -1117,8 +1117,8 @@
 		B81071DA1C197FCE0058130E /* LTDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTDiscoverViewController.m; sourceTree = "<group>"; };
 		B81071DC1C197FCE0058130E /* LTGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTGroupViewController.h; sourceTree = "<group>"; };
 		B81071DD1C197FCE0058130E /* LTGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroupViewController.m; sourceTree = "<group>"; };
-		B81071DE1C197FCE0058130E /* LTMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMainTabBarController.h; sourceTree = "<group>"; };
-		B81071DF1C197FCE0058130E /* LTMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMainTabBarController.m; sourceTree = "<group>"; };
+		B81071DE1C197FCE0058130E /* LTMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTMainTabBarController.h; path = OhShock/Main/LTMainTabBarController.h; sourceTree = "<group>"; };
+		B81071DF1C197FCE0058130E /* LTMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTMainTabBarController.m; path = OhShock/Main/LTMainTabBarController.m; sourceTree = "<group>"; };
 		B81071E21C197FCE0058130E /* LTMeHeadUserFollowerAndFolloweeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMeHeadUserFollowerAndFolloweeView.h; sourceTree = "<group>"; };
 		B81071E31C197FCE0058130E /* LTMeHeadUserFollowerAndFolloweeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMeHeadUserFollowerAndFolloweeView.m; sourceTree = "<group>"; };
 		B81071E41C197FCE0058130E /* LTMeHeadUserFollowInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMeHeadUserFollowInfoView.h; sourceTree = "<group>"; };
@@ -2233,6 +2233,8 @@
 				B81071C51C197FCE0058130E /* Intro */,
 				B81071CC1C197FCE0058130E /* LogIn */,
 				B81071D11C197FCE0058130E /* Main */,
+				B81071DE1C197FCE0058130E /* LTMainTabBarController.h */,
+				B81071DF1C197FCE0058130E /* LTMainTabBarController.m */,
 				B81072451C197FCE0058130E /* SignUp */,
 				B80A367D1C1DAD0000C3B226 /* Vender */,
 				B810724B1C197FCE0058130E /* Util */,
@@ -2305,8 +2307,6 @@
 			children = (
 				B81071D21C197FCE0058130E /* Discover */,
 				B81071DB1C197FCE0058130E /* Group */,
-				B81071DE1C197FCE0058130E /* LTMainTabBarController.h */,
-				B81071DF1C197FCE0058130E /* LTMainTabBarController.m */,
 				B81071E01C197FCE0058130E /* Me */,
 				B81071F01C197FCE0058130E /* ToDo */,
 			);
@@ -3294,6 +3294,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = vp.jft0m.OhShock;
 				PRODUCT_NAME = OhShock;
 				PROVISIONING_PROFILE = "d4e24f0b-3c9f-4eb9-842e-a34e26befdcd";
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)";
 			};
 			name = Debug;
 		};
@@ -3316,6 +3317,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = vp.jft0m.OhShock;
 				PRODUCT_NAME = OhShock;
 				PROVISIONING_PROFILE = "d4e24f0b-3c9f-4eb9-842e-a34e26befdcd";
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)";
 			};
 			name = Release;
 		};

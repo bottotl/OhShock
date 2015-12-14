@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 static CGFloat LTMeHeadViewHeight = 250;
+@protocol LTMeHeadDelegate;
 /**
  *  @author Lintao Yu, 15-12-08 14:12:51
  *
@@ -18,4 +19,11 @@ static CGFloat LTMeHeadViewHeight = 250;
  */
 @interface LTMeHeadView : UIImageView
 @property (nonatomic, copy) NSString *avatorUrlString;
+@property (nonatomic, weak) id<LTMeHeadDelegate> delegate;
+@end
+
+@protocol LTMeHeadDelegate <NSObject>
+@optional
+-(void)avatorOnClick;
+-(void)backgroundImageOnClick;
 @end

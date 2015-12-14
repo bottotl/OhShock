@@ -35,11 +35,16 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
+        self.userInteractionEnabled = YES;
         _userAvator = [[LTMeHeadUserImageView alloc]init];
         _userAvator.contentMode = UIViewContentModeScaleAspectFit;
         [self addSubview:_userAvator];
         
+        UITapGestureRecognizer *userAvatorTap = [UITapGestureRecognizer new];
+        [_userAvator addGestureRecognizer:userAvatorTap];
+        [[userAvatorTap rac_gestureSignal]subscribeNext:^(id x) {
+            NSLog(@"userAvatorTap");
+        }];
         _userInfo = [LTMeHeadUserInfoView new];
         [self addSubview:_userInfo];
         [_userInfo setUserName:@"jft0m"];

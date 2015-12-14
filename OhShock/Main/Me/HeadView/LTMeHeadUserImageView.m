@@ -7,7 +7,7 @@
 //
 
 #import "LTMeHeadUserImageView.h"
-
+#import "ReactiveCocoa.h"
 
 @implementation LTMeHeadUserImageView
 
@@ -24,7 +24,15 @@
     if (self) {
         self.clipsToBounds = YES;
         self.layer.cornerRadius = rect.size.height / 2;
+        self.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tapGesture = [UITapGestureRecognizer new];
+        [self addGestureRecognizer:tapGesture];
+        [[tapGesture rac_gestureSignal]subscribeNext:^(id x) {
+            NSLog(@"sda");
+        }];
     }
+    
+    
     return self;
 }
 
@@ -37,5 +45,6 @@
     frame = CGRectMake(frame.origin.x, frame.origin.y, LTMeHeadUserImageViewHeigthAndWidth, LTMeHeadUserImageViewHeigthAndWidth);
     [super setFrame:frame];
 }
+
 
 @end

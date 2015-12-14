@@ -21,6 +21,8 @@
 /// 头部的背景
 @property (nonatomic, strong) LTMeHeadView *tableViewHeader;
 
+//@property (nonatomic, strong)
+
 @end
 
 @implementation LTMeViewController
@@ -55,18 +57,29 @@
 #pragma mark tableView data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell * cell = [UITableViewCell new];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        [cell.textLabel setText:@"消息"];
+    }
+    if (indexPath.section == 0 && indexPath.row == 1) {
+        [cell.textLabel setText:@"收藏"];
+    }
+    if (indexPath.section == 0 && indexPath.row == 2) {
+        [cell.textLabel setText:@"设置"];
+    }
+    
     return cell;
     
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
+    return 1;
 }
 
 #pragma mark tableView delegate
