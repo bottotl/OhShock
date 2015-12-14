@@ -55,7 +55,7 @@
         
         [RACObserve(self.userAvator, image) subscribeNext:^(UIImage *avator) {
             self.image = avator;
-            //[self setNeedsLayout];
+            [self setNeedsLayout];
         }];
     }
     return self;

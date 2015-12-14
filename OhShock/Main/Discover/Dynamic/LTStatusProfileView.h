@@ -13,7 +13,7 @@
 /**
  *  @author Lintao Yu, 15-12-11 19:12:46
  *
- *  含有人物头像的那一栏
+ *  用户资料
  */
 @interface LTStatusProfileView : UIView
 @property (nonatomic, strong) UIImageView *avatarView; ///< 头像

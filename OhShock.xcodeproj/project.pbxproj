@@ -327,7 +327,6 @@
 		B807290A1C1AB2EA00E7802A /* xtsegment_bordor_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B80727CD1C1AB2E900E7802A /* xtsegment_bordor_left@2x.png */; };
 		B807290B1C1AB2EA00E7802A /* xtsegment_bordor_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B80727CE1C1AB2E900E7802A /* xtsegment_bordor_right@2x.png */; };
 		B807290F1C1AB5C900E7802A /* LTDiscoverTodoUserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B807290E1C1AB5C900E7802A /* LTDiscoverTodoUserImageView.m */; };
-		B80729121C1AB6E500E7802A /* LTDiscoverTodoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B80729111C1AB6E500E7802A /* LTDiscoverTodoViewCell.m */; };
 		B80A363F1C1DABC400C3B226 /* weibo_0.json in Resources */ = {isa = PBXBuildFile; fileRef = B80A36001C1DABC400C3B226 /* weibo_0.json */; };
 		B80A36401C1DABC400C3B226 /* weibo_1.json in Resources */ = {isa = PBXBuildFile; fileRef = B80A36011C1DABC400C3B226 /* weibo_1.json */; };
 		B80A36411C1DABC400C3B226 /* weibo_2.json in Resources */ = {isa = PBXBuildFile; fileRef = B80A36021C1DABC400C3B226 /* weibo_2.json */; };
@@ -336,7 +335,6 @@
 		B80A36441C1DABC400C3B226 /* weibo_5.json in Resources */ = {isa = PBXBuildFile; fileRef = B80A36051C1DABC400C3B226 /* weibo_5.json */; };
 		B80A36451C1DABC400C3B226 /* weibo_6.json in Resources */ = {isa = PBXBuildFile; fileRef = B80A36061C1DABC400C3B226 /* weibo_6.json */; };
 		B80A36461C1DABC400C3B226 /* weibo_7.json in Resources */ = {isa = PBXBuildFile; fileRef = B80A36071C1DABC400C3B226 /* weibo_7.json */; };
-		B80A36471C1DABC400C3B226 /* LTDiscoverDynamicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B80A360A1C1DABC400C3B226 /* LTDiscoverDynamicTableViewCell.m */; };
 		B80A36481C1DABC400C3B226 /* bpg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B80A360C1C1DABC400C3B226 /* bpg.framework */; };
 		B80A36491C1DABC400C3B226 /* WBEmoticonInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = B80A360E1C1DABC400C3B226 /* WBEmoticonInputView.m */; };
 		B80A364A1C1DABC400C3B226 /* WBStatusComposeTextParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B80A36101C1DABC400C3B226 /* WBStatusComposeTextParser.m */; };
@@ -344,7 +342,6 @@
 		B80A364C1C1DABC400C3B226 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B80A36131C1DABC400C3B226 /* WebP.framework */; };
 		B80A364D1C1DABC400C3B226 /* WebP.sh in Resources */ = {isa = PBXBuildFile; fileRef = B80A36141C1DABC400C3B226 /* WebP.sh */; };
 		B80A364E1C1DABC400C3B226 /* WBStatusHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B80A36171C1DABC400C3B226 /* WBStatusHelper.m */; };
-		B80A364F1C1DABC400C3B226 /* LTDiscoverDynamicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B80A36191C1DABC400C3B226 /* LTDiscoverDynamicViewController.m */; };
 		B80A36501C1DABC400C3B226 /* LTStatusCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = B80A361B1C1DABC400C3B226 /* LTStatusCardView.m */; };
 		B80A36511C1DABC400C3B226 /* LTStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B80A361D1C1DABC400C3B226 /* LTStatusCell.m */; };
 		B80A36521C1DABC400C3B226 /* LTStatusProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = B80A361F1C1DABC400C3B226 /* LTStatusProfileView.m */; };
@@ -522,6 +519,9 @@
 		B8A128461C1984B100ECA6CD /* LKDBUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A1283D1C1984B100ECA6CD /* LKDBUtils.m */; };
 		B8A128471C1984B100ECA6CD /* NSObject+LKDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A1283F1C1984B100ECA6CD /* NSObject+LKDBHelper.m */; };
 		B8A128481C1984B100ECA6CD /* NSObject+LKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A128411C1984B100ECA6CD /* NSObject+LKModel.m */; };
+		B8ADC9931C1E6F7B001ED415 /* LTDiscoverTodoView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADC9921C1E6F7B001ED415 /* LTDiscoverTodoView.m */; };
+		B8ADC9971C1E8061001ED415 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADC9961C1E8061001ED415 /* UITableView+FDTemplateLayoutCell.m */; };
+		B8ADC99A1C1E8365001ED415 /* DiscoverTodoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADC9991C1E8365001ED415 /* DiscoverTodoCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -863,8 +863,6 @@
 		B80727CE1C1AB2E900E7802A /* xtsegment_bordor_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xtsegment_bordor_right@2x.png"; sourceTree = "<group>"; };
 		B807290D1C1AB5C900E7802A /* LTDiscoverTodoUserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTDiscoverTodoUserImageView.h; sourceTree = "<group>"; };
 		B807290E1C1AB5C900E7802A /* LTDiscoverTodoUserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTDiscoverTodoUserImageView.m; sourceTree = "<group>"; };
-		B80729101C1AB6E500E7802A /* LTDiscoverTodoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTDiscoverTodoViewCell.h; sourceTree = "<group>"; };
-		B80729111C1AB6E500E7802A /* LTDiscoverTodoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTDiscoverTodoViewCell.m; sourceTree = "<group>"; };
 		B80A36001C1DABC400C3B226 /* weibo_0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_0.json; sourceTree = "<group>"; };
 		B80A36011C1DABC400C3B226 /* weibo_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_1.json; sourceTree = "<group>"; };
 		B80A36021C1DABC400C3B226 /* weibo_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_2.json; sourceTree = "<group>"; };
@@ -873,8 +871,6 @@
 		B80A36051C1DABC400C3B226 /* weibo_5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_5.json; sourceTree = "<group>"; };
 		B80A36061C1DABC400C3B226 /* weibo_6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_6.json; sourceTree = "<group>"; };
 		B80A36071C1DABC400C3B226 /* weibo_7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_7.json; sourceTree = "<group>"; };
-		B80A36091C1DABC400C3B226 /* LTDiscoverDynamicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTDiscoverDynamicTableViewCell.h; sourceTree = "<group>"; };
-		B80A360A1C1DABC400C3B226 /* LTDiscoverDynamicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTDiscoverDynamicTableViewCell.m; sourceTree = "<group>"; };
 		B80A360C1C1DABC400C3B226 /* bpg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = bpg.framework; sourceTree = "<group>"; };
 		B80A360D1C1DABC400C3B226 /* WBEmoticonInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBEmoticonInputView.h; sourceTree = "<group>"; };
 		B80A360E1C1DABC400C3B226 /* WBEmoticonInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBEmoticonInputView.m; sourceTree = "<group>"; };
@@ -886,24 +882,22 @@
 		B80A36141C1DABC400C3B226 /* WebP.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = WebP.sh; sourceTree = "<group>"; };
 		B80A36161C1DABC400C3B226 /* WBStatusHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusHelper.h; sourceTree = "<group>"; };
 		B80A36171C1DABC400C3B226 /* WBStatusHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusHelper.m; sourceTree = "<group>"; };
-		B80A36181C1DABC400C3B226 /* LTDiscoverDynamicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTDiscoverDynamicViewController.h; sourceTree = "<group>"; };
-		B80A36191C1DABC400C3B226 /* LTDiscoverDynamicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTDiscoverDynamicViewController.m; sourceTree = "<group>"; };
-		B80A361A1C1DABC400C3B226 /* LTStatusCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTStatusCardView.h; sourceTree = "<group>"; };
-		B80A361B1C1DABC400C3B226 /* LTStatusCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTStatusCardView.m; sourceTree = "<group>"; };
-		B80A361C1C1DABC400C3B226 /* LTStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTStatusCell.h; sourceTree = "<group>"; };
-		B80A361D1C1DABC400C3B226 /* LTStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTStatusCell.m; sourceTree = "<group>"; };
-		B80A361E1C1DABC400C3B226 /* LTStatusProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTStatusProfileView.h; sourceTree = "<group>"; };
-		B80A361F1C1DABC400C3B226 /* LTStatusProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTStatusProfileView.m; sourceTree = "<group>"; };
-		B80A36201C1DABC400C3B226 /* LTStatusTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTStatusTagView.h; sourceTree = "<group>"; };
-		B80A36211C1DABC400C3B226 /* LTStatusTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTStatusTagView.m; sourceTree = "<group>"; };
+		B80A361A1C1DABC400C3B226 /* LTStatusCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTStatusCardView.h; path = ../LTStatusCardView.h; sourceTree = "<group>"; };
+		B80A361B1C1DABC400C3B226 /* LTStatusCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTStatusCardView.m; path = ../LTStatusCardView.m; sourceTree = "<group>"; };
+		B80A361C1C1DABC400C3B226 /* LTStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTStatusCell.h; path = ../LTStatusCell.h; sourceTree = "<group>"; };
+		B80A361D1C1DABC400C3B226 /* LTStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTStatusCell.m; path = ../LTStatusCell.m; sourceTree = "<group>"; };
+		B80A361E1C1DABC400C3B226 /* LTStatusProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTStatusProfileView.h; path = ../LTStatusProfileView.h; sourceTree = "<group>"; };
+		B80A361F1C1DABC400C3B226 /* LTStatusProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTStatusProfileView.m; path = ../LTStatusProfileView.m; sourceTree = "<group>"; };
+		B80A36201C1DABC400C3B226 /* LTStatusTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTStatusTagView.h; path = ../LTStatusTagView.h; sourceTree = "<group>"; };
+		B80A36211C1DABC400C3B226 /* LTStatusTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTStatusTagView.m; path = ../LTStatusTagView.m; sourceTree = "<group>"; };
 		B80A36221C1DABC400C3B226 /* LTStatusTimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTStatusTimelineViewController.h; sourceTree = "<group>"; };
 		B80A36231C1DABC400C3B226 /* LTStatusTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTStatusTimelineViewController.m; sourceTree = "<group>"; };
-		B80A36241C1DABC400C3B226 /* LTStatusTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTStatusTitleView.h; sourceTree = "<group>"; };
-		B80A36251C1DABC400C3B226 /* LTStatusTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTStatusTitleView.m; sourceTree = "<group>"; };
-		B80A36261C1DABC400C3B226 /* LTStatusToolbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTStatusToolbarView.h; sourceTree = "<group>"; };
-		B80A36271C1DABC400C3B226 /* LTStatusToolbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTStatusToolbarView.m; sourceTree = "<group>"; };
-		B80A36281C1DABC400C3B226 /* LTStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTStatusView.h; sourceTree = "<group>"; };
-		B80A36291C1DABC400C3B226 /* LTStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTStatusView.m; sourceTree = "<group>"; };
+		B80A36241C1DABC400C3B226 /* LTStatusTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTStatusTitleView.h; path = ../LTStatusTitleView.h; sourceTree = "<group>"; };
+		B80A36251C1DABC400C3B226 /* LTStatusTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTStatusTitleView.m; path = ../LTStatusTitleView.m; sourceTree = "<group>"; };
+		B80A36261C1DABC400C3B226 /* LTStatusToolbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTStatusToolbarView.h; path = ../LTStatusToolbarView.h; sourceTree = "<group>"; };
+		B80A36271C1DABC400C3B226 /* LTStatusToolbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTStatusToolbarView.m; path = ../LTStatusToolbarView.m; sourceTree = "<group>"; };
+		B80A36281C1DABC400C3B226 /* LTStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTStatusView.h; path = ../LTStatusView.h; sourceTree = "<group>"; };
+		B80A36291C1DABC400C3B226 /* LTStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTStatusView.m; path = ../LTStatusView.m; sourceTree = "<group>"; };
 		B80A362B1C1DABC400C3B226 /* EmoticonQQ.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EmoticonQQ.bundle; sourceTree = "<group>"; };
 		B80A362C1C1DABC400C3B226 /* EmoticonWeibo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EmoticonWeibo.bundle; sourceTree = "<group>"; };
 		B80A362D1C1DABC400C3B226 /* ResourceWeibo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ResourceWeibo.bundle; sourceTree = "<group>"; };
@@ -1214,6 +1208,12 @@
 		B8A1283F1C1984B100ECA6CD /* NSObject+LKDBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LKDBHelper.m"; sourceTree = "<group>"; };
 		B8A128401C1984B100ECA6CD /* NSObject+LKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LKModel.h"; sourceTree = "<group>"; };
 		B8A128411C1984B100ECA6CD /* NSObject+LKModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LKModel.m"; sourceTree = "<group>"; };
+		B8ADC9911C1E6F7B001ED415 /* LTDiscoverTodoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTDiscoverTodoView.h; sourceTree = "<group>"; };
+		B8ADC9921C1E6F7B001ED415 /* LTDiscoverTodoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTDiscoverTodoView.m; sourceTree = "<group>"; };
+		B8ADC9951C1E8061001ED415 /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
+		B8ADC9961C1E8061001ED415 /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
+		B8ADC9981C1E8365001ED415 /* DiscoverTodoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverTodoCell.h; sourceTree = "<group>"; };
+		B8ADC9991C1E8365001ED415 /* DiscoverTodoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverTodoCell.m; sourceTree = "<group>"; };
 		CC12FF9DFD379A58197ACE6E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E81E092BDCF086AD6DCFC0F1 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1295,9 +1295,9 @@
 		B80726731C1AB00800E7802A /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				B8ADC9981C1E8365001ED415 /* DiscoverTodoCell.h */,
+				B8ADC9991C1E8365001ED415 /* DiscoverTodoCell.m */,
 				B807290C1C1AB54200E7802A /* View */,
-				B80729101C1AB6E500E7802A /* LTDiscoverTodoViewCell.h */,
-				B80729111C1AB6E500E7802A /* LTDiscoverTodoViewCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1837,6 +1837,8 @@
 		B807290C1C1AB54200E7802A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B8ADC9911C1E6F7B001ED415 /* LTDiscoverTodoView.h */,
+				B8ADC9921C1E6F7B001ED415 /* LTDiscoverTodoView.m */,
 				B807290D1C1AB5C900E7802A /* LTDiscoverTodoUserImageView.h */,
 				B807290E1C1AB5C900E7802A /* LTDiscoverTodoUserImageView.m */,
 			);
@@ -1850,24 +1852,8 @@
 				B80A36081C1DABC400C3B226 /* Cell */,
 				B80A360B1C1DABC400C3B226 /* Compose */,
 				B80A36151C1DABC400C3B226 /* Helper */,
-				B80A36181C1DABC400C3B226 /* LTDiscoverDynamicViewController.h */,
-				B80A36191C1DABC400C3B226 /* LTDiscoverDynamicViewController.m */,
-				B80A361A1C1DABC400C3B226 /* LTStatusCardView.h */,
-				B80A361B1C1DABC400C3B226 /* LTStatusCardView.m */,
-				B80A361C1C1DABC400C3B226 /* LTStatusCell.h */,
-				B80A361D1C1DABC400C3B226 /* LTStatusCell.m */,
-				B80A361E1C1DABC400C3B226 /* LTStatusProfileView.h */,
-				B80A361F1C1DABC400C3B226 /* LTStatusProfileView.m */,
-				B80A36201C1DABC400C3B226 /* LTStatusTagView.h */,
-				B80A36211C1DABC400C3B226 /* LTStatusTagView.m */,
 				B80A36221C1DABC400C3B226 /* LTStatusTimelineViewController.h */,
 				B80A36231C1DABC400C3B226 /* LTStatusTimelineViewController.m */,
-				B80A36241C1DABC400C3B226 /* LTStatusTitleView.h */,
-				B80A36251C1DABC400C3B226 /* LTStatusTitleView.m */,
-				B80A36261C1DABC400C3B226 /* LTStatusToolbarView.h */,
-				B80A36271C1DABC400C3B226 /* LTStatusToolbarView.m */,
-				B80A36281C1DABC400C3B226 /* LTStatusView.h */,
-				B80A36291C1DABC400C3B226 /* LTStatusView.m */,
 				B80A363D1C1DABC400C3B226 /* WBModel.h */,
 				B80A363E1C1DABC400C3B226 /* WBModel.m */,
 				B80A37801C1DAD5F00C3B226 /* WBStatusLayout.h */,
@@ -1896,8 +1882,20 @@
 		B80A36081C1DABC400C3B226 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				B80A36091C1DABC400C3B226 /* LTDiscoverDynamicTableViewCell.h */,
-				B80A360A1C1DABC400C3B226 /* LTDiscoverDynamicTableViewCell.m */,
+				B80A361C1C1DABC400C3B226 /* LTStatusCell.h */,
+				B80A361D1C1DABC400C3B226 /* LTStatusCell.m */,
+				B80A36281C1DABC400C3B226 /* LTStatusView.h */,
+				B80A36291C1DABC400C3B226 /* LTStatusView.m */,
+				B80A361A1C1DABC400C3B226 /* LTStatusCardView.h */,
+				B80A361B1C1DABC400C3B226 /* LTStatusCardView.m */,
+				B80A361E1C1DABC400C3B226 /* LTStatusProfileView.h */,
+				B80A361F1C1DABC400C3B226 /* LTStatusProfileView.m */,
+				B80A36201C1DABC400C3B226 /* LTStatusTagView.h */,
+				B80A36211C1DABC400C3B226 /* LTStatusTagView.m */,
+				B80A36241C1DABC400C3B226 /* LTStatusTitleView.h */,
+				B80A36251C1DABC400C3B226 /* LTStatusTitleView.m */,
+				B80A36261C1DABC400C3B226 /* LTStatusToolbarView.h */,
+				B80A36271C1DABC400C3B226 /* LTStatusToolbarView.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1955,6 +1953,7 @@
 		B80A367D1C1DAD0000C3B226 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				B8ADC9941C1E8061001ED415 /* FDTemplateLayoutCell */,
 				B80A367E1C1DAD0900C3B226 /* YYKit */,
 			);
 			name = Vender;
@@ -2555,6 +2554,15 @@
 			path = LKDBHelper;
 			sourceTree = "<group>";
 		};
+		B8ADC9941C1E8061001ED415 /* FDTemplateLayoutCell */ = {
+			isa = PBXGroup;
+			children = (
+				B8ADC9951C1E8061001ED415 /* UITableView+FDTemplateLayoutCell.h */,
+				B8ADC9961C1E8061001ED415 /* UITableView+FDTemplateLayoutCell.m */,
+			);
+			path = FDTemplateLayoutCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3020,7 +3028,6 @@
 				B80A37401C1DAD0900C3B226 /* UIBarButtonItem+YYAdd.m in Sources */,
 				B8A128471C1984B100ECA6CD /* NSObject+LKDBHelper.m in Sources */,
 				B80A37911C1DADB600C3B226 /* YYPhotoGroupView.m in Sources */,
-				B80729121C1AB6E500E7802A /* LTDiscoverTodoViewCell.m in Sources */,
 				B81072591C197FCE0058130E /* LTDiscoverCell.m in Sources */,
 				B80A37711C1DAD0900C3B226 /* YYTextUtilities.m in Sources */,
 				B81072881C197FCE0058130E /* XHPopMenuItemView.m in Sources */,
@@ -3036,7 +3043,7 @@
 				B80A37731C1DAD0900C3B226 /* YYTextView.m in Sources */,
 				B80A375D1C1DAD0900C3B226 /* YYWebImageOperation.m in Sources */,
 				B80A37631C1DAD0900C3B226 /* YYTextInput.m in Sources */,
-				B80A364F1C1DABC400C3B226 /* LTDiscoverDynamicViewController.m in Sources */,
+				B8ADC9971C1E8061001ED415 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				B81072721C197FCE0058130E /* JTCalendarContentView.m in Sources */,
 				B80A377E1C1DAD0900C3B226 /* YYTransaction.m in Sources */,
 				B810725E1C197FCE0058130E /* LTMeHeadUserFollowerAndFolloweeView.m in Sources */,
@@ -3104,6 +3111,7 @@
 				B80A37681C1DAD0900C3B226 /* YYTextSelectionView.m in Sources */,
 				B81072791C197FCE0058130E /* JTCalendarWeekView.m in Sources */,
 				B80A37321C1DAD0900C3B226 /* NSDate+YYAdd.m in Sources */,
+				B8ADC99A1C1E8365001ED415 /* DiscoverTodoCell.m in Sources */,
 				B80A373E1C1DAD0900C3B226 /* YYCGUtilities.m in Sources */,
 				B8A128461C1984B100ECA6CD /* LKDBUtils.m in Sources */,
 				B80A37741C1DAD0900C3B226 /* YYAsyncLayer.m in Sources */,
@@ -3112,6 +3120,7 @@
 				B80A37461C1DAD0900C3B226 /* UIGestureRecognizer+YYAdd.m in Sources */,
 				B80A37451C1DAD0900C3B226 /* UIFont+YYAdd.m in Sources */,
 				B80A37301C1DAD0900C3B226 /* NSBundle+YYAdd.m in Sources */,
+				B8ADC9931C1E6F7B001ED415 /* LTDiscoverTodoView.m in Sources */,
 				B80A36501C1DABC400C3B226 /* LTStatusCardView.m in Sources */,
 				B80A372F1C1DAD0900C3B226 /* NSArray+YYAdd.m in Sources */,
 				B810726D1C197FCE0058130E /* ScheduleFootCell.m in Sources */,
@@ -3162,7 +3171,6 @@
 				B80A37591C1DAD0900C3B226 /* YYImageCache.m in Sources */,
 				B80A37501C1DAD0900C3B226 /* YYMemoryCache.m in Sources */,
 				B80A364B1C1DABC400C3B226 /* WBStatusComposeViewController.m in Sources */,
-				B80A36471C1DABC400C3B226 /* LTDiscoverDynamicTableViewCell.m in Sources */,
 				B81072861C197FCE0058130E /* XHPopMenu.m in Sources */,
 				B81071B01C197F6F0058130E /* main.m in Sources */,
 			);

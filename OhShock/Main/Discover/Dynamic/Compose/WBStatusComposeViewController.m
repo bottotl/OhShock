@@ -62,7 +62,7 @@
 - (void)_initNavBar {
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(_cancel)];
     [button setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:16],
-                                     NSForegroundColorAttributeName : UIColorHex(4c4c4c)} forState:UIControlStateNormal];
+                                     NSForegroundColorAttributeName : [UIColor whiteColor]} forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = button;
     
     switch (_type) {
@@ -84,7 +84,7 @@
     if (kSystemVersion < 7) _textView.top = -64;
     _textView.size = CGSizeMake(self.view.width, self.view.height);
     _textView.textContainerInset = UIEdgeInsetsMake(12, 16, 12, 16);
-    _textView.contentInset = UIEdgeInsetsMake(64, 0, kToolbarHeight, 0);
+    //_textView.contentInset = UIEdgeInsetsMake(64, 0, kToolbarHeight, 0);
     _textView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _textView.extraAccessoryViewHeight = kToolbarHeight;
     _textView.showsVerticalScrollIndicator = NO;

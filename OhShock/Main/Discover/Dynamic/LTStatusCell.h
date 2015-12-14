@@ -19,7 +19,11 @@
 @class WBStatusLayout;
 
 @protocol LTStatusCellDelegate;
-
+/**
+ *  @author Lintao Yu, 15-12-14 10:12:27
+ *
+ *  只是用来包含 LTStatusView 的一个容器，以便展示
+ */
 @interface LTStatusCell : YYTableViewCell
 @property (nonatomic, weak) id<LTStatusCellDelegate> delegate;
 @property (nonatomic, strong) LTStatusView *statusView;

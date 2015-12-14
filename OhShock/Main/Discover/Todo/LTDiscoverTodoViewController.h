@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LTDiscoverTodoViewController : UIViewController
+@interface LTDiscoverTodoViewController : UITableViewController
 
 @end

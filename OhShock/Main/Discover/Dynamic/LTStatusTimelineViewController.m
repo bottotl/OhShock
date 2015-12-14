@@ -16,6 +16,7 @@
 #import "WBStatusComposeViewController.h"
 #import "YYPhotoGroupView.h"
 #import "YYFPSLabel.h"
+
 @interface LTStatusTimelineViewController ()<UITableViewDelegate, UITableViewDataSource, LTStatusCellDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *layouts;
@@ -50,8 +51,8 @@
     self.navigationItem.rightBarButtonItem = rightItem;
     
     _tableView.frame = self.view.bounds;
-    _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
-    _tableView.scrollIndicatorInsets = _tableView.contentInset;
+    //_tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    //_tableView.scrollIndicatorInsets = _tableView.contentInset;
     _tableView.backgroundColor = [UIColor clearColor];
     _tableView.backgroundView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:_tableView];

@@ -31,14 +31,16 @@
     self.tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    //RDVTabBarController *mainTabBar = self.tabBarController
-    self.tableView.size = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - self.topLayoutGuide.length);
+    self.tableView.size = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
     
     [self.view addSubview:self.tableView];
+    self.tableView.top = 0;
+    self.tableView.left = self.view.left;
+    
     self.tableViewHeader = [LTMeHeadView new];
     self.tableViewHeader.contentMode = UIViewContentModeScaleAspectFill;
     self.tableViewHeader.avatorUrlString = @"https://coding.net//static/fruit_avatar/Fruit-2.png";
-    [self.tableView addParallaxWithView:self.tableViewHeader andHeight:180];
+    [self.tableView addParallaxWithView:self.tableViewHeader andHeight:LTMeHeadViewHeight];
     
     _refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
     [_refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
@@ -48,15 +50,7 @@
     self.title = @"我";
 }
 
-#pragma mark - layout
 
-- (void)viewDidLayoutSubviews{
-    self.tableView.top = self.topLayoutGuide.length;
-    self.tableView.left = self.view.left;
-    
-    //NSLog(@"bottomLayoutGuide:%@",self.bottomLayoutGuide);
-    //self.tableView.bottom = self.bottomLayoutGuide.length;
-}
 #pragma mark -
 #pragma mark tableView data source
 

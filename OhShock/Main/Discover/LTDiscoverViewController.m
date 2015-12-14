@@ -10,7 +10,6 @@
 #import "UIView+Layout.h"
 #import "LTDiscoverCell.h"
 #import "Masonry.h"
-#import "LTDiscoverDynamicViewController.h"
 #import "LTDiscoverTodoViewController.h"
 #import "LTStatusTimelineViewController.h"
 
@@ -18,7 +17,7 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *dataSource;
-@property (nonatomic, strong) LTDiscoverDynamicViewController *dynamicViewController;
+@property (nonatomic, strong) LTStatusTimelineViewController *dynamicViewController;
 @property (nonatomic, strong) LTDiscoverTodoViewController *todoViewController;
 
 @end
@@ -28,9 +27,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    _dynamicViewController = [LTDiscoverDynamicViewController new];
     _todoViewController = [LTDiscoverTodoViewController new];
-    
+    _dynamicViewController = [LTStatusTimelineViewController new];
     self.tableView  = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -99,7 +97,6 @@
     }
     if (indexPath.section == 2) {
         if (indexPath.row == 0) {
-            [self.navigationController pushViewController:[LTStatusTimelineViewController new] animated:YES];
         }
     }
 }

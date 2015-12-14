@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-static CGFloat LTMeHeadViewHeight = 180;
+static CGFloat LTMeHeadViewHeight = 250;
 /**
  *  @author Lintao Yu, 15-12-08 14:12:51
  *
