@@ -20,6 +20,6 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    self.title = @"所有模式";
+    self.parentViewController.title = @"所有模式";
 }
 @end

@@ -504,14 +504,21 @@
 		B810728D1C197FCE0058130E /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = B81072511C197FCE0058130E /* UIImage+Common.m */; };
 		B810728E1C197FCE0058130E /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = B81072531C197FCE0058130E /* UIView+Layout.m */; };
 		B85801151C1A849E00786143 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85801121C1A849E00786143 /* AVOSCloud.framework */; };
-		B85801161C1A849E00786143 /* AVOSCloudCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85801131C1A849E00786143 /* AVOSCloudCrashReporting.framework */; };
-		B85801171C1A849E00786143 /* AVOSCloudIM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85801141C1A849E00786143 /* AVOSCloudIM.framework */; };
-		B85801181C1A84C300786143 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85801121C1A849E00786143 /* AVOSCloud.framework */; };
 		B85801191C1A84C300786143 /* AVOSCloud.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B85801121C1A849E00786143 /* AVOSCloud.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B858011A1C1A84C300786143 /* AVOSCloudCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85801131C1A849E00786143 /* AVOSCloudCrashReporting.framework */; };
 		B858011B1C1A84C300786143 /* AVOSCloudCrashReporting.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B85801131C1A849E00786143 /* AVOSCloudCrashReporting.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B858011C1C1A84C300786143 /* AVOSCloudIM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85801141C1A849E00786143 /* AVOSCloudIM.framework */; };
 		B858011D1C1A84C300786143 /* AVOSCloudIM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B85801141C1A849E00786143 /* AVOSCloudIM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B87677BB1C1FC7FE00A0795B /* LTLogOutService.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677BA1C1FC7FE00A0795B /* LTLogOutService.m */; };
+		B87677BF1C1FCEB800A0795B /* LTAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677BE1C1FCEB800A0795B /* LTAddFriendViewController.m */; };
+		B87677C21C1FE12600A0795B /* LTLiteUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677C11C1FE12600A0795B /* LTLiteUserModel.m */; };
+		B87677C61C1FE1B700A0795B /* LTLiteUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677C51C1FE1B700A0795B /* LTLiteUserCell.m */; };
+		B87677C91C1FE32800A0795B /* LTUserSearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677C81C1FE32800A0795B /* LTUserSearchService.m */; };
+		B87677D01C1FEC9900A0795B /* UISearchBar+RACSignalSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677CF1C1FEC9900A0795B /* UISearchBar+RACSignalSupport.m */; };
+		B87677D31C20054D00A0795B /* LTUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677D21C20054D00A0795B /* LTUserInfoViewController.m */; };
+		B87677D71C2005C700A0795B /* LTUserInfoHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677D61C2005C700A0795B /* LTUserInfoHeadView.m */; };
+		B87677DA1C2012BE00A0795B /* LTUserInfoFollowButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677D91C2012BE00A0795B /* LTUserInfoFollowButton.m */; };
+		B87677DD1C2015C300A0795B /* LTUserInfoSendMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677DC1C2015C300A0795B /* LTUserInfoSendMessageCell.m */; };
 		B8A128421C1984B100ECA6CD /* LKAlarmEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A128341C1984B100ECA6CD /* LKAlarmEvent.m */; };
 		B8A128431C1984B100ECA6CD /* LKAlarmMamager.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A128361C1984B100ECA6CD /* LKAlarmMamager.m */; };
 		B8A128441C1984B100ECA6CD /* LKDB+Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A128391C1984B100ECA6CD /* LKDB+Mapping.m */; };
@@ -522,6 +529,8 @@
 		B8ADC9931C1E6F7B001ED415 /* LTDiscoverTodoView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADC9921C1E6F7B001ED415 /* LTDiscoverTodoView.m */; };
 		B8ADC9971C1E8061001ED415 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADC9961C1E8061001ED415 /* UITableView+FDTemplateLayoutCell.m */; };
 		B8ADC99A1C1E8365001ED415 /* DiscoverTodoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADC9991C1E8365001ED415 /* DiscoverTodoCell.m */; };
+		B8ADC9C21C1ED989001ED415 /* LTMeSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADC9C11C1ED989001ED415 /* LTMeSettingViewController.m */; };
+		B8ADC9C61C1EDE44001ED415 /* LTMeLogOutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADC9C51C1EDE44001ED415 /* LTMeLogOutCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -1194,6 +1203,26 @@
 		B85801121C1A849E00786143 /* AVOSCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloud.framework; sourceTree = "<group>"; };
 		B85801131C1A849E00786143 /* AVOSCloudCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloudCrashReporting.framework; sourceTree = "<group>"; };
 		B85801141C1A849E00786143 /* AVOSCloudIM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloudIM.framework; sourceTree = "<group>"; };
+		B87677B91C1FC7FE00A0795B /* LTLogOutService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTLogOutService.h; sourceTree = "<group>"; };
+		B87677BA1C1FC7FE00A0795B /* LTLogOutService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTLogOutService.m; sourceTree = "<group>"; };
+		B87677BD1C1FCEB800A0795B /* LTAddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTAddFriendViewController.h; sourceTree = "<group>"; };
+		B87677BE1C1FCEB800A0795B /* LTAddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTAddFriendViewController.m; sourceTree = "<group>"; };
+		B87677C01C1FE12600A0795B /* LTLiteUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTLiteUserModel.h; sourceTree = "<group>"; };
+		B87677C11C1FE12600A0795B /* LTLiteUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTLiteUserModel.m; sourceTree = "<group>"; };
+		B87677C41C1FE1B700A0795B /* LTLiteUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTLiteUserCell.h; path = Cell/LTLiteUserCell.h; sourceTree = "<group>"; };
+		B87677C51C1FE1B700A0795B /* LTLiteUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTLiteUserCell.m; path = Cell/LTLiteUserCell.m; sourceTree = "<group>"; };
+		B87677C71C1FE32800A0795B /* LTUserSearchService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTUserSearchService.h; sourceTree = "<group>"; };
+		B87677C81C1FE32800A0795B /* LTUserSearchService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTUserSearchService.m; sourceTree = "<group>"; };
+		B87677CE1C1FEC9900A0795B /* UISearchBar+RACSignalSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISearchBar+RACSignalSupport.h"; sourceTree = "<group>"; };
+		B87677CF1C1FEC9900A0795B /* UISearchBar+RACSignalSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISearchBar+RACSignalSupport.m"; sourceTree = "<group>"; };
+		B87677D11C20054D00A0795B /* LTUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTUserInfoViewController.h; sourceTree = "<group>"; };
+		B87677D21C20054D00A0795B /* LTUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTUserInfoViewController.m; sourceTree = "<group>"; };
+		B87677D51C2005C700A0795B /* LTUserInfoHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTUserInfoHeadView.h; sourceTree = "<group>"; };
+		B87677D61C2005C700A0795B /* LTUserInfoHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTUserInfoHeadView.m; sourceTree = "<group>"; };
+		B87677D81C2012BE00A0795B /* LTUserInfoFollowButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTUserInfoFollowButton.h; sourceTree = "<group>"; };
+		B87677D91C2012BE00A0795B /* LTUserInfoFollowButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTUserInfoFollowButton.m; sourceTree = "<group>"; };
+		B87677DB1C2015C300A0795B /* LTUserInfoSendMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTUserInfoSendMessageCell.h; sourceTree = "<group>"; };
+		B87677DC1C2015C300A0795B /* LTUserInfoSendMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTUserInfoSendMessageCell.m; sourceTree = "<group>"; };
 		B8A128331C1984B100ECA6CD /* LKAlarmEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKAlarmEvent.h; sourceTree = "<group>"; };
 		B8A128341C1984B100ECA6CD /* LKAlarmEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKAlarmEvent.m; sourceTree = "<group>"; };
 		B8A128351C1984B100ECA6CD /* LKAlarmMamager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKAlarmMamager.h; sourceTree = "<group>"; };
@@ -1214,6 +1243,10 @@
 		B8ADC9961C1E8061001ED415 /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
 		B8ADC9981C1E8365001ED415 /* DiscoverTodoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverTodoCell.h; sourceTree = "<group>"; };
 		B8ADC9991C1E8365001ED415 /* DiscoverTodoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverTodoCell.m; sourceTree = "<group>"; };
+		B8ADC9C01C1ED989001ED415 /* LTMeSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMeSettingViewController.h; sourceTree = "<group>"; };
+		B8ADC9C11C1ED989001ED415 /* LTMeSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMeSettingViewController.m; sourceTree = "<group>"; };
+		B8ADC9C41C1EDE44001ED415 /* LTMeLogOutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMeLogOutCell.h; sourceTree = "<group>"; };
+		B8ADC9C51C1EDE44001ED415 /* LTMeLogOutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMeLogOutCell.m; sourceTree = "<group>"; };
 		CC12FF9DFD379A58197ACE6E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E81E092BDCF086AD6DCFC0F1 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1237,14 +1270,11 @@
 				B80A36651C1DAC0900C3B226 /* libsqlite3.0.tbd in Frameworks */,
 				B80A36631C1DABF100C3B226 /* libz.1.2.5.tbd in Frameworks */,
 				B858011A1C1A84C300786143 /* AVOSCloudCrashReporting.framework in Frameworks */,
-				B85801161C1A849E00786143 /* AVOSCloudCrashReporting.framework in Frameworks */,
 				B80A36481C1DABC400C3B226 /* bpg.framework in Frameworks */,
 				A03A18FF2EB78C95668E7DBE /* Pods.framework in Frameworks */,
 				B85801151C1A849E00786143 /* AVOSCloud.framework in Frameworks */,
 				B858011C1C1A84C300786143 /* AVOSCloudIM.framework in Frameworks */,
 				B80A364C1C1DABC400C3B226 /* WebP.framework in Frameworks */,
-				B85801171C1A849E00786143 /* AVOSCloudIM.framework in Frameworks */,
-				B85801181C1A84C300786143 /* AVOSCloud.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1271,6 +1301,7 @@
 				E81E092BDCF086AD6DCFC0F1 /* Pods.framework */,
 			);
 			name = Frameworks;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		B08F36B2DD64CD5785D60B66 /* Pods */ = {
@@ -1280,6 +1311,7 @@
 				300A93546D8F50917E3CF4A3 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		B807266F1C1AAF0F00E7802A /* Todo */ = {
@@ -1953,6 +1985,11 @@
 		B80A367D1C1DAD0000C3B226 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				B810720C1C197FCE0058130E /* JTCalender */,
+				B8A128311C1984B100ECA6CD /* LKAlarmManager */,
+				B8A128371C1984B100ECA6CD /* LKDBHelper */,
+				B81072091C197FCE0058130E /* DWBubbleMenuButton */,
+				B810723D1C197FCE0058130E /* XHPopMenu */,
 				B8ADC9941C1E8061001ED415 /* FDTemplateLayoutCell */,
 				B80A367E1C1DAD0900C3B226 /* YYKit */,
 			);
@@ -2230,18 +2267,15 @@
 		B81071A21C197F6F0058130E = {
 			isa = PBXGroup;
 			children = (
+				B81071DE1C197FCE0058130E /* LTMainTabBarController.h */,
+				B81071DF1C197FCE0058130E /* LTMainTabBarController.m */,
 				B81071C51C197FCE0058130E /* Intro */,
 				B81071CC1C197FCE0058130E /* LogIn */,
 				B81071D11C197FCE0058130E /* Main */,
-				B81071DE1C197FCE0058130E /* LTMainTabBarController.h */,
-				B81071DF1C197FCE0058130E /* LTMainTabBarController.m */,
 				B81072451C197FCE0058130E /* SignUp */,
 				B80A367D1C1DAD0000C3B226 /* Vender */,
 				B810724B1C197FCE0058130E /* Util */,
 				B81071AD1C197F6F0058130E /* OhShock */,
-				B81071AC1C197F6F0058130E /* Products */,
-				B08F36B2DD64CD5785D60B66 /* Pods */,
-				990138DB27251E8B57111D83 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2251,6 +2285,7 @@
 				B81071AB1C197F6F0058130E /* OhShock.app */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		B81071AD1C197F6F0058130E /* OhShock */ = {
@@ -2263,6 +2298,9 @@
 				B81071BA1C197F700058130E /* Assets.xcassets */,
 				B81071BC1C197F700058130E /* LaunchScreen.storyboard */,
 				B81071BF1C197F700058130E /* Info.plist */,
+				B81071AC1C197F6F0058130E /* Products */,
+				990138DB27251E8B57111D83 /* Frameworks */,
+				B08F36B2DD64CD5785D60B66 /* Pods */,
 				B81071AE1C197F6F0058130E /* Supporting Files */,
 			);
 			path = OhShock;
@@ -2347,11 +2385,16 @@
 		B81071E01C197FCE0058130E /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				B8ADC9C31C1EDDD7001ED415 /* Cell */,
 				B81071E11C197FCE0058130E /* HeadView */,
 				B81071EC1C197FCE0058130E /* LTMeViewController.h */,
 				B81071ED1C197FCE0058130E /* LTMeViewController.m */,
 				B81071EE1C197FCE0058130E /* LTMeViewModel.h */,
 				B81071EF1C197FCE0058130E /* LTMeViewModel.m */,
+				B8ADC9C01C1ED989001ED415 /* LTMeSettingViewController.h */,
+				B8ADC9C11C1ED989001ED415 /* LTMeSettingViewController.m */,
+				B87677B91C1FC7FE00A0795B /* LTLogOutService.h */,
+				B87677BA1C1FC7FE00A0795B /* LTLogOutService.m */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -2376,11 +2419,8 @@
 		B81071F01C197FCE0058130E /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
-				B8A128311C1984B100ECA6CD /* LKAlarmManager */,
-				B8A128371C1984B100ECA6CD /* LKDBHelper */,
+				B87677BC1C1FCE3A00A0795B /* AddFriend */,
 				B81071F11C197FCE0058130E /* Cell */,
-				B81072091C197FCE0058130E /* DWBubbleMenuButton */,
-				B810720C1C197FCE0058130E /* JTCalender */,
 				B81072351C197FCE0058130E /* LTTodoAllStyleViewController.h */,
 				B81072361C197FCE0058130E /* LTTodoAllStyleViewController.m */,
 				B81072371C197FCE0058130E /* LTTodoCalenderStyleViewController.h */,
@@ -2389,7 +2429,6 @@
 				B810723A1C197FCE0058130E /* LTTodoTypeStyleViewController.m */,
 				B810723B1C197FCE0058130E /* LTTodoViewController.h */,
 				B810723C1C197FCE0058130E /* LTTodoViewController.m */,
-				B810723D1C197FCE0058130E /* XHPopMenu */,
 			);
 			path = ToDo;
 			sourceTree = "<group>";
@@ -2413,7 +2452,8 @@
 				B810720A1C197FCE0058130E /* DWBubbleMenuButton.h */,
 				B810720B1C197FCE0058130E /* DWBubbleMenuButton.m */,
 			);
-			path = DWBubbleMenuButton;
+			name = DWBubbleMenuButton;
+			path = ../Main/ToDo/DWBubbleMenuButton;
 			sourceTree = "<group>";
 		};
 		B810720C1C197FCE0058130E /* JTCalender */ = {
@@ -2443,7 +2483,8 @@
 				B81072221C197FCE0058130E /* JTCircleView.h */,
 				B81072231C197FCE0058130E /* JTCircleView.m */,
 			);
-			path = JTCalender;
+			name = JTCalender;
+			path = ../Main/ToDo/JTCalender;
 			sourceTree = "<group>";
 		};
 		B810723D1C197FCE0058130E /* XHPopMenu */ = {
@@ -2456,7 +2497,8 @@
 				B81072421C197FCE0058130E /* XHPopMenuItemView.h */,
 				B81072431C197FCE0058130E /* XHPopMenuItemView.m */,
 			);
-			path = XHPopMenu;
+			name = XHPopMenu;
+			path = ../Main/ToDo/XHPopMenu;
 			sourceTree = "<group>";
 		};
 		B81072451C197FCE0058130E /* SignUp */ = {
@@ -2502,6 +2544,8 @@
 				B81072511C197FCE0058130E /* UIImage+Common.m */,
 				B81072521C197FCE0058130E /* UIView+Layout.h */,
 				B81072531C197FCE0058130E /* UIView+Layout.m */,
+				B87677CE1C1FEC9900A0795B /* UISearchBar+RACSignalSupport.h */,
+				B87677CF1C1FEC9900A0795B /* UISearchBar+RACSignalSupport.m */,
 			);
 			name = Util;
 			path = OhShock/Util;
@@ -2518,12 +2562,44 @@
 			path = OhShock/Frameworks/AVOSCloud;
 			sourceTree = "<group>";
 		};
+		B87677BC1C1FCE3A00A0795B /* AddFriend */ = {
+			isa = PBXGroup;
+			children = (
+				B87677D41C20059200A0795B /* HeadView */,
+				B87677C41C1FE1B700A0795B /* LTLiteUserCell.h */,
+				B87677C51C1FE1B700A0795B /* LTLiteUserCell.m */,
+				B87677BD1C1FCEB800A0795B /* LTAddFriendViewController.h */,
+				B87677BE1C1FCEB800A0795B /* LTAddFriendViewController.m */,
+				B87677C01C1FE12600A0795B /* LTLiteUserModel.h */,
+				B87677C11C1FE12600A0795B /* LTLiteUserModel.m */,
+				B87677C71C1FE32800A0795B /* LTUserSearchService.h */,
+				B87677C81C1FE32800A0795B /* LTUserSearchService.m */,
+				B87677D11C20054D00A0795B /* LTUserInfoViewController.h */,
+				B87677D21C20054D00A0795B /* LTUserInfoViewController.m */,
+				B87677DB1C2015C300A0795B /* LTUserInfoSendMessageCell.h */,
+				B87677DC1C2015C300A0795B /* LTUserInfoSendMessageCell.m */,
+			);
+			path = AddFriend;
+			sourceTree = "<group>";
+		};
+		B87677D41C20059200A0795B /* HeadView */ = {
+			isa = PBXGroup;
+			children = (
+				B87677D51C2005C700A0795B /* LTUserInfoHeadView.h */,
+				B87677D61C2005C700A0795B /* LTUserInfoHeadView.m */,
+				B87677D81C2012BE00A0795B /* LTUserInfoFollowButton.h */,
+				B87677D91C2012BE00A0795B /* LTUserInfoFollowButton.m */,
+			);
+			path = HeadView;
+			sourceTree = "<group>";
+		};
 		B8A128311C1984B100ECA6CD /* LKAlarmManager */ = {
 			isa = PBXGroup;
 			children = (
 				B8A128321C1984B100ECA6CD /* LKAlarmManager */,
 			);
-			path = LKAlarmManager;
+			name = LKAlarmManager;
+			path = ../Main/ToDo/LKAlarmManager;
 			sourceTree = "<group>";
 		};
 		B8A128321C1984B100ECA6CD /* LKAlarmManager */ = {
@@ -2551,7 +2627,8 @@
 				B8A128401C1984B100ECA6CD /* NSObject+LKModel.h */,
 				B8A128411C1984B100ECA6CD /* NSObject+LKModel.m */,
 			);
-			path = LKDBHelper;
+			name = LKDBHelper;
+			path = ../Main/ToDo/LKDBHelper;
 			sourceTree = "<group>";
 		};
 		B8ADC9941C1E8061001ED415 /* FDTemplateLayoutCell */ = {
@@ -2561,6 +2638,15 @@
 				B8ADC9961C1E8061001ED415 /* UITableView+FDTemplateLayoutCell.m */,
 			);
 			path = FDTemplateLayoutCell;
+			sourceTree = "<group>";
+		};
+		B8ADC9C31C1EDDD7001ED415 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B8ADC9C41C1EDE44001ED415 /* LTMeLogOutCell.h */,
+				B8ADC9C51C1EDE44001ED415 /* LTMeLogOutCell.m */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3016,9 +3102,12 @@
 			files = (
 				B81072741C197FCE0058130E /* JTCalendarDayView.m in Sources */,
 				B81072551C197FCE0058130E /* IFTTTJazzHandsViewController.m in Sources */,
+				B87677C91C1FE32800A0795B /* LTUserSearchService.m in Sources */,
 				B81072561C197FCE0058130E /* IntroductionViewController.m in Sources */,
+				B87677BF1C1FCEB800A0795B /* LTAddFriendViewController.m in Sources */,
 				B80A374E1C1DAD0900C3B226 /* YYDiskCache.m in Sources */,
 				B80A37481C1DAD0900C3B226 /* UIScreen+YYAdd.m in Sources */,
+				B8ADC9C21C1ED989001ED415 /* LTMeSettingViewController.m in Sources */,
 				B81072631C197FCE0058130E /* LTMeViewController.m in Sources */,
 				B80A373C1C1DAD0900C3B226 /* NSTimer+YYAdd.m in Sources */,
 				B80A374C1C1DAD0900C3B226 /* UIView+YYAdd.m in Sources */,
@@ -3026,6 +3115,8 @@
 				B80A37571C1DAD0900C3B226 /* YYFrameImage.m in Sources */,
 				B81072601C197FCE0058130E /* LTMeHeadUserImageView.m in Sources */,
 				B80A37401C1DAD0900C3B226 /* UIBarButtonItem+YYAdd.m in Sources */,
+				B87677DA1C2012BE00A0795B /* LTUserInfoFollowButton.m in Sources */,
+				B87677BB1C1FC7FE00A0795B /* LTLogOutService.m in Sources */,
 				B8A128471C1984B100ECA6CD /* NSObject+LKDBHelper.m in Sources */,
 				B80A37911C1DADB600C3B226 /* YYPhotoGroupView.m in Sources */,
 				B81072591C197FCE0058130E /* LTDiscoverCell.m in Sources */,
@@ -3045,7 +3136,9 @@
 				B80A37631C1DAD0900C3B226 /* YYTextInput.m in Sources */,
 				B8ADC9971C1E8061001ED415 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				B81072721C197FCE0058130E /* JTCalendarContentView.m in Sources */,
+				B87677C21C1FE12600A0795B /* LTLiteUserModel.m in Sources */,
 				B80A377E1C1DAD0900C3B226 /* YYTransaction.m in Sources */,
+				B87677D01C1FEC9900A0795B /* UISearchBar+RACSignalSupport.m in Sources */,
 				B810725E1C197FCE0058130E /* LTMeHeadUserFollowerAndFolloweeView.m in Sources */,
 				B80A37781C1DAD0900C3B226 /* YYKeychain.m in Sources */,
 				B80A37581C1DAD0900C3B226 /* YYImage.m in Sources */,
@@ -3055,6 +3148,7 @@
 				B80A364A1C1DABC400C3B226 /* WBStatusComposeTextParser.m in Sources */,
 				B80A375A1C1DAD0900C3B226 /* YYImageCoder.m in Sources */,
 				B80A375F1C1DAD0900C3B226 /* YYClassInfo.m in Sources */,
+				B87677D31C20054D00A0795B /* LTUserInfoViewController.m in Sources */,
 				B8A128431C1984B100ECA6CD /* LKAlarmMamager.m in Sources */,
 				B81072831C197FCE0058130E /* LTTodoCalenderStyleViewController.m in Sources */,
 				B80A376C1C1DAD0900C3B226 /* YYTextArchiver.m in Sources */,
@@ -3106,9 +3200,11 @@
 				B80A374F1C1DAD0900C3B226 /* YYKVStorage.m in Sources */,
 				B81072771C197FCE0058130E /* JTCalendarMonthView.m in Sources */,
 				B80A36531C1DABC400C3B226 /* LTStatusTagView.m in Sources */,
+				B87677D71C2005C700A0795B /* LTUserInfoHeadView.m in Sources */,
 				B80A37371C1DAD0900C3B226 /* NSObject+YYAdd.m in Sources */,
 				B8A128481C1984B100ECA6CD /* NSObject+LKModel.m in Sources */,
 				B80A37681C1DAD0900C3B226 /* YYTextSelectionView.m in Sources */,
+				B8ADC9C61C1EDE44001ED415 /* LTMeLogOutCell.m in Sources */,
 				B81072791C197FCE0058130E /* JTCalendarWeekView.m in Sources */,
 				B80A37321C1DAD0900C3B226 /* NSDate+YYAdd.m in Sources */,
 				B8ADC99A1C1E8365001ED415 /* DiscoverTodoCell.m in Sources */,
@@ -3134,6 +3230,7 @@
 				B80A37761C1DAD0900C3B226 /* YYFileHash.m in Sources */,
 				B80A376A1C1DAD0900C3B226 /* NSParagraphStyle+YYText.m in Sources */,
 				B810727A1C197FCE0058130E /* JTCircleView.m in Sources */,
+				B87677C61C1FE1B700A0795B /* LTLiteUserCell.m in Sources */,
 				B81072821C197FCE0058130E /* LTTodoAllStyleViewController.m in Sources */,
 				B8A128441C1984B100ECA6CD /* LKDB+Mapping.m in Sources */,
 				B80A364E1C1DABC400C3B226 /* WBStatusHelper.m in Sources */,
@@ -3142,6 +3239,7 @@
 				B80A37791C1DAD0900C3B226 /* YYReachability.m in Sources */,
 				B80A37901C1DADB600C3B226 /* YYFPSLabel.m in Sources */,
 				B80A37611C1DAD0900C3B226 /* YYTextDebugOption.m in Sources */,
+				B87677DD1C2015C300A0795B /* LTUserInfoSendMessageCell.m in Sources */,
 				B81072751C197FCE0058130E /* JTCalendarMenuMonthView.m in Sources */,
 				B80A36551C1DABC400C3B226 /* LTStatusTitleView.m in Sources */,
 				B80A36521C1DABC400C3B226 /* LTStatusProfileView.m in Sources */,
@@ -3284,7 +3382,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/AVOSCloud",
 					"$(PROJECT_DIR)/OhShock/Frameworks/AVOSCloud",
 					"$(PROJECT_DIR)/OhShock/Main/Discover/Dynamic/Compose",
 				);
@@ -3307,7 +3404,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/AVOSCloud",
 					"$(PROJECT_DIR)/OhShock/Frameworks/AVOSCloud",
 					"$(PROJECT_DIR)/OhShock/Main/Discover/Dynamic/Compose",
 				);

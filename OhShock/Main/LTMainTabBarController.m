@@ -28,6 +28,7 @@
     [super viewDidLoad];
     //  这个是用来包含3个
     _todoTabBarController = [LTTodoViewController new];
+    UINavigationController *todoViewNavigationController = [[UINavigationController alloc]initWithRootViewController:_todoTabBarController];
     
     _groupViewController = [LTGroupViewController new];
     UINavigationController *groupViewNavigationController = [[UINavigationController alloc]initWithRootViewController:_groupViewController];
@@ -37,7 +38,7 @@
     
     _meViewController = [LTMeViewController new];
     UINavigationController *meViewNavigationController = [[UINavigationController alloc]initWithRootViewController:_meViewController];
-    self.viewControllers = @[_todoTabBarController,groupViewNavigationController,discoverViewNavigationController,meViewNavigationController];
+    self.viewControllers = @[todoViewNavigationController,groupViewNavigationController,discoverViewNavigationController,meViewNavigationController];
     [self setSelectedIndex:0];
     
     [self customizeTabBarForController];

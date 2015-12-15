@@ -15,8 +15,8 @@
     AVUser *user = [AVUser new];
     user.username = account;
     user.password = password;
-    user.email = email;
-    [user setObject:phone forKey:@"phone"];
+    //user.email = email;
+    //[user setObject:phone forKey:@"phone"];
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (completeBlock) {
             completeBlock(succeeded,error);

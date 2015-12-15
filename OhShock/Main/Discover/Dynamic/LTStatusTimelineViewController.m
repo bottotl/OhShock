@@ -73,14 +73,14 @@
     
     
     self.navigationController.view.userInteractionEnabled = NO;
-    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    indicator.size = CGSizeMake(80, 80);
-    indicator.center = CGPointMake(self.view.width / 2, self.view.height / 2);
-    indicator.backgroundColor = [UIColor colorWithWhite:0.000 alpha:0.670];
-    indicator.clipsToBounds = YES;
-    indicator.layer.cornerRadius = 6;
-    [indicator startAnimating];
-    [self.view addSubview:indicator];
+//    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+//    indicator.size = CGSizeMake(80, 80);
+//    indicator.center = CGPointMake(self.view.width / 2, self.view.height / 2);
+//    indicator.backgroundColor = [UIColor colorWithWhite:0.000 alpha:0.670];
+//    indicator.clipsToBounds = YES;
+//    indicator.layer.cornerRadius = 6;
+//    [indicator startAnimating];
+//    [self.view addSubview:indicator];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         for (int i = 0; i <= 7; i++) {
@@ -98,7 +98,7 @@
         
         dispatch_async(dispatch_get_main_queue(), ^{
             self.title = [NSString stringWithFormat:@"Weibo (loaded:%d)", (int)_layouts.count];;
-            [indicator removeFromSuperview];
+            //[indicator removeFromSuperview];
             self.navigationController.view.userInteractionEnabled = YES;
             [_tableView reloadData];
         });

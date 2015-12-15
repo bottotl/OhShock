@@ -37,4 +37,5 @@ typedef void (^LTLogInResponse)(AVUser *user, NSError *error);
  */
 - (void)logInWithAccount:(NSString *)account password:(NSString *)password complete:(LTLogInResponse)completeBlock;
 
+
 @end

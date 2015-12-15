@@ -1,54 +1,38 @@
 //
-//  LTMeViewController.m
+//  LTUserInfoViewController.m
 //  OhShock
 //
-//  Created by Lintao.Yu on 12/7/15.
-//  Copyright © 2015 Lintao Yu. All rights reserved.
+//  Created by Lintao.Yu on 15/12/15.
+//  Copyright © 2015年 Lintao Yu. All rights reserved.
 //
 
-#import "LTMeViewController.h"
+#import "LTUserInfoViewController.h"
+#import "LTUserInfoHeadView.h"
 #import "UIView+Layout.h"
 #import "UIScrollView+APParallaxHeader.h"
 #import "UIImage+Common.h"
 #import "ODRefreshControl.h"
-#import "LTMeHeadView.h"
 #import "YYPhotoGroupView.h"
-#import "LTMeSettingViewController.h"
+#import "LTUserInfoSendMessageCell.h"
 
-@interface LTMeViewController ()<UITableViewDataSource,UITableViewDelegate>
-
-@property (nonatomic, strong) UITableView *tableView;
-/// 刷新头
-@property (strong, nonatomic) ODRefreshControl *refreshControl;
+@interface LTUserInfoViewController ()
 /// 头部的背景
-@property (nonatomic, strong) LTMeHeadView *tableViewHeader;
-
-//@property (nonatomic, strong)
-
+@property (nonatomic, strong) LTUserInfoHeadView *tableViewHeader;
 @end
 
-@implementation LTMeViewController
+@implementation LTUserInfoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.estimatedRowHeight = 44;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.size = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-    
-    [self.view addSubview:self.tableView];
-    self.tableView.top = 0;
-    self.tableView.left = self.view.left;
-    self.tableView.tableFooterView = [[UIView alloc]init];
-    self.tableViewHeader = [LTMeHeadView new];
+    self.tableView.tableFooterView = [UIView new];
+    [self.tableView registerClass:[LTUserInfoSendMessageCell class] forCellReuseIdentifier:LTUserInfoSendMessageCellIdentifier];
+    self.tableViewHeader = [LTUserInfoHeadView new];
     self.tableViewHeader.contentMode = UIViewContentModeScaleAspectFill;
     self.tableViewHeader.avatorUrlString = @"http://img02.ishuhui.com/op/miao809/01-02.jpg";
-    [self.tableView addParallaxWithView:self.tableViewHeader andHeight:LTMeHeadViewHeight];
-    
-    _refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
-    [_refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
-    
+    [self.tableView addParallaxWithView:self.tableViewHeader andHeight:LTUserInfoHeadViewHeight];
     
     [[_tableViewHeader rac_avatorTapGesture]subscribeNext:^(id x) {
         YYPhotoGroupItem *item = [YYPhotoGroupItem new];
@@ -67,9 +51,17 @@
     [[_tableViewHeader rac_followerTapGesture]subscribeNext:^(id x) {
         NSLog(@"rac_followerTapGesture");
     }];
+    
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.tableView reloadData];
+    [self.tableView setNeedsLayout];
+    [self.tableView layoutIfNeeded];
+}
 - (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     self.title = @"我";
 }
 
@@ -92,7 +84,14 @@
         [cell.textLabel setText:@"收藏"];
     }
     if (indexPath.section == 0 && indexPath.row == 2) {
-        [cell.textLabel setText:@"设置"];
+        LTUserInfoSendMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:LTUserInfoSendMessageCellIdentifier];
+        
+        [cell setNeedsUpdateConstraints];
+        [cell updateConstraintsIfNeeded];
+        [[cell rac_signalForSendMessageControlEvents]subscribeNext:^(id x) {
+            NSLog(@"我要给你发消息");
+        }];
+        return cell;
     }
     
     return cell;
@@ -105,10 +104,6 @@
 
 #pragma mark table View delegate
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 44;
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0 && indexPath.row == 0) {
         
@@ -116,15 +111,9 @@
     if (indexPath.section == 0 && indexPath.row == 1) {
     }
     if (indexPath.section == 0 && indexPath.row == 2) {
-        [self.navigationController pushViewController:[[LTMeSettingViewController alloc]initWithStyle:UITableViewStyleGrouped] animated:YES];
+//        [self.navigationController pushViewController:[[LTMeSettingViewController alloc]initWithStyle:UITableViewStyleGrouped] animated:YES];
     }
-
+    
 }
 
-#pragma mark - refresh control
-- (void)refresh{
-    //self.user = [[JFUserManager manager]getCurrentUser];
-    [_refreshControl endRefreshing];
-    [self.tableView reloadData];
-}
 @end
