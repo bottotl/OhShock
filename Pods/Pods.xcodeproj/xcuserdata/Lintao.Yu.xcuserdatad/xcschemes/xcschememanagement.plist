@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JSQSystemSoundPlayer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>JazzHands.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,6 +67,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0E80E4263014659D2E02AB33112E9EAD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>15A63D38D51AC75C2BC75C602A433BB8</key>
 		<dict>
 			<key>primary</key>
@@ -77,17 +87,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>1FEC12A89F87D6FA4F0082FAAC55388A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>23CF27B2BA6AC7125EFFEDA8C5AA819F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7834B995BCF749C05505B96FD06307C6</key>
+		<key>3B624C428C71866D63C529AEF179D02C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7E8491686D06E688A8A3ED15BFD246C7</key>
+		<key>423AB9451E3B4CCEE5AA3965BD12A1BD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,22 +112,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ADB8F7E28A1F2C1DEEA24B62BA96C1C1</key>
+		<key>C0E5B7FBE68EC8929F83E1A0457F90A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D6E7B6E4BE2C70E7B66B3ECAAA1C89B4</key>
+		<key>CCC0A56140B06E33E1C10B3D4F18EF22</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D9067DB990818840A84F27593FE05422</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D91B7AE8180FBD2AA28AB1F4EE97119F</key>
+		<key>FDE33B2DCAC666417584F375C913BCE6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -12,5 +12,7 @@ pod 'FMDB'
 pod 'SDWebImage'
 #  add parallax header view to scroll views
 pod 'APParallaxHeader'
+#声音播放
+pod 'JSQSystemSoundPlayer'
 # 刷新头
 pod 'ODRefreshControl'

@@ -14,8 +14,11 @@
 #import "ODRefreshControl.h"
 #import "YYPhotoGroupView.h"
 #import "LTUserInfoSendMessageCell.h"
+#import "LTChatViewController.h"
 
-@interface LTUserInfoViewController ()
+@interface LTUserInfoViewController (){
+    LTUserInfoSendMessageCell *messageCell;
+}
 /// 头部的背景
 @property (nonatomic, strong) LTUserInfoHeadView *tableViewHeader;
 @end
@@ -44,6 +47,14 @@
         NSLog(@"点击了头像%@",x);
     }];
     
+    messageCell = [LTUserInfoSendMessageCell new];
+    [messageCell setNeedsUpdateConstraints];
+    [messageCell updateConstraintsIfNeeded];
+    [[messageCell rac_signalForSendMessageControlEvents]subscribeNext:^(id x) {
+        //NSLog(@"我要给你发消息");
+        [self.navigationController pushViewController:[LTChatViewController new] animated:YES];
+    }];
+
     [[_tableViewHeader rac_followeeTapGesture]subscribeNext:^(id x) {
         NSLog(@"rac_followeeTapGesture");
     }];
@@ -84,14 +95,7 @@
         [cell.textLabel setText:@"收藏"];
     }
     if (indexPath.section == 0 && indexPath.row == 2) {
-        LTUserInfoSendMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:LTUserInfoSendMessageCellIdentifier];
-        
-        [cell setNeedsUpdateConstraints];
-        [cell updateConstraintsIfNeeded];
-        [[cell rac_signalForSendMessageControlEvents]subscribeNext:^(id x) {
-            NSLog(@"我要给你发消息");
-        }];
-        return cell;
+        cell = messageCell;
     }
     
     return cell;
