@@ -9,10 +9,11 @@
 #import "LTChatViewController.h"
 #import "JSQMessages.h"
 #import "LTChatModel.h"
-
+#import "LTChatService.h"
 @interface LTChatViewController ()
 
 @property (nonatomic, strong) LTChatModel *dataSource;
+@property (nonatomic, strong) LTChatService *service;
 
 @end
 
@@ -21,10 +22,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"JSQMessages";
+    _service = [LTChatService new];
     _dataSource = [LTChatModel new];
-    /**
-     *  You MUST set your senderId and display name
-     */
+    /// 设置用户名
     self.senderId = _dataSource.outgoingID;
     self.senderDisplayName = _dataSource.outgoingDisplayName;
     

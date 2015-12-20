@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "2E168B02D70E5D5E46DC7AC59A976F9FDBE08252",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "1348A3F3A9255948743B6F3B2B6D2B1CE3E2D839" : 0,
+    "2E168B02D70E5D5E46DC7AC59A976F9FDBE08252" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "10EDA7DB-81A6-47D6-98F4-17819FF758B2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "1348A3F3A9255948743B6F3B2B6D2B1CE3E2D839" : "OhShock\/OhShock\/Vender\/YYKit\/",
+    "2E168B02D70E5D5E46DC7AC59A976F9FDBE08252" : "OhShock\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "OhShock",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "OhShock.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ibireme\/YYKit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1348A3F3A9255948743B6F3B2B6D2B1CE3E2D839"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/bottotl\/OhShock.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2E168B02D70E5D5E46DC7AC59A976F9FDBE08252"
+    }
+  ]
+}

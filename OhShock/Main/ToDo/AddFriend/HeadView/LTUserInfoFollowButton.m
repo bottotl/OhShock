@@ -26,6 +26,31 @@
     }
     return self;
 }
+
+-(void)setType:(LTUserInfoFollowButtonType )type{
+    _type = type;
+    [self setButtonTyoeWithType:_type];
+}
+
+-(void)setButtonTyoeWithType:(LTUserInfoFollowButtonType)type{
+    NSString *imageName;
+    
+    switch (type) {
+        case followedType:
+            imageName = @"n_btn_followed_yes";
+            break;
+        case bothFollowType:
+            imageName = @"n_btn_followed_both";
+            break;
+        case notFollowType:
+            imageName = @"n_btn_followed_not";
+            break;
+        default:
+            break;
+    }
+    [self setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+}
+
 -(void)layoutSubviews{
     self.layer.cornerRadius = self.frame.size.height /2;
     [super layoutSubviews];

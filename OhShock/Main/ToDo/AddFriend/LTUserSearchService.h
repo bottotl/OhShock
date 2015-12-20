@@ -14,4 +14,6 @@ typedef void (^LTFindUsersResponse)(NSArray *users, NSError *error);
 @interface LTUserSearchService : NSObject
 
 - (void)findUsersByPartname:(NSString *)partName complete:(LTFindUsersResponse)completeBlock;
+
+
 @end

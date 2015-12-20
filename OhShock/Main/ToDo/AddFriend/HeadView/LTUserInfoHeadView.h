@@ -14,9 +14,8 @@
 #import "LTUserInfoFollowButton.h"
 #import "UIImageView+WebCache.h"
 #import "LTMeHeadUserFollowerAndFolloweeView.h"
-
 static CGFloat LTUserInfoHeadViewHeight = 300;
-@protocol LTUserInfoHeadDelegate ;
+//@protocol LTUserInfoHeadDelegate ;
 /**
  *  @author Lintao Yu, 15-12-15 16:12:10
  *
@@ -27,18 +26,25 @@ static CGFloat LTUserInfoHeadViewHeight = 300;
 @interface LTUserInfoHeadView : UIImageView
 /// 头像对应的 URL
 @property (nonatomic, copy) NSString *avatorUrlString;
-@property (nonatomic, weak) id<LTUserInfoHeadDelegate> delegate;
+//@property (nonatomic, weak) id<LTUserInfoHeadDelegate> delegate;
+
+
+@property (nonatomic, assign) LTUserInfoFollowButtonType followButoonType;
+/// 头像
 @property (nonatomic, strong) LTMeHeadUserImageView *userAvator;
+/// 用户信息
 @property (nonatomic, strong) LTMeHeadUserInfoView *userInfo;
+/// 关注信息
 @property (nonatomic, strong) LTMeHeadUserFollowerAndFolloweeView *followInfoView;
+/// 关注按钮
 @property (nonatomic, strong) LTUserInfoFollowButton *followButton;
 -(RACSignal *)rac_avatorTapGesture;
 -(RACSignal *)rac_followeeTapGesture;
 -(RACSignal *)rac_followerTapGesture;
 @end
 
-@protocol LTUserInfoHeadDelegate <NSObject>
-@optional
--(void)avatorOnClick;
--(void)backgroundImageOnClick;
-@end
+//@protocol LTUserInfoHeadDelegate <NSObject>
+//@optional
+//-(void)avatorOnClick;
+//-(void)backgroundImageOnClick;
+//@end

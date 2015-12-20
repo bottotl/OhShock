@@ -26,6 +26,9 @@ PODS:
   - SDWebImage/Core (3.7.3)
   - SMPageControl (1.2)
   - TPKeyboardAvoiding (1.2.11)
+  - YYKit (0.9.4):
+    - YYKit/no-arc (= 0.9.4)
+  - YYKit/no-arc (0.9.4)
 
 DEPENDENCIES:
   - APParallaxHeader
@@ -38,6 +41,11 @@ DEPENDENCIES:
   - SDWebImage
   - SMPageControl
   - TPKeyboardAvoiding
+  - YYKit (from `./OhShock/Vender/YYKit/YYKit.podspec`)
+
+EXTERNAL SOURCES:
+  YYKit:
+    :path: "./OhShock/Vender/YYKit/YYKit.podspec"
 
 SPEC CHECKSUMS:
   APParallaxHeader: 854bc48a2487ca12c702f8a236fec0d89cdac5c3
@@ -51,5 +59,6 @@ SPEC CHECKSUMS:
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SMPageControl: 922892813001cfaf059e86e6801f46a967e9ee29
   TPKeyboardAvoiding: e5ce146b313de063957bfa75a13f1e9b0ff18ab7
+  YYKit: 6d41531048acfe3921ec08337bb71e1a7d9343d9
 
 COCOAPODS: 0.39.0

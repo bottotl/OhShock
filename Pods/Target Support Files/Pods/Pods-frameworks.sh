@@ -95,6 +95,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/SDWebImage.framework"
   install_framework "Pods/SMPageControl.framework"
   install_framework "Pods/TPKeyboardAvoiding.framework"
+  install_framework "Pods/YYKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/APParallaxHeader.framework"
@@ -108,4 +109,5 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/SDWebImage.framework"
   install_framework "Pods/SMPageControl.framework"
   install_framework "Pods/TPKeyboardAvoiding.framework"
+  install_framework "Pods/YYKit.framework"
 fi

@@ -7,9 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <AVOSCloudIM/AVOSCloudIM.h>
 
-@interface LTChatService : NSObject
+@class AVUser;
+@class LTChatModel;
 
+@interface LTChatService : NSObject <AVIMClientDelegate>
 
+@property (nonatomic, weak) LTChatModel *dataSource;
+/// 获取当前用户
+- (AVUser *)getCurrentUser;
+/// 获取用户头像
+- (UIImage *)getAvatarImageOfUser:(AVUser *)user;
 
 @end

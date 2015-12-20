@@ -49,6 +49,10 @@
     }
     return self;
 }
+- (void)setFollowType:(LTUserInfoFollowButtonType)followType{
+    self.followButton.type = followType;
+}
+
 -(RACSignal *)rac_avatorTapGesture{
     return [_userAvator rac_gestureSignal];
 }
@@ -60,6 +64,11 @@
     return [_followInfoView rac_followerOnclickSignal];
 }
 
+#pragma mark - property
+-(void)followButoonType:(LTUserInfoFollowButtonType)followType{
+    _followButoonType = followType;
+}
+#pragma mark -  布局
 -(void)layoutSubviews{
     [super layoutSubviews];
     self.followInfoView.width = self.width;
@@ -75,9 +84,6 @@
     
     self.userAvator.bottom = self.userInfo.top - 10 ;
     self.userAvator.centerX = self.bounds.size.width/2;
-    
-    
-    
 }
 
 @end
