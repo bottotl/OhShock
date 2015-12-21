@@ -68,6 +68,14 @@
 }
 
 #pragma mark - property
+-(void)setFolloweeNum:(NSInteger)followeeNum{
+    _followeeNum = followeeNum;
+    self.followInfoView.followeeNum = followeeNum;
+}
+-(void)setFollowerNum:(NSInteger)followerNum{
+    _followerNum = followerNum;
+    self.followInfoView.followerNum = followerNum;
+}
 -(void)setFollowButoonType:(LTUserInfoFollowButtonType)followButoonType{
     _followButoonType = followButoonType;
     self.followButton.type = followButoonType;

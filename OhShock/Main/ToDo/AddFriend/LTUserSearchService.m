@@ -145,4 +145,30 @@
         [self followUserWith:user andCallback:complectBlock];
     }
 }
+
+- (void)getFollowerNum:(AVUser *)user complete:(void(^)(NSUInteger num, NSError *error))completeBlock{
+    AVQuery *query= [AVUser followerQuery:user.objectId];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            if (completeBlock) {
+                completeBlock(objects.count,error);
+            }
+        }else{
+            NSLog(@"getFollowerNum error");
+        }
+    }];
+}
+
+- (void)getFolloweeNum:(AVUser *)user complete:(void(^)(NSUInteger num, NSError *error))completeBlock{
+    AVQuery *query= [AVUser followeeQuery:user.objectId];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            if (completeBlock) {
+                completeBlock(objects.count,error);
+            }
+        }else{
+            NSLog(@"getFollowerNum error");
+        }
+    }];
+}
 @end

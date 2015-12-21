@@ -98,4 +98,18 @@ typedef void (^LTFindFollowTypeResponse)(LTFollowRelationShipType type, NSError 
  *  @param completeBlock Block
  */
 - (void)getFollowRelationShipWithMe:(NSString *)userId complete:(LTFindFollowTypeResponse)completeBlock;
+/**
+ *  获取用户粉丝数量
+ *
+ *  @param user          (AVUser *)
+ *  @param completeBlock  Block
+ */
+- (void)getFollowerNum:(AVUser *)user complete:(void(^)(NSUInteger num, NSError *error))completeBlock;
+/**
+ *  获取用户关注数量
+ *
+ *  @param user          (AVUser *)
+ *  @param completeBlock Block
+ */
+- (void)getFolloweeNum:(AVUser *)user complete:(void(^)(NSUInteger num, NSError *error))completeBlock;
 @end

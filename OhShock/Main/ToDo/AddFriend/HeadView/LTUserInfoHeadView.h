@@ -26,6 +26,10 @@ static CGFloat LTUserInfoHeadViewHeight = 300;
 @interface LTUserInfoHeadView : UIImageView
 /// 头像对应的 URL
 @property (nonatomic, copy) NSString *avatorUrlString;
+/// 关注数量
+@property (nonatomic, assign) NSInteger followeeNum;
+/// 粉丝数量
+@property (nonatomic, assign) NSInteger followerNum;
 /**
  *  关注按钮的显示种类
  *

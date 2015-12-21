@@ -84,10 +84,10 @@
             if (!error) {
                 if (succeeded) {
                     NSLog(@"改变成功");
-                    [weakSelf updateFollowButton];
+                    [weakSelf updateInfo];
                 }else{
                     NSLog(@"改变失败");
-                    [weakSelf updateFollowButton];
+                    [weakSelf updateInfo];
                 }
             }else{
                 NSLog(@"%@",error);
@@ -95,11 +95,11 @@
         }];
     }];
     
-    [self updateFollowButton];
+    [self updateInfo];
     
 }
 /// 更新按钮显示
-- (void)updateFollowButton{
+- (void)updateInfo{
     [_service getFollowRelationShipWithMe:self.userId complete:^(LTFollowRelationShipType type, NSError *error) {
         switch (type) {
             case I_FOLLOWED_HIM:
@@ -118,6 +118,12 @@
                 break;
         }
         
+    }];
+    [_service getFolloweeNum:self.user complete:^(NSUInteger num, NSError *error) {
+        self.tableViewHeader.followeeNum = num;
+    }];
+    [_service getFollowerNum:self.user complete:^(NSUInteger num, NSError *error) {
+        self.tableViewHeader.followerNum = num;
     }];
 }
 
