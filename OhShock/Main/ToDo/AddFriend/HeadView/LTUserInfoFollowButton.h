@@ -11,9 +11,10 @@
 static CGFloat LTUserInfoFollowButtonHeight = 40;
 static CGFloat LTUserInfoFollowButtonWidth = 100;
 /**
- *  @author Lintao Yu, 15-12-18 17:12:10
- *
  *  关注按钮的显示效果
+ *  notFollowType   显示关注
+ *  bothFollowType  显示互相关注
+ *  followedType    显示已关注
  */
 typedef NS_ENUM(NSUInteger, LTUserInfoFollowButtonType) {
     /**

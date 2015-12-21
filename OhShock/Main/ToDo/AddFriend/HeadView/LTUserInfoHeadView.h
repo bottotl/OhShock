@@ -26,9 +26,15 @@ static CGFloat LTUserInfoHeadViewHeight = 300;
 @interface LTUserInfoHeadView : UIImageView
 /// 头像对应的 URL
 @property (nonatomic, copy) NSString *avatorUrlString;
-//@property (nonatomic, weak) id<LTUserInfoHeadDelegate> delegate;
-
-
+/**
+ *  关注按钮的显示种类
+ *
+ *  显示关注    notFollowType
+ *
+ *  显示互相关注 bothFollowType
+ *
+ *  显示已关注   followedType
+ */
 @property (nonatomic, assign) LTUserInfoFollowButtonType followButoonType;
 /// 头像
 @property (nonatomic, strong) LTMeHeadUserImageView *userAvator;
@@ -41,10 +47,5 @@ static CGFloat LTUserInfoHeadViewHeight = 300;
 -(RACSignal *)rac_avatorTapGesture;
 -(RACSignal *)rac_followeeTapGesture;
 -(RACSignal *)rac_followerTapGesture;
+-(RACSignal *)rac_followButtonOnClick;
 @end
-
-//@protocol LTUserInfoHeadDelegate <NSObject>
-//@optional
-//-(void)avatorOnClick;
-//-(void)backgroundImageOnClick;
-//@end

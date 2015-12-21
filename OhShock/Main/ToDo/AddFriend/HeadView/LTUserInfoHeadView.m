@@ -63,10 +63,14 @@
 -(RACSignal *)rac_followerTapGesture{
     return [_followInfoView rac_followerOnclickSignal];
 }
+-(RACSignal *)rac_followButtonOnClick{
+    return [self.followButton rac_signalForControlEvents:UIControlEventTouchUpInside];
+}
 
 #pragma mark - property
--(void)followButoonType:(LTUserInfoFollowButtonType)followType{
-    _followButoonType = followType;
+-(void)setFollowButoonType:(LTUserInfoFollowButtonType)followButoonType{
+    _followButoonType = followButoonType;
+    self.followButton.type = followButoonType;
 }
 #pragma mark -  布局
 -(void)layoutSubviews{

@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OhShock/Main/ToDo/AddFriend/LTUserSearchService.m"
-            timestampString = "471855854.863944"
+            filePath = "OhShock/Main/ToDo/AddFriend/LTUserInfoViewController.m"
+            timestampString = "472372285.184578"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
-            landmarkName = "-findUsersByPartname:complete:"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "-updateFollowButton"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,74 +26,42 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OhShock/Main/ToDo/AddFriend/LTUserSearchService.m"
-            timestampString = "471855855.261973"
+            timestampString = "472376607.678571"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "-findUsersByPartname:complete:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OhShock/Main/ToDo/AddFriend/LTUserSearchService.m"
-            timestampString = "471856386.649621"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "-findUsersByPartname:complete:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OhShock/Main/ToDo/AddFriend/LTAddFriendViewController.m"
-            timestampString = "471861449.662745"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "-userSearchSignal"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "-getIfIFollowedHim:"
             landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__45-[LTAddFriendViewController userSearchSignal]_block_invoke_2"
+                  symbolName = "-[LTUserSearchService getIfIFollowedHim:WithBlock:]"
                   moduleName = "OhShock"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/syfll/Desktop/OhShock/OhShock/Main/ToDo/AddFriend/LTAddFriendViewController.m"
-                  timestampString = "471856822.801239"
+                  urlString = "file:///Users/syfll/Desktop/OhShock/OhShock/Main/ToDo/AddFriend/LTUserSearchService.m"
+                  timestampString = "472375001.200167"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "128"
-                  endingLineNumber = "128"
-                  offsetFromSymbolStart = "69">
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "250">
                </Location>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__45-[LTAddFriendViewController userSearchSignal]_block_invoke_3"
+                  symbolName = "__51-[LTUserSearchService getIfIFollowedHim:WithBlock:]_block_invoke"
                   moduleName = "OhShock"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/syfll/Desktop/OhShock/OhShock/Main/ToDo/AddFriend/LTAddFriendViewController.m"
-                  timestampString = "471856822.801506"
+                  urlString = "file:///Users/syfll/Desktop/OhShock/OhShock/Main/ToDo/AddFriend/LTUserSearchService.m"
+                  timestampString = "472375001.200661"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "128"
-                  endingLineNumber = "128"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
                   offsetFromSymbolStart = "67">
                </Location>
             </Locations>
@@ -106,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OhShock/Main/ToDo/AddFriend/LTUserSearchService.m"
-            timestampString = "472125645.430186"
+            timestampString = "472376607.678571"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "-findUsersByPartname:complete:"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "-followUserWith:andCallback:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -122,12 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OhShock/Main/ToDo/AddFriend/LTUserSearchService.m"
-            timestampString = "471857122.762529"
+            timestampString = "472376607.678571"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "-findUsersByPartname:complete:"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "-followUserWith:andCallback:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -137,13 +105,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OhShock/Main/ToDo/AddFriend/LTUserInfoViewController.m"
-            timestampString = "471952129.41041"
+            filePath = "OhShock/Main/ToDo/AddFriend/LTUserSearchService.m"
+            timestampString = "472376607.678571"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "-getFollowRelationShipWithMe:complete:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -153,13 +121,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OhShock/Main/Me/LTMeViewController.m"
-            timestampString = "471861806.675809"
+            filePath = "OhShock/Main/ToDo/AddFriend/LTUserSearchService.m"
+            timestampString = "472376607.678571"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "-getFollowRelationShipWithMe:complete:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -169,13 +137,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OhShock/Main/Me/LTMeViewController.m"
-            timestampString = "471861835.675482"
+            filePath = "OhShock/Main/ToDo/AddFriend/LTUserSearchService.m"
+            timestampString = "472376607.678571"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "-getFollowRelationShipWithMe:complete:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -185,60 +153,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OhShock/Main/Me/LTMeViewController.m"
-            timestampString = "471861843.707835"
+            filePath = "OhShock/Main/ToDo/AddFriend/LTUserSearchService.m"
+            timestampString = "472376607.678571"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "-getFollowRelationShipWithMe:complete:"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OhShock/Main/ToDo/AddFriend/LTUserInfoViewController.m"
-            timestampString = "471952129.41041"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OhShock/Main/ToDo/AddFriend/LTUserInfoViewController.m"
-            timestampString = "471952129.41041"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OhShock/Main/ToDo/AddFriend/HeadView/LTUserInfoHeadView.h"
-            timestampString = "472125645.430186"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

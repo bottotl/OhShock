@@ -19,10 +19,7 @@
     CGRect rect = CGRectMake(frame.origin.x, frame.origin.y, LTUserInfoFollowButtonWidth, LTUserInfoFollowButtonHeight);
     self = [super initWithFrame:rect];
     if (self) {
-        self.clipsToBounds = YES;
-        self.backgroundColor = [UIColor greenColor];
-        [self setTitle:@"关注" forState:UIControlStateNormal];
-        [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [self setImage:[UIImage imageNamed:@"n_btn_followed_yes"] forState:UIControlStateNormal];
     }
     return self;
 }

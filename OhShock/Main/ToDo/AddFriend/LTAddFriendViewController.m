@@ -74,8 +74,8 @@
 #pragma mark - table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //AVUser *user = _dataSource[indexPath.row];
-    [self.navigationController pushViewController:[LTUserInfoViewController new] animated:YES];
+    AVUser *user = _dataSource[indexPath.row];
+    [self.navigationController pushViewController:[[LTUserInfoViewController alloc]initWithAVUser:user] animated:YES];
 }
 
 #pragma mark - RACSignal

@@ -15,18 +15,32 @@
 #import "YYPhotoGroupView.h"
 #import "LTUserInfoSendMessageCell.h"
 #import "LTChatViewController.h"
+#import "LTUserSearchService.h"
+#import <AVOSCloud/AVOSCloud.h>
 
 @interface LTUserInfoViewController (){
     LTUserInfoSendMessageCell *messageCell;
 }
 /// 头部的背景
 @property (nonatomic, strong) LTUserInfoHeadView *tableViewHeader;
+@property (nonatomic, strong) LTUserSearchService *service;
+
+@property (nonatomic, copy) NSString *userName;
+@property (nonatomic, copy) NSString *userId;
 @end
 
 @implementation LTUserInfoViewController
+- (instancetype)initWithAVUser:(AVUser *)user{
+    self = [super init];
+    if (self) {
+        self.user = user;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _service = [LTUserSearchService new];
     self.tableView.estimatedRowHeight = 44;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
@@ -62,7 +76,49 @@
     [[_tableViewHeader rac_followerTapGesture]subscribeNext:^(id x) {
         NSLog(@"rac_followerTapGesture");
     }];
+    __weak __typeof(self)weakSelf = self;
+    [[_tableViewHeader rac_followButtonOnClick]subscribeNext:^(id x) {
+        _tableViewHeader.followButton.enabled = NO;
+        [_service changeFollowType:self.user andCallback:^(BOOL succeeded, NSError *error) {
+            _tableViewHeader.followButton.enabled = YES;
+            if (!error) {
+                if (succeeded) {
+                    NSLog(@"改变成功");
+                    [weakSelf updateFollowButton];
+                }else{
+                    NSLog(@"改变失败");
+                    [weakSelf updateFollowButton];
+                }
+            }else{
+                NSLog(@"%@",error);
+            }
+        }];
+    }];
     
+    [self updateFollowButton];
+    
+}
+/// 更新按钮显示
+- (void)updateFollowButton{
+    [_service getFollowRelationShipWithMe:self.userId complete:^(LTFollowRelationShipType type, NSError *error) {
+        switch (type) {
+            case I_FOLLOWED_HIM:
+                self.tableViewHeader.followButoonType = followedType;
+                break;
+            case HE_FOLLOWED_ME:
+                self.tableViewHeader.followButoonType = notFollowType;
+                break;
+            case NO_RELATIONSHIP:
+                self.tableViewHeader.followButoonType = notFollowType;
+                break;
+            case BOTH_FOLLOWED:
+                self.tableViewHeader.followButoonType = bothFollowType;
+                break;
+            default:
+                break;
+        }
+        
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -118,6 +174,9 @@
 //        [self.navigationController pushViewController:[[LTMeSettingViewController alloc]initWithStyle:UITableViewStyleGrouped] animated:YES];
     }
     
+}
+-(NSString *)userId{
+    return self.user.objectId;
 }
 
 @end
