@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+/**
+ *  设置界面
+ *
+ *  包含了退出按钮、投诉举报等内容
+ */
 @interface LTMeSettingViewController : UITableViewController
 
 @end

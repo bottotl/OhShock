@@ -13,17 +13,23 @@
 @interface LTChatViewController ()
 
 @property (nonatomic, strong) LTChatModel *dataSource;
-@property (nonatomic, strong) LTChatService *service;
+
 
 @end
 
 @implementation LTChatViewController
-
+#pragma mark - init
+-(instancetype)initWithUser:(AVUser *)user{
+    self = [super init];
+    if (self){
+        self.dataSource = [[LTChatModel alloc]initWithUser:user];
+    }
+    return self;
+}
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"JSQMessages";
-    _service = [LTChatService new];
-    _dataSource = [LTChatModel new];
     /// 设置用户名
     self.senderId = _dataSource.outgoingID;
     self.senderDisplayName = _dataSource.outgoingDisplayName;
@@ -37,6 +43,11 @@
     [JSQMessagesCollectionViewCell registerMenuAction:@selector(delete:)];
     self.collectionView.collectionViewLayout.messageBubbleFont = [UIFont systemFontOfSize:15];
 }
+
+-(void)updateDataSource{
+    //_dataSource.avatars
+}
+
 
 #pragma mark - JSQMessagesViewController method overrides
 #pragma mark 发送按钮点击回调
@@ -93,8 +104,11 @@
 - (id<JSQMessageAvatarImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView avatarImageDataForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     JSQMessage *message = [self.dataSource.messages objectAtIndex:indexPath.item];
-    
-    return [self.dataSource.avatars objectForKey:message.senderId];
+    if (message.senderId == self.senderId) {
+        return self.dataSource.outgoingAvatarImage;
+    }
+    return self.dataSource.incomingAvatarImage;
+
 }
 #pragma mark 时间戳
 /// 时间戳

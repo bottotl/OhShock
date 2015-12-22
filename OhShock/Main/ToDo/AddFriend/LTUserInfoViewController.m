@@ -42,7 +42,7 @@
     [super viewDidLoad];
     _service = [LTUserSearchService new];
     self.tableView.estimatedRowHeight = 44;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    //self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     self.tableView.tableFooterView = [UIView new];
     [self.tableView registerClass:[LTUserInfoSendMessageCell class] forCellReuseIdentifier:LTUserInfoSendMessageCellIdentifier];
@@ -65,8 +65,8 @@
     [messageCell setNeedsUpdateConstraints];
     [messageCell updateConstraintsIfNeeded];
     [[messageCell rac_signalForSendMessageControlEvents]subscribeNext:^(id x) {
-        //NSLog(@"我要给你发消息");
-        [self.navigationController pushViewController:[LTChatViewController new] animated:YES];
+        NSLog(@"我要给你发消息");
+        [self.navigationController pushViewController:[[LTChatViewController alloc]initWithUser:self.user] animated:YES];
     }];
 
     [[_tableViewHeader rac_followeeTapGesture]subscribeNext:^(id x) {
@@ -98,6 +98,8 @@
     [self updateInfo];
     
 }
+#pragma mark - 更新内容
+#pragma mark 更新按钮信息
 /// 更新按钮显示
 - (void)updateInfo{
     [_service getFollowRelationShipWithMe:self.userId complete:^(LTFollowRelationShipType type, NSError *error) {
@@ -125,8 +127,14 @@
     [_service getFollowerNum:self.user complete:^(NSUInteger num, NSError *error) {
         self.tableViewHeader.followerNum = num;
     }];
+    [self updateAtavor];
 }
-
+#pragma mark 更新头像
+- (void)updateAtavor{
+    [self.service getAvatorUrlString:self.user complete:^(NSString *urlString, NSError *error) {
+        self.tableViewHeader.avatorUrlString = urlString;
+    }];
+}
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self.tableView reloadData];

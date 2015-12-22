@@ -9,7 +9,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>DateTools.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FMDB.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>JSBadgeView-JSBadgeView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>JSBadgeView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -72,6 +87,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>105BB21DDA17F283BCA6C012BAB3E330</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>15A63D38D51AC75C2BC75C602A433BB8</key>
 		<dict>
 			<key>primary</key>
@@ -92,27 +112,37 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>29CC140B8D075B619B7BB80662FFE427</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3703DB64D71C27C6F353CE2339BF56F0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3B624C428C71866D63C529AEF179D02C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3FBB9DCE47398D21575A147EF2E643A1</key>
+		<key>67AAC0F340FA9E9E273035B902287A42</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5334F0251F90525D3961C9332E1830CD</key>
+		<key>926A118FD8261C68DB53D3E213293F22</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>59747D659F538B066975EE12FF4461BD</key>
+		<key>9C6242D3F3EB7E1CD96B934DD2EDB4FA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8CB45D0F87C02DEDFAA94C48BBBBFD0F</key>
+		<key>A00F51781201D70FE5D98D7CB0CC1505</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,17 +152,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C479EFAB482B952F7DBC835345EDC8D1</key>
+		<key>C4E62D0FC0CC6087EC9C9D89CB9DD1D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F440BF779CD8DF305D2815A7C693F608</key>
+		<key>D2AA62976C51F065713F6ADC134426C5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FD1A21EC4F013436EF557457379CC597</key>
+		<key>DAFF95AE7B13DADEF1B9E7A7C20074EB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

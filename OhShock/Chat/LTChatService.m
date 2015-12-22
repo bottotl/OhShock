@@ -7,32 +7,51 @@
 //
 
 #import "LTChatService.h"
-#import <AVOSCloud/AVOSCloud.h>
 
+@interface LTChatService()
+/// 接收方
+@property (nonatomic, strong) AVUser *toUser;
+@end
 
 @implementation LTChatService
-/// 获取当前用户
+-(instancetype)initWithUser:(AVUser *)user{
+    self = [super init];
+    if (self) {
+        _toUser = user;
+    }
+    return self;
+}
+#pragma mark - 获取当前用户
 - (AVUser *)getCurrentUser{
     return [AVUser currentUser];
 }
-/// 获取用户头像
-- (UIImage *)getAvatarImageOfUser:(AVUser *)user{
-    __block UIImage *image ;
+#pragma mark -  获取用户头像
+- (void)getAvatorImageOfUser:(AVUser *)user complete:(void(^)(UIImage *image, NSError *error))complectBlock{
     AVFile *avatar = [user objectForKey:@"avatar"];
     if (avatar) {
         [avatar getDataInBackgroundWithBlock: ^(NSData *data, NSError *error) {
             if (error == nil) {
-                image =  [UIImage imageWithData:data];
+                complectBlock([UIImage imageWithData:data],error);
             }else{
-                image = [UIImage imageNamed:@"zxyxwanzi_mobile"];
+                complectBlock([UIImage imageNamed:@"zxyxwanzi_mobile"],error);;
             }
         }];
         
     }
     
-    return image;
 }
 
+- (void)getAvatorUrlString:(AVUser *)user complete:(void(^)(NSString *urlString, NSError *error))completeBlock{
+    AVFile *avatorFile = [user objectForKey:@"avatar"];
+    if (completeBlock) {
+        if (avatorFile) {
+            completeBlock(avatorFile.url,nil);
+        }else{
+            NSLog(@"getAvatorUrlString error");
+        }
+        
+    }
+}
 #pragma mark - AVIMClientDelegate
 
 #pragma mark 聊天状态被暂停，常见于网络断开时触发

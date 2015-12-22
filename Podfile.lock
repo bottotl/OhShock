@@ -1,11 +1,13 @@
 PODS:
   - APParallaxHeader (0.1.6)
+  - DateTools (1.5.0)
   - FMDB (2.5):
     - FMDB/standard (= 2.5)
   - FMDB/common (2.5)
   - FMDB/standard (2.5):
     - FMDB/common
   - JazzHands (2.0.8)
+  - JSBadgeView (1.4.1)
   - JSQSystemSoundPlayer (4.3.0)
   - Masonry (0.6.3)
   - ODRefreshControl (1.2)
@@ -32,8 +34,10 @@ PODS:
 
 DEPENDENCIES:
   - APParallaxHeader
+  - DateTools (= 1.5.0)
   - FMDB
   - JazzHands
+  - JSBadgeView (= 1.4.1)
   - JSQSystemSoundPlayer
   - Masonry
   - ODRefreshControl
@@ -49,8 +53,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   APParallaxHeader: 854bc48a2487ca12c702f8a236fec0d89cdac5c3
+  DateTools: b93a2c2017747329c6077c7d7e8a75106e23d0d7
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   JazzHands: 355dc5c2b6fc38ee460d0ed7836c69539263f477
+  JSBadgeView: 3861ddee41094284d9468e6d0af5107f703aaac5
   JSQSystemSoundPlayer: 8021a6c823a8d83372c703f49ef7d1f31e7647ff
   Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
   ODRefreshControl: 907e6149d72dde488d5917ccfabee5bd8d711a20

@@ -85,7 +85,9 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/APParallaxHeader.framework"
+  install_framework "Pods/DateTools.framework"
   install_framework "Pods/FMDB.framework"
+  install_framework "Pods/JSBadgeView.framework"
   install_framework "Pods/JSQSystemSoundPlayer.framework"
   install_framework "Pods/JazzHands.framework"
   install_framework "Pods/Masonry.framework"
@@ -99,7 +101,9 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/APParallaxHeader.framework"
+  install_framework "Pods/DateTools.framework"
   install_framework "Pods/FMDB.framework"
+  install_framework "Pods/JSBadgeView.framework"
   install_framework "Pods/JSQSystemSoundPlayer.framework"
   install_framework "Pods/JazzHands.framework"
   install_framework "Pods/Masonry.framework"

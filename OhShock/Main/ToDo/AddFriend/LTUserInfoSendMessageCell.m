@@ -45,10 +45,10 @@ static CGFloat sendMessageButtonWidth = 200;
 -(void)updateConstraints{
     if (!_didSetupConstraints) {
         [_sendMessageButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.height.equalTo(@(sendMessageButtonHeight));
+            make.height.greaterThanOrEqualTo(@(sendMessageButtonHeight));
             make.width.equalTo(@(sendMessageButtonWidth));
             make.centerX.equalTo(self.contentView.mas_centerX);
-            make.top.equalTo(self.contentView.mas_topMargin).offset(20);
+            make.top.greaterThanOrEqualTo(self.contentView.mas_topMargin).offset(20);
             make.bottom.equalTo(self.contentView.mas_bottomMargin);
         }];
         _didSetupConstraints = YES;

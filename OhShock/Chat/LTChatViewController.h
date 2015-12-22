@@ -7,7 +7,8 @@
 //
 
 #import "JSQMessagesViewController.h"
-
+@class AVUser;
 @interface LTChatViewController : JSQMessagesViewController<JSQMessagesComposerTextViewPasteDelegate>
 
+-(instancetype)initWithUser:(AVUser *)user;
 @end

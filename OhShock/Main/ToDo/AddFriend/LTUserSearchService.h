@@ -46,6 +46,7 @@ typedef NS_ENUM(NSUInteger, LTFollowRelationShipType) {
 };
 
 @class AVUser;
+@class UIImage;
 /**
  *  查找用户的 Block
  *
@@ -112,4 +113,20 @@ typedef void (^LTFindFollowTypeResponse)(LTFollowRelationShipType type, NSError 
  *  @param completeBlock Block
  */
 - (void)getFolloweeNum:(AVUser *)user complete:(void(^)(NSUInteger num, NSError *error))completeBlock;
+/**
+ *  获取用户头像（UIImage） 如果只是需要 URL
+ *  请使用：
+ *  - (void)getAvatorUrlString:(AVUser *)user complete:(void(^)(NSString *urlString, NSError *error))completeBlock
+ *
+ *  @param user          (AVUser *)
+ *  @param complectBlock Block
+ */
+- (void)getAvatorImageOfUser:(AVUser *)user complete:(void(^)(UIImage *image, NSError *error))complectBlock;
+/**
+ *  获取用户头像的 URL
+ *
+ *  @param user          (AVUser *)
+ *  @param completeBlock Block
+ */
+- (void)getAvatorUrlString:(AVUser *)user complete:(void(^)(NSString *urlString, NSError *error))completeBlock;
 @end

@@ -171,4 +171,33 @@
         }
     }];
 }
+/// 获取用户头像
+- (void)getAvatorImageOfUser:(AVUser *)user complete:(void(^)(UIImage *image, NSError *error))complectBlock{
+    AVFile *avatar = [user objectForKey:@"avatar"];
+    if (avatar) {
+        [avatar getDataInBackgroundWithBlock: ^(NSData *data, NSError *error) {
+            if (error == nil) {
+                complectBlock([UIImage imageWithData:data],error);
+            }else{
+                complectBlock([UIImage imageNamed:@"zxyxwanzi_mobile"],error);;
+            }
+        }];
+        
+    }
+    
+}
+
+- (void)getAvatorUrlString:(AVUser *)user complete:(void(^)(NSString *urlString, NSError *error))completeBlock{
+    //AVQuery *query = [AVQuery queryWithClassName:@"_User"];
+    
+    AVFile *avatorFile = [user objectForKey:@"avatar"];
+    if (completeBlock) {
+        if (avatorFile) {
+            completeBlock(avatorFile.url,nil);
+        }else{
+            NSLog(@"getAvatorUrlString error");
+        }
+        
+    }
+}
 @end

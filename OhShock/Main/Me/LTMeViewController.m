@@ -14,6 +14,7 @@
 #import "LTMeHeadView.h"
 #import "YYPhotoGroupView.h"
 #import "LTMeSettingViewController.h"
+#import "LTMeInfoSettingViewController.h"
 
 @interface LTMeViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -32,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.size = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
@@ -78,29 +79,37 @@
 #pragma mark tableView data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+    if (section == 0) {
+        return 1;
+    }
+    if (section == 1) {
+        return 2;
+    }
+    return 1;
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 3;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell * cell = [UITableViewCell new];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     if (indexPath.section == 0 && indexPath.row == 0) {
+        [cell.textLabel setText:@"个人信息"];
+    }
+    if (indexPath.section == 1 && indexPath.row == 0) {
         [cell.textLabel setText:@"消息"];
     }
-    if (indexPath.section == 0 && indexPath.row == 1) {
+    if (indexPath.section == 1 && indexPath.row == 1) {
         [cell.textLabel setText:@"收藏"];
     }
-    if (indexPath.section == 0 && indexPath.row == 2) {
+    if (indexPath.section == 2 && indexPath.row == 0) {
         [cell.textLabel setText:@"设置"];
     }
     
     return cell;
     
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
 }
 
 #pragma mark table View delegate
@@ -109,13 +118,22 @@
     return 44;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 20;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.1;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0 && indexPath.row == 0) {
-        
+        [self.navigationController pushViewController:[[LTMeInfoSettingViewController alloc]initWithStyle:UITableViewStyleGrouped] animated:YES];
     }
-    if (indexPath.section == 0 && indexPath.row == 1) {
+    if (indexPath.section == 1 && indexPath.row == 0) {
     }
-    if (indexPath.section == 0 && indexPath.row == 2) {
+    if (indexPath.section == 1 && indexPath.row == 1) {
+    }
+    if (indexPath.section == 2 && indexPath.row == 0) {
         [self.navigationController pushViewController:[[LTMeSettingViewController alloc]initWithStyle:UITableViewStyleGrouped] animated:YES];
     }
 

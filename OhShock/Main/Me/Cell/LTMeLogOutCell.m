@@ -42,8 +42,8 @@
             make.left.equalTo(self.contentView.mas_left).offset(10);
             make.right.equalTo(self.contentView.mas_right).offset(-10);
             make.height.equalTo(@50);
-            make.top.equalTo(self.contentView.mas_top).offset(20);
-            make.bottom.equalTo(self.contentView.mas_bottom);
+            make.top.greaterThanOrEqualTo(self.contentView.mas_top).offset(20);
+            make.bottom.lessThanOrEqualTo(self.contentView.mas_bottom);
         }];
         _didSetupConstraints = YES;
     }
