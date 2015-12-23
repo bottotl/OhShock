@@ -457,6 +457,7 @@
 		B81CCC4A1C21408500D642DB /* JSQMessagesToolbarContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B81CCC1D1C21408500D642DB /* JSQMessagesToolbarContentView.xib */; };
 		B81CCC4B1C21408500D642DB /* JSQMessagesTypingIndicatorFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B81CCC1F1C21408500D642DB /* JSQMessagesTypingIndicatorFooterView.m */; };
 		B81CCC4C1C21408500D642DB /* JSQMessagesTypingIndicatorFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B81CCC201C21408500D642DB /* JSQMessagesTypingIndicatorFooterView.xib */; };
+		B84C205D1C2A440200F758AD /* AVIMTypedMessage+JSQMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = B84C205C1C2A440200F758AD /* AVIMTypedMessage+JSQMessages.m */; };
 		B85801151C1A849E00786143 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85801121C1A849E00786143 /* AVOSCloud.framework */; };
 		B85801191C1A84C300786143 /* AVOSCloud.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B85801121C1A849E00786143 /* AVOSCloud.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B858011A1C1A84C300786143 /* AVOSCloudCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85801131C1A849E00786143 /* AVOSCloudCrashReporting.framework */; };
@@ -1356,6 +1357,8 @@
 		B81CCC1E1C21408500D642DB /* JSQMessagesTypingIndicatorFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSQMessagesTypingIndicatorFooterView.h; sourceTree = "<group>"; };
 		B81CCC1F1C21408500D642DB /* JSQMessagesTypingIndicatorFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSQMessagesTypingIndicatorFooterView.m; sourceTree = "<group>"; };
 		B81CCC201C21408500D642DB /* JSQMessagesTypingIndicatorFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSQMessagesTypingIndicatorFooterView.xib; sourceTree = "<group>"; };
+		B84C205B1C2A440200F758AD /* AVIMTypedMessage+JSQMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVIMTypedMessage+JSQMessages.h"; sourceTree = "<group>"; };
+		B84C205C1C2A440200F758AD /* AVIMTypedMessage+JSQMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVIMTypedMessage+JSQMessages.m"; sourceTree = "<group>"; };
 		B85801121C1A849E00786143 /* AVOSCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloud.framework; sourceTree = "<group>"; };
 		B85801131C1A849E00786143 /* AVOSCloudCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloudCrashReporting.framework; sourceTree = "<group>"; };
 		B85801141C1A849E00786143 /* AVOSCloudIM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloudIM.framework; sourceTree = "<group>"; };
@@ -2826,6 +2829,8 @@
 				B81072531C197FCE0058130E /* UIView+Layout.m */,
 				B87677CE1C1FEC9900A0795B /* UISearchBar+RACSignalSupport.h */,
 				B87677CF1C1FEC9900A0795B /* UISearchBar+RACSignalSupport.m */,
+				B84C205B1C2A440200F758AD /* AVIMTypedMessage+JSQMessages.h */,
+				B84C205C1C2A440200F758AD /* AVIMTypedMessage+JSQMessages.m */,
 			);
 			name = Util;
 			path = OhShock/Util;
@@ -4531,6 +4536,7 @@
 				B81CCC271C21408500D642DB /* UIImage+JSQMessages.m in Sources */,
 				B8A128471C1984B100ECA6CD /* NSObject+LKDBHelper.m in Sources */,
 				B80A37911C1DADB600C3B226 /* YYPhotoGroupView.m in Sources */,
+				B84C205D1C2A440200F758AD /* AVIMTypedMessage+JSQMessages.m in Sources */,
 				B8EEADAC1C294F5400F861E8 /* XHVideoOutputSampleBufferFactory.m in Sources */,
 				B8EEADC81C294F5400F861E8 /* XHViewState.m in Sources */,
 				B8EEADA51C294F5400F861E8 /* XHFileAttribute.m in Sources */,

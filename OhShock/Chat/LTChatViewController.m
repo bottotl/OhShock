@@ -10,6 +10,9 @@
 #import "JSQMessages.h"
 #import "LTChatModel.h"
 #import "LTChatService.h"
+#import "CDChatManager.h"
+#import "ReactiveCocoa/ReactiveCocoa.h"
+
 @interface LTChatViewController ()
 
 @property (nonatomic, strong) LTChatModel *dataSource;
@@ -42,12 +45,13 @@
     
     [JSQMessagesCollectionViewCell registerMenuAction:@selector(delete:)];
     self.collectionView.collectionViewLayout.messageBubbleFont = [UIFont systemFontOfSize:15];
-}
+    [RACObserve(self.dataSource, messagesCount) subscribeNext:^(id x) {
+        NSLog(@"刷新了列表");
+        [self.collectionView reloadData];
+        [self scrollToBottomAnimated:NO];
 
--(void)updateDataSource{
-    //_dataSource.avatars
+    }];
 }
-
 
 #pragma mark - JSQMessagesViewController method overrides
 #pragma mark 发送按钮点击回调
@@ -67,9 +71,18 @@
     //视觉上的发送
     [self.dataSource.messages addObject:message];
     //真实的发送
-   // [self didSendText:text];
+    [self didSendText:text];
     
     [self finishSendingMessageAnimated:YES];
+}
+/**
+ *  真正的消息发送
+ *
+ *  @param text 发送的内容
+ */
+- (void)didSendText:(NSString *)text {
+    
+    [self.dataSource sendMessage:text];
 }
 
 
@@ -96,18 +109,20 @@
     if ([message.senderId isEqualToString:self.senderId]) {
         return self.dataSource.outgoingBubbleImageData;
     }
-    
     return self.dataSource.incomingBubbleImageData;
+    
+    
 }
 #pragma mark 用户头像
 /// 用户头像
 - (id<JSQMessageAvatarImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView avatarImageDataForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     JSQMessage *message = [self.dataSource.messages objectAtIndex:indexPath.item];
-    if (message.senderId == self.senderId) {
+    if ([message.senderId isEqualToString:self.senderId]) {
         return self.dataSource.outgoingAvatarImage;
     }
     return self.dataSource.incomingAvatarImage;
+    
 
 }
 #pragma mark 时间戳

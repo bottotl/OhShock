@@ -125,7 +125,7 @@ static CDChatManager *instance;
 }
 
 - (void)fetchConvWithOtherId:(NSString *)otherId callback:(AVIMConversationResultBlock)callback {
-    NSMutableArray *array = [[NSMutableArray alloc] init];
+    NSMutableArray *array = [NSMutableArray new];
     [array addObject:[AVIMClient defaultClient].clientId];
     [array addObject:otherId];
     [self fetchConvWithMembers:array type:CDConvTypeSingle callback:callback];
