@@ -32,26 +32,34 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    /**
+     *   UI 相关
+     */
     self.title = @"JSQMessages";
     /// 设置用户名
     self.senderId = _dataSource.outgoingID;
     self.senderDisplayName = _dataSource.outgoingDisplayName;
-    
     self.inputToolbar.contentView.textView.pasteDelegate = self;
-    /**
-     *  显示更多的标题头
-     */
+    
+    /// 显示更多的标题头
     self.showLoadEarlierMessagesHeader = YES;
     
     [JSQMessagesCollectionViewCell registerMenuAction:@selector(delete:)];
     self.collectionView.collectionViewLayout.messageBubbleFont = [UIFont systemFontOfSize:15];
+    
+    
+    /**
+     *  聊天相关
+     */
     [RACObserve(self.dataSource, messagesCount) subscribeNext:^(id x) {
         NSLog(@"刷新了列表");
         [self.collectionView reloadData];
         [self scrollToBottomAnimated:NO];
 
     }];
+    
 }
+
 
 #pragma mark - JSQMessagesViewController method overrides
 #pragma mark 发送按钮点击回调

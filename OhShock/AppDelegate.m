@@ -15,7 +15,7 @@
 #import "LTMainTabBarController.h"
 #import "UIColor+expanded.h"
 #import "UIImage+Common.h"
-
+#import "CDChatManager.h"
 
 #define kColorTableSectionBg [UIColor colorWithHexString:@"0xe5e5e5"]
 #define  kNavTitleFontSize 19
@@ -45,11 +45,21 @@ static NSString *AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
     self.window.backgroundColor = [UIColor whiteColor];
     
     /////////////////////////////////////////////////////////////
-    
+    [[CDChatManager manager] openWithClientId:[AVUser currentUser].objectId callback: ^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            if (succeeded) {
+                NSLog(@"openWithClientId 成功");
+            }
+        } else{
+            NSLog(@"openWithClientId 失败 %@",error);
+        }
+    }];
+
     
     
     /////////////////////////////////////////////////////////////
     /////////////////业务逻辑/////////////////////////////////////
+    
     
     //如果没有登陆
     if (![LTLogInService currentUser]) {

@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <AVOSCloudIM/AVOSCloudIM.h>
+
 #import <AVOSCloud/AVOSCloud.h>
 
 @class AVUser;
 @class LTChatModel;
 
-@interface LTChatService : NSObject <AVIMClientDelegate>
+@interface LTChatService : NSObject 
 -(instancetype)initWithUser:(AVUser *)user;
 @property (nonatomic, weak) LTChatModel *dataSource;
 /// 获取当前用户

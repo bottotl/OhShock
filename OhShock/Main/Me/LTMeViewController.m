@@ -15,6 +15,7 @@
 #import "YYPhotoGroupView.h"
 #import "LTMeSettingViewController.h"
 #import "LTMeInfoSettingViewController.h"
+#import <AVOSCloud/AVOSCloud.h>
 
 @interface LTMeViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -44,7 +45,11 @@
     self.tableView.tableFooterView = [[UIView alloc]init];
     self.tableViewHeader = [LTMeHeadView new];
     self.tableViewHeader.contentMode = UIViewContentModeScaleAspectFill;
-    self.tableViewHeader.avatorUrlString = @"http://img02.ishuhui.com/op/miao809/01-02.jpg";
+    AVUser *me = [AVUser currentUser];
+    [self getAvatorUrlString:me complete:^(NSString *urlString, NSError *error) {
+        self.tableViewHeader.avatorUrlString = urlString;
+    }];
+    self.tableViewHeader.userName = [AVUser currentUser].username;
     [self.tableView addParallaxWithView:self.tableViewHeader andHeight:LTMeHeadViewHeight];
     
     _refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
@@ -73,7 +78,19 @@
 - (void)viewWillAppear:(BOOL)animated{
     self.title = @"我";
 }
-
+- (void)getAvatorUrlString:(AVUser *)user complete:(void(^)(NSString *urlString, NSError *error))completeBlock{
+    //AVQuery *query = [AVQuery queryWithClassName:@"_User"];
+    
+    AVFile *avatorFile = [user objectForKey:@"avatar"];
+    if (completeBlock) {
+        if (avatorFile) {
+            completeBlock(avatorFile.url,nil);
+        }else{
+            NSLog(@"getAvatorUrlString error");
+        }
+        
+    }
+}
 
 #pragma mark -
 #pragma mark tableView data source
@@ -119,10 +136,10 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 20;
+    return 0.1;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 0.1;
+    return 20;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -77,9 +77,11 @@
     
     self.userAvator.bottom = self.userInfo.top - 10 ;
     self.userAvator.centerX = self.bounds.size.width/2;
-    
-    
-    
+}
+#pragma mark - property
+-(void)setUserName:(NSString *)userName{
+    self.userInfo.userName = userName;
+    _userName = userName.copy;
 }
 
 @end

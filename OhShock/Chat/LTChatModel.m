@@ -27,14 +27,17 @@
         _outgoingUser = [self.service getCurrentUser];
         
         self.messages = [[NSMutableArray alloc]initWithCapacity:15];
+        /// 获取头像
         [_service getAvatorImageOfUser:_incomingUser complete:^(UIImage *image, NSError *error) {
             _incomingAvatarImage = [JSQMessagesAvatarImageFactory avatarImageWithImage:image diameter:kJSQMessagesCollectionViewAvatarSizeDefault];
         }];
         [_service getAvatorImageOfUser:_outgoingUser complete:^(UIImage *image, NSError *error) {
             _outgoingAvatarImage = [JSQMessagesAvatarImageFactory avatarImageWithImage:image diameter:kJSQMessagesCollectionViewAvatarSizeDefault];
         }];
-        
+
         [self initConversation];
+#pragma mark 设置代理
+        [AVIMClient defaultClient].delegate = self;
     }
     return self;
 }
@@ -52,26 +55,22 @@
     
     return self;
 }
+#pragma mark 初始化会话
+/**
+ *  获取会话
+ */
 -(void)initConversation{
     __weak __typeof(self) weakSelf = self;
-    [[CDChatManager manager] openWithClientId:[AVUser currentUser].objectId callback: ^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            if (succeeded) {
-                [[CDChatManager manager] fetchConvWithOtherId:self.incomingUser.objectId callback: ^(AVIMConversation *conversation, NSError *error) {
-                    if (error) {
-                        NSLog(@"fetchConvWithOtherId %@",error);
-                    }else{
-                        weakSelf.conv = conversation;
-                        NSLog(@"fetchConvWithOtherId 成功");
-                        //查询成功后加载会话
-                        [weakSelf loadMessagesWhenInit];
-                    }
-                    
-                }];
-            }
+    [[CDChatManager manager] fetchConvWithOtherId:self.incomingUser.objectId callback: ^(AVIMConversation *conversation, NSError *error) {
+        if (error) {
+            NSLog(@"fetchConvWithOtherId %@",error);
         }else{
-            NSLog(@"initConversation error :%@",error);
+            weakSelf.conv = conversation;
+            NSLog(@"fetchConvWithOtherId 成功");
+            //查询成功后加载会话
+            [weakSelf loadMessagesWhenInit];
         }
+        
     }];
     
 }
@@ -138,4 +137,128 @@
 -(NSString *)incomingDisplayName{
     return self.incomingUser.username;
 }
+
+#pragma mark - AVIMClientDelegate
+
+#pragma mark 聊天状态被暂停，常见于网络断开时触发
+
+/**
+ *  当前聊天状态被暂停，常见于网络断开时触发。
+ *  注意：该回调会覆盖 imClientPaused: 方法。
+ *  @param imClient 相应的 imClient
+ *  @param error    具体错误信息
+ */
+- (void)imClientPaused:(AVIMClient *)imClient error:(NSError *)error{
+    
+}
+
+#pragma mark 当前聊天状态开始恢复，常见于网络断开后开始重新连接。
+/**
+ *  当前聊天状态开始恢复，常见于网络断开后开始重新连接。
+ *  @param imClient 相应的 imClient
+ */
+- (void)imClientResuming:(AVIMClient *)imClient{
+    
+}
+
+#pragma mark 当前聊天状态已经恢复，常见于网络断开后开始重新连接。
+/**
+ *  当前聊天状态已经恢复，常见于网络断开后重新连接上。
+ *  @param imClient 相应的 imClient
+ */
+- (void)imClientResumed:(AVIMClient *)imClient{
+    
+}
+
+#pragma mark 接收到新的普通消息
+/*!
+ 接收到新的普通消息。
+ @param conversation － 所属对话
+ @param message - 具体的消息
+ */
+- (void)conversation:(AVIMConversation *)conversation didReceiveCommonMessage:(AVIMMessage *)message{
+    NSLog(@"接收到新的普通消息");
+}
+#pragma mark 接收到新的富媒体消息
+/*!
+ 接收到新的富媒体消息。
+ @param conversation － 所属对话
+ @param message - 具体的消息
+ */
+- (void)conversation:(AVIMConversation *)conversation didReceiveTypedMessage:(AVIMTypedMessage *)message{
+    [self.messages addObject:[message toJSQMessagesWithSenderId:message.clientId andDisplayName:[message.attributes valueForKey:@"username"] andDate:[NSDate dateWithTimeIntervalSince1970:message.sendTimestamp]]];
+    NSLog(@"message %@",message.text);
+    self.messagesCount = self.messages.count;
+    
+}
+#pragma mark 消息已投递给对方
+/*!
+ 消息已投递给对方。
+ @param conversation － 所属对话
+ @param message - 具体的消息
+ */
+- (void)conversation:(AVIMConversation *)conversation messageDelivered:(AVIMMessage *)message{
+    
+}
+
+
+#pragma mark 对话中有新成员加入时所有成员都会收到这一通知
+/*!
+ 对话中有新成员加入时所有成员都会收到这一通知。
+ @param conversation － 所属对话
+ @param clientIds - 加入的新成员列表
+ @param clientId - 邀请者的 id
+ */
+- (void)conversation:(AVIMConversation *)conversation membersAdded:(NSArray *)clientIds byClientId:(NSString *)clientId{
+    
+}
+
+#pragma mark 对话中有成员离开时所有剩余成员都会收到这一通知。
+/*!
+ 对话中有成员离开时所有剩余成员都会收到这一通知。
+ @param conversation － 所属对话
+ @param clientIds - 离开的成员列表
+ @param clientId - 操作者的 id
+ */
+- (void)conversation:(AVIMConversation *)conversation membersRemoved:(NSArray *)clientIds byClientId:(NSString *)clientId{
+    
+}
+#pragma mark 当前用户被邀请加入对话的通知
+/*!
+ 当前用户被邀请加入对话的通知。
+ @param conversation － 所属对话
+ @param clientId - 邀请者的 id
+ */
+- (void)conversation:(AVIMConversation *)conversation invitedByClientId:(NSString *)clientId{
+    
+}
+#pragma mark 当前用户被踢出对话的通知
+/*!
+ 当前用户被踢出对话的通知。
+ @param conversation － 所属对话
+ @param clientId - 操作者的 id
+ */
+- (void)conversation:(AVIMConversation *)conversation kickedByClientId:(NSString *)clientId{
+    
+}
+#pragma mark 收到未读通知
+/*!
+ 收到未读通知。在该终端上线的时候，服务器会将对话的未读数发送过来。未读数可通过 -[AVIMConversation markAsReadInBackground] 清零，服务端不会自动清零。
+ @param conversation 所属会话。
+ @param unread 未读消息数量。
+ */
+- (void)conversation:(AVIMConversation *)conversation didReceiveUnread:(NSInteger)unread{
+    
+}
+#pragma mark 客户端下线通知
+/*!
+ 客户端下线通知。
+ @param client 已下线的 client。
+ @param error 错误信息。
+ */
+- (void)client:(AVIMClient *)client didOfflineWithError:(NSError *)error{
+    
+}
+
+
 @end

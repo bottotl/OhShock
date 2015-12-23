@@ -162,6 +162,8 @@
  *  @discussion Setting this property to `YES` will show the header view immediately.
  *  Settings this property to `NO` will hide the header view immediately. You will need to scroll to
  *  the top of the collection view in order to see the header.
+ *
+ *  是否显示“显示更多”
  */
 @property (assign, nonatomic) BOOL showLoadEarlierMessagesHeader;
 

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JSQMessages.h"
+#import <AVOSCloudIM/AVOSCloudIM.h>
 @class LTChatService;
 @class AVUser;
 @class AVIMConversation;
@@ -22,7 +23,7 @@ static NSInteger kPageSize = 15;
  *  重要！请用 ReactiveCocoa 绑定 messagesCount ,每次这个参数更新了表示刷新了数据
  *  不然聊天页面不会刷新
  */
-@interface LTChatModel : NSObject
+@interface LTChatModel : NSObject<AVIMClientDelegate>
 /**
  *  重要属性
  */

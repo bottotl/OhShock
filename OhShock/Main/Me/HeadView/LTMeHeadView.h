@@ -30,6 +30,7 @@ static CGFloat LTMeHeadViewHeight = 250;
 @property (nonatomic, strong) LTMeHeadUserImageView *userAvator;
 @property (nonatomic, strong) LTMeHeadUserInfoView *userInfo;
 @property (nonatomic, strong) LTMeHeadUserFollowerAndFolloweeView *followInfoView;
+@property (nonatomic, copy) NSString *userName;
 -(RACSignal *)rac_avatorTapGesture;
 -(RACSignal *)rac_followeeTapGesture;
 -(RACSignal *)rac_followerTapGesture;
