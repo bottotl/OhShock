@@ -15,7 +15,7 @@
 #import "LTMainTabBarController.h"
 #import "UIColor+expanded.h"
 #import "UIImage+Common.h"
-#import "CDChatManager.h"
+
 
 #define kColorTableSectionBg [UIColor colorWithHexString:@"0xe5e5e5"]
 #define  kNavTitleFontSize 19
@@ -44,18 +44,10 @@ static NSString *AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    /////////////////////////////////////////////////////////////
-    [[CDChatManager manager] openWithClientId:[AVUser currentUser].objectId callback: ^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            if (succeeded) {
-                NSLog(@"openWithClientId 成功");
-            }
-        } else{
-            NSLog(@"openWithClientId 失败 %@",error);
-        }
-    }];
-
     
+
+    /// 注册推送
+    [self registerPush];
     
     /////////////////////////////////////////////////////////////
     /////////////////业务逻辑/////////////////////////////////////
@@ -125,6 +117,26 @@ static NSString *AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
     }
     [navigationBarAppearance setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"0x28303b"]] forBarMetrics:UIBarMetricsDefault];
     [navigationBarAppearance setTitleTextAttributes:textAttributes];
+}
+#pragma mark - 注册推送
+- (void)registerPush{
+    UIMutableUserNotificationCategory *categorys = [[UIMutableUserNotificationCategory alloc] init];
+    UIUserNotificationSettings *userSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge|UIUserNotificationTypeSound|UIUserNotificationTypeAlert
+                                                                                 categories:[NSSet setWithObject:categorys]];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:userSettings];
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+}
+- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    AVInstallation *currentInstallation = [AVInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation saveInBackground];
+    [AVPush setProductionMode:YES];
+}
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))handler {
+    NSLog(@"didReceiveRemoteNotification");
+}
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"注册失败，无法获取设备 ID, 具体错误: %@", error);
 }
 
 @end

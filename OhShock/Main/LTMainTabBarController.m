@@ -12,6 +12,8 @@
 #import "LTDiscoverViewController.h"
 #import "LTMeViewController.h"
 #import "UIImage+Common.h"
+#import "CDChatManager.h"
+#import <AVOSCloud/AVOSCloud.h>
 
 @interface LTMainTabBarController ()
 
@@ -26,6 +28,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    /////////////////////////////////////////////////////////////
+    [[CDChatManager manager] openWithClientId:[AVUser currentUser].objectId callback: ^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            if (succeeded) {
+                NSLog(@"openWithClientId 成功");
+            }
+        } else{
+            NSLog(@"openWithClientId 失败 %@",error);
+        }
+    }];
     //  这个是用来包含3个
     _todoTabBarController = [LTTodoViewController new];
     UINavigationController *todoViewNavigationController = [[UINavigationController alloc]initWithRootViewController:_todoTabBarController];
