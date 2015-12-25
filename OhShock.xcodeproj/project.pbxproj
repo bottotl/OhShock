@@ -457,6 +457,17 @@
 		B81CCC4A1C21408500D642DB /* JSQMessagesToolbarContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B81CCC1D1C21408500D642DB /* JSQMessagesToolbarContentView.xib */; };
 		B81CCC4B1C21408500D642DB /* JSQMessagesTypingIndicatorFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B81CCC1F1C21408500D642DB /* JSQMessagesTypingIndicatorFooterView.m */; };
 		B81CCC4C1C21408500D642DB /* JSQMessagesTypingIndicatorFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B81CCC201C21408500D642DB /* JSQMessagesTypingIndicatorFooterView.xib */; };
+		B82BA3AA1C2BDCE6004AFC37 /* LTAddTodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B82BA3A91C2BDCE6004AFC37 /* LTAddTodoViewController.m */; };
+		B82BA3AD1C2BDD7F004AFC37 /* LTAddTodoTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B82BA3AC1C2BDD7F004AFC37 /* LTAddTodoTextCell.m */; };
+		B82BA3C01C2BDED7004AFC37 /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = B82BA3B01C2BDED7004AFC37 /* AbstractActionSheetPicker.m */; };
+		B82BA3C11C2BDED7004AFC37 /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = B82BA3B21C2BDED7004AFC37 /* ActionSheetCustomPicker.m */; };
+		B82BA3C21C2BDED7004AFC37 /* ActionSheetDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = B82BA3B51C2BDED7004AFC37 /* ActionSheetDatePicker.m */; };
+		B82BA3C31C2BDED7004AFC37 /* ActionSheetDistancePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = B82BA3B71C2BDED7004AFC37 /* ActionSheetDistancePicker.m */; };
+		B82BA3C41C2BDED7004AFC37 /* ActionSheetLocalePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = B82BA3B91C2BDED7004AFC37 /* ActionSheetLocalePicker.m */; };
+		B82BA3C51C2BDED7004AFC37 /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = B82BA3BB1C2BDED7004AFC37 /* ActionSheetStringPicker.m */; };
+		B82BA3C61C2BDED7004AFC37 /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B82BA3BD1C2BDED7004AFC37 /* DistancePickerView.m */; };
+		B82BA3C71C2BDED7004AFC37 /* SWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = B82BA3BF1C2BDED7004AFC37 /* SWActionSheet.m */; };
+		B82BA3CA1C2BDF2F004AFC37 /* LTAddTodoSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B82BA3C91C2BDF2F004AFC37 /* LTAddTodoSelectionCell.m */; };
 		B84C205D1C2A440200F758AD /* AVIMTypedMessage+JSQMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = B84C205C1C2A440200F758AD /* AVIMTypedMessage+JSQMessages.m */; };
 		B85801151C1A849E00786143 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85801121C1A849E00786143 /* AVOSCloud.framework */; };
 		B85801191C1A84C300786143 /* AVOSCloud.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B85801121C1A849E00786143 /* AVOSCloud.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -464,6 +475,8 @@
 		B858011B1C1A84C300786143 /* AVOSCloudCrashReporting.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B85801131C1A849E00786143 /* AVOSCloudCrashReporting.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B858011C1C1A84C300786143 /* AVOSCloudIM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85801141C1A849E00786143 /* AVOSCloudIM.framework */; };
 		B858011D1C1A84C300786143 /* AVOSCloudIM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B85801141C1A849E00786143 /* AVOSCloudIM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B863A65D1C2CD8D000707D17 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = B863A65B1C2CD8D000707D17 /* NSDate+Helper.m */; };
+		B863A65E1C2CD8D000707D17 /* README.textile in Resources */ = {isa = PBXBuildFile; fileRef = B863A65C1C2CD8D000707D17 /* README.textile */; };
 		B87677BB1C1FC7FE00A0795B /* LTLogOutService.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677BA1C1FC7FE00A0795B /* LTLogOutService.m */; };
 		B87677BF1C1FCEB800A0795B /* LTAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677BE1C1FCEB800A0795B /* LTAddFriendViewController.m */; };
 		B87677C21C1FE12600A0795B /* LTLiteUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677C11C1FE12600A0795B /* LTLiteUserModel.m */; };
@@ -1357,11 +1370,37 @@
 		B81CCC1E1C21408500D642DB /* JSQMessagesTypingIndicatorFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSQMessagesTypingIndicatorFooterView.h; sourceTree = "<group>"; };
 		B81CCC1F1C21408500D642DB /* JSQMessagesTypingIndicatorFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSQMessagesTypingIndicatorFooterView.m; sourceTree = "<group>"; };
 		B81CCC201C21408500D642DB /* JSQMessagesTypingIndicatorFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSQMessagesTypingIndicatorFooterView.xib; sourceTree = "<group>"; };
+		B82BA3A81C2BDCE6004AFC37 /* LTAddTodoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTAddTodoViewController.h; sourceTree = "<group>"; };
+		B82BA3A91C2BDCE6004AFC37 /* LTAddTodoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTAddTodoViewController.m; sourceTree = "<group>"; };
+		B82BA3AB1C2BDD7F004AFC37 /* LTAddTodoTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTAddTodoTextCell.h; sourceTree = "<group>"; };
+		B82BA3AC1C2BDD7F004AFC37 /* LTAddTodoTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTAddTodoTextCell.m; sourceTree = "<group>"; };
+		B82BA3AF1C2BDED6004AFC37 /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
+		B82BA3B01C2BDED7004AFC37 /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
+		B82BA3B11C2BDED7004AFC37 /* ActionSheetCustomPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPicker.h; sourceTree = "<group>"; };
+		B82BA3B21C2BDED7004AFC37 /* ActionSheetCustomPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetCustomPicker.m; sourceTree = "<group>"; };
+		B82BA3B31C2BDED7004AFC37 /* ActionSheetCustomPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPickerDelegate.h; sourceTree = "<group>"; };
+		B82BA3B41C2BDED7004AFC37 /* ActionSheetDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDatePicker.h; sourceTree = "<group>"; };
+		B82BA3B51C2BDED7004AFC37 /* ActionSheetDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDatePicker.m; sourceTree = "<group>"; };
+		B82BA3B61C2BDED7004AFC37 /* ActionSheetDistancePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDistancePicker.h; sourceTree = "<group>"; };
+		B82BA3B71C2BDED7004AFC37 /* ActionSheetDistancePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDistancePicker.m; sourceTree = "<group>"; };
+		B82BA3B81C2BDED7004AFC37 /* ActionSheetLocalePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetLocalePicker.h; sourceTree = "<group>"; };
+		B82BA3B91C2BDED7004AFC37 /* ActionSheetLocalePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetLocalePicker.m; sourceTree = "<group>"; };
+		B82BA3BA1C2BDED7004AFC37 /* ActionSheetStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetStringPicker.h; sourceTree = "<group>"; };
+		B82BA3BB1C2BDED7004AFC37 /* ActionSheetStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetStringPicker.m; sourceTree = "<group>"; };
+		B82BA3BC1C2BDED7004AFC37 /* DistancePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistancePickerView.h; sourceTree = "<group>"; };
+		B82BA3BD1C2BDED7004AFC37 /* DistancePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistancePickerView.m; sourceTree = "<group>"; };
+		B82BA3BE1C2BDED7004AFC37 /* SWActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWActionSheet.h; sourceTree = "<group>"; };
+		B82BA3BF1C2BDED7004AFC37 /* SWActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWActionSheet.m; sourceTree = "<group>"; };
+		B82BA3C81C2BDF2F004AFC37 /* LTAddTodoSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTAddTodoSelectionCell.h; sourceTree = "<group>"; };
+		B82BA3C91C2BDF2F004AFC37 /* LTAddTodoSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTAddTodoSelectionCell.m; sourceTree = "<group>"; };
 		B84C205B1C2A440200F758AD /* AVIMTypedMessage+JSQMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVIMTypedMessage+JSQMessages.h"; sourceTree = "<group>"; };
 		B84C205C1C2A440200F758AD /* AVIMTypedMessage+JSQMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVIMTypedMessage+JSQMessages.m"; sourceTree = "<group>"; };
 		B85801121C1A849E00786143 /* AVOSCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloud.framework; sourceTree = "<group>"; };
 		B85801131C1A849E00786143 /* AVOSCloudCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloudCrashReporting.framework; sourceTree = "<group>"; };
 		B85801141C1A849E00786143 /* AVOSCloudIM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloudIM.framework; sourceTree = "<group>"; };
+		B863A65A1C2CD8D000707D17 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
+		B863A65B1C2CD8D000707D17 /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
+		B863A65C1C2CD8D000707D17 /* README.textile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.textile; sourceTree = "<group>"; };
 		B87677B91C1FC7FE00A0795B /* LTLogOutService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTLogOutService.h; sourceTree = "<group>"; };
 		B87677BA1C1FC7FE00A0795B /* LTLogOutService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTLogOutService.m; sourceTree = "<group>"; };
 		B87677BD1C1FCEB800A0795B /* LTAddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTAddFriendViewController.h; sourceTree = "<group>"; };
@@ -2529,6 +2568,8 @@
 		B80A367D1C1DAD0000C3B226 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				B863A6591C2CD8D000707D17 /* NSDate+Helper */,
+				B82BA3AE1C2BDED6004AFC37 /* ActionSheetPicker */,
 				B8EEABC61C294F5400F861E8 /* LeanChatLib */,
 				B81CCBC01C21408500D642DB /* JSQMessagesViewController */,
 				B810720C1C197FCE0058130E /* JTCalender */,
@@ -2702,6 +2743,7 @@
 		B81071F01C197FCE0058130E /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
+				B82BA3A71C2BDC89004AFC37 /* AddTodo */,
 				B87677BC1C1FCE3A00A0795B /* AddFriend */,
 				B81071F11C197FCE0058130E /* Cell */,
 				B81072351C197FCE0058130E /* LTTodoAllStyleViewController.h */,
@@ -2988,6 +3030,43 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B82BA3A71C2BDC89004AFC37 /* AddTodo */ = {
+			isa = PBXGroup;
+			children = (
+				B82BA3A81C2BDCE6004AFC37 /* LTAddTodoViewController.h */,
+				B82BA3A91C2BDCE6004AFC37 /* LTAddTodoViewController.m */,
+				B82BA3AB1C2BDD7F004AFC37 /* LTAddTodoTextCell.h */,
+				B82BA3AC1C2BDD7F004AFC37 /* LTAddTodoTextCell.m */,
+				B82BA3C81C2BDF2F004AFC37 /* LTAddTodoSelectionCell.h */,
+				B82BA3C91C2BDF2F004AFC37 /* LTAddTodoSelectionCell.m */,
+			);
+			path = AddTodo;
+			sourceTree = "<group>";
+		};
+		B82BA3AE1C2BDED6004AFC37 /* ActionSheetPicker */ = {
+			isa = PBXGroup;
+			children = (
+				B82BA3AF1C2BDED6004AFC37 /* AbstractActionSheetPicker.h */,
+				B82BA3B01C2BDED7004AFC37 /* AbstractActionSheetPicker.m */,
+				B82BA3B11C2BDED7004AFC37 /* ActionSheetCustomPicker.h */,
+				B82BA3B21C2BDED7004AFC37 /* ActionSheetCustomPicker.m */,
+				B82BA3B31C2BDED7004AFC37 /* ActionSheetCustomPickerDelegate.h */,
+				B82BA3B41C2BDED7004AFC37 /* ActionSheetDatePicker.h */,
+				B82BA3B51C2BDED7004AFC37 /* ActionSheetDatePicker.m */,
+				B82BA3B61C2BDED7004AFC37 /* ActionSheetDistancePicker.h */,
+				B82BA3B71C2BDED7004AFC37 /* ActionSheetDistancePicker.m */,
+				B82BA3B81C2BDED7004AFC37 /* ActionSheetLocalePicker.h */,
+				B82BA3B91C2BDED7004AFC37 /* ActionSheetLocalePicker.m */,
+				B82BA3BA1C2BDED7004AFC37 /* ActionSheetStringPicker.h */,
+				B82BA3BB1C2BDED7004AFC37 /* ActionSheetStringPicker.m */,
+				B82BA3BC1C2BDED7004AFC37 /* DistancePickerView.h */,
+				B82BA3BD1C2BDED7004AFC37 /* DistancePickerView.m */,
+				B82BA3BE1C2BDED7004AFC37 /* SWActionSheet.h */,
+				B82BA3BF1C2BDED7004AFC37 /* SWActionSheet.m */,
+			);
+			path = ActionSheetPicker;
+			sourceTree = "<group>";
+		};
 		B85801111C1A849E00786143 /* AVOSCloud */ = {
 			isa = PBXGroup;
 			children = (
@@ -2997,6 +3076,16 @@
 			);
 			name = AVOSCloud;
 			path = OhShock/Frameworks/AVOSCloud;
+			sourceTree = "<group>";
+		};
+		B863A6591C2CD8D000707D17 /* NSDate+Helper */ = {
+			isa = PBXGroup;
+			children = (
+				B863A65A1C2CD8D000707D17 /* NSDate+Helper.h */,
+				B863A65B1C2CD8D000707D17 /* NSDate+Helper.m */,
+				B863A65C1C2CD8D000707D17 /* README.textile */,
+			);
+			path = "NSDate+Helper";
 			sourceTree = "<group>";
 		};
 		B87677BC1C1FCE3A00A0795B /* AddFriend */ = {
@@ -4185,6 +4274,7 @@
 				B80728891C1AB2E900E7802A /* nav_arrow_down@2x.png in Resources */,
 				B8EEAE3A1C294F5400F861E8 /* tusiji_7_cover@2x.png in Resources */,
 				B81CCC401C21408500D642DB /* JSQMessagesCollectionViewCellIncoming.xib in Resources */,
+				B863A65E1C2CD8D000707D17 /* README.textile in Resources */,
 				B8EEAE591C294F5400F861E8 /* ReceiverVoiceNodePlaying001@2x.png in Resources */,
 				B807280C1C1AB2E900E7802A /* coding_emoji_27@2x.png in Resources */,
 				B80728F31C1AB2EA00E7802A /* tipIcon_PullRequestBean@2x.png in Resources */,
@@ -4522,9 +4612,11 @@
 				B8EEAD981C294F5400F861E8 /* XHPhotographyHelper.m in Sources */,
 				B8EEADAF1C294F5400F861E8 /* XHContact.m in Sources */,
 				B81072551C197FCE0058130E /* IFTTTJazzHandsViewController.m in Sources */,
+				B863A65D1C2CD8D000707D17 /* NSDate+Helper.m in Sources */,
 				B87677C91C1FE32800A0795B /* LTUserSearchService.m in Sources */,
 				B8EEADA11C294F5400F861E8 /* XHDisplayMediaViewController.m in Sources */,
 				B81CCC441C21408500D642DB /* JSQMessagesInputToolbar.m in Sources */,
+				B82BA3C61C2BDED7004AFC37 /* DistancePickerView.m in Sources */,
 				B8EEAD9E1C294F5400F861E8 /* XHBaseViewController.m in Sources */,
 				B81CCC3D1C21408500D642DB /* JSQMessagesCollectionView.m in Sources */,
 				B81072561C197FCE0058130E /* IntroductionViewController.m in Sources */,
@@ -4564,8 +4656,10 @@
 				B81072571C197FCE0058130E /* LogInViewController.m in Sources */,
 				B8EEADBB1C294F5400F861E8 /* SELinkText.m in Sources */,
 				B810725D1C197FCE0058130E /* LTMainTabBarController.m in Sources */,
+				B82BA3C71C2BDED7004AFC37 /* SWActionSheet.m in Sources */,
 				B81072621C197FCE0058130E /* LTMeHeadView.m in Sources */,
 				B81CCC3B1C21408500D642DB /* JSQVideoMediaItem.m in Sources */,
+				B82BA3AA1C2BDCE6004AFC37 /* LTAddTodoViewController.m in Sources */,
 				B80A36511C1DABC400C3B226 /* LTStatusCell.m in Sources */,
 				B8EEAD791C294F5400F861E8 /* CDChatRoomVC.m in Sources */,
 				B8EEAD961C294F5400F861E8 /* XHLocationHelper.m in Sources */,
@@ -4575,6 +4669,7 @@
 				B8EEADCB1C294F5400F861E8 /* XHSoundManager.m in Sources */,
 				B81CCC391C21408500D642DB /* JSQMessagesBubbleImage.m in Sources */,
 				B81072721C197FCE0058130E /* JTCalendarContentView.m in Sources */,
+				B82BA3CA1C2BDF2F004AFC37 /* LTAddTodoSelectionCell.m in Sources */,
 				B87677C21C1FE12600A0795B /* LTLiteUserModel.m in Sources */,
 				B8EEADCD1C294F5400F861E8 /* XHBaseCollectionViewCell.m in Sources */,
 				B87677D01C1FEC9900A0795B /* UISearchBar+RACSignalSupport.m in Sources */,
@@ -4589,6 +4684,7 @@
 				B80A364A1C1DABC400C3B226 /* WBStatusComposeTextParser.m in Sources */,
 				B8EEADA81C294F5400F861E8 /* XHMessageAvatorFactory.m in Sources */,
 				B87677D31C20054D00A0795B /* LTUserInfoViewController.m in Sources */,
+				B82BA3C41C2BDED7004AFC37 /* ActionSheetLocalePicker.m in Sources */,
 				B8A128431C1984B100ECA6CD /* LKAlarmMamager.m in Sources */,
 				B8EEADA71C294F5400F861E8 /* XHOperationNetworkKit.m in Sources */,
 				B81072831C197FCE0058130E /* LTTodoCalenderStyleViewController.m in Sources */,
@@ -4617,9 +4713,11 @@
 				B81CCC311C21408500D642DB /* JSQMessagesBubblesSizeCalculator.m in Sources */,
 				B8EEADD71C294F5400F861E8 /* XHVoiceRecordHUD.m in Sources */,
 				B810728B1C197FCE0058130E /* LTTapImageView.m in Sources */,
+				B82BA3C31C2BDED7004AFC37 /* ActionSheetDistancePicker.m in Sources */,
 				B81072541C197FCE0058130E /* IFTTTCircleView.m in Sources */,
 				B810728A1C197FCE0058130E /* SignUpViewController.m in Sources */,
 				B8EEADAE1C294F5400F861E8 /* XHAnnotation.m in Sources */,
+				B82BA3C21C2BDED7004AFC37 /* ActionSheetDatePicker.m in Sources */,
 				B8EEAD951C294F5400F861E8 /* XHFoundationCommon.m in Sources */,
 				B81CCC241C21408500D642DB /* NSString+JSQMessages.m in Sources */,
 				B8EEADDF1C294F5400F861E8 /* XHRefreshControl.m in Sources */,
@@ -4634,6 +4732,7 @@
 				B8EEADB51C294F5400F861E8 /* FLAnimatedImage.m in Sources */,
 				B8EEADB31C294F5400F861E8 /* XHShareMenuItem.m in Sources */,
 				B8EEAD9C1C294F5400F861E8 /* XHBaseTableViewController.m in Sources */,
+				B82BA3C51C2BDED7004AFC37 /* ActionSheetStringPicker.m in Sources */,
 				B8EEAD931C294F5400F861E8 /* XHAudioPlayerHelper.m in Sources */,
 				B81072611C197FCE0058130E /* LTMeHeadUserInfoView.m in Sources */,
 				B81072581C197FCE0058130E /* LTLogInService.m in Sources */,
@@ -4641,6 +4740,7 @@
 				B81CCC491C21408500D642DB /* JSQMessagesToolbarContentView.m in Sources */,
 				B81072731C197FCE0058130E /* JTCalendarDataCache.m in Sources */,
 				B8EEADB91C294F5400F861E8 /* SEConstants.m in Sources */,
+				B82BA3C11C2BDED7004AFC37 /* ActionSheetCustomPicker.m in Sources */,
 				B8EEAD861C294F5400F861E8 /* NSString+MessageInputView.m in Sources */,
 				B8EEAD8B1C294F5400F861E8 /* UIImage+Resize.m in Sources */,
 				B810726E1C197FCE0058130E /* ScheduleHeadCell.m in Sources */,
@@ -4707,6 +4807,7 @@
 				B8EEAD8E1C294F5400F861E8 /* UIImage+XHAnimatedFaceGif.m in Sources */,
 				B8EEADD31C294F5400F861E8 /* XHMessageTableView.m in Sources */,
 				B8EEAD871C294F5400F861E8 /* NSString+XHDiskSizeTransfrom.m in Sources */,
+				B82BA3C01C2BDED7004AFC37 /* AbstractActionSheetPicker.m in Sources */,
 				B8EEADC71C294F5400F861E8 /* XHImageViewer.m in Sources */,
 				B8EEADD41C294F5400F861E8 /* XHMessageTableViewCell.m in Sources */,
 				B810727A1C197FCE0058130E /* JTCircleView.m in Sources */,
@@ -4735,6 +4836,7 @@
 				B8EEADBE1C294F5400F861E8 /* SETextEditingCaret.m in Sources */,
 				B81CCB9C1C212E2600D642DB /* LTChatService.m in Sources */,
 				B810725F1C197FCE0058130E /* LTMeHeadUserFollowInfoView.m in Sources */,
+				B82BA3AD1C2BDD7F004AFC37 /* LTAddTodoTextCell.m in Sources */,
 				B8EEADD01C294F5400F861E8 /* XHMessageBubbleView.m in Sources */,
 				B81072841C197FCE0058130E /* LTTodoTypeStyleViewController.m in Sources */,
 				B8EEAD911C294F5400F861E8 /* UIView+XHBadgeView.m in Sources */,

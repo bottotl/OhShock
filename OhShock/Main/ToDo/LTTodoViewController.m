@@ -14,6 +14,7 @@
 #import "UIView+Layout.h"
 #import "XHPopMenu.h"
 #import "LTAddFriendViewController.h"
+#import "LTAddTodoViewController.h"
 
 @interface LTTodoViewController (){
     UIView *_contentView;
@@ -238,7 +239,7 @@
                 //[weakSelf enterQRCodeController];
             }else if (index == 0 ) {
                 printf("添加日程 index 0\n");
-                //[weakSelf enterCreateScheduleController];
+                [weakSelf enterCreateScheduleController];
             }else if (index == 2 ) {
                 printf("添加好友 0\n");
                 
@@ -250,9 +251,9 @@
     return _popMenu;
 }
 - (void)enterCreateScheduleController {
-    //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"ToDo" bundle:nil];
-    //    UIViewController * view = [storyboard instantiateViewControllerWithIdentifier:@"CreateTodoViewController"];
-    //    [self.navigationController pushViewController:view animated:YES];
+    LTAddTodoViewController *addTodoVC = [[LTAddTodoViewController alloc]initWithStyle:UITableViewStyleGrouped];
+    addTodoVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:addTodoVC animated:YES];
 }
 
 -(void)enterAddFriendController{
