@@ -252,8 +252,9 @@
 }
 - (void)enterCreateScheduleController {
     LTAddTodoViewController *addTodoVC = [[LTAddTodoViewController alloc]initWithStyle:UITableViewStyleGrouped];
+    UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:addTodoVC];
     addTodoVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:addTodoVC animated:YES];
+    [self.navigationController showDetailViewController:navi sender:self];
 }
 
 -(void)enterAddFriendController{

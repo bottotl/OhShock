@@ -11,6 +11,7 @@
 #import "LTAddTodoSelectionCell.h"
 #import "LTAddTodoTextCell.h"
 #import "NSDate+Helper.h"
+#import "LKAlarmMamager.h"
 
 @interface LTAddTodoViewController ()
 @property (nonatomic, copy) NSString *text;
@@ -27,10 +28,63 @@
     [super viewDidLoad];
     [self.tableView registerClass:[LTAddTodoSelectionCell class]forCellReuseIdentifier:LTAddTodoSelectionCellIdentifier];
     [self.tableView registerClass:[LTAddTodoTextCell class] forCellReuseIdentifier:LTAddTodoTextCellIdentifier];
-    self.tableView.estimatedRowHeight = 44;
+    UIBarButtonItem *saveBarItem = [[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(save)];
+    UIBarButtonItem *cancleBarItem = [[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancle)];
+    self.navigationItem.leftBarButtonItems = @[cancleBarItem];
+    self.navigationItem.rightBarButtonItems = @[saveBarItem];
     
 }
-
+-(void)cancle{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+-(void)save{
+    [self createReminder];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+-(void)createReminder{
+    LKAlarmEvent* event = [LKAlarmEvent new];
+    event.title = @"参试加入日历事件中";
+    event.content = @"只有加入到日历当中才有用，是日历中的备注";
+    ///工作日提醒
+    event.repeatType = LKAlarmRepeatTypeWork;
+    ///??秒后提醒我
+    if (self.date) {
+        event.startDate = self.date;
+    }else{
+        return;
+    }
+    //event.startDate = [NSDate dateWithTimeIntervalSinceNow:3];
+    
+    NSLog(@"Date:%@ ",event.startDate);
+    ///也可以强制加入到本地提醒中
+    //event.isNeedJoinLocalNotify = YES;
+    
+    ///会先尝试加入日历  如果日历没权限 会加入到本地提醒中
+    [[LKAlarmMamager shareManager] addAlarmEvent:event callback:^(LKAlarmEvent *alarmEvent) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            //UILabel* label = ((ViewController*)_window.rootViewController).lb_haha;
+            if(alarmEvent.isJoinedCalendar)
+            {
+                //label.text = @"已加入日历";
+                printf("已加入日历\n");
+            }
+            else if(alarmEvent.isJoinedLocalNotify)
+            {
+                //label.text = @"已加入本地通知";
+                printf("已加入本地通知\n");
+            }
+            else
+            {
+                //label.text = @"加入通知失败";
+                printf("加入通知失败\n");
+            }
+            
+        });
+        
+    }];
+}
 #pragma mark - Table view data source
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
