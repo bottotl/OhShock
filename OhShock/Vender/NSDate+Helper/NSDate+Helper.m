@@ -30,17 +30,17 @@
 
 #import "NSDate+Helper.h"
 
-static NSString *kNSDateHelperFormatFullDateWithTime    = @"MMM d, yyyy h:mm a";
-static NSString *kNSDateHelperFormatFullDate            = @"MMM d, yyyy";
-static NSString *kNSDateHelperFormatShortDateWithTime   = @"MMM d h:mm a";
-static NSString *kNSDateHelperFormatShortDate           = @"MMM d";
-static NSString *kNSDateHelperFormatWeekday             = @"EEEE";
-static NSString *kNSDateHelperFormatWeekdayWithTime     = @"EEEE h:mm a";
-static NSString *kNSDateHelperFormatTime                = @"h:mm a";
-static NSString *kNSDateHelperFormatTimeWithPrefix      = @"'at' h:mm a";
-static NSString *kNSDateHelperFormatSQLDate             = @"yyyy-MM-dd";
-static NSString *kNSDateHelperFormatSQLTime             = @"HH:mm:ss";
-static NSString *kNSDateHelperFormatSQLDateWithTime     = @"yyyy-MM-dd HH:mm:ss";
+static NSString *const kNSDateHelperFormatFullDateWithTime    = @"MMM d, yyyy h:mm a";
+static NSString *const kNSDateHelperFormatFullDate            = @"MMM d, yyyy";
+static NSString *const kNSDateHelperFormatShortDateWithTime   = @"MMM d h:mm a";
+static NSString *const kNSDateHelperFormatShortDate           = @"MMM d";
+static NSString *const kNSDateHelperFormatWeekday             = @"EEEE";
+static NSString *const kNSDateHelperFormatWeekdayWithTime     = @"EEEE h:mm a";
+static NSString *const kNSDateHelperFormatTime                = @"h:mm a";
+static NSString *const kNSDateHelperFormatTimeWithPrefix      = @"'at' h:mm a";
+static NSString *const kNSDateHelperFormatSQLDate             = @"yyyy-MM-dd";
+static NSString *const kNSDateHelperFormatSQLTime             = @"HH:mm:ss";
+static NSString *const kNSDateHelperFormatSQLDateWithTime     = @"yyyy-MM-dd HH:mm:ss";
 
 @implementation NSDate (Helper)
 

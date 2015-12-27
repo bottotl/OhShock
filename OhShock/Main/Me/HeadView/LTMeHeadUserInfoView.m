@@ -11,9 +11,9 @@
 #import "Masonry.h"
 
 
-static NSString *MaleImageName = @"jft0m";
-static NSString *FemaleImageName = @"jft0m";
-static NSString *UnKnowImageName = @"jft0m";
+static NSString *const MaleImageName = @"jft0m";
+static NSString *const FemaleImageName = @"jft0m";
+static NSString *const UnKnowImageName = @"jft0m";
 @interface LTMeHeadUserInfoView ()
 
 @property (nonatomic, strong) UILabel *userNameLabel;

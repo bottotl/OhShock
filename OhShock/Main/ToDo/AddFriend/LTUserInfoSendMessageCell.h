@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class RACSignal;
-static NSString *LTUserInfoSendMessageCellIdentifier = @"LTUserInfoSendMessageCell";
+static NSString *const LTUserInfoSendMessageCellIdentifier = @"LTUserInfoSendMessageCell";
 @interface LTUserInfoSendMessageCell : UITableViewCell
 -(RACSignal *)rac_signalForSendMessageControlEvents;
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class RACSignal;
-static NSString *LTMeLogOutCellIdentifier = @"LTMeLogOutCell";
+static NSString *const LTMeLogOutCellIdentifier = @"LTMeLogOutCell";
 @interface LTMeLogOutCell : UITableViewCell
 -(RACSignal *)rac_signalForLogOutControlEvents;
 @end

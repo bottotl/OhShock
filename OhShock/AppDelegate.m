@@ -20,8 +20,8 @@
 #define kColorTableSectionBg [UIColor colorWithHexString:@"0xe5e5e5"]
 #define  kNavTitleFontSize 19
 
-static NSString *AppID = @"AeqpkvIfdCdKWr080LveKfEl";
-static NSString *AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
+static NSString *const AppID = @"AeqpkvIfdCdKWr080LveKfEl";
+static NSString *const AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
 @interface AppDelegate ()
 
 @end

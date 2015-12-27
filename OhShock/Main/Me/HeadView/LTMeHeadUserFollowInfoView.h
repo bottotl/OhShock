@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "ReactiveCocoa.h"
-static CGFloat LTMeHeadUserFollowInfoViewHeight = 30;
-static CGFloat LTMeHeadUserFollowInfoViewWidth = 80;
+static CGFloat const LTMeHeadUserFollowInfoViewHeight = 30;
+static CGFloat const LTMeHeadUserFollowInfoViewWidth = 80;
 
 /**
  *  @author Lintao Yu, 15-12-09 12:12:01

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-static NSString *LTAddTodoSelectionCellIdentifier = @"LTAddTodoSelectionCell";
+static NSString *const LTAddTodoSelectionCellIdentifier = @"LTAddTodoSelectionCell";
 @interface LTAddTodoSelectionCell : UITableViewCell
 @property (nonatomic, copy) NSString *rightLabelText;
 -(void)ConfigeCell:(UIImage *)image leftText:(NSString *)leftText rightText:(NSString *)rightText;

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-static NSString *LTMeHeaderCellIdentitier = @"LTMeHeaderCell";
+static NSString *const LTMeHeaderCellIdentitier = @"LTMeHeaderCell";
 static CGFloat avatarHeight = 44 ;
 static CGFloat avatarWidth = 44;
 /**

@@ -410,6 +410,7 @@
 		B810728C1C197FCE0058130E /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = B810724F1C197FCE0058130E /* UIColor+expanded.m */; };
 		B810728D1C197FCE0058130E /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = B81072511C197FCE0058130E /* UIImage+Common.m */; };
 		B810728E1C197FCE0058130E /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = B81072531C197FCE0058130E /* UIView+Layout.m */; };
+		B817B2FD1C2F785D00AFDC4C /* LTAddTodoService.m in Sources */ = {isa = PBXBuildFile; fileRef = B817B2FC1C2F785D00AFDC4C /* LTAddTodoService.m */; };
 		B81CCB961C21259F00D642DB /* LTChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B81CCB951C21259F00D642DB /* LTChatViewController.m */; };
 		B81CCB991C2126F600D642DB /* LTChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B81CCB981C2126F600D642DB /* LTChatModel.m */; };
 		B81CCB9C1C212E2600D642DB /* LTChatService.m in Sources */ = {isa = PBXBuildFile; fileRef = B81CCB9B1C212E2600D642DB /* LTChatService.m */; };
@@ -1275,6 +1276,8 @@
 		B81072511C197FCE0058130E /* UIImage+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Common.m"; sourceTree = "<group>"; };
 		B81072521C197FCE0058130E /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
 		B81072531C197FCE0058130E /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
+		B817B2FB1C2F785D00AFDC4C /* LTAddTodoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTAddTodoService.h; sourceTree = "<group>"; };
+		B817B2FC1C2F785D00AFDC4C /* LTAddTodoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTAddTodoService.m; sourceTree = "<group>"; };
 		B81CCB941C21259F00D642DB /* LTChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTChatViewController.h; sourceTree = "<group>"; };
 		B81CCB951C21259F00D642DB /* LTChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTChatViewController.m; sourceTree = "<group>"; };
 		B81CCB971C2126F600D642DB /* LTChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTChatModel.h; sourceTree = "<group>"; };
@@ -3039,6 +3042,8 @@
 				B82BA3AC1C2BDD7F004AFC37 /* LTAddTodoTextCell.m */,
 				B82BA3C81C2BDF2F004AFC37 /* LTAddTodoSelectionCell.h */,
 				B82BA3C91C2BDF2F004AFC37 /* LTAddTodoSelectionCell.m */,
+				B817B2FB1C2F785D00AFDC4C /* LTAddTodoService.h */,
+				B817B2FC1C2F785D00AFDC4C /* LTAddTodoService.m */,
 			);
 			path = AddTodo;
 			sourceTree = "<group>";
@@ -4627,6 +4632,7 @@
 				B81CCC2D1C21408500D642DB /* JSQMessagesBubbleImageFactory.m in Sources */,
 				B81072631C197FCE0058130E /* LTMeViewController.m in Sources */,
 				B80A36491C1DABC400C3B226 /* WBEmoticonInputView.m in Sources */,
+				B817B2FD1C2F785D00AFDC4C /* LTAddTodoService.m in Sources */,
 				B81CCC231C21408500D642DB /* NSBundle+JSQMessages.m in Sources */,
 				B8EEAD901C294F5400F861E8 /* UIScrollView+XHkeyboardControl.m in Sources */,
 				B81072601C197FCE0058130E /* LTMeHeadUserImageView.m in Sources */,

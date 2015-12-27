@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-static NSString *LTAddTodoTextCellIdentifier = @"LTAddTodoTextCell";
+static NSString *const LTAddTodoTextCellIdentifier = @"LTAddTodoTextCell";
 /// 输入框
 @interface LTAddTodoTextCell : UITableViewCell
 

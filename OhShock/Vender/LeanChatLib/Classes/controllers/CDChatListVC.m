@@ -29,11 +29,11 @@
 
 @end
 
-static NSMutableArray *cacheConvs;
+static NSMutableArray *const cacheConvs;
 
 @implementation CDChatListVC
 
-static NSString *cellIdentifier = @"ContactCell";
+static NSString *const cellIdentifier = @"ContactCell";
 
 - (instancetype)init {
     if ((self = [super init])) {

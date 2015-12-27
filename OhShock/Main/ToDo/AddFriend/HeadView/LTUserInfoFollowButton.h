@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "ReactiveCocoa/ReactiveCocoa.h"
-static CGFloat LTUserInfoFollowButtonHeight = 40;
-static CGFloat LTUserInfoFollowButtonWidth = 100;
+static CGFloat const LTUserInfoFollowButtonHeight = 40;
+static CGFloat const LTUserInfoFollowButtonWidth = 100;
 /**
  *  关注按钮的显示效果
  *  notFollowType   显示关注

@@ -9,7 +9,7 @@
 #import "LTTapImageView.h"
 #import "ReactiveCocoa.h"
 
-static CGFloat LTMeHeadUserImageViewHeigthAndWidth = 100;
+static CGFloat const LTMeHeadUserImageViewHeigthAndWidth = 100;
 @protocol LTMeHeadUserImageDelegate;
 /**
  *  @author Lintao Yu, 15-12-08 17:12:35

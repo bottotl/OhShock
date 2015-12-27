@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-static NSString *LTDiscoverCellIdentifier = @"LTDiscoverCellIdentifier";
+static NSString *const LTDiscoverCellIdentifier = @"LTDiscoverCellIdentifier";
 /**
  *  @author Lintao Yu, 15-12-08 10:12:50
  *

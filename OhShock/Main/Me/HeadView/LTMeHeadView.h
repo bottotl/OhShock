@@ -14,7 +14,7 @@
 #import "UIImageView+WebCache.h"
 #import "LTMeHeadUserFollowerAndFolloweeView.h"
 
-static CGFloat LTMeHeadViewHeight = 250;
+static CGFloat const LTMeHeadViewHeight = 250;
 @protocol LTMeHeadDelegate;
 /**
  *  @author Lintao Yu, 15-12-08 14:12:51

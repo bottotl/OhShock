@@ -15,7 +15,7 @@
 @class RACSignal;
 
 ///初始化页面需要加载的聊天数据的数量
-static NSInteger kPageSize = 15;
+static NSInteger const kPageSize = 15;
 /**
  *  @author Lintao Yu, 15-12-16 13:12:24
  *

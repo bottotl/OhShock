@@ -14,7 +14,7 @@
 #import "LTUserInfoFollowButton.h"
 #import "UIImageView+WebCache.h"
 #import "LTMeHeadUserFollowerAndFolloweeView.h"
-static CGFloat LTUserInfoHeadViewHeight = 300;
+static CGFloat const LTUserInfoHeadViewHeight = 300;
 //@protocol LTUserInfoHeadDelegate ;
 /**
  *  @author Lintao Yu, 15-12-15 16:12:10

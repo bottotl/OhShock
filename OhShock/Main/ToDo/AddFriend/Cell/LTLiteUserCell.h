@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-static NSString *LTLiteUserCellIdentifier = @"LTLiteUserCell";
+static NSString *const LTLiteUserCellIdentifier = @"LTLiteUserCell";
 
 @interface LTLiteUserCell : UITableViewCell
 @property (nonatomic, copy) NSString *userName;

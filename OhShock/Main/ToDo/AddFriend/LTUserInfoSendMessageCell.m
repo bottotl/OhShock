@@ -11,8 +11,8 @@
 #import "ReactiveCocoa.h"
 
 
-static CGFloat sendMessageButtonHeight = 80;
-static CGFloat sendMessageButtonWidth = 200;
+static CGFloat const sendMessageButtonHeight = 80;
+static CGFloat const sendMessageButtonWidth = 200;
 
 @interface LTUserInfoSendMessageCell ()
 @property (nonatomic, strong) UIButton *sendMessageButton;
