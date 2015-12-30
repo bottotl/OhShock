@@ -790,7 +790,9 @@
 /* Begin PBXFileReference section */
 		299B804AA36DFEA60636BA43 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		300A93546D8F50917E3CF4A3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		6583791C10546A2EEDBC1DF5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		920DCD1D573C6CF1E98B7BD6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A588F699F37A12F3BBF16972 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B80726701C1AAF2F00E7802A /* LTDiscoverTodoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTDiscoverTodoViewController.h; sourceTree = "<group>"; };
 		B80726711C1AAF2F00E7802A /* LTDiscoverTodoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTDiscoverTodoViewController.m; sourceTree = "<group>"; };
 		B80726781C1AB2E900E7802A /* add_user_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_user_icon@2x.png"; sourceTree = "<group>"; };
@@ -1183,9 +1185,9 @@
 		B81071AF1C197F6F0058130E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B81071B11C197F6F0058130E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = OhShock/AppDelegate.h; sourceTree = "<group>"; };
 		B81071B21C197F6F0058130E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = OhShock/AppDelegate.m; sourceTree = "<group>"; };
-		B81071BA1C197F700058130E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B81071BA1C197F700058130E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = OhShock/Assets.xcassets; sourceTree = "<group>"; };
 		B81071BD1C197F700058130E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B81071BF1C197F700058130E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B81071BF1C197F700058130E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = OhShock/Info.plist; sourceTree = "<group>"; };
 		B81071C61C197FCE0058130E /* IFTTTCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTTTCircleView.h; sourceTree = "<group>"; };
 		B81071C71C197FCE0058130E /* IFTTTCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTTTCircleView.m; sourceTree = "<group>"; };
 		B81071C81C197FCE0058130E /* IFTTTJazzHandsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTTTJazzHandsViewController.h; sourceTree = "<group>"; };
@@ -1263,7 +1265,6 @@
 		B81072411C197FCE0058130E /* XHPopMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHPopMenuItem.m; sourceTree = "<group>"; };
 		B81072421C197FCE0058130E /* XHPopMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHPopMenuItemView.h; sourceTree = "<group>"; };
 		B81072431C197FCE0058130E /* XHPopMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHPopMenuItemView.m; sourceTree = "<group>"; };
-		B81072441C197FCE0058130E /* OhShockPrefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OhShockPrefix.pch; sourceTree = "<group>"; };
 		B81072471C197FCE0058130E /* LTSignUpService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTSignUpService.h; sourceTree = "<group>"; };
 		B81072481C197FCE0058130E /* LTSignUpService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTSignUpService.m; sourceTree = "<group>"; };
 		B81072491C197FCE0058130E /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
@@ -1858,6 +1859,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12A932250CDE781EE7F8BBA6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3366065DFAAEB274404461AE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A588F699F37A12F3BBF16972 /* Pods.debug.xcconfig */,
+				6583791C10546A2EEDBC1DF5 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		33774E64883D421B1938553F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1865,6 +1882,7 @@
 				920DCD1D573C6CF1E98B7BD6 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		990138DB27251E8B57111D83 /* Frameworks */ = {
@@ -2571,6 +2589,7 @@
 		B80A367D1C1DAD0000C3B226 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				B810724B1C197FCE0058130E /* Util */,
 				B863A6591C2CD8D000707D17 /* NSDate+Helper */,
 				B82BA3AE1C2BDED6004AFC37 /* ActionSheetPicker */,
 				B8EEABC61C294F5400F861E8 /* LeanChatLib */,
@@ -2589,20 +2608,21 @@
 		B81071A21C197F6F0058130E = {
 			isa = PBXGroup;
 			children = (
+				B81071BF1C197F700058130E /* Info.plist */,
 				B81071B11C197F6F0058130E /* AppDelegate.h */,
 				B81071B21C197F6F0058130E /* AppDelegate.m */,
 				B81071DE1C197FCE0058130E /* LTMainTabBarController.h */,
 				B81071DF1C197FCE0058130E /* LTMainTabBarController.m */,
+				B81071BA1C197F700058130E /* Assets.xcassets */,
 				B87677DE1C202A7800A0795B /* Chat */,
 				B81071C51C197FCE0058130E /* Intro */,
 				B81071CC1C197FCE0058130E /* LogIn */,
 				B81071D11C197FCE0058130E /* Main */,
 				B81072451C197FCE0058130E /* SignUp */,
 				B80A367D1C1DAD0000C3B226 /* Vender */,
-				B810724B1C197FCE0058130E /* Util */,
 				B81071AD1C197F6F0058130E /* OhShock */,
-				33774E64883D421B1938553F /* Pods */,
-				D1D4424294E00B525F75AA33 /* Frameworks */,
+				3366065DFAAEB274404461AE /* Pods */,
+				12A932250CDE781EE7F8BBA6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2618,11 +2638,9 @@
 		B81071AD1C197F6F0058130E /* OhShock */ = {
 			isa = PBXGroup;
 			children = (
-				B81072441C197FCE0058130E /* OhShockPrefix.pch */,
+				33774E64883D421B1938553F /* Pods */,
 				B80726771C1AB2E900E7802A /* Images */,
-				B81071BA1C197F700058130E /* Assets.xcassets */,
 				B81071BC1C197F700058130E /* LaunchScreen.storyboard */,
-				B81071BF1C197F700058130E /* Info.plist */,
 				B81071AC1C197F6F0058130E /* Products */,
 				990138DB27251E8B57111D83 /* Frameworks */,
 				B08F36B2DD64CD5785D60B66 /* Pods */,
@@ -2878,7 +2896,7 @@
 				B84C205C1C2A440200F758AD /* AVIMTypedMessage+JSQMessages.m */,
 			);
 			name = Util;
-			path = OhShock/Util;
+			path = ../Util;
 			sourceTree = "<group>";
 		};
 		B81CCBC01C21408500D642DB /* JSQMessagesViewController */ = {
@@ -3970,13 +3988,6 @@
 			path = emoticons;
 			sourceTree = "<group>";
 		};
-		D1D4424294E00B525F75AA33 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -4971,7 +4982,7 @@
 		};
 		B81071C31C197F700058130E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 299B804AA36DFEA60636BA43 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = A588F699F37A12F3BBF16972 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
@@ -4993,7 +5004,7 @@
 		};
 		B81071C41C197F700058130E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 920DCD1D573C6CF1E98B7BD6 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 6583791C10546A2EEDBC1DF5 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";

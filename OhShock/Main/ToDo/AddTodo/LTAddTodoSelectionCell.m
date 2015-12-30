@@ -20,6 +20,18 @@
 
 @implementation LTAddTodoSelectionCell
 
+-(instancetype)init{
+    
+    return self;
+}
+-(instancetype)initWithImage:(UIImage *)image leftText:(NSString *)leftText rightText:(NSString *)rightText{
+    self = [self initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LTAddTodoSelectionCellIdentifier];
+    self.leftImageView.image = image;
+    self.leftLabel.text = leftText;
+    self.rightLabel.text = rightText;
+    return self;
+}
+
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -43,12 +55,12 @@
     [self.contentView setNeedsLayout];
     [self.contentView layoutIfNeeded];
 }
--(void)setRightLabelText:(NSString *)rightLabelText{
-    _rightLabel.text = rightLabelText;
-}
 
--(NSString *)rightLabelText{
-    return _rightLabel.text;
+-(void)setRightText:(NSString *)rightText{
+    _rightText = rightText;
+    _rightLabel.text = rightText;
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -57,34 +69,25 @@
 -(void)layoutSubviews{
     [self.leftLabel sizeToFit];
     [self.rightLabel sizeToFit];
-    self.leftImageView.size = CGSizeMake(40, 40);
-    self.leftImageView.left = self.contentView.left + 10;
-    self.leftImageView.centerY = self.contentView.centerY;
-    self.leftLabel.left = self.leftImageView.right + 5;
-    self.leftLabel.centerY = self.contentView.centerY;
-    self.rightLabel.centerY = self.contentView.centerY;
-    self.rightLabel.right = self.contentView.right - 20;
+    if (self.leftImageView.image) {
+        self.leftImageView.size = CGSizeMake(40, 40);
+        self.leftImageView.left = self.contentView.left + 10;
+        self.leftImageView.centerY = self.contentView.centerY;
+        
+        self.leftLabel.left = self.leftImageView.right + 5;
+        self.leftLabel.centerY = self.contentView.centerY;
+        self.rightLabel.centerY = self.contentView.centerY;
+        self.rightLabel.right = self.contentView.right - 20;
+    }else{
+        self.leftLabel.left =  15;
+        self.leftLabel.centerY = self.contentView.centerY;
+        
+        self.rightLabel.centerY = self.contentView.centerY;
+        self.rightLabel.right = self.contentView.right - 20;
+    }
+    
     
     [super layoutSubviews];
 }
-
-//-(void)updateConstraints{
-//    [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.contentView.mas_top);
-//        make.bottom.equalTo(self.contentView.mas_bottom);
-//        make.width.equalTo(@40);
-//        make.centerY.equalTo(self.contentView.mas_centerY);
-//        make.left.equalTo(self.contentView.mas_left).offset(10);
-//    }];
-//    [self.leftLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self.imageView.mas_right).offset(5);
-//        make.centerY.equalTo(self.contentView.mas_centerY);
-//        }];
-//    [self.rightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.right.equalTo(self.contentView.mas_right).offset(50);
-//        make.centerY.equalTo(self.contentView.mas_centerY);
-//        }];
-//    [super updateConstraints];
-//}
 
 @end

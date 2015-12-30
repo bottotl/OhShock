@@ -14,6 +14,12 @@
 @property (nonatomic, strong) UITextView *textView;
 @end
 @implementation LTAddTodoTextCell
+
+-(instancetype)init{
+    self = [self initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LTAddTodoTextCellIdentifier];
+    return self;
+}
+
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     if (self) {

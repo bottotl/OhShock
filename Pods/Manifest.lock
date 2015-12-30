@@ -9,7 +9,7 @@ PODS:
   - JazzHands (2.0.8)
   - JSBadgeView (1.4.1)
   - JSQSystemSoundPlayer (4.3.0)
-  - Masonry (0.6.3)
+  - Masonry (0.6.4)
   - ODRefreshControl (1.2)
   - ReactiveCocoa (4.0.4-alpha-4):
     - ReactiveCocoa/UI (= 4.0.4-alpha-4)
@@ -23,6 +23,7 @@ PODS:
     - ReactiveCocoa/Core
     - Result (~> 1.0)
   - Result (1.0.1)
+  - Reveal-iOS-SDK (1.6.2)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
@@ -42,6 +43,7 @@ DEPENDENCIES:
   - Masonry
   - ODRefreshControl
   - ReactiveCocoa (~> 4.0.4-alpha-4)
+  - Reveal-iOS-SDK
   - SDWebImage
   - SMPageControl
   - TPKeyboardAvoiding
@@ -58,10 +60,11 @@ SPEC CHECKSUMS:
   JazzHands: 355dc5c2b6fc38ee460d0ed7836c69539263f477
   JSBadgeView: 3861ddee41094284d9468e6d0af5107f703aaac5
   JSQSystemSoundPlayer: 8021a6c823a8d83372c703f49ef7d1f31e7647ff
-  Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
+  Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   ODRefreshControl: 907e6149d72dde488d5917ccfabee5bd8d711a20
   ReactiveCocoa: e459ea92099447802df20c4735e31e8139b06094
   Result: caef80340451e1f07492fa1e89117f83613bce24
+  Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SMPageControl: 922892813001cfaf059e86e6801f46a967e9ee29
   TPKeyboardAvoiding: e5ce146b313de063957bfa75a13f1e9b0ff18ab7

@@ -13,9 +13,24 @@
 #import "NSDate+Helper.h"
 #import "LKAlarmMamager.h"
 
-@interface LTAddTodoViewController ()
-@property (nonatomic, copy) NSString *text;
-@property (nonatomic, strong) NSDate *date;
+@interface LTAddTodoViewController (){
+    /**
+     *  表示是否选择了时间(用在 didSelectRowAtIndex 函数中)
+     *  方便判断时间 timeCell 对话框的 timePicker 弹出逻辑
+     *
+     *  isDataSelected == YES 需要显示 timeCell
+     *
+     *  isDataSelected == NO 不需要显示 timeCell
+     */
+    BOOL isDataSelected;
+    /// timeCell 是否已插入
+    BOOL isTimeCellInserted;
+}
+@property (nonatomic, copy)   NSString        *text;
+@property (nonatomic, strong) NSDate          *date;
+@property (nonatomic, strong) NSDate          *time;
+@property (nonatomic, strong) NSMutableArray  *dataSource;
+@property (nonatomic, strong) LTAddTodoSelectionCell *timeCell;
 @end
 
 @implementation LTAddTodoViewController
@@ -26,21 +41,38 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView registerClass:[LTAddTodoSelectionCell class]forCellReuseIdentifier:LTAddTodoSelectionCellIdentifier];
-    [self.tableView registerClass:[LTAddTodoTextCell class] forCellReuseIdentifier:LTAddTodoTextCellIdentifier];
+//    
+//    isDataSelected = NO;
+    isTimeCellInserted = NO;
     UIBarButtonItem *saveBarItem = [[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(save)];
     UIBarButtonItem *cancleBarItem = [[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancle)];
     self.navigationItem.leftBarButtonItems = @[cancleBarItem];
     self.navigationItem.rightBarButtonItems = @[saveBarItem];
     
+    _dataSource = [NSMutableArray new];
+    
+    NSMutableArray *section1 =[NSMutableArray new];
+    [section1 addObject:[LTAddTodoTextCell new]];
+    [_dataSource addObject:section1.copy];
+    
+    NSMutableArray *section2 =[NSMutableArray new];
+    [section2 addObject:[[LTAddTodoSelectionCell alloc]initWithImage:nil leftText:@"所属类别" rightText:nil]];
+    [section2 addObject:[[LTAddTodoSelectionCell alloc]initWithImage:nil leftText:@"开始时间" rightText:nil]];
+    [section2 addObject:[[LTAddTodoSelectionCell alloc]initWithImage:nil leftText:@"邀请参与" rightText:nil]];
+    [_dataSource addObject:section2];
+    _timeCell = [[LTAddTodoSelectionCell alloc]initWithImage:nil leftText:@"结束时间" rightText:nil];
+    
 }
+#pragma mark - 取消日程创建
 -(void)cancle{
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
+#pragma mark 完成日程创建
 -(void)save{
     [self createReminder];
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
+
 -(void)createReminder{
     LKAlarmEvent* event = [LKAlarmEvent new];
     event.title = @"参试加入日历事件中";
@@ -64,26 +96,41 @@
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            //UILabel* label = ((ViewController*)_window.rootViewController).lb_haha;
             if(alarmEvent.isJoinedCalendar)
             {
-                //label.text = @"已加入日历";
                 printf("已加入日历\n");
             }
             else if(alarmEvent.isJoinedLocalNotify)
             {
-                //label.text = @"已加入本地通知";
                 printf("已加入本地通知\n");
             }
             else
             {
-                //label.text = @"加入通知失败";
                 printf("加入通知失败\n");
             }
             
         });
         
     }];
+}
+
+#pragma mark - 添加选择时间的 Cell
+- (void)addTimeCell{
+    if (!isTimeCellInserted) {
+        [_dataSource[1] insertObject:_timeCell atIndex:2];
+        [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:2 inSection:1]] withRowAnimation:UITableViewRowAnimationBottom];
+        isTimeCellInserted = YES;
+    }
+    
+}
+#pragma mark  移除选择时间的 Cell
+- (void)deleteTimeCell{
+    if (isTimeCellInserted) {
+        [_dataSource[1] removeObjectAtIndex:2];
+        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:2 inSection:1]] withRowAnimation:UITableViewRowAnimationBottom];
+        isTimeCellInserted = NO;
+    }
+    
 }
 #pragma mark - Table view data source
 
@@ -95,12 +142,43 @@
         }else{
             curDate = _date;
         }
-        ActionSheetDatePicker *datePicker = [[ActionSheetDatePicker alloc] initWithTitle:nil datePickerMode:UIDatePickerModeDate selectedDate:curDate doneBlock:^(ActionSheetDatePicker *picker, NSDate *selectedDate, id origin) {
+#pragma mark 选择开始时间控件
+        ActionSheetDatePicker *datePicker = [[ActionSheetDatePicker alloc] initWithTitle:nil datePickerMode:UIDatePickerModeDateAndTime selectedDate:curDate doneBlock:^(ActionSheetDatePicker *picker, NSDate *selectedDate, id origin) {
             _date = selectedDate;
+            isDataSelected = YES;
+            [self.tableView reloadData];
+            [self addTimeCell];
+        } cancelBlock:^(ActionSheetDatePicker *picker) {
+            if (picker.cancelButtonClicked) {
+                isDataSelected = NO;
+                _date = nil;
+                [self.tableView reloadData];
+                [self deleteTimeCell];
+            }
+        } origin:self.view];
+        
+        
+        UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithTitle:@"移除" style:UIBarButtonItemStylePlain target:nil action:nil];
+        [barButton setTitleTextAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:17],
+                                            NSForegroundColorAttributeName: [UIColor blackColor]} forState:UIControlStateNormal];
+        [datePicker setCancelButton:barButton];
+        [datePicker showActionSheetPicker];
+    }
+    // 如果 isDataSelected == YES，那[1][2]表示的就是 timeCell 需要弹出 timePicker
+    if(isDataSelected && indexPath.section == 1 && indexPath.row == 2 ){
+        NSDate * curtime ;
+        if (!_time) {
+            curtime = [[NSDate alloc]initWithTimeIntervalSinceNow:0];
+        }else{
+            curtime = _time;
+        }
+#pragma mark 选择结束时间控件
+        ActionSheetDatePicker *datePicker = [[ActionSheetDatePicker alloc] initWithTitle:nil datePickerMode:UIDatePickerModeDateAndTime selectedDate:curtime doneBlock:^(ActionSheetDatePicker *picker, NSDate *selectedDate, id origin) {
+            _time = selectedDate;
             [self.tableView reloadData];
         } cancelBlock:^(ActionSheetDatePicker *picker) {
             if (picker.cancelButtonClicked) {
-                _date = nil;
+                _time = nil;
                 [self.tableView reloadData];
             }
         } origin:self.view];
@@ -112,45 +190,36 @@
         [datePicker setCancelButton:barButton];
         [datePicker showActionSheetPicker];
     }
+    
+    
+    
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    if (section == 0) {
-        return 1;
-    }else{
-        return 3;
-    }
+    return ((NSArray *)_dataSource[section]).count;
     
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    return _dataSource.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:LTAddTodoTextCellIdentifier forIndexPath:indexPath];
-        [cell setNeedsUpdateConstraints];
-        return cell;
+    UITableViewCell *cell = _dataSource[indexPath.section][indexPath.row];
+    if (indexPath.section == 1 && indexPath.row == 1) {
+        ((LTAddTodoSelectionCell *)cell).rightText = [_date stringWithFormat:@"yyyy-MM-dd HH:mm"];
+        [cell setNeedsLayout];
+        [cell layoutIfNeeded];
     }
-    LTAddTodoSelectionCell *cell = [tableView dequeueReusableCellWithIdentifier:LTAddTodoSelectionCellIdentifier forIndexPath:indexPath];
-    switch (indexPath.row) {
-        case 0:
-            [cell ConfigeCell:[UIImage imageNamed:@"found_dynamic"] leftText:@"所属类别" rightText:nil];
-            break;
-        case 1:
-            [cell ConfigeCell:[UIImage imageNamed:@"found_dynamic"] leftText:@"执行时间" rightText:[_date stringWithFormat:@"yyyy-MM-dd"]];
-            break;
-        case 2:
-            [cell ConfigeCell:[UIImage imageNamed:@"found_dynamic"] leftText:@"邀请参与" rightText:nil];
-            break;
-        default:
-            break;
+    if (isDataSelected && indexPath.section == 1 && indexPath.row == 2) {
+        ((LTAddTodoSelectionCell *)cell).rightText = [_time stringWithFormat:@"yyyy-MM-dd HH:mm"];
+        [cell setNeedsLayout];
+        [cell layoutIfNeeded];
     }
-    [cell setNeedsLayout];
-    [cell layoutIfNeeded];
     return cell;
 }
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         return 130;

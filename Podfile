@@ -20,4 +20,4 @@ pod 'ODRefreshControl'
 
 pod 'JSBadgeView' , '1.4.1'
 pod 'DateTools' , '1.5.0'
-
+pod 'Reveal-iOS-SDK', :configurations => ['Debug']
