@@ -500,6 +500,7 @@
 		B8ADC99A1C1E8365001ED415 /* DiscoverTodoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADC9991C1E8365001ED415 /* DiscoverTodoCell.m */; };
 		B8ADC9C21C1ED989001ED415 /* LTMeSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADC9C11C1ED989001ED415 /* LTMeSettingViewController.m */; };
 		B8ADC9C61C1EDE44001ED415 /* LTMeLogOutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADC9C51C1EDE44001ED415 /* LTMeLogOutCell.m */; };
+		B8D1D5261C33CAEA00DC4EDC /* LTSelectFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D1D5251C33CAEA00DC4EDC /* LTSelectFriendsViewController.m */; };
 		B8EEABC21C28FBA000F861E8 /* LTMeInfoSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EEABC11C28FBA000F861E8 /* LTMeInfoSettingViewController.m */; };
 		B8EEABC51C28FC9500F861E8 /* LTMeHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EEABC41C28FC9500F861E8 /* LTMeHeaderCell.m */; };
 		B8EEAD781C294F5400F861E8 /* CDChatListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EEABCA1C294F5400F861E8 /* CDChatListVC.m */; };
@@ -1449,6 +1450,8 @@
 		B8ADC9C11C1ED989001ED415 /* LTMeSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMeSettingViewController.m; sourceTree = "<group>"; };
 		B8ADC9C41C1EDE44001ED415 /* LTMeLogOutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMeLogOutCell.h; sourceTree = "<group>"; };
 		B8ADC9C51C1EDE44001ED415 /* LTMeLogOutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMeLogOutCell.m; sourceTree = "<group>"; };
+		B8D1D5241C33CAEA00DC4EDC /* LTSelectFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTSelectFriendsViewController.h; sourceTree = "<group>"; };
+		B8D1D5251C33CAEA00DC4EDC /* LTSelectFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTSelectFriendsViewController.m; sourceTree = "<group>"; };
 		B8EEABC01C28FBA000F861E8 /* LTMeInfoSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMeInfoSettingViewController.h; sourceTree = "<group>"; };
 		B8EEABC11C28FBA000F861E8 /* LTMeInfoSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMeInfoSettingViewController.m; sourceTree = "<group>"; };
 		B8EEABC31C28FC9500F861E8 /* LTMeHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMeHeaderCell.h; sourceTree = "<group>"; };
@@ -3062,6 +3065,8 @@
 				B82BA3C91C2BDF2F004AFC37 /* LTAddTodoSelectionCell.m */,
 				B817B2FB1C2F785D00AFDC4C /* LTAddTodoService.h */,
 				B817B2FC1C2F785D00AFDC4C /* LTAddTodoService.m */,
+				B8D1D5241C33CAEA00DC4EDC /* LTSelectFriendsViewController.h */,
+				B8D1D5251C33CAEA00DC4EDC /* LTSelectFriendsViewController.m */,
 			);
 			path = AddTodo;
 			sourceTree = "<group>";
@@ -4722,6 +4727,7 @@
 				B8EEADDC1C294F5400F861E8 /* XHShareMenuView.m in Sources */,
 				B8EEAD9A1C294F5400F861E8 /* XHVoiceRecordHelper.m in Sources */,
 				B81CCC2C1C21408500D642DB /* JSQMessagesAvatarImageFactory.m in Sources */,
+				B8D1D5261C33CAEA00DC4EDC /* LTSelectFriendsViewController.m in Sources */,
 				B8EEADD21C294F5400F861E8 /* XHMessageStatusView.m in Sources */,
 				B81072891C197FCE0058130E /* LTSignUpService.m in Sources */,
 				B8EEAD8D1C294F5400F861E8 /* UIImage+Utility.m in Sources */,

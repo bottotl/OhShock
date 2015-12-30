@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface LTAddTodoService : NSObject
-
++(void)saveTodoToServerWithContent:(NSString *)content type:(NSString *)type startTime:(NSDate *)startTime endTime:(NSDate *)endTime friends:(NSArray *)friends;
 @end

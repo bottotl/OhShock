@@ -15,7 +15,7 @@
 #import "LTUserInfoViewController.h"
 
 @interface LTAddFriendViewController ()
-@property (nonatomic, strong) NSArray *dataSource;
+
 @property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, strong) LTUserSearchService *service;
 @end

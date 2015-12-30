@@ -12,6 +12,9 @@
 #import "LTAddTodoTextCell.h"
 #import "NSDate+Helper.h"
 #import "LKAlarmMamager.h"
+#import "LTSelectFriendsViewController.h"
+#import "LTAddTodoService.h"
+#import "ReactiveCocoa.h"
 
 @interface LTAddTodoViewController (){
     /**
@@ -26,11 +29,23 @@
     /// timeCell 是否已插入
     BOOL isTimeCellInserted;
 }
-@property (nonatomic, copy)   NSString        *text;
-@property (nonatomic, strong) NSDate          *date;
-@property (nonatomic, strong) NSDate          *time;
+/// 日程的主要内容
+@property (nonatomic, copy)   NSString        *content;
+/// 日程所属类别
+@property (nonatomic, copy)   NSString        *type;
+/// 开始时间
+@property (nonatomic, strong) NSDate          *startTime;
+/// 结束时间
+@property (nonatomic, strong) NSDate          *endTime;
+/// 选中的好友
+@property (nonatomic, strong) NSArray         *friends;
+/// 用来存放 Cell
 @property (nonatomic, strong) NSMutableArray  *dataSource;
+/// 结束时间的 Cell
 @property (nonatomic, strong) LTAddTodoSelectionCell *timeCell;
+/// 选择好友页面
+@property (nonatomic, strong) LTSelectFriendsViewController *selectFriendsViewController;
+
 @end
 
 @implementation LTAddTodoViewController
@@ -52,8 +67,17 @@
     _dataSource = [NSMutableArray new];
     
     NSMutableArray *section1 =[NSMutableArray new];
-    [section1 addObject:[LTAddTodoTextCell new]];
-    [_dataSource addObject:section1.copy];
+    LTAddTodoTextCell *contentCell = [LTAddTodoTextCell new];
+    [contentCell.rac_textChangeSignal subscribeNext:^(NSString *content) {
+        self.content = content;
+    }];
+    [section1 addObject:contentCell];
+    [_dataSource addObject:section1];
+    
+    
+    
+    
+    
     
     NSMutableArray *section2 =[NSMutableArray new];
     [section2 addObject:[[LTAddTodoSelectionCell alloc]initWithImage:nil leftText:@"所属类别" rightText:nil]];
@@ -69,10 +93,12 @@
 }
 #pragma mark 完成日程创建
 -(void)save{
-    [self createReminder];
+    //[self createReminder];
+    /// 添加日程到服务器
+    [LTAddTodoService saveTodoToServerWithContent:self.content type: self.type startTime:self.startTime endTime:self.endTime friends:self.friends];
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
-
+// 添加日程到本地
 -(void)createReminder{
     LKAlarmEvent* event = [LKAlarmEvent new];
     event.title = @"参试加入日历事件中";
@@ -80,9 +106,10 @@
     ///工作日提醒
     event.repeatType = LKAlarmRepeatTypeWork;
     ///??秒后提醒我
-    if (self.date) {
-        event.startDate = self.date;
+    if (self.startTime) {
+        event.startDate = self.startTime;
     }else{
+        NSLog(@"startTime = nil");
         return;
     }
     //event.startDate = [NSDate dateWithTimeIntervalSinceNow:3];
@@ -113,7 +140,10 @@
         
     }];
 }
-
+#pragma mark - 跳转到好友列表
+- (void)showFriendList{
+    [self.navigationController pushViewController:self.selectFriendsViewController animated:YES];
+}
 #pragma mark - 添加选择时间的 Cell
 - (void)addTimeCell{
     if (!isTimeCellInserted) {
@@ -137,21 +167,21 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 1 && indexPath.row == 1) {
         NSDate * curDate ;
-        if (!_date) {
+        if (!_startTime) {
             curDate = [[NSDate alloc]initWithTimeIntervalSinceNow:0];
         }else{
-            curDate = _date;
+            curDate = _startTime;
         }
 #pragma mark 选择开始时间控件
         ActionSheetDatePicker *datePicker = [[ActionSheetDatePicker alloc] initWithTitle:nil datePickerMode:UIDatePickerModeDateAndTime selectedDate:curDate doneBlock:^(ActionSheetDatePicker *picker, NSDate *selectedDate, id origin) {
-            _date = selectedDate;
+            _startTime = selectedDate;
             isDataSelected = YES;
             [self.tableView reloadData];
             [self addTimeCell];
         } cancelBlock:^(ActionSheetDatePicker *picker) {
             if (picker.cancelButtonClicked) {
                 isDataSelected = NO;
-                _date = nil;
+                _startTime = nil;
                 [self.tableView reloadData];
                 [self deleteTimeCell];
             }
@@ -167,18 +197,18 @@
     // 如果 isDataSelected == YES，那[1][2]表示的就是 timeCell 需要弹出 timePicker
     if(isDataSelected && indexPath.section == 1 && indexPath.row == 2 ){
         NSDate * curtime ;
-        if (!_time) {
+        if (!_endTime) {
             curtime = [[NSDate alloc]initWithTimeIntervalSinceNow:0];
         }else{
-            curtime = _time;
+            curtime = _endTime;
         }
 #pragma mark 选择结束时间控件
         ActionSheetDatePicker *datePicker = [[ActionSheetDatePicker alloc] initWithTitle:nil datePickerMode:UIDatePickerModeDateAndTime selectedDate:curtime doneBlock:^(ActionSheetDatePicker *picker, NSDate *selectedDate, id origin) {
-            _time = selectedDate;
+            _endTime = selectedDate;
             [self.tableView reloadData];
         } cancelBlock:^(ActionSheetDatePicker *picker) {
             if (picker.cancelButtonClicked) {
-                _time = nil;
+                _endTime = nil;
                 [self.tableView reloadData];
             }
         } origin:self.view];
@@ -192,6 +222,19 @@
     }
     
     
+    
+    /**
+     *  显示到好友列表
+     *  isDataSelected == YES && indexPath.section == 1 && indexPath.row == 3
+     
+        isDataSelected == NO && indexPath.section == 1 && indexPath.row == 2
+     */
+    if(isDataSelected && indexPath.section == 1 && indexPath.row == 3 ){
+        [self showFriendList];
+    }
+    if(!isDataSelected && indexPath.section == 1 && indexPath.row == 2 ){
+        [self showFriendList];
+    }
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
@@ -207,12 +250,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = _dataSource[indexPath.section][indexPath.row];
     if (indexPath.section == 1 && indexPath.row == 1) {
-        ((LTAddTodoSelectionCell *)cell).rightText = [_date stringWithFormat:@"yyyy-MM-dd HH:mm"];
+        ((LTAddTodoSelectionCell *)cell).rightText = [_startTime stringWithFormat:@"yyyy-MM-dd HH:mm"];
         [cell setNeedsLayout];
         [cell layoutIfNeeded];
     }
     if (isDataSelected && indexPath.section == 1 && indexPath.row == 2) {
-        ((LTAddTodoSelectionCell *)cell).rightText = [_time stringWithFormat:@"yyyy-MM-dd HH:mm"];
+        ((LTAddTodoSelectionCell *)cell).rightText = [_endTime stringWithFormat:@"yyyy-MM-dd HH:mm"];
         [cell setNeedsLayout];
         [cell layoutIfNeeded];
     }
@@ -229,6 +272,16 @@
     }
 }
 
-
-
+#pragma mark - property
+-(LTSelectFriendsViewController *)selectFriendsViewController{
+    if (_selectFriendsViewController) {
+        return _selectFriendsViewController;
+    }
+    _selectFriendsViewController = [LTSelectFriendsViewController new];
+    return _selectFriendsViewController;
+    
+}
+-(NSArray *)friends{
+    return self.selectFriendsViewController.friends;
+}
 @end

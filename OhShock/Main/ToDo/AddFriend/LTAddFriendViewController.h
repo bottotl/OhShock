@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LTAddFriendViewController : UITableViewController<UISearchBarDelegate>
-
+@property (nonatomic, strong) NSArray *dataSource;
 @end

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+@class RACSignal;
 static NSString *const LTAddTodoTextCellIdentifier = @"LTAddTodoTextCell";
 /// 输入框
 @interface LTAddTodoTextCell : UITableViewCell
-
+-(RACSignal *)rac_textChangeSignal;
 @end

@@ -7,16 +7,16 @@
 //
 
 #import "LTAddTodoTextCell.h"
-#import "Masonry.h"
-@interface LTAddTodoTextCell(){
-    BOOL needUpdateConstrains;
-}
+#import "ReactiveCocoa/ReactiveCocoa.h"
+#import "UIView+Layout.h"
+@interface LTAddTodoTextCell()
 @property (nonatomic, strong) UITextView *textView;
 @end
 @implementation LTAddTodoTextCell
 
 -(instancetype)init{
     self = [self initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LTAddTodoTextCellIdentifier];
+    //self.userInteractionEnabled = NO;
     return self;
 }
 
@@ -25,31 +25,24 @@
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.textView = [UITextView new];
-        self.textView.clipsToBounds = YES;
+        self.textView.font = [UIFont systemFontOfSize:25];
         self.textView.userInteractionEnabled = YES;
-        needUpdateConstrains = YES;
+        
         [self.contentView addSubview:self.textView];
     }
     
     return self;
 }
--(void)updateConstraints{
-    if (needUpdateConstrains) {
-        [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.contentView.mas_left);
-            make.top.equalTo(self.contentView.mas_top);
-            make.right.equalTo(self.contentView.mas_right);
-            make.bottom.equalTo(self.contentView.mas_bottom);
-        }];
-        needUpdateConstrains = NO;
-    }
-    [super updateConstraints];
-    [self setNeedsLayout];
-    [self layoutIfNeeded];
-}
+
 -(void)layoutSubviews{
-    //self.textView.layer.cornerRadius = 10;
+    self.textView.width = self.contentView.width;
+    self.textView.height = self.contentView.height;
+    self.textView.left = 0;
+    self.textView.top = 0;
     [super layoutSubviews];
+}
+-(RACSignal *)rac_textChangeSignal{
+    return self.textView.rac_textSignal;
 }
 
 @end
