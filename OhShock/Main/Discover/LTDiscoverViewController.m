@@ -12,6 +12,7 @@
 #import "Masonry.h"
 #import "LTDiscoverTodoViewController.h"
 #import "LTStatusTimelineViewController.h"
+#import "LTPostListViewController.h"
 
 @interface LTDiscoverViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -95,8 +96,9 @@
             [self.navigationController pushViewController:_todoViewController animated:YES];
         }
     }
-    if (indexPath.section == 2) {
-        if (indexPath.row == 0) {
+    if (indexPath.section == 1) {
+        if (indexPath.row == 1) {
+            [self.navigationController pushViewController:[LTPostListViewController new] animated:YES];
         }
     }
 }

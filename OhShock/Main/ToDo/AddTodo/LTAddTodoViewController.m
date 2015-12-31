@@ -75,10 +75,6 @@
     [_dataSource addObject:section1];
     
     
-    
-    
-    
-    
     NSMutableArray *section2 =[NSMutableArray new];
     [section2 addObject:[[LTAddTodoSelectionCell alloc]initWithImage:nil leftText:@"所属类别" rightText:nil]];
     [section2 addObject:[[LTAddTodoSelectionCell alloc]initWithImage:nil leftText:@"开始时间" rightText:nil]];

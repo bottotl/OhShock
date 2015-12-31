@@ -182,7 +182,6 @@
     }
     text.color = kWBCellToolbarTitleColor;
     text.font = [UIFont systemFontOfSize:kWBCellTitlebarFontSize];
-    
     YYTextContainer *container = [YYTextContainer containerWithSize:CGSizeMake(kScreenWidth - 100, kWBCellTitleHeight)];
     _titleTextLayout = [YYTextLayout layoutWithContainer:container text:text];
     _titleHeight = kWBCellTitleHeight;
