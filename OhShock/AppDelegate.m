@@ -16,6 +16,8 @@
 #import "UIColor+expanded.h"
 #import "UIImage+Common.h"
 
+#warning for test
+#import "LTPostListViewController.h"
 
 #define kColorTableSectionBg [UIColor colorWithHexString:@"0xe5e5e5"]
 #define  kNavTitleFontSize 19
@@ -56,10 +58,15 @@ static NSString *const AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
     //如果没有登陆
     if (![LTLogInService currentUser]) {
         //跳转到介绍登陆&注册
-        [self setupIntroductionViewController];
+        //[self setupIntroductionViewController];
+#warning for test
+        [self.window setRootViewController:[[UINavigationController alloc]initWithRootViewController:[LTPostListViewController new]]];
+        
     }else{
         //跳转到主业务逻辑页面
-        [self setupMainViewController];
+        //[self setupMainViewController];
+#warning for test
+        [self.window setRootViewController:[[UINavigationController alloc]initWithRootViewController:[LTPostListViewController new]]];
     }
     [self.window makeKeyAndVisible];
     

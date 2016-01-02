@@ -26,7 +26,13 @@
  */
 @interface LTStatusCell : YYTableViewCell
 @property (nonatomic, weak) id<LTStatusCellDelegate> delegate;
+/**
+ *  真实展示的 View
+ */
 @property (nonatomic, strong) LTStatusView *statusView;
+/**
+ *  设置这个属性将同时设定各个 View 的 Frame
+ */
 - (void)setLayout:(WBStatusLayout *)layout;
 @end
 
