@@ -47,8 +47,11 @@
 
 + (CGFloat)neededWidthForText:(NSString *)text {
     CGSize stringSize;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     stringSize = [text sizeWithFont:[[XHMessageBubbleView appearance] font]
                      constrainedToSize:CGSizeMake(MAXFLOAT, 19)];
+#pragma clang diagnostic pop
     return roundf(stringSize.width);
 }
 

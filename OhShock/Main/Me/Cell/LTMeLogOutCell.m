@@ -8,7 +8,7 @@
 
 #import "LTMeLogOutCell.h"
 #import "Masonry.h"
-#import "ReactiveCocoa.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface LTMeLogOutCell ()
 @property (nonatomic, strong) UIButton *logOutButton;

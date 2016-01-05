@@ -301,6 +301,8 @@
             }
             case LKAlarmRepeatTypeWork:
             {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
                 rule = [[EKRecurrenceRule alloc]initRecurrenceWithFrequency:EKRecurrenceFrequencyDaily interval:1
                                                               daysOfTheWeek:@[[EKRecurrenceDayOfWeek dayOfWeek:EKMonday],
                                                                               [EKRecurrenceDayOfWeek dayOfWeek:EKTuesday],
@@ -308,6 +310,7 @@
                                                                               [EKRecurrenceDayOfWeek dayOfWeek:EKThursday],
                                                                               [EKRecurrenceDayOfWeek dayOfWeek:EKFriday]]
                                                              daysOfTheMonth:nil monthsOfTheYear:nil weeksOfTheYear:nil daysOfTheYear:nil setPositions:nil end:nil];
+#pragma clang diagnostic pop
 
                 break;
             }

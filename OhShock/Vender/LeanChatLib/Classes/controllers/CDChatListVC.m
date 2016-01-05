@@ -107,7 +107,7 @@ static NSString *const cellIdentifier = @"ContactCell";
         dispatch_block_t finishBlock = ^{
             [self stopRefreshControl:refreshControl];
             if ([self filterError:error]) {
-                self.conversations = conversations;
+                self.conversations = (NSMutableArray *)conversations;
                 [self.tableView reloadData];
                 if ([self.chatListDelegate respondsToSelector:@selector(setBadgeWithTotalUnreadCount:)]) {
                     [self.chatListDelegate setBadgeWithTotalUnreadCount:totalUnreadCount];
@@ -161,9 +161,9 @@ static NSString *const cellIdentifier = @"ContactCell";
 
 - (BOOL)filterError:(NSError *)error {
     if (error) {
-        [[[UIAlertView alloc]
-          initWithTitle:nil message:[NSString stringWithFormat:@"%@", error] delegate:nil
-          cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"%@", error] preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:@"%@", error] style:UIAlertActionStyleDefault handler:nil]];
+        [self presentViewController:alertController animated:YES completion:nil];
         return NO;
     }
     return YES;

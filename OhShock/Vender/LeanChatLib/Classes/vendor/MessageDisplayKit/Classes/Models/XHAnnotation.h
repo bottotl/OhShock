@@ -26,10 +26,10 @@
  */
 @property (nonatomic, copy) NSString *subtitle;
 
-@property (nonatomic, strong) CLRegion *region;
+@property (nonatomic, strong) CLCircularRegion *region;
 
 @property (nonatomic, readwrite) CLLocationDistance radius;
 
-- (id)initWithCLRegion:(CLRegion *)newRegion title:(NSString *)title subtitle:(NSString *)subtitle;
+- (id)initWithCLRegion:(CLCircularRegion *)newRegion title:(NSString *)title subtitle:(NSString *)subtitle;
 
 @end

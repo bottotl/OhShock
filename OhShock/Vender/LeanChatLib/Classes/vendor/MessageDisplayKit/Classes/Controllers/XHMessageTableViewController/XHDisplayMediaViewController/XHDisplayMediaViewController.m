@@ -8,12 +8,13 @@
 
 #import "XHDisplayMediaViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import <AVKit/AVKit.h>
 
 #import "UIView+XHRemoteImage.h"
 
 @interface XHDisplayMediaViewController ()
 
-@property (nonatomic, strong) MPMoviePlayerController *moviePlayerController;
+@property (nonatomic, strong) AVPlayerViewController *moviePlayerController;
 
 @property (nonatomic, weak) UIImageView *photoImageView;
 
@@ -21,11 +22,12 @@
 
 @implementation XHDisplayMediaViewController
 
-- (MPMoviePlayerController *)moviePlayerController {
+- (AVPlayerViewController *)moviePlayerController {
     if (!_moviePlayerController) {
-        _moviePlayerController = [[MPMoviePlayerController alloc] init];
-        _moviePlayerController.repeatMode = MPMovieRepeatModeOne;
-        _moviePlayerController.scalingMode = MPMovieScalingModeAspectFill;
+        _moviePlayerController = [[AVPlayerViewController alloc] init];
+#warning 从MediaPlayer 改为 AVKit 后不会修改了
+////        _moviePlayerController.repeatMode = MPMovieRepeatModeOne;
+////        _moviePlayerController.scalingMode = MPMovieScalingModeAspectFill;
         _moviePlayerController.view.frame = self.view.frame;
         [self.view addSubview:_moviePlayerController.view];
     }
@@ -46,8 +48,9 @@
     _message = message;
     if ([message messageMediaType] == XHBubbleMessageMediaTypeVideo) {
         self.title = NSLocalizedStringFromTable(@"Video", @"MessageDisplayKitString", @"详细视频");
-        self.moviePlayerController.contentURL = [NSURL fileURLWithPath:[message videoPath]];
-        [self.moviePlayerController play];
+#warning 从MediaPlayer 改为 AVKit 后不会修改了
+//        self.moviePlayerController.contentURL = [NSURL fileURLWithPath:[message videoPath]];
+//        [self.moviePlayerController play];
     } else if ([message messageMediaType] ==XHBubbleMessageMediaTypePhoto) {
         self.title = NSLocalizedStringFromTable(@"Photo", @"MessageDisplayKitString", @"详细照片");
         self.photoImageView.image = message.photo;
@@ -62,7 +65,8 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     if ([self.message messageMediaType] == XHBubbleMessageMediaTypeVideo) {
-        [self.moviePlayerController stop];
+        #warning 从MediaPlayer 改为 AVKit 后不会修改了
+//        [self.moviePlayerController stop];
     }
 }
 
@@ -77,7 +81,8 @@
 }
 
 - (void)dealloc {
-    [_moviePlayerController stop];
+    #warning 从MediaPlayer 改为 AVKit 后不会修改了
+//    [_moviePlayerController stop];
     _moviePlayerController = nil;
     
     _photoImageView = nil;

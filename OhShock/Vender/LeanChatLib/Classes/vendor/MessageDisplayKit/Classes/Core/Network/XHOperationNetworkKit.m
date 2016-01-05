@@ -24,8 +24,10 @@
 + (NSOperationQueue *)queue;
 
 @property (nonatomic, copy) NSURLRequest *request;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-property-synthesis"
 @property (nonatomic, readwrite, getter = isFinished) BOOL finished;
-
+#pragma clang diagnostic pop
 @end
 
 @implementation XHOperationNetworkKit
@@ -47,8 +49,10 @@
 
 - (void)main {
     NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
-    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     _connection = [[NSURLConnection alloc] initWithRequest:[self request] delegate:self startImmediately:NO];
+#pragma clang diagnostic pop
     [_connection scheduleInRunLoop:runLoop forMode:NSDefaultRunLoopMode];
     [_connection start];
     

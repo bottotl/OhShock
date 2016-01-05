@@ -403,9 +403,11 @@
     
     [UIView setAnimationsEnabled:YES];
     _fromNavigationBarHidden = [UIApplication sharedApplication].statusBarHidden;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:animated ? UIStatusBarAnimationFade : UIStatusBarAnimationNone];
     
-    
+#pragma clang diagnostic pop
     YYPhotoGroupCell *cell = [self cellForPage:self.currentPage];
     YYPhotoGroupItem *item = _groupItems[self.currentPage];
     
@@ -482,8 +484,10 @@
 
 - (void)dismissAnimated:(BOOL)animated completion:(void (^)(void))completion {
     [UIView setAnimationsEnabled:YES];
-    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     [[UIApplication sharedApplication] setStatusBarHidden:_fromNavigationBarHidden withAnimation:animated ? UIStatusBarAnimationFade : UIStatusBarAnimationNone];
+#pragma clang diagnostic pop
     NSInteger currentPage = self.currentPage;
     YYPhotoGroupCell *cell = [self cellForPage:currentPage];
     YYPhotoGroupItem *item = _groupItems[currentPage];
@@ -798,7 +802,10 @@
             if (fabs(v.y) > 1000 || fabs(deltaY) > 120) {
                 [self cancelAllImageLoad];
                 _isPresented = NO;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
                 [[UIApplication sharedApplication] setStatusBarHidden:_fromNavigationBarHidden withAnimation:UIStatusBarAnimationFade];
+#pragma clang diagnostic pop
                 
                 BOOL moveToTop = (v.y < - 50 || (v.y < 50 && deltaY < 0));
                 CGFloat vy = fabs(v.y);

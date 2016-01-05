@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ReactiveCocoa/ReactiveCocoa.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 static CGFloat const LTUserInfoFollowButtonHeight = 40;
 static CGFloat const LTUserInfoFollowButtonWidth = 100;
 /**
