@@ -10,7 +10,7 @@
 
 @implementation XHAnnotation
 
-- (id)initWithCLRegion:(CLRegion *)newRegion title:(NSString *)title subtitle:(NSString *)subtitle {
+- (id)initWithCLRegion:(CLCircularRegion *)newRegion title:(NSString *)title subtitle:(NSString *)subtitle {
 	self = [super init];
 	if (self) {
 		self.region = newRegion;

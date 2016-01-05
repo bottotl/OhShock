@@ -224,6 +224,9 @@ const char* const kXHMessageAvatorTypeKey   = "XHMessageAvatorTypeKey";
     [request setHTTPMethod:@"GET"];
     [request setTimeoutInterval:5.0];
     
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[self downloadQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
@@ -232,6 +235,12 @@ const char* const kXHMessageAvatorTypeKey   = "XHMessageAvatorTypeKey";
                                }
                            }
      ];
+#pragma clang diagnostic pop
+//    [[NSURLSession sharedSession]dataTaskWithRequest:[self downloadQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+//        if(completion) {
+//            completion(url, data, connectionError);
+//        }
+//    }];
 }
 
 - (void)load {

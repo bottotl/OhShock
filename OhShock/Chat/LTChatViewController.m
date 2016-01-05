@@ -11,7 +11,7 @@
 #import "LTChatModel.h"
 #import "LTChatService.h"
 #import "CDChatManager.h"
-#import "ReactiveCocoa/ReactiveCocoa.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface LTChatViewController ()
 

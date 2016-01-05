@@ -26,8 +26,13 @@
 @implementation NSString (URLEncoding)
 
 - (NSString *)urlEncodedUTF8String {
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Wdeprecated-declarations"
     return (id)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(0, (CFStringRef)self, 0,
                                                                          (CFStringRef)@";/?:@&=$+{}<>,", kCFStringEncodingUTF8));
+    #pragma clang diagnostic pop
+//    return (id)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(0, (CFStringRef)self, 0,
+//                                                                         (CFStringRef)@";/?:@&=$+{}<>,", kCFStringEncodingUTF8));
 }
 
 @end

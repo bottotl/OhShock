@@ -64,7 +64,7 @@
 - (NSString *)otherId {
     NSArray *members = self.members;
     if (members.count == 0) {
-        [NSException raise:@"invalid conv" format:nil];
+        NSLog(@"error :invalid conv: (members.count == 0)");
     }
     if (members.count == 1) {
         return members[0];

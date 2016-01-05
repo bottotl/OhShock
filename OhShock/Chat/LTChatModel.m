@@ -11,7 +11,7 @@
 #import "CDChatManager.h"
 #import "AVIMTypedMessage+JSQMessages.h"
 #import "CDEmotionUtils.h"
-#import "ReactiveCocoa/ReactiveCocoa.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface LTChatModel ()
 

@@ -8,7 +8,7 @@
 
 #import "LTUserInfoSendMessageCell.h"
 #import "Masonry.h"
-#import "ReactiveCocoa.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 
 static CGFloat const sendMessageButtonHeight = 80;

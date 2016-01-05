@@ -60,7 +60,10 @@ CG_INLINE BOOL isIPhone4()
 @property(nonatomic, assign) SEL successAction;
 @property(nonatomic, assign) SEL cancelAction;
 @property(nonatomic, strong) SWActionSheet *actionSheet;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 @property(nonatomic, strong) UIPopoverController *popOverController;
+#pragma clang diagnostic pop
 @property(nonatomic, strong) NSObject *selfReference;
 
 - (void)presentPickerForView:(UIView *)aView;
@@ -70,9 +73,10 @@ CG_INLINE BOOL isIPhone4()
 - (void)configureAndPresentActionSheetForView:(UIView *)aView;
 
 - (void)presentActionSheet:(SWActionSheet *)actionSheet;
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 - (void)presentPopover:(UIPopoverController *)popover;
-
+#pragma clang diagnostic pop
 - (void)dismissPicker;
 
 - (BOOL)isViewPortrait;
@@ -536,14 +540,18 @@ CG_INLINE BOOL isIPhone4()
         viewController.contentSizeForViewInPopover = viewController.view.frame.size;
 #pragma clang diagnostic pop
     }
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     _popOverController = [[UIPopoverController alloc] initWithContentViewController:viewController];
     _popOverController.delegate = self;
     [self presentPopover:_popOverController];
+#pragma clang diagnostic pop
 }
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 - (void)presentPopover:(UIPopoverController *)popover
 {
+#pragma clang diagnostic pop
     NSParameterAssert(popover != NULL);
     if ( self.barButtonItem )
     {
@@ -575,9 +583,10 @@ CG_INLINE BOOL isIPhone4()
                                animated:YES];
     }
 }
-
-#pragma mark - Popoverdelegate
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+#pragma clang diagnostic pop
 {
     _cancelButtonClicked = NO;
     [self notifyTarget:self.target didCancelWithAction:self.cancelAction origin:[self storedOrigin]];

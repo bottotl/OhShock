@@ -19,7 +19,7 @@
 }
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
-    return NO;
+    return nil;
 }
 
 - (void)dealloc {

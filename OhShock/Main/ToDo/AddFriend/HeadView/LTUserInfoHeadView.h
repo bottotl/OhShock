@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ReactiveCocoa.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "UIView+Layout.h"
 #import "LTMeHeadUserImageView.h"
 #import "LTMeHeadUserInfoView.h"

@@ -7,7 +7,7 @@
 //
 
 #import "UISearchBar+RACSignalSupport.h"
-#import "ReactiveCocoa.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 #import <objc/runtime.h>
 
 @implementation UISearchBar (RACSignalSupport)

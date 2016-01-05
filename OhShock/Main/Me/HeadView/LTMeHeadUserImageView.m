@@ -7,7 +7,7 @@
 //
 
 #import "LTMeHeadUserImageView.h"
-#import "ReactiveCocoa.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @implementation LTMeHeadUserImageView
 

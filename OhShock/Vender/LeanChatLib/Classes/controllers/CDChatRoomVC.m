@@ -361,10 +361,10 @@ static NSInteger const kOnePageSize = 10;
 #pragma mark - alert and async utils
 
 - (void)alert:(NSString *)msg {
-    UIAlertView *alertView = [[UIAlertView alloc]
-                              initWithTitle:nil message:msg delegate:nil
-                              cancelButtonTitle   :@"确定" otherButtonTitles:nil];
-    [alertView show];
+    UIAlertController *alertViewController = [UIAlertController alertControllerWithTitle:nil message:msg preferredStyle:UIAlertControllerStyleAlert];
+    [alertViewController addAction:[UIAlertAction actionWithTitle:@"知道了" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction *action) {
+    }]];
+    [self presentViewController:alertViewController animated:YES completion:nil];
 }
 
 - (BOOL)alertError:(NSError *)error {
