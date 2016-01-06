@@ -14,6 +14,11 @@
 		AB11BB061C3C14BF00201A91 /* LTGroupMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB11BB051C3C14BF00201A91 /* LTGroupMessageViewController.m */; };
 		AB11BB0A1C3C180B00201A91 /* LTGroupMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB11BB081C3C180B00201A91 /* LTGroupMessageCell.m */; };
 		AB11BB0B1C3C180B00201A91 /* LTGroupMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB11BB091C3C180B00201A91 /* LTGroupMessageCell.xib */; };
+		AB48F8971C3D512C008629FF /* DVSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = AB48F8961C3D512C008629FF /* DVSwitch.m */; };
+		AB48F89D1C3D5153008629FF /* LTGroupInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB48F89B1C3D5153008629FF /* LTGroupInfoViewController.m */; };
+		AB48F8A01C3D5167008629FF /* LTGroupMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB48F89F1C3D5167008629FF /* LTGroupMemberViewController.m */; };
+		AB48F8A41C3D51B2008629FF /* LTGroupMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB48F8A21C3D51B2008629FF /* LTGroupMemberCell.m */; };
+		AB48F8A51C3D51B2008629FF /* LTGroupMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB48F8A31C3D51B2008629FF /* LTGroupMemberCell.xib */; };
 		B80726721C1AAF2F00E7802A /* LTDiscoverTodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B80726711C1AAF2F00E7802A /* LTDiscoverTodoViewController.m */; };
 		B80727CF1C1AB2E900E7802A /* add_user_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B80726781C1AB2E900E7802A /* add_user_icon@2x.png */; };
 		B80727D01C1AB2E900E7802A /* addPictureBgImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B80726791C1AB2E900E7802A /* addPictureBgImage@2x.png */; };
@@ -818,6 +823,15 @@
 		AB11BB071C3C180B00201A91 /* LTGroupMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTGroupMessageCell.h; sourceTree = "<group>"; };
 		AB11BB081C3C180B00201A91 /* LTGroupMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroupMessageCell.m; sourceTree = "<group>"; };
 		AB11BB091C3C180B00201A91 /* LTGroupMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTGroupMessageCell.xib; sourceTree = "<group>"; };
+		AB48F8951C3D512C008629FF /* DVSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVSwitch.h; sourceTree = "<group>"; };
+		AB48F8961C3D512C008629FF /* DVSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVSwitch.m; sourceTree = "<group>"; };
+		AB48F89A1C3D5153008629FF /* LTGroupInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTGroupInfoViewController.h; sourceTree = "<group>"; };
+		AB48F89B1C3D5153008629FF /* LTGroupInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroupInfoViewController.m; sourceTree = "<group>"; };
+		AB48F89E1C3D5167008629FF /* LTGroupMemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTGroupMemberViewController.h; sourceTree = "<group>"; };
+		AB48F89F1C3D5167008629FF /* LTGroupMemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroupMemberViewController.m; sourceTree = "<group>"; };
+		AB48F8A11C3D51B2008629FF /* LTGroupMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTGroupMemberCell.h; sourceTree = "<group>"; };
+		AB48F8A21C3D51B2008629FF /* LTGroupMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroupMemberCell.m; sourceTree = "<group>"; };
+		AB48F8A31C3D51B2008629FF /* LTGroupMemberCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTGroupMemberCell.xib; sourceTree = "<group>"; };
 		B80726701C1AAF2F00E7802A /* LTDiscoverTodoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTDiscoverTodoViewController.h; sourceTree = "<group>"; };
 		B80726711C1AAF2F00E7802A /* LTDiscoverTodoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTDiscoverTodoViewController.m; sourceTree = "<group>"; };
 		B80726781C1AB2E900E7802A /* add_user_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_user_icon@2x.png"; sourceTree = "<group>"; };
@@ -1964,8 +1978,20 @@
 				AB11BB071C3C180B00201A91 /* LTGroupMessageCell.h */,
 				AB11BB081C3C180B00201A91 /* LTGroupMessageCell.m */,
 				AB11BB091C3C180B00201A91 /* LTGroupMessageCell.xib */,
+				AB48F8A11C3D51B2008629FF /* LTGroupMemberCell.h */,
+				AB48F8A21C3D51B2008629FF /* LTGroupMemberCell.m */,
+				AB48F8A31C3D51B2008629FF /* LTGroupMemberCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		AB48F8941C3D50E4008629FF /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				AB48F8951C3D512C008629FF /* DVSwitch.h */,
+				AB48F8961C3D512C008629FF /* DVSwitch.m */,
+			);
+			path = Widget;
 			sourceTree = "<group>";
 		};
 		B08F36B2DD64CD5785D60B66 /* Pods */ = {
@@ -2771,11 +2797,16 @@
 		B81071DB1C197FCE0058130E /* Group */ = {
 			isa = PBXGroup;
 			children = (
+				AB48F8941C3D50E4008629FF /* Widget */,
 				AB11BAFB1C3BB98800201A91 /* Cell */,
 				B81071DC1C197FCE0058130E /* LTGroupViewController.h */,
 				B81071DD1C197FCE0058130E /* LTGroupViewController.m */,
 				AB11BB041C3C14BF00201A91 /* LTGroupMessageViewController.h */,
 				AB11BB051C3C14BF00201A91 /* LTGroupMessageViewController.m */,
+				AB48F89A1C3D5153008629FF /* LTGroupInfoViewController.h */,
+				AB48F89B1C3D5153008629FF /* LTGroupInfoViewController.m */,
+				AB48F89E1C3D5167008629FF /* LTGroupMemberViewController.h */,
+				AB48F89F1C3D5167008629FF /* LTGroupMemberViewController.m */,
 			);
 			name = Group;
 			path = OhShock/Main/Group;
@@ -4525,6 +4556,7 @@
 				B8EEAE061C294F5400F861E8 /* rabbit_19.gif in Resources */,
 				B80728B71C1AB2E900E7802A /* project_tag_btn@2x.png in Resources */,
 				B80728C81C1AB2E900E7802A /* task_selected@2x.png in Resources */,
+				AB48F8A51C3D51B2008629FF /* LTGroupMemberCell.xib in Resources */,
 				B80728561C1AB2E900E7802A /* intro_icon_4@2x.png in Resources */,
 				B8EEAE611C294F5400F861E8 /* RecordingSignal003@2x.png in Resources */,
 				B8EEADEF1C294F5400F861E8 /* ContactsPanelDotRect@2x.png in Resources */,
@@ -4769,6 +4801,7 @@
 				B8EEAD901C294F5400F861E8 /* UIScrollView+XHkeyboardControl.m in Sources */,
 				B81072601C197FCE0058130E /* LTMeHeadUserImageView.m in Sources */,
 				B87677DA1C2012BE00A0795B /* LTUserInfoFollowButton.m in Sources */,
+				AB48F8A01C3D5167008629FF /* LTGroupMemberViewController.m in Sources */,
 				B8EEAD8C1C294F5400F861E8 /* UIImage+RoundedCorner.m in Sources */,
 				B87677BB1C1FC7FE00A0795B /* LTLogOutService.m in Sources */,
 				B81CCC271C21408500D642DB /* UIImage+JSQMessages.m in Sources */,
@@ -4801,6 +4834,7 @@
 				B82BA3AA1C2BDCE6004AFC37 /* LTAddTodoViewController.m in Sources */,
 				B80A36511C1DABC400C3B226 /* LTStatusCell.m in Sources */,
 				B8EEAD791C294F5400F861E8 /* CDChatRoomVC.m in Sources */,
+				AB48F89D1C3D5153008629FF /* LTGroupInfoViewController.m in Sources */,
 				B8EEAD961C294F5400F861E8 /* XHLocationHelper.m in Sources */,
 				B8EEAD811C294F5400F861E8 /* CDSoundManager.m in Sources */,
 				B80A36561C1DABC400C3B226 /* LTStatusToolbarView.m in Sources */,
@@ -4842,6 +4876,7 @@
 				B8EEAD8F1C294F5400F861E8 /* UIImage+XHRounded.m in Sources */,
 				B81071B31C197F6F0058130E /* AppDelegate.m in Sources */,
 				B810725B1C197FCE0058130E /* LTDiscoverViewController.m in Sources */,
+				AB48F8971C3D512C008629FF /* DVSwitch.m in Sources */,
 				B81CCC261C21408500D642DB /* UIDevice+JSQMessages.m in Sources */,
 				B8EEADDC1C294F5400F861E8 /* XHShareMenuView.m in Sources */,
 				B8EEAD9A1C294F5400F861E8 /* XHVoiceRecordHelper.m in Sources */,
@@ -4874,6 +4909,7 @@
 				B8EEAD7D1C294F5400F861E8 /* CDConversationStore.m in Sources */,
 				B8EEADB51C294F5400F861E8 /* FLAnimatedImage.m in Sources */,
 				B8EEADB31C294F5400F861E8 /* XHShareMenuItem.m in Sources */,
+				AB48F8A41C3D51B2008629FF /* LTGroupMemberCell.m in Sources */,
 				B8EEAD9C1C294F5400F861E8 /* XHBaseTableViewController.m in Sources */,
 				B82BA3C51C2BDED7004AFC37 /* ActionSheetStringPicker.m in Sources */,
 				B8EEAD931C294F5400F861E8 /* XHAudioPlayerHelper.m in Sources */,

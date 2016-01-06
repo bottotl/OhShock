@@ -11,6 +11,7 @@
 #import "LTGroupCell.h"
 #import "XHPopMenu.h"
 #import "LTGroupMessageViewController.h"
+#import "LTGroupInfoViewController.h"
 
 @interface LTGroupViewController ()<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
 
@@ -131,6 +132,15 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    if (indexPath.section == 0) {
+        //点击群组动态
+        
+    }else{
+        //点击进入群详情
+        LTGroupInfoViewController *controller = [[LTGroupInfoViewController alloc]init];
+        controller.groupName = @"XX群";
+        [self.navigationController pushViewController:controller animated:YES];
+    }
 }
 
 
