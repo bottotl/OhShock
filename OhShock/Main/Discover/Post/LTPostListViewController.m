@@ -9,10 +9,13 @@
 #import "LTPostListViewController.h"
 #import "UIColor+expanded.h"
 #import "WBStatusHelper.h"
+#import "LTPostCell.h"
+#import "LTPostLayout.h"
 
 
 @interface LTPostListViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSArray *dataSource;
 @end
 
 @implementation LTPostListViewController
@@ -22,7 +25,7 @@
     _tableView = [UITableView new];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    
+    [self.view addSubview:_tableView];
     if ([self respondsToSelector:@selector( setAutomaticallyAdjustsScrollViewInsets:)]) {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
@@ -32,8 +35,10 @@
     self.navigationItem.rightBarButtonItem = rightItem;
     
     _tableView.frame = self.view.bounds;
+    [_tableView registerClass:[LTPostCell class] forCellReuseIdentifier:LTPostCellIdentifier];
     
-    
+    LTPostLayout *layout = [LTPostLayout new];
+    _dataSource = @[layout].copy;
 }
 
 - (void)sendStatus {
@@ -43,15 +48,17 @@
 
 #pragma mark - table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return _dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [UITableViewCell new];
+    LTPostCell *cell = [tableView dequeueReusableCellWithIdentifier:LTPostCellIdentifier forIndexPath:indexPath];
+    cell.layout = _dataSource[indexPath.row];
+    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
+    return [(LTPostLayout *)_dataSource[indexPath.row] layoutHeight];
 }
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {

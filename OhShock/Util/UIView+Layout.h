@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#define MScreenWidth     [UIScreen mainScreen].bounds.size.width
+#define MScreenHeight    [UIScreen mainScreen].bounds.size.height
+
 @interface UIView (Layout)
 
 

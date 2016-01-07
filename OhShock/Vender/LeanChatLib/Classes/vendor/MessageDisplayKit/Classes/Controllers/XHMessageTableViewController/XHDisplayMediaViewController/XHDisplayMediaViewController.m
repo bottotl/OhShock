@@ -25,7 +25,7 @@
 - (AVPlayerViewController *)moviePlayerController {
     if (!_moviePlayerController) {
         _moviePlayerController = [[AVPlayerViewController alloc] init];
-#warning 从MediaPlayer 改为 AVKit 后不会修改了
+// 从MediaPlayer 改为 AVKit 后不会修改了
 ////        _moviePlayerController.repeatMode = MPMovieRepeatModeOne;
 ////        _moviePlayerController.scalingMode = MPMovieScalingModeAspectFill;
         _moviePlayerController.view.frame = self.view.frame;
@@ -48,7 +48,7 @@
     _message = message;
     if ([message messageMediaType] == XHBubbleMessageMediaTypeVideo) {
         self.title = NSLocalizedStringFromTable(@"Video", @"MessageDisplayKitString", @"详细视频");
-#warning 从MediaPlayer 改为 AVKit 后不会修改了
+//warning 从MediaPlayer 改为 AVKit 后不会修改了
 //        self.moviePlayerController.contentURL = [NSURL fileURLWithPath:[message videoPath]];
 //        [self.moviePlayerController play];
     } else if ([message messageMediaType] ==XHBubbleMessageMediaTypePhoto) {
@@ -65,7 +65,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     if ([self.message messageMediaType] == XHBubbleMessageMediaTypeVideo) {
-        #warning 从MediaPlayer 改为 AVKit 后不会修改了
+        //warning 从MediaPlayer 改为 AVKit 后不会修改了
 //        [self.moviePlayerController stop];
     }
 }
@@ -81,7 +81,7 @@
 }
 
 - (void)dealloc {
-    #warning 从MediaPlayer 改为 AVKit 后不会修改了
+    //warning 从MediaPlayer 改为 AVKit 后不会修改了
 //    [_moviePlayerController stop];
     _moviePlayerController = nil;
     

@@ -9,12 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "YYKit.h"
 #import "LTPostLayoutProtocol.h"
-@interface LTPostLayout : NSObject
-//- (instancetype)initWithStatus:(WBStatus *)status style:(WBLayoutStyle)style;
-- (void)layout; ///< 计算布局
-- (void)updateDate; ///< 更新时间字符串
+#import "LTPostProfileViewModel.h"
 
-// 总高度
-@property (nonatomic, assign) CGFloat height;
 
+@interface LTPostLayout : NSObject<LTPostLayoutProtocol>
+@property (nonatomic, strong) LTPostProfileViewModel *profileModel;
 @end
