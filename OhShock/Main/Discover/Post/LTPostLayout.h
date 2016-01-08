@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "YYKit.h"
 #import "LTPostLayoutProtocol.h"
-#import "LTPostProfileViewModel.h"
+
 
 
 @interface LTPostLayout : NSObject<LTPostLayoutProtocol>
-@property (nonatomic, strong) LTPostProfileViewModel *profileModel;
+//@property (nonatomic, strong) LTPostProfileViewModel *profileModel;
 @end

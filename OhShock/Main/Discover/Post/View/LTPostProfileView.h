@@ -7,9 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LTPostProfileModel.h"
 
 @interface LTPostProfileView : UIView
--(void)setAvatatImageWithUrlString:(NSString *)avatarUrlString;
--(void)setName:(NSString *)name;
+
+@property (nonatomic, strong) LTPostProfileModel *data;
+
+@property (nonatomic, copy) NSString *avatatUrlString;
+
+@property (nonatomic, copy) NSString *name;
+
+
+/** 获取总高度*/
 +(CGFloat)viewHeight;
+
 @end

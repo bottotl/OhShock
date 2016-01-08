@@ -7,13 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LTPostContentModel.h"
 
 static CGFloat const LTPostContentLabelPadding = 5;
 
 @interface LTPostContentView : UIView
 
-@property (nonatomic, copy) NSAttributedString *content;
+@property (nonatomic, strong) LTPostContentModel *data;
 
-+(CGFloat)viewHeightWithContent:(NSAttributedString *)content width:(CGFloat)width;
+/**
+ *  根据文字内容&宽度获取高度
+ *
+ *  @param content 富文本
+ *  @param width   宽度
+ *
+ *  @return 高度
+ */
++(CGFloat)viewHeightWithContent:(NSAttributedString *)content andPerferedWidth:(CGFloat)width;
 
 @end

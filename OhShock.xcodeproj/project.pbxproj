@@ -460,7 +460,12 @@
 		B81CCC4C1C21408500D642DB /* JSQMessagesTypingIndicatorFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B81CCC201C21408500D642DB /* JSQMessagesTypingIndicatorFooterView.xib */; };
 		B81E45E81C38F56C0031A4AD /* LTPostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B81E45E71C38F56C0031A4AD /* LTPostModel.m */; };
 		B81E45EB1C38FAE40031A4AD /* LTPostLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B81E45EA1C38FAE40031A4AD /* LTPostLayout.m */; };
-		B81E45EF1C38FC2E0031A4AD /* LTPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B81E45EE1C38FC2E0031A4AD /* LTPostCell.m */; };
+		B81E45EF1C38FC2E0031A4AD /* LTPostViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B81E45EE1C38FC2E0031A4AD /* LTPostViewCell.m */; };
+		B825C7831C3F591A006E41C0 /* LTPostImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B825C7821C3F591A006E41C0 /* LTPostImageCollectionViewCell.m */; };
+		B825C78A1C3F5CCB006E41C0 /* LTPostView.m in Sources */ = {isa = PBXBuildFile; fileRef = B825C7891C3F5CCB006E41C0 /* LTPostView.m */; };
+		B825C7941C3F6322006E41C0 /* LTPostImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B825C78F1C3F6322006E41C0 /* LTPostImageModel.m */; };
+		B825C7951C3F6322006E41C0 /* LTPostProfileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B825C7911C3F6322006E41C0 /* LTPostProfileModel.m */; };
+		B825C7991C3F826C006E41C0 /* LTPostContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B825C7981C3F826C006E41C0 /* LTPostContentModel.m */; };
 		B82BA3AA1C2BDCE6004AFC37 /* LTAddTodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B82BA3A91C2BDCE6004AFC37 /* LTAddTodoViewController.m */; };
 		B82BA3AD1C2BDD7F004AFC37 /* LTAddTodoTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B82BA3AC1C2BDD7F004AFC37 /* LTAddTodoTextCell.m */; };
 		B82BA3C01C2BDED7004AFC37 /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = B82BA3B01C2BDED7004AFC37 /* AbstractActionSheetPicker.m */; };
@@ -505,8 +510,6 @@
 		B8ADC9C21C1ED989001ED415 /* LTMeSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADC9C11C1ED989001ED415 /* LTMeSettingViewController.m */; };
 		B8ADC9C61C1EDE44001ED415 /* LTMeLogOutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADC9C51C1EDE44001ED415 /* LTMeLogOutCell.m */; };
 		B8BD1A851C3BA12A0011178F /* LTPostProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8BD1A841C3BA12A0011178F /* LTPostProfileView.m */; };
-		B8BD1A891C3BAC7C0011178F /* LTPostProfileViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8BD1A881C3BAC7C0011178F /* LTPostProfileViewModel.m */; };
-		B8BD1A8C1C3BB14A0011178F /* LTPostViewBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8BD1A8B1C3BB14A0011178F /* LTPostViewBaseView.m */; };
 		B8D1D5261C33CAEA00DC4EDC /* LTSelectFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D1D5251C33CAEA00DC4EDC /* LTSelectFriendsViewController.m */; };
 		B8D1D52C1C33EB2B00DC4EDC /* LTPostListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D1D52B1C33EB2B00DC4EDC /* LTPostListViewController.m */; };
 		B8E448D71C3BDD3900D4D717 /* LTPostContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E448D61C3BDD3900D4D717 /* LTPostContentView.m */; };
@@ -1386,12 +1389,22 @@
 		B81CCC1E1C21408500D642DB /* JSQMessagesTypingIndicatorFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSQMessagesTypingIndicatorFooterView.h; sourceTree = "<group>"; };
 		B81CCC1F1C21408500D642DB /* JSQMessagesTypingIndicatorFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSQMessagesTypingIndicatorFooterView.m; sourceTree = "<group>"; };
 		B81CCC201C21408500D642DB /* JSQMessagesTypingIndicatorFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSQMessagesTypingIndicatorFooterView.xib; sourceTree = "<group>"; };
-		B81E45E61C38F56C0031A4AD /* LTPostModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostModel.h; sourceTree = "<group>"; };
-		B81E45E71C38F56C0031A4AD /* LTPostModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostModel.m; sourceTree = "<group>"; };
+		B81E45E61C38F56C0031A4AD /* LTPostModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTPostModel.h; path = ../LTPostModel.h; sourceTree = "<group>"; };
+		B81E45E71C38F56C0031A4AD /* LTPostModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTPostModel.m; path = ../LTPostModel.m; sourceTree = "<group>"; };
 		B81E45E91C38FAE40031A4AD /* LTPostLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTPostLayout.h; path = ../LTPostLayout.h; sourceTree = "<group>"; };
 		B81E45EA1C38FAE40031A4AD /* LTPostLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTPostLayout.m; path = ../LTPostLayout.m; sourceTree = "<group>"; };
-		B81E45ED1C38FC2E0031A4AD /* LTPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostCell.h; sourceTree = "<group>"; };
-		B81E45EE1C38FC2E0031A4AD /* LTPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostCell.m; sourceTree = "<group>"; };
+		B81E45ED1C38FC2E0031A4AD /* LTPostViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostViewCell.h; sourceTree = "<group>"; };
+		B81E45EE1C38FC2E0031A4AD /* LTPostViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostViewCell.m; sourceTree = "<group>"; };
+		B825C7811C3F591A006E41C0 /* LTPostImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostImageCollectionViewCell.h; sourceTree = "<group>"; };
+		B825C7821C3F591A006E41C0 /* LTPostImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostImageCollectionViewCell.m; sourceTree = "<group>"; };
+		B825C7881C3F5CCB006E41C0 /* LTPostView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostView.h; sourceTree = "<group>"; };
+		B825C7891C3F5CCB006E41C0 /* LTPostView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostView.m; sourceTree = "<group>"; };
+		B825C78E1C3F6322006E41C0 /* LTPostImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostImageModel.h; sourceTree = "<group>"; };
+		B825C78F1C3F6322006E41C0 /* LTPostImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostImageModel.m; sourceTree = "<group>"; };
+		B825C7901C3F6322006E41C0 /* LTPostProfileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostProfileModel.h; sourceTree = "<group>"; };
+		B825C7911C3F6322006E41C0 /* LTPostProfileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostProfileModel.m; sourceTree = "<group>"; };
+		B825C7971C3F826C006E41C0 /* LTPostContentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostContentModel.h; sourceTree = "<group>"; };
+		B825C7981C3F826C006E41C0 /* LTPostContentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostContentModel.m; sourceTree = "<group>"; };
 		B82BA3A81C2BDCE6004AFC37 /* LTAddTodoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTAddTodoViewController.h; sourceTree = "<group>"; };
 		B82BA3A91C2BDCE6004AFC37 /* LTAddTodoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTAddTodoViewController.m; sourceTree = "<group>"; };
 		B82BA3AB1C2BDD7F004AFC37 /* LTAddTodoTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTAddTodoTextCell.h; sourceTree = "<group>"; };
@@ -1472,10 +1485,6 @@
 		B8ADC9C51C1EDE44001ED415 /* LTMeLogOutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMeLogOutCell.m; sourceTree = "<group>"; };
 		B8BD1A831C3BA12A0011178F /* LTPostProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostProfileView.h; sourceTree = "<group>"; };
 		B8BD1A841C3BA12A0011178F /* LTPostProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostProfileView.m; sourceTree = "<group>"; };
-		B8BD1A871C3BAC7C0011178F /* LTPostProfileViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostProfileViewModel.h; sourceTree = "<group>"; };
-		B8BD1A881C3BAC7C0011178F /* LTPostProfileViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostProfileViewModel.m; sourceTree = "<group>"; };
-		B8BD1A8A1C3BB14A0011178F /* LTPostViewBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostViewBaseView.h; sourceTree = "<group>"; };
-		B8BD1A8B1C3BB14A0011178F /* LTPostViewBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostViewBaseView.m; sourceTree = "<group>"; };
 		B8D1D5241C33CAEA00DC4EDC /* LTSelectFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTSelectFriendsViewController.h; sourceTree = "<group>"; };
 		B8D1D5251C33CAEA00DC4EDC /* LTSelectFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTSelectFriendsViewController.m; sourceTree = "<group>"; };
 		B8D1D52A1C33EB2B00DC4EDC /* LTPostListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostListViewController.h; sourceTree = "<group>"; };
@@ -3091,10 +3100,19 @@
 		B81E45EC1C38FC140031A4AD /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				B81E45ED1C38FC2E0031A4AD /* LTPostCell.h */,
-				B81E45EE1C38FC2E0031A4AD /* LTPostCell.m */,
+				B81E45ED1C38FC2E0031A4AD /* LTPostViewCell.h */,
+				B81E45EE1C38FC2E0031A4AD /* LTPostViewCell.m */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		B825C7801C3F58FB006E41C0 /* CollectionCel */ = {
+			isa = PBXGroup;
+			children = (
+				B825C7811C3F591A006E41C0 /* LTPostImageCollectionViewCell.h */,
+				B825C7821C3F591A006E41C0 /* LTPostImageCollectionViewCell.m */,
+			);
+			path = CollectionCel;
 			sourceTree = "<group>";
 		};
 		B82BA3A71C2BDC89004AFC37 /* AddTodo */ = {
@@ -3275,10 +3293,11 @@
 		B8BD1A821C3BA1030011178F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B825C7801C3F58FB006E41C0 /* CollectionCel */,
+				B825C7881C3F5CCB006E41C0 /* LTPostView.h */,
+				B825C7891C3F5CCB006E41C0 /* LTPostView.m */,
 				B8BD1A831C3BA12A0011178F /* LTPostProfileView.h */,
 				B8BD1A841C3BA12A0011178F /* LTPostProfileView.m */,
-				B8BD1A8A1C3BB14A0011178F /* LTPostViewBaseView.h */,
-				B8BD1A8B1C3BB14A0011178F /* LTPostViewBaseView.m */,
 				B8E448D51C3BDD3900D4D717 /* LTPostContentView.h */,
 				B8E448D61C3BDD3900D4D717 /* LTPostContentView.m */,
 				B855AB2D1C3D050000566B9B /* LTPostImagesView.h */,
@@ -3290,8 +3309,14 @@
 		B8BD1A861C3BAC700011178F /* model */ = {
 			isa = PBXGroup;
 			children = (
-				B8BD1A871C3BAC7C0011178F /* LTPostProfileViewModel.h */,
-				B8BD1A881C3BAC7C0011178F /* LTPostProfileViewModel.m */,
+				B81E45E61C38F56C0031A4AD /* LTPostModel.h */,
+				B81E45E71C38F56C0031A4AD /* LTPostModel.m */,
+				B825C78E1C3F6322006E41C0 /* LTPostImageModel.h */,
+				B825C78F1C3F6322006E41C0 /* LTPostImageModel.m */,
+				B825C7901C3F6322006E41C0 /* LTPostProfileModel.h */,
+				B825C7911C3F6322006E41C0 /* LTPostProfileModel.m */,
+				B825C7971C3F826C006E41C0 /* LTPostContentModel.h */,
+				B825C7981C3F826C006E41C0 /* LTPostContentModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -3316,8 +3341,6 @@
 				B81E45EC1C38FC140031A4AD /* Cell */,
 				B8D1D52A1C33EB2B00DC4EDC /* LTPostListViewController.h */,
 				B8D1D52B1C33EB2B00DC4EDC /* LTPostListViewController.m */,
-				B81E45E61C38F56C0031A4AD /* LTPostModel.h */,
-				B81E45E71C38F56C0031A4AD /* LTPostModel.m */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -4767,6 +4790,7 @@
 				B8EEAD901C294F5400F861E8 /* UIScrollView+XHkeyboardControl.m in Sources */,
 				B81072601C197FCE0058130E /* LTMeHeadUserImageView.m in Sources */,
 				B87677DA1C2012BE00A0795B /* LTUserInfoFollowButton.m in Sources */,
+				B825C7831C3F591A006E41C0 /* LTPostImageCollectionViewCell.m in Sources */,
 				B8EEAD8C1C294F5400F861E8 /* UIImage+RoundedCorner.m in Sources */,
 				B87677BB1C1FC7FE00A0795B /* LTLogOutService.m in Sources */,
 				B81CCC271C21408500D642DB /* UIImage+JSQMessages.m in Sources */,
@@ -4778,6 +4802,7 @@
 				B8EEADA51C294F5400F861E8 /* XHFileAttribute.m in Sources */,
 				B8EEADC91C294F5400F861E8 /* XHZoomingImageView.m in Sources */,
 				B8EEAD881C294F5400F861E8 /* NSString+XHMD5.m in Sources */,
+				B825C7941C3F6322006E41C0 /* LTPostImageModel.m in Sources */,
 				B8EEADAD1C294F5400F861E8 /* XHAlbum.m in Sources */,
 				B8EEADA61C294F5400F861E8 /* XHHTTPClient.m in Sources */,
 				B8EEAD991C294F5400F861E8 /* XHVoiceCommonHelper.m in Sources */,
@@ -4831,7 +4856,6 @@
 				B80A37821C1DAD5F00C3B226 /* WBStatusLayout.m in Sources */,
 				B81CCC251C21408500D642DB /* UIColor+JSQMessages.m in Sources */,
 				B8EEADDE1C294F5400F861E8 /* XHRefreshCircleView.m in Sources */,
-				B8BD1A8C1C3BB14A0011178F /* LTPostViewBaseView.m in Sources */,
 				B810728D1C197FCE0058130E /* UIImage+Common.m in Sources */,
 				B8EEADBA1C294F5400F861E8 /* SELineLayout.m in Sources */,
 				B8EEAD841C294F5400F861E8 /* LZConversationCell.m in Sources */,
@@ -4865,7 +4889,7 @@
 				B8EEADC01C294F5400F861E8 /* SETextInput.m in Sources */,
 				B8EEAD781C294F5400F861E8 /* CDChatListVC.m in Sources */,
 				B810725C1C197FCE0058130E /* LTGroupViewController.m in Sources */,
-				B81E45EF1C38FC2E0031A4AD /* LTPostCell.m in Sources */,
+				B81E45EF1C38FC2E0031A4AD /* LTPostViewCell.m in Sources */,
 				B8EEAD8A1C294F5400F861E8 /* UIImage+Alpha.m in Sources */,
 				B8EEAD9D1C294F5400F861E8 /* XHPullRefreshTableViewController.m in Sources */,
 				B810726C1C197FCE0058130E /* ScheduleCell.m in Sources */,
@@ -4899,6 +4923,7 @@
 				B8EEADA21C294F5400F861E8 /* XHDisplayTextViewController.m in Sources */,
 				B80A378F1C1DADB600C3B226 /* YYControl.m in Sources */,
 				B81CCC411C21408500D642DB /* JSQMessagesCollectionViewCellOutgoing.m in Sources */,
+				B825C7991C3F826C006E41C0 /* LTPostContentModel.m in Sources */,
 				B81CCC221C21408500D642DB /* JSQSystemSoundPlayer+JSQMessages.m in Sources */,
 				B810728C1C197FCE0058130E /* UIColor+expanded.m in Sources */,
 				B81072771C197FCE0058130E /* JTCalendarMonthView.m in Sources */,
@@ -4926,7 +4951,6 @@
 				B8A128461C1984B100ECA6CD /* LKDBUtils.m in Sources */,
 				B81CCC321C21408500D642DB /* JSQMessagesCollectionViewFlowLayout.m in Sources */,
 				B81CCC371C21408500D642DB /* JSQMessage.m in Sources */,
-				B8BD1A891C3BAC7C0011178F /* LTPostProfileViewModel.m in Sources */,
 				B8EEADD81C294F5400F861E8 /* XHEmotionCollectionViewCell.m in Sources */,
 				B8EEAD921C294F5400F861E8 /* UIView+XHRemoteImage.m in Sources */,
 				B8EEADAA1C294F5400F861E8 /* XHMessageVideoConverPhotoFactory.m in Sources */,
@@ -4937,6 +4961,7 @@
 				B80A36501C1DABC400C3B226 /* LTStatusCardView.m in Sources */,
 				B81CCC3A1C21408500D642DB /* JSQPhotoMediaItem.m in Sources */,
 				B810726D1C197FCE0058130E /* ScheduleFootCell.m in Sources */,
+				B825C7951C3F6322006E41C0 /* LTPostProfileModel.m in Sources */,
 				B8EEADCA1C294F5400F861E8 /* XHPathCover.m in Sources */,
 				B81072711C197FCE0058130E /* JTCalendarAppearance.m in Sources */,
 				B80A37941C1DADB600C3B226 /* YYTableViewCell.m in Sources */,
@@ -4971,6 +4996,7 @@
 				B80A36551C1DABC400C3B226 /* LTStatusTitleView.m in Sources */,
 				B8EEADE11C294F5400F861E8 /* NSString+Emojize.m in Sources */,
 				B80A36521C1DABC400C3B226 /* LTStatusProfileView.m in Sources */,
+				B825C78A1C3F5CCB006E41C0 /* LTPostView.m in Sources */,
 				B8EEAD801C294F5400F861E8 /* CDMessageHelper.m in Sources */,
 				B8EEADC41C294F5400F861E8 /* SETextSelection.m in Sources */,
 				B810726F1C197FCE0058130E /* DWBubbleMenuButton.m in Sources */,

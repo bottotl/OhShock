@@ -7,30 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-/**
- *  标记了图片展示的样式
- */
-typedef NS_ENUM(NSUInteger, LTPostImagesViewType) {
-    /**
-     *  大图
-     */
-    LTPostImagesViewTypeBig,
-    /**
-     *  小图
-     */
-    LTPostImagesViewTypeReport
-};
 
 @interface LTPostImagesView : UIView
 
-@property (nonatomic, strong) NSArray *images;///< @[<imageUrlString>]
+@property (nonatomic, strong) NSArray   *data;///< 图片数据 @[<LTPostImageModel *>]
 
-@property (nonatomic, assign) LTPostImagesViewType type;
+@property (nonatomic, assign) CGFloat   itemSpace;///< 图片间距
 
-+(CGFloat)viewHeightWithImages:(NSArray *)images;
+@property (nonatomic, assign) BOOL      needBig;///< 是否需要显示大图
+
+@property (nonatomic, assign) NSUInteger limit;///< 图片最多数量
+
++ (CGFloat)heightWithSuggestThreePicWidth:(CGFloat)width andPicCount:(NSInteger)count andBigPic:(BOOL)bigpic andItemSpace:(CGFloat)space withLimit:(NSInteger)limit;
+
+- (void)reset;
 
 @end
-static NSString *LTPostImagesCollectionViewCellIdentifier = @"LTPostImagesCollectionViewCell";
-@interface LTPostImagesCollectionViewCell : UICollectionViewCell
 
-@end

@@ -15,12 +15,12 @@ static CGFloat const LTPostProfileViewHeight = 56.0;
 
 @interface LTPostProfileView()
 @property (nonatomic, strong) UIImageView  *avatarView;///< 头像
-@property (nonatomic, strong) UIImageView  *avatarBadgeView;///< 徽章
+//@property (nonatomic, strong) UIImageView  *avatarBadgeView;///< 徽章
 @property (nonatomic, strong) YYLabel      *nameLabel;///< 用户名
-@property (nonatomic, strong) YYLabel      *sourceLabel;///< 设备
-@property (nonatomic, strong) UIImageView  *backgroundImageView;///< 背景图片
-@property (nonatomic, strong) UIButton     *arrowButton;///< 阅读数量按钮
-@property (nonatomic, strong) UIButton     *followButton;///< 关注按钮
+//@property (nonatomic, strong) YYLabel      *sourceLabel;///< 设备
+//@property (nonatomic, strong) UIImageView  *backgroundImageView;///< 背景图片
+//@property (nonatomic, strong) UIButton     *arrowButton;///< 阅读数量按钮
+//@property (nonatomic, strong) UIButton     *followButton;///< 关注按钮
 @end
 
 @implementation LTPostProfileView{
@@ -31,67 +31,72 @@ static CGFloat const LTPostProfileViewHeight = 56.0;
     return self;
 }
 -(instancetype)initWithFrame:(CGRect)frame{
-    self = [super initWithFrame:CGRectMake(0, 0, kScreenWidth, LTPostProfileViewHeight)];
-    if (self) {
-        _avatarView = [UIImageView new];
-        _avatarView.clipsToBounds = YES;
-        [self addSubview:_avatarView];
-        
-        _avatarBadgeView = [UIImageView new];
-        [self addSubview:_avatarBadgeView];
-        
-        _nameLabel = [YYLabel new];
-//        _nameLabel.displaysAsynchronously = YES;
-//        _nameLabel.ignoreCommonProperties = YES;
-//        _nameLabel.fadeOnAsynchronouslyDisplay = NO;
-//        _nameLabel.fadeOnHighlight = NO;
-//        _nameLabel.lineBreakMode = NSLineBreakByClipping;
-//        _nameLabel.textVerticalAlignment = YYTextVerticalAlignmentCenter;
-        [self addSubview:_nameLabel];
-        
-        _sourceLabel = [YYLabel new];
-//        _sourceLabel.displaysAsynchronously = YES;
-//        _sourceLabel.ignoreCommonProperties = YES;
-//        _sourceLabel.fadeOnAsynchronouslyDisplay = NO;
-//        _sourceLabel.fadeOnHighlight = NO;
-//        _sourceLabel.lineBreakMode = NSLineBreakByClipping;
-//        _sourceLabel.textVerticalAlignment = YYTextVerticalAlignmentCenter;
-
-        [self addSubview:_sourceLabel];
-        
-        _backgroundImageView = [UIImageView new];
-        [self addSubview:_backgroundImageView];
-        
-        _arrowButton = [UIButton new];
-        [self addSubview:_arrowButton];
-        
-        _followButton = [UIButton new];
-        [self addSubview:_followButton];
-    }
+    CGRect rect= CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, LTPostProfileViewHeight);
+    self = [super initWithFrame:rect];
     return self;
 }
--(void)setAvatatImageWithUrlString:(NSString *)avatarUrlString{
-    [_avatarView sd_setImageWithURL:[NSURL URLWithString:avatarUrlString]];
-}
--(void)setName:(NSString *)name{
-    CGSize size = CGSizeMake(kScreenWidth - 110, 24);
-    YYTextLayout *layout = [YYTextLayout layoutWithContainerSize:size text:[[NSAttributedString alloc]initWithString:name]];
-    _nameLabel.size = layout.textBoundingSize;
-    _nameLabel.textLayout = layout;
-    
-}
--(void)layoutSubviews{
-    _avatarView.size = CGSizeMake(50, 50);
-    _avatarView.layer.cornerRadius = _avatarView.height/2;
-    _avatarView.backgroundColor = [UIColor redColor];
-    _avatarView.left = 10;
-    _avatarView.centerY = self.height/2;
 
-    _nameLabel.left = _avatarView.right + 5;
-    _nameLabel.bottom = _avatarView.centerY;
+
+-(void)layoutSubviews{
+    
+    self.avatarView.size = CGSizeMake(50, 50);
+    self.avatarView.layer.cornerRadius = _avatarView.height/2;
+    self.avatarView.backgroundColor = [UIColor redColor];
+    self.avatarView.left = 10;
+    self.avatarView.centerY = self.height/2;
+
+    _nameLabel.left = self.avatarView.right + 5;
+    _nameLabel.centerY = self.avatarView.centerY;
     [super layoutSubviews];
 }
 
+#pragma mark - property
+#pragma mark - View property
+
+-(YYLabel *)nameLabel{
+    if(!_nameLabel){
+        _nameLabel = [YYLabel new];
+        //        _nameLabel.displaysAsynchronously = YES;
+        //        _nameLabel.ignoreCommonProperties = YES;
+        //        _nameLabel.fadeOnAsynchronouslyDisplay = NO;
+        //        _nameLabel.fadeOnHighlight = NO;
+        //        _nameLabel.lineBreakMode = NSLineBreakByClipping;
+        //        _nameLabel.textVerticalAlignment = YYTextVerticalAlignmentCenter;
+        [self addSubview:_nameLabel];
+    }
+    return _nameLabel;
+}
+
+-(UIImageView *)avatarView{
+    if (!_avatarView) {
+        _avatarView = [UIImageView new];
+        _avatarView.clipsToBounds = YES;
+        [self addSubview:_avatarView];
+    }
+    return _avatarView;
+}
+
+#pragma mark - Data property
+-(void)setData:(LTPostProfileModel *)data{
+    _data = data;
+    [self setAvatatUrlString:data.avatarUrl];
+    [self setName:data.name];
+}
+
+-(void)setAvatatUrlString:(NSString *)avatatUrlString{
+    _avatatUrlString = avatatUrlString;
+    [_avatarView sd_setImageWithURL:[NSURL URLWithString:avatatUrlString]];
+}
+
+-(void)setName:(NSString *)name{
+    _name = name;
+    CGSize size = CGSizeMake(kScreenWidth - 110, 24);
+    YYTextLayout *layout = [YYTextLayout layoutWithContainerSize:size text:[[NSAttributedString alloc]initWithString:name]];
+    self.nameLabel.size = layout.textBoundingSize;
+    self.nameLabel.textLayout = layout;
+}
+
+#pragma mark -
 +(CGFloat)viewHeight{
     return LTPostProfileViewHeight;
 }

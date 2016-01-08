@@ -7,7 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LTPostProfileModel.h"
+#import "LTPostContentModel.h"
+#import "LTPostImageModel.h"
 
 @interface LTPostModel : NSObject
+
+/** 个人资料*/
+@property (nonatomic, strong) LTPostProfileModel *profileData;
+
+/** 内容*/
+@property (nonatomic, strong) LTPostContentModel *contentData;
+
+/** @[<LTPostImageModel *>]*/
+@property (nonatomic, strong) NSArray *pic;
 
 @end
