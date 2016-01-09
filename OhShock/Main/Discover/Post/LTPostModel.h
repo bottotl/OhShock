@@ -11,6 +11,7 @@
 #import "LTPostContentModel.h"
 #import "LTPostImageModel.h"
 #import "LTPostLikedModel.h"
+#import "LTPostCommitModel.h"
 
 @interface LTPostModel : NSObject
 
@@ -25,5 +26,8 @@
 
 /** 点赞列表数据模型*/
 @property (nonatomic, strong) LTPostLikedModel *likedData;
+
+/** 评论*/
+@property (nonatomic, strong) LTPostCommitModel *commitsData;
 
 @end

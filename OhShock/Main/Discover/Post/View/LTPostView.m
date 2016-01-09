@@ -11,6 +11,7 @@
 #import "LTPostContentView.h"
 #import "LTPostImagesView.h"
 #import "LTPostLikedView.h"
+#import "LTPostCommitsView.h"
 #import "LTPostViewRoundButton.h"
 #import "UIView+Layout.h"
 #import "UIImage+Common.h"
@@ -34,6 +35,8 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
 @property (nonatomic, strong) LTPostViewRoundButton *likeButton;
 
 @property (nonatomic, strong) LTPostLikedView *likedView;
+
+@property (nonatomic, strong) LTPostCommitsView *commitsView;
 
 
 @end
@@ -75,6 +78,12 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
     self.likedView.top = self.likeButton.bottom + offset;
     self.likedView.left = LTPostLikedViewLeftPadding;
     
+    offset = 3;
+    self.commitsView.width = self.width - LTPostLikedViewLeftPadding - LTPostLikedViewRightPadding;
+    [self.commitsView sizeToFit];
+    self.commitsView.top = self.likedView.bottom +offset;
+    self.commitsView.left = LTPostLikedViewLeftPadding;
+
 }
 
 
@@ -94,6 +103,9 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
     self.imagesView.needBig = YES;
     
     self.likedView.data = data.likedData;
+    
+    [self.commitsView configWithData:data.commitsData];
+    
     [self setNeedsLayout];
     [self layoutIfNeeded];
     
@@ -151,6 +163,15 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
     }
     return _likedView;
 }
+
+-(LTPostCommitsView *)commitsView{
+    if (!_commitsView) {
+        _commitsView = [LTPostCommitsView new];
+        [self addSubview:_commitsView];
+    }
+    return _commitsView;
+}
+
 #pragma mark - 高度计算
 
 +(CGFloat)viewHeightWithData:(LTPostModel *)data{
@@ -168,8 +189,8 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
     
     offset = 13;
     height += [LTPostLikedView heightWithUsersName:data.likedData.usersNameAttributedString andWith:(([UIScreen mainScreen].bounds.size.width) -LTPostLikedViewLeftPadding - LTPostLikedViewRightPadding)];
-    
-    return height + 10 + 10;
+    height += [LTPostCommitsView heightWithData:data.commitsData andWidth:(([UIScreen mainScreen].bounds.size.width) -LTPostLikedViewLeftPadding - LTPostLikedViewRightPadding)];
+    return height + 10 */** 竖直方向上 YYLabel 的数量 + 1*/4;
 }
 
 
