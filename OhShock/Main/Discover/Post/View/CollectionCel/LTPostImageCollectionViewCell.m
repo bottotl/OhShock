@@ -7,7 +7,7 @@
 //
 
 #import "LTPostImageCollectionViewCell.h"
-#import "SDWebImage/SDWebImage/UIImageView+WebCache.h"
+#import "UIImageView+WebCache.h"
 #import "UIView+Layout.h"
 
 @implementation LTPostImageCollectionViewCell

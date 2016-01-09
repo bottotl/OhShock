@@ -7,10 +7,7 @@
 //
 
 #import "LTPostListViewController.h"
-#import "UIColor+expanded.h"
-#import "WBStatusHelper.h"
 #import "LTPostViewCell.h"
-#import "LTPostLayout.h"
 #import "LTPostModel.h"
 
 
@@ -40,23 +37,11 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
-    if ([self respondsToSelector:@selector( setAutomaticallyAdjustsScrollViewInsets:)]) {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
-    
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:[WBStatusHelper imageNamed:@"toolbar_compose_highlighted"] style:UIBarButtonItemStylePlain target:self action:@selector(sendStatus)];
-    rightItem.tintColor = [UIColor colorWithHexString:@"fd8224"];
-    self.navigationItem.rightBarButtonItem = rightItem;
     
     _tableView.frame = self.view.bounds;
     [_tableView registerClass:[LTPostViewCell class] forCellReuseIdentifier:LTPostViewCellIdentifier];
     
 }
-
-- (void)sendStatus {
-    NSLog(@"发表状态");
-}
-
 - (void)makeArray{
     LTPostModel *mode = [LTPostModel new];
     
@@ -66,13 +51,13 @@
     profileData.avatarUrl = @"http://ww4.sinaimg.cn/mw690/6b5f103fjw8em2xe1lm4wj20qm0qnadp.jpg";
     profileData.name = @"jft0m";
     
-    contentData.content = [[NSAttributedString alloc]initWithString:@"阿萨德飞离开家或第三方了看见的回复了即可恢复到上公开了几乎是发达了回复了就开始打了积分卡喝多了快解放和大厦里即可回答了客家话阿里开奖号"];
+    contentData.content = [[NSAttributedString alloc]initWithString:@"追求别人，我不知道最好的办法，但我知道哪些办法是与幸福生活背道而驰的。时间宝贵，不要浪费，所谓浪费时间，不是你追了但是没有追到，在追求的过程中发现自己的弱点，控制他或者接受他，都是自己的一种成长，不是浪费。所谓浪费，是你在错误的追求方法上反复用力，还期待得到一个圆满的结果，在得不到没有接受的坦荡，反而充满了被亏钱的郁闷和怨恨。"];
     
     LTPostImageModel *postImageData = [LTPostImageModel new];
     postImageData.smallUrlString = @"http://ww3.sinaimg.cn/mw690/6b5f103fjw8ezoov1yvggj20p00p0q59.jpg";
     postImageData.bigUrlString = @"http://ww4.sinaimg.cn/mw690/6b5f103fjw8em2xe1lm4wj20qm0qnadp.jpg";
     NSMutableArray *tempPostImagesData = @[].mutableCopy;
-    for (int i = 0; i < 9; i++) {
+    for (int i = 0; i < 1; i++) {
         [tempPostImagesData addObject:postImageData];
     }
     NSArray *postImagesData = tempPostImagesData.copy;
@@ -106,6 +91,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LTPostViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LTPostViewCellIdentifier forIndexPath:indexPath];
     [cell configCellWithData:self.posts[indexPath.row]];
+    [cell setNeedsLayout];
+    [cell layoutIfNeeded];
     return cell;
 }
 

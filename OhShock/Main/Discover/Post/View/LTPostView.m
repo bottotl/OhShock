@@ -12,7 +12,8 @@
 #import "LTPostImagesView.h"
 #import "UIView+Layout.h"
 
-//static CGFloat const LTPsotContentPadding = 5;
+static CGFloat const LTPostContentLeftPadding = 5;
+static CGFloat const LTPostContentRightPadding = 3;
 
 @interface LTPostView ()
 
@@ -32,9 +33,10 @@
     self.profileView.top = 0;
     self.profileView.left = 0;
     
-    self.contentView.width = self.width;
+    self.contentView.width = self.width - LTPostContentLeftPadding - LTPostContentRightPadding;
+    [self.contentView sizeToFit];
     self.contentView.top= self.profileView.bottom;
-    self.contentView.left = 0;
+    self.contentView.left = LTPostContentLeftPadding;
     
     self.imagesView.width = self.width;
     [self.imagesView sizeToFit];
@@ -91,7 +93,7 @@
     CGFloat height = 0;
     height += [LTPostProfileView viewHeight];
     height += [LTPostContentView viewHeightWithContent:data.contentData.content andPerferedWidth:[UIScreen mainScreen].bounds.size.width];
-    height += [LTPostImagesView heightWithSuggestThreePicWidth:([UIScreen mainScreen].bounds.size.width)
+    height += [LTPostImagesView heightWithSuggestThreePicWidth:(([UIScreen mainScreen].bounds.size.width) - LTPostContentLeftPadding - LTPostContentRightPadding )
                                                    andPicCount:data.pic.count
                                                      andBigPic:YES
                                                   andItemSpace:6

@@ -7,20 +7,15 @@
 //
 
 #import "LTPostProfileView.h"
-#import "SDWebImage/SDWebImage/UIImageView+WebCache.h"
+#import "UIImageView+WebCache.h"
 #import "YYKit.h"
 #import "UIView+Layout.h"
 
-static CGFloat const LTPostProfileViewHeight = 56.0;
+static CGFloat const LTPostProfileViewHeight = 60.0;
 
 @interface LTPostProfileView()
 @property (nonatomic, strong) UIImageView  *avatarView;///< 头像
-//@property (nonatomic, strong) UIImageView  *avatarBadgeView;///< 徽章
 @property (nonatomic, strong) YYLabel      *nameLabel;///< 用户名
-//@property (nonatomic, strong) YYLabel      *sourceLabel;///< 设备
-//@property (nonatomic, strong) UIImageView  *backgroundImageView;///< 背景图片
-//@property (nonatomic, strong) UIButton     *arrowButton;///< 阅读数量按钮
-//@property (nonatomic, strong) UIButton     *followButton;///< 关注按钮
 @end
 
 @implementation LTPostProfileView{
@@ -39,14 +34,14 @@ static CGFloat const LTPostProfileViewHeight = 56.0;
 
 -(void)layoutSubviews{
     
-    self.avatarView.size = CGSizeMake(50, 50);
-    self.avatarView.layer.cornerRadius = _avatarView.height/2;
+    self.avatarView.size = CGSizeMake(45, 45);
+    self.avatarView.layer.cornerRadius = self.avatarView.height/2;
     self.avatarView.backgroundColor = [UIColor redColor];
     self.avatarView.left = 10;
     self.avatarView.centerY = self.height/2;
 
-    _nameLabel.left = self.avatarView.right + 5;
-    _nameLabel.centerY = self.avatarView.centerY;
+    self.nameLabel.left = self.avatarView.right + 5;
+    self.nameLabel.centerY = self.avatarView.centerY;
     [super layoutSubviews];
 }
 
@@ -85,7 +80,7 @@ static CGFloat const LTPostProfileViewHeight = 56.0;
 
 -(void)setAvatatUrlString:(NSString *)avatatUrlString{
     _avatatUrlString = avatatUrlString;
-    [_avatarView sd_setImageWithURL:[NSURL URLWithString:avatatUrlString]];
+    [self.avatarView sd_setImageWithURL:[NSURL URLWithString:avatatUrlString]];
 }
 
 -(void)setName:(NSString *)name{
