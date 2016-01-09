@@ -9,6 +9,7 @@
 #import "LTPostListViewController.h"
 #import "LTPostViewCell.h"
 #import "LTPostModel.h"
+#import "YYKit.h"
 
 
 @interface LTPostListViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -57,11 +58,19 @@
     postImageData.smallUrlString = @"http://ww3.sinaimg.cn/mw690/6b5f103fjw8ezoov1yvggj20p00p0q59.jpg";
     postImageData.bigUrlString = @"http://ww4.sinaimg.cn/mw690/6b5f103fjw8em2xe1lm4wj20qm0qnadp.jpg";
     NSMutableArray *tempPostImagesData = @[].mutableCopy;
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 6; i++) {
         [tempPostImagesData addObject:postImageData];
     }
     NSArray *postImagesData = tempPostImagesData.copy;
     
+    
+    LTPostLikedModel *likedMode = [LTPostLikedModel new];
+    NSMutableArray *tempUsersName = @[].mutableCopy;
+    for (int i = 0; i< 10 ; i++) {
+        [tempUsersName addObject:[NSString stringWithFormat:@"用户%d",i]];
+    }
+    likedMode.users = tempUsersName.copy;
+    mode.likedData = likedMode;
     mode.profileData = profileData;
     mode.contentData = contentData;
     mode.pic = postImagesData.copy;

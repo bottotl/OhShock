@@ -10,6 +10,7 @@
 #import "LTPostProfileModel.h"
 #import "LTPostContentModel.h"
 #import "LTPostImageModel.h"
+#import "LTPostLikedModel.h"
 
 @interface LTPostModel : NSObject
 
@@ -19,7 +20,10 @@
 /** 内容*/
 @property (nonatomic, strong) LTPostContentModel *contentData;
 
-/** @[<LTPostImageModel *>]*/
+/** 图片的 Url @[<LTPostImageModel *>]*/
 @property (nonatomic, strong) NSArray *pic;
+
+/** 点赞列表数据模型*/
+@property (nonatomic, strong) LTPostLikedModel *likedData;
 
 @end

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+/**
+ *  显示多张图片
+ */
 @interface LTPostImagesView : UIView
 
 @property (nonatomic, strong) NSArray   *data;///< 图片数据 @[<LTPostImageModel *>]

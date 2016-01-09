@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "LTPostProfileModel.h"
-
+/**
+ *  显示个人信息
+ */
 @interface LTPostProfileView : UIView
 
 @property (nonatomic, strong) LTPostProfileModel *data;

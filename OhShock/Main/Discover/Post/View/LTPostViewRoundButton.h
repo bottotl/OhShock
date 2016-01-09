@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+/**
+ *  圆角按钮
+ */
 @interface LTPostViewRoundButton : UIButton
-
-//@property (nonatomic, copy) NSString *text;
 
 @end

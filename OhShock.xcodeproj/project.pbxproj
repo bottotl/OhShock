@@ -510,6 +510,8 @@
 		B8ADC9C61C1EDE44001ED415 /* LTMeLogOutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADC9C51C1EDE44001ED415 /* LTMeLogOutCell.m */; };
 		B8BD1A851C3BA12A0011178F /* LTPostProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8BD1A841C3BA12A0011178F /* LTPostProfileView.m */; };
 		B8C336081C40D6D2001A06BF /* LTPostViewRoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C336071C40D6D2001A06BF /* LTPostViewRoundButton.m */; };
+		B8C3360B1C40E7EE001A06BF /* LTPostLikedView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C3360A1C40E7EE001A06BF /* LTPostLikedView.m */; };
+		B8C3360E1C40F434001A06BF /* LTPostLikedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C3360D1C40F434001A06BF /* LTPostLikedModel.m */; };
 		B8D1D5261C33CAEA00DC4EDC /* LTSelectFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D1D5251C33CAEA00DC4EDC /* LTSelectFriendsViewController.m */; };
 		B8D1D52C1C33EB2B00DC4EDC /* LTPostListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D1D52B1C33EB2B00DC4EDC /* LTPostListViewController.m */; };
 		B8E448D71C3BDD3900D4D717 /* LTPostContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E448D61C3BDD3900D4D717 /* LTPostContentView.m */; };
@@ -1484,6 +1486,10 @@
 		B8BD1A841C3BA12A0011178F /* LTPostProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostProfileView.m; sourceTree = "<group>"; };
 		B8C336061C40D6D2001A06BF /* LTPostViewRoundButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostViewRoundButton.h; sourceTree = "<group>"; };
 		B8C336071C40D6D2001A06BF /* LTPostViewRoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostViewRoundButton.m; sourceTree = "<group>"; };
+		B8C336091C40E7EE001A06BF /* LTPostLikedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostLikedView.h; sourceTree = "<group>"; };
+		B8C3360A1C40E7EE001A06BF /* LTPostLikedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostLikedView.m; sourceTree = "<group>"; };
+		B8C3360C1C40F434001A06BF /* LTPostLikedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostLikedModel.h; sourceTree = "<group>"; };
+		B8C3360D1C40F434001A06BF /* LTPostLikedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostLikedModel.m; sourceTree = "<group>"; };
 		B8D1D5241C33CAEA00DC4EDC /* LTSelectFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTSelectFriendsViewController.h; sourceTree = "<group>"; };
 		B8D1D5251C33CAEA00DC4EDC /* LTSelectFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTSelectFriendsViewController.m; sourceTree = "<group>"; };
 		B8D1D52A1C33EB2B00DC4EDC /* LTPostListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostListViewController.h; sourceTree = "<group>"; };
@@ -3293,6 +3299,8 @@
 				B855AB2E1C3D050000566B9B /* LTPostImagesView.m */,
 				B8C336061C40D6D2001A06BF /* LTPostViewRoundButton.h */,
 				B8C336071C40D6D2001A06BF /* LTPostViewRoundButton.m */,
+				B8C336091C40E7EE001A06BF /* LTPostLikedView.h */,
+				B8C3360A1C40E7EE001A06BF /* LTPostLikedView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3308,6 +3316,8 @@
 				B825C7911C3F6322006E41C0 /* LTPostProfileModel.m */,
 				B825C7971C3F826C006E41C0 /* LTPostContentModel.h */,
 				B825C7981C3F826C006E41C0 /* LTPostContentModel.m */,
+				B8C3360C1C40F434001A06BF /* LTPostLikedModel.h */,
+				B8C3360D1C40F434001A06BF /* LTPostLikedModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -4821,6 +4831,7 @@
 				B8EEADCB1C294F5400F861E8 /* XHSoundManager.m in Sources */,
 				B81CCC391C21408500D642DB /* JSQMessagesBubbleImage.m in Sources */,
 				B81072721C197FCE0058130E /* JTCalendarContentView.m in Sources */,
+				B8C3360B1C40E7EE001A06BF /* LTPostLikedView.m in Sources */,
 				B82BA3CA1C2BDF2F004AFC37 /* LTAddTodoSelectionCell.m in Sources */,
 				B87677C21C1FE12600A0795B /* LTLiteUserModel.m in Sources */,
 				B8EEADCD1C294F5400F861E8 /* XHBaseCollectionViewCell.m in Sources */,
@@ -4846,6 +4857,7 @@
 				B80A37821C1DAD5F00C3B226 /* WBStatusLayout.m in Sources */,
 				B81CCC251C21408500D642DB /* UIColor+JSQMessages.m in Sources */,
 				B8EEADDE1C294F5400F861E8 /* XHRefreshCircleView.m in Sources */,
+				B8C3360E1C40F434001A06BF /* LTPostLikedModel.m in Sources */,
 				B810728D1C197FCE0058130E /* UIImage+Common.m in Sources */,
 				B8EEADBA1C294F5400F861E8 /* SELineLayout.m in Sources */,
 				B8EEAD841C294F5400F861E8 /* LZConversationCell.m in Sources */,

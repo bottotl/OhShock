@@ -8,6 +8,7 @@
 
 #import "LTPostViewRoundButton.h"
 #import "UIColor+expanded.h"
+#import "UIImage+Common.h"
 
 @interface LTPostViewRoundButton ()
 
@@ -21,8 +22,9 @@
         self.clipsToBounds = YES;
         self.layer.cornerRadius = 7;
         self.layer.borderWidth = 1;
-        self.layer.borderColor = [UIColor colorWithHexString:@"#2bd192"].CGColor;
-        [self setTitleColor:[UIColor colorWithHexString:@"#2bd192"] forState:UIControlStateNormal];
+        self.layer.borderColor = [UIColor colorWithHexString:@"0x2bd192"].CGColor;
+        [self.titleLabel setFont:[UIFont systemFontOfSize:10]];
+        [self setTitleColor:[UIColor colorWithHexString:@"0x2bd192"] forState:UIControlStateNormal];
         [self setBackgroundColor:[UIColor clearColor]];
     }
     return self;
