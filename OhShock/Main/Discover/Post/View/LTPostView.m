@@ -94,6 +94,8 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
     self.imagesView.needBig = YES;
     
     self.likedView.data = data.likedData;
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
     
 }
 
@@ -170,9 +172,5 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
     return height + 10 + 10;
 }
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    
-}
 
 @end

@@ -33,8 +33,8 @@
         name.color = [UIColor colorWithHexString:@"0x2bd192"];
         
         YYTextBorder *border = [YYTextBorder new];
-        border.cornerRadius = 3;
-        border.insets = UIEdgeInsetsMake(0, -4, 0, -4);
+        //border.cornerRadius = 3;
+        //border.insets = UIEdgeInsetsMake(0, 0, 0, 0);
         border.fillColor = [UIColor colorWithWhite:0.000 alpha:0.220];
         
         YYTextHighlight *highlight = [YYTextHighlight new];
@@ -47,7 +47,7 @@
         [names appendAttributedString:name];
         
         if (i != self.users.count -1) {
-            [names appendAttributedString:[[NSAttributedString alloc]initWithString:@", "]];
+            [names appendAttributedString:[[NSAttributedString alloc]initWithString:@","]];
         }
     }
     [likeUsers appendAttributedString:names];
