@@ -86,7 +86,11 @@ static CGFloat const LTPostProfileViewHeight = 60.0;
 -(void)setName:(NSString *)name{
     _name = name;
     CGSize size = CGSizeMake(kScreenWidth - 110, 24);
-    YYTextLayout *layout = [YYTextLayout layoutWithContainerSize:size text:[[NSAttributedString alloc]initWithString:name]];
+    
+    NSMutableAttributedString *temp = [[NSMutableAttributedString alloc]initWithString:name];
+    temp.font = [UIFont systemFontOfSize:15];
+    
+    YYTextLayout *layout = [YYTextLayout layoutWithContainerSize:size text:temp];
     self.nameLabel.size = layout.textBoundingSize;
     self.nameLabel.textLayout = layout;
 }
