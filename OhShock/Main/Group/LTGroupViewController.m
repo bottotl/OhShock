@@ -12,6 +12,7 @@
 #import "XHPopMenu.h"
 #import "LTGroupMessageViewController.h"
 #import "LTGroupInfoViewController.h"
+#import "CreateGroupViewController.h"
 
 @interface LTGroupViewController ()<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
 
@@ -203,11 +204,12 @@ shouldReloadTableForSearchString:(NSString *)searchString
         __weak __typeof(self) weakSelf = self;
         popMenu = [[XHPopMenu alloc] initWithMenus:popMenuItems];
         popMenu.popMenuDidSlectedCompled = ^(NSInteger index, XHPopMenuItem *popMenuItems) {
-            if (index == 1) {
-                printf("发表状态 index 1\n");
-
-            }else if (index == 0 ) {
-                printf("添加日程 index 0\n");
+            if (index == 0) {
+                printf("创建群组 index 1\n");
+                CreateGroupViewController *controller = [[CreateGroupViewController alloc]init];
+                [weakSelf.navigationController pushViewController:controller animated:YES];
+            }else if (index == 1 ) {
+                printf("搜索群组 index 0\n");
 
             }
         };

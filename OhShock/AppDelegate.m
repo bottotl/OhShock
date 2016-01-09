@@ -15,12 +15,14 @@
 #import "LTMainTabBarController.h"
 #import "UIColor+expanded.h"
 #import "UIImage+Common.h"
-
+#import <AMapLocationKit/AMapLocationKit.h>
+#import <AMapSearchKit/AMapSearchKit.h>
 #warning for test
 #import "LTPostListViewController.h"
 
 #define kColorTableSectionBg [UIColor colorWithHexString:@"0xe5e5e5"]
 #define  kNavTitleFontSize 19
+#define GAODE_APPKEY @"cbf7020906739e6c33110f18bc6f261e" //高德地图key
 
 static NSString *const AppID = @"AeqpkvIfdCdKWr080LveKfEl";
 static NSString *const AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
@@ -50,6 +52,11 @@ static NSString *const AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
 
     /// 注册推送
     [self registerPush];
+    
+    //注册高德地图AppKey
+    [AMapLocationServices sharedServices].apiKey=GAODE_APPKEY;
+    [AMapSearchServices sharedServices].apiKey=GAODE_APPKEY;
+
     
     /////////////////////////////////////////////////////////////
     /////////////////业务逻辑/////////////////////////////////////
