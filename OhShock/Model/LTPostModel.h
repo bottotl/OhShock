@@ -11,23 +11,23 @@
 #import "LTPostContentModel.h"
 #import "LTPostImageModel.h"
 #import "LTPostLikedModel.h"
-#import "LTPostCommitModel.h"
+#import "LTPostCommentModel.h"
 
 @interface LTPostModel : NSObject
 
-/** 个人资料*/
+/** 个人资料 */
 @property (nonatomic, strong) LTPostProfileModel *profileData;
 
-/** 内容*/
+/** 内容 */
 @property (nonatomic, strong) LTPostContentModel *contentData;
 
-/** 图片的 Url @[<LTPostImageModel *>]*/
+/** 图片的 Url @[<LTPostImageModel *>] */
 @property (nonatomic, strong) NSArray *pic;
 
-/** 点赞列表数据模型*/
+/** 点赞列表数据模型 */
 @property (nonatomic, strong) LTPostLikedModel *likedData;
 
-/** 评论*/
-@property (nonatomic, strong) LTPostCommitModel *commitsData;
+/** 评论@[<LTModelPostComment *>] */
+@property (nonatomic, strong) NSArray *comments;
 
 @end

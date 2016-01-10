@@ -7,7 +7,29 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LTModels.h"
+#import "LTPostCommentModel.h"
 
 @interface LTPostCommentView : UIView
+
+/** 评论内容 @[<LTPostCommentModel *>] */
+@property (nonatomic, strong) NSArray  *comments;
+
+/** 最多显示评论数量 */
+@property (nonatomic, assign) NSInteger limit;
+
+@property (nonatomic, assign) BOOL      fold;
+
+/**
+ *  计算高度
+ *
+ *  @param comments LTModelPostComment *
+ *  @param limit    最多评论数
+ *  @param fold     是否需要折叠
+ *  @param width    宽度
+ *
+ *  @return 高度
+ */
++ (CGFloat)suggestHeightWithComments:(NSArray *)comments andLimit:(NSInteger)limit andFold:(BOOL)fold withWidth:(CGFloat)width;
 
 @end

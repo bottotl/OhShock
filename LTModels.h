@@ -8,18 +8,24 @@
 
 #import <Foundation/Foundation.h>
 #import <AVOSCloud/AVOSCloud.h>
+#import "LTUser.h"
 
 @interface LTModels : NSObject
 
 @end
 
-@interface LTUser : AVUser
 
-/** 用户id*/
-@property (nonatomic, assign) NSInteger userId;
-/** 用户头像*/
-@property (nonatomic, copy) NSString * avatar;
-/** 用户名称*/
-@property (nonatomic, copy) NSString * userName;
+/**
+ *  一条评论
+ */
+@interface LTModelPostComment : NSObject
+
+/** 回应内容 */
+@property (nonatomic, copy) NSString * content;
+/** 被回应的用户 */
+@property (nonatomic, strong) LTUser * toUser;
+/** 发表回应用户 */
+@property (nonatomic, strong) LTUser * fromUser;
 
 @end
+

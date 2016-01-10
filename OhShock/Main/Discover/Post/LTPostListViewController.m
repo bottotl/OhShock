@@ -72,8 +72,7 @@
     }
     likedMode.users = tempUsersName.copy;
     
-    
-    LTPostCommitModel *commitsData = [LTPostCommitModel new];
+    // 评论
     
     YYTextBorder *border = [YYTextBorder new];
     //border.cornerRadius = 3;
@@ -90,22 +89,20 @@
     backgroudBorder.insets = UIEdgeInsetsMake(0, -4, 0, -4);
     backgroudBorder.fillColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:1];
     
-    NSMutableArray *commits = [NSMutableArray new];
-    for (int i = 0 ; i < 10; i++) {
-        NSMutableAttributedString *commit = [[NSMutableAttributedString alloc]initWithString:@"追求别人，我不知道最好的办法，但我知道哪些办法是与幸福生活背道而驰的。时间宝贵，不要浪费，所谓浪费时间，不是你追了但是没有追到，在追求的过程中发现自己的弱点，控制他或者接受他，都是自己的一种成长，不是浪费。所谓浪费，是你在错误的追求方法上反复用力，还期待得到一个圆满的结果，在得不到没有接受的坦荡，反而充满了被亏钱的郁闷和怨恨。"];
-        commit.font = [UIFont systemFontOfSize:15];
-        [commit setTextBackgroundBorder:backgroudBorder range:commit.rangeOfAll];
-        [commit setTextHighlight:highlight range:commit.rangeOfAll];
-        [commits addObject:commit];
+    NSMutableArray *comments = [NSMutableArray new];
+    for (int i = 0 ; i < 1; i++) {
+        LTModelPostComment *model =[LTModelPostComment new];
+        model.content = @"追求别人，我不知道最好的办法，但我知道哪些办法是与幸福生活背道而驰的。时间宝贵，不要浪费，所谓浪费时间，不是你追了但是没有追到，在追求的过程中发现自己的弱点，控制他或者接受他，都是自己的一种成长，不是浪费。所谓浪费，是你在错误的追求方法上反复用力，还期待得到一个圆满的结果，在得不到没有接受的坦荡，反而充满了被亏钱的郁闷和怨恨。";
+        model.fromUser = [LTUser currentUser];
+        model.toUser = [LTUser currentUser];
+        [comments addObject:model];
     }
-    commitsData.commits = commits.copy;
-    
     
     mode.likedData = likedMode;
     mode.profileData = profileData;
     mode.contentData = contentData;
     mode.pic = postImagesData.copy;
-    mode.commitsData = commitsData;
+    mode.comments = comments.copy;
     
     
     NSMutableArray *tempDataSource = @[].mutableCopy;

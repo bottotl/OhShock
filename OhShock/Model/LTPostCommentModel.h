@@ -10,22 +10,18 @@
 
 #import "LTModels.h"
 
-@interface LTModelPostComment : NSObject
 
-/** 回应内容*/
-@property (nonatomic, copy) NSString * content;
-/** 回应id*/
-@property (nonatomic, assign) NSInteger noteId;
-/** 被回应的用户*/
-@property (nonatomic, strong) LTUser * toUser;
-/** 发表回应用户*/
-@property (nonatomic, strong) LTUser * fromUser;
-
-@end
-
-
+/**
+ *  提供给 LTPostCommentView 用的 评论模型
+ */
 @interface LTPostCommentModel : NSObject
 
-@property (nonatomic, strong) NSArray *comments;
+@property (nonatomic, strong) NSAttributedString  *text;///< 展示的评论文本
+@property (nonatomic, assign) NSRange              fromUserRange;
+@property (nonatomic, assign) NSRange              toUserRange;
+@property (nonatomic, strong) LTModelPostComment  *comment;
+
+
+- (instancetype)initWithComment:(LTModelPostComment *)comment;
 
 @end

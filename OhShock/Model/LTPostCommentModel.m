@@ -7,7 +7,34 @@
 //
 
 #import "LTPostCommentModel.h"
+#import "UIColor+expanded.h"
 
 @implementation LTPostCommentModel
 
+- (instancetype)initWithComment:(LTModelPostComment *)comment{
+    if (self = [super init]) {
+        _comment = comment;
+        NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
+        style.lineSpacing = 6;
+        NSMutableAttributedString *text = [NSMutableAttributedString new];
+        if (comment.fromUser.username.length) {
+            NSAttributedString *fromUser = [[NSAttributedString alloc] initWithString:comment.fromUser.username attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithHexString:@"446889"], NSParagraphStyleAttributeName : style}];
+            _fromUserRange = NSMakeRange(0, comment.fromUser.username.length);
+            [text appendAttributedString:fromUser];
+        }
+        if (self.comment.toUser.username.length) {
+            NSAttributedString *returnKey = [[NSAttributedString alloc] initWithString:@"回复" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithHexString:@"333333"], NSParagraphStyleAttributeName : style}];
+            [text appendAttributedString:returnKey];
+            
+            NSAttributedString *toUser = [[NSAttributedString alloc] initWithString:comment.toUser.username attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithHexString:@"446889"], NSParagraphStyleAttributeName : style}];
+            _toUserRange = NSMakeRange(self.fromUserRange.length + 2, comment.toUser.username.length);
+            [text appendAttributedString:toUser];
+        }
+        if (comment.content.length) {
+            [text appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@":%@",comment.content] attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithHexString:@"333333"], NSParagraphStyleAttributeName : style}]];
+        }
+        _text = text;
+    }
+    return self;
+}
 @end
