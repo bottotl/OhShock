@@ -36,6 +36,10 @@
 		AB48F8A01C3D5167008629FF /* LTGroupMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB48F89F1C3D5167008629FF /* LTGroupMemberViewController.m */; };
 		AB48F8A41C3D51B2008629FF /* LTGroupMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB48F8A21C3D51B2008629FF /* LTGroupMemberCell.m */; };
 		AB48F8A51C3D51B2008629FF /* LTGroupMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB48F8A31C3D51B2008629FF /* LTGroupMemberCell.xib */; };
+		AB7DD5B11C43C3EF00EDED9B /* SetGroupLabelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7DD5B01C43C3EF00EDED9B /* SetGroupLabelsViewController.m */; };
+		AB7DD5B51C43CA8E00EDED9B /* GroupLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7DD5B31C43CA8E00EDED9B /* GroupLabelCell.m */; };
+		AB7DD5B61C43CA8E00EDED9B /* GroupLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB7DD5B41C43CA8E00EDED9B /* GroupLabelCell.xib */; };
+		AB7DD5B91C43D45600EDED9B /* GroupIntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7DD5B81C43D45600EDED9B /* GroupIntroductionViewController.m */; };
 		B80726721C1AAF2F00E7802A /* LTDiscoverTodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B80726711C1AAF2F00E7802A /* LTDiscoverTodoViewController.m */; };
 		B80727CF1C1AB2E900E7802A /* add_user_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B80726781C1AB2E900E7802A /* add_user_icon@2x.png */; };
 		B80727D01C1AB2E900E7802A /* addPictureBgImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B80726791C1AB2E900E7802A /* addPictureBgImage@2x.png */; };
@@ -877,6 +881,13 @@
 		AB48F8A11C3D51B2008629FF /* LTGroupMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTGroupMemberCell.h; sourceTree = "<group>"; };
 		AB48F8A21C3D51B2008629FF /* LTGroupMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroupMemberCell.m; sourceTree = "<group>"; };
 		AB48F8A31C3D51B2008629FF /* LTGroupMemberCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTGroupMemberCell.xib; sourceTree = "<group>"; };
+		AB7DD5AF1C43C3EF00EDED9B /* SetGroupLabelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetGroupLabelsViewController.h; sourceTree = "<group>"; };
+		AB7DD5B01C43C3EF00EDED9B /* SetGroupLabelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetGroupLabelsViewController.m; sourceTree = "<group>"; };
+		AB7DD5B21C43CA8E00EDED9B /* GroupLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupLabelCell.h; sourceTree = "<group>"; };
+		AB7DD5B31C43CA8E00EDED9B /* GroupLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupLabelCell.m; sourceTree = "<group>"; };
+		AB7DD5B41C43CA8E00EDED9B /* GroupLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupLabelCell.xib; sourceTree = "<group>"; };
+		AB7DD5B71C43D45600EDED9B /* GroupIntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupIntroductionViewController.h; sourceTree = "<group>"; };
+		AB7DD5B81C43D45600EDED9B /* GroupIntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupIntroductionViewController.m; sourceTree = "<group>"; };
 		B80726701C1AAF2F00E7802A /* LTDiscoverTodoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTDiscoverTodoViewController.h; sourceTree = "<group>"; };
 		B80726711C1AAF2F00E7802A /* LTDiscoverTodoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTDiscoverTodoViewController.m; sourceTree = "<group>"; };
 		B80726781C1AB2E900E7802A /* add_user_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_user_icon@2x.png"; sourceTree = "<group>"; };
@@ -2056,6 +2067,10 @@
 				AB01EB0C1C40E71400384224 /* InputGroupNameViewController.m */,
 				AB01EB281C41042C00384224 /* SelectAddressViewController.h */,
 				AB01EB291C41042C00384224 /* SelectAddressViewController.m */,
+				AB7DD5AF1C43C3EF00EDED9B /* SetGroupLabelsViewController.h */,
+				AB7DD5B01C43C3EF00EDED9B /* SetGroupLabelsViewController.m */,
+				AB7DD5B71C43D45600EDED9B /* GroupIntroductionViewController.h */,
+				AB7DD5B81C43D45600EDED9B /* GroupIntroductionViewController.m */,
 			);
 			path = AboutCreateGroup;
 			sourceTree = "<group>";
@@ -2098,6 +2113,9 @@
 				AB01EB2B1C415B1A00384224 /* AddressCell.h */,
 				AB01EB2C1C415B1A00384224 /* AddressCell.m */,
 				AB01EB2D1C415B1A00384224 /* AddressCell.xib */,
+				AB7DD5B21C43CA8E00EDED9B /* GroupLabelCell.h */,
+				AB7DD5B31C43CA8E00EDED9B /* GroupLabelCell.m */,
+				AB7DD5B41C43CA8E00EDED9B /* GroupLabelCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -4587,6 +4605,7 @@
 				B807284F1C1AB2E900E7802A /* intro_icon_0@3x.png in Resources */,
 				B8EEAE7E1C294F5400F861E8 /* weChatBubble_Receiving_LeanChat@2x.png in Resources */,
 				B8EEAE301C294F5400F861E8 /* tusiji_2_cover@2x.png in Resources */,
+				AB7DD5B61C43CA8E00EDED9B /* GroupLabelCell.xib in Resources */,
 				B8EEAE191C294F5400F861E8 /* rabbit_7.gif in Resources */,
 				B8EEAE031C294F5400F861E8 /* rabbit_17_cover@2x.png in Resources */,
 				B8EEAE391C294F5400F861E8 /* tusiji_7.gif in Resources */,
@@ -4899,6 +4918,7 @@
 				B8EEAD981C294F5400F861E8 /* XHPhotographyHelper.m in Sources */,
 				B8EEADAF1C294F5400F861E8 /* XHContact.m in Sources */,
 				B81072551C197FCE0058130E /* IFTTTJazzHandsViewController.m in Sources */,
+				AB7DD5B91C43D45600EDED9B /* GroupIntroductionViewController.m in Sources */,
 				B8D1D52C1C33EB2B00DC4EDC /* LTPostListViewController.m in Sources */,
 				B863A65D1C2CD8D000707D17 /* NSDate+Helper.m in Sources */,
 				B87677C91C1FE32800A0795B /* LTUserSearchService.m in Sources */,
@@ -5039,6 +5059,7 @@
 				B82BA3C51C2BDED7004AFC37 /* ActionSheetStringPicker.m in Sources */,
 				B8EEAD931C294F5400F861E8 /* XHAudioPlayerHelper.m in Sources */,
 				B81072611C197FCE0058130E /* LTMeHeadUserInfoView.m in Sources */,
+				AB7DD5B11C43C3EF00EDED9B /* SetGroupLabelsViewController.m in Sources */,
 				B81072581C197FCE0058130E /* LTLogInService.m in Sources */,
 				B81072761C197FCE0058130E /* JTCalendarMenuView.m in Sources */,
 				B81CCC491C21408500D642DB /* JSQMessagesToolbarContentView.m in Sources */,
@@ -5109,6 +5130,7 @@
 				B81072641C197FCE0058130E /* LTMeViewModel.m in Sources */,
 				B81CCC2A1C21408500D642DB /* JSQMessagesViewController.m in Sources */,
 				B8EEADCE1C294F5400F861E8 /* XHBaseTableViewCell.m in Sources */,
+				AB7DD5B51C43CA8E00EDED9B /* GroupLabelCell.m in Sources */,
 				B8EEADA41C294F5400F861E8 /* XHCacheManager.m in Sources */,
 				B8EEADAB1C294F5400F861E8 /* XHMessageVoiceFactory.m in Sources */,
 				B81CCC2F1C21408500D642DB /* JSQMessagesTimestampFormatter.m in Sources */,

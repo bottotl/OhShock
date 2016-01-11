@@ -14,10 +14,12 @@
 #import "InputGroupNameViewController.h"
 #import "PickView.h"
 #import "SelectAddressViewController.h"
+#import "SetGroupLabelsViewController.h"
+#import "GroupIntroductionViewController.h"
 
 static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
 
-@interface CreateGroupViewController ()<UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, PickDelegate>
+@interface CreateGroupViewController ()<UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, PickDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) NSArray *colorPool;//标签颜色
 
@@ -92,12 +94,24 @@ static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
     self.myPicker.delegate = self;
     
     self.groupStyleArray = @[@"私密群", @"兴趣群", @"学术群", @"家庭群", @"羞羞群"];
-    
+    groupLabels = [NSMutableArray array];
     
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     self.title = @"创建群组";
+}
+
+#pragma mark - button click
+- (void)onAddPicClick{
+    UIActionSheet* sheet = [[UIActionSheet alloc] init];
+    sheet.delegate = self;
+    [sheet addButtonWithTitle:@"拍照"];
+    [sheet addButtonWithTitle:@"从相册选取"];
+    [sheet addButtonWithTitle:@"取消"];
+    
+    sheet.cancelButtonIndex = 2;
+    [sheet showInView:self.view];
 }
 
 -(void)next{
@@ -255,7 +269,11 @@ static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
             UILabel *groupIntroductionLabel = [[UILabel alloc]initWithFrame:CGRectMake(70, 20, kScreen_Width - 80, 60)];
             groupIntroductionLabel.textColor = [UIColor lightGrayColor];
             groupIntroductionLabel.font = [UIFont systemFontOfSize:13];
-            groupIntroductionLabel.text = @"  输入群介绍...";
+            if (groupIntroduction) {
+                 groupIntroductionLabel.text = groupIntroduction;
+            }else{
+                 groupIntroductionLabel.text = @"  输入群介绍...";
+            }
             groupIntroductionLabel.numberOfLines = 0;
             //            groupIntroduction.backgroundColor = [UIColor greenColor];
             [cell.contentView addSubview:groupIntroductionLabel];
@@ -275,7 +293,13 @@ static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
             [cell.contentView addSubview:l];
             
             UIImageView *groupImageView = [[UIImageView alloc]initWithFrame:CGRectMake(kScreen_Width / 2 - 50, 10, 100, 100)];
-            groupImageView.image = [UIImage imageNamed:@"AddGroupMemberBtnHL"];
+            if (groupImage) {
+                groupImageView.image = groupImage;
+            }else{
+                groupImageView.image = [UIImage imageNamed:@"AddGroupMemberBtnHL"];
+            }
+            groupImageView.userInteractionEnabled = YES;
+            [groupImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onAddPicClick)]];
             [cell.contentView addSubview:groupImageView];
             cell.height = 120;
         }
@@ -304,6 +328,7 @@ static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
 
 - (void)configureCell:(TagsTableCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
+    //标签颜色
     self.colorPool = @[@"#7ecef4", @"#84ccc9", @"#88abda",@"#7dc1dd",@"#b6b8de"];
     cell.tagView.preferredMaxLayoutWidth = kScreen_Width;
     cell.tagView.padding    = UIEdgeInsetsMake(12, 12, 12, 12);
@@ -311,20 +336,36 @@ static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
     cell.tagView.lineSpace = 10;
     
     [cell.tagView removeAllTags];
-    
-    //Add Tags
-    [@[@"Python", @"Javascript", @"HTML", @"Go", @"Objective-C",@"C", @"PHP"] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
-     {
-         SKTag *tag = [SKTag tagWithText:obj];
-         tag.textColor = [UIColor whiteColor];
-         tag.fontSize = 15;
-         tag.padding = UIEdgeInsetsMake(13.5, 12.5, 13.5, 12.5);
-         tag.bgColor = [UIColor colorWithHexString:self.colorPool[idx % self.colorPool.count] alpha:1];
-         tag.cornerRadius = 5;
-         tag.enable = NO;
-         
-         [cell.tagView addTag:tag];
-     }];
+    if (!groupLabels.count) {
+        //Add Tags
+        [@[@"添加群标签..."] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
+         {
+             SKTag *tag = [SKTag tagWithText:obj];
+             tag.textColor = [UIColor whiteColor];
+             tag.fontSize = 15;
+             tag.padding = UIEdgeInsetsMake(5, 10, 5, 10);
+             tag.bgColor = [UIColor colorWithHexString:self.colorPool[arc4random() % self.colorPool.count] alpha:1];
+             tag.cornerRadius = 5;
+             tag.enable = NO;
+             
+             [cell.tagView addTag:tag];
+         }];
+
+    }else{
+        //Add Tags
+        [groupLabels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
+         {
+             SKTag *tag = [SKTag tagWithText:obj];
+             tag.textColor = [UIColor whiteColor];
+             tag.fontSize = 15;
+             tag.padding = UIEdgeInsetsMake(5, 10, 5, 10);
+             tag.bgColor = [UIColor colorWithHexString:self.colorPool[arc4random() % self.colorPool.count] alpha:1];
+             tag.cornerRadius = 5;
+             tag.enable = NO;
+             
+             [cell.tagView addTag:tag];
+         }];
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -339,6 +380,7 @@ static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
+            //输入群名
             InputGroupNameViewController *controller = [[InputGroupNameViewController alloc]init];
             controller.doneBlock = ^(NSString *str){
                 groupName = str;
@@ -348,6 +390,7 @@ static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
         }
         
         if (indexPath.row == 1) {
+            //选择群类型
             [self.view addSubview:self.maskView];
             [self.view addSubview:self.pickerBgView];
             self.maskView.alpha = 0;
@@ -360,6 +403,7 @@ static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
         }
         
         if (indexPath.row == 2) {
+            //选择群地点
             SelectAddressViewController *controller = [[SelectAddressViewController alloc]init];
             controller.doneBlock = ^(NSString *str){
                 groupAddress = str;
@@ -367,6 +411,81 @@ static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
             };
             [self.navigationController pushViewController:controller animated:YES];
         }
+    }else if(indexPath.section == 1){
+        if (indexPath.row == 0) {
+            //设置群标签
+            SetGroupLabelsViewController *controller = [[SetGroupLabelsViewController alloc]init];
+            controller.labelArray = groupLabels;
+            controller.doneBlock = ^(NSMutableArray *array){
+                groupLabels = array;
+                [mainTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            };
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+    }else if (indexPath.section == 2){
+        //群介绍
+        GroupIntroductionViewController *controller = [[GroupIntroductionViewController alloc]init];
+        controller.introduction = groupIntroduction;
+        controller.doneBlock = ^(NSString *str){
+            groupIntroduction = str;
+            [mainTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        };
+        [self.navigationController pushViewController:controller animated:YES];
+    }else if (indexPath.section == 3){
+        //群头像
+        
     }
+}
+
+#pragma mark - actionSheet
+- (void)willPresentActionSheet:(UIActionSheet *)actionSheet
+{
+    for (UIView *subView in actionSheet.subviews) {
+        if ([subView isKindOfClass:[UIButton class]]) {
+            UIButton *button = (UIButton*)subView;
+            [button setTitleColor:RGBCOLOR(11, 176, 16)
+                         forState:UIControlStateNormal];
+        }
+    }
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        [self snapImage];
+    }
+    else if (buttonIndex == 1) {
+        [self pickImage];
+    }
+}
+
+#pragma mark - 照片上传
+//拍照
+- (void)snapImage
+{
+    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+    ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
+    ipc.delegate = self;
+    ipc.allowsEditing = NO;
+    [self presentViewController:ipc animated:YES completion:nil];
+}
+
+//从相册里找
+- (void)pickImage
+{
+    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+    ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    ipc.delegate = self;
+    ipc.allowsEditing = NO;
+    [self presentViewController:ipc animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    groupImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    [mainTableView reloadSections:[NSIndexSet indexSetWithIndex:3] withRowAnimation:UITableViewRowAnimationNone];
+    [self dismissViewControllerAnimated:YES completion:^{
+
+    }];
 }
 @end
