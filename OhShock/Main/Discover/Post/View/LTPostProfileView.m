@@ -11,11 +11,14 @@
 #import "YYKit.h"
 #import "UIView+Layout.h"
 
+
 static CGFloat const LTPostProfileViewHeight = 60.0;
 
 @interface LTPostProfileView()
-@property (nonatomic, strong) UIImageView  *avatarView;///< 头像
+
 @property (nonatomic, strong) YYLabel      *nameLabel;///< 用户名
+
+
 @end
 
 @implementation LTPostProfileView{
@@ -45,8 +48,8 @@ static CGFloat const LTPostProfileViewHeight = 60.0;
     [super layoutSubviews];
 }
 
-#pragma mark - property
-#pragma mark - View property
+#pragma mark - Property
+#pragma mark View property
 
 -(YYLabel *)nameLabel{
     if(!_nameLabel){
@@ -60,20 +63,30 @@ static CGFloat const LTPostProfileViewHeight = 60.0;
     if (!_avatarView) {
         _avatarView = [UIImageView new];
         _avatarView.clipsToBounds = YES;
+        _avatarView.userInteractionEnabled = YES;
         [self addSubview:_avatarView];
     }
     return _avatarView;
 }
+- (RACSignal *)rac_gestureSignal{
+    if (!_rac_gestureSignal) {
+        UITapGestureRecognizer *tapGesture;
+        tapGesture = [UITapGestureRecognizer new];
+        [self.avatarView addGestureRecognizer:tapGesture];
+        _rac_gestureSignal = [tapGesture rac_gestureSignal] ;
+    }
+    return _rac_gestureSignal;
+}
 
-#pragma mark - Data property
+#pragma mark  Data property
 -(void)setData:(LTPostProfileModel *)data{
     _data = data;
-    [self setAvatatUrlString:data.avatarUrl];
+    [self setAvatatUrlString:_data.avatarUrlSmall];
     [self setName:data.name];
 }
 
 -(void)setAvatatUrlString:(NSString *)avatatUrlString{
-    _avatatUrlString = avatatUrlString;
+    _avatatUrlSmall = avatatUrlString;
     [self.avatarView sd_setImageWithURL:[NSURL URLWithString:avatatUrlString]];
 }
 

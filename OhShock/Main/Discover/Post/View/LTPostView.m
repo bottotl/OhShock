@@ -7,12 +7,6 @@
 //
 
 #import "LTPostView.h"
-#import "LTPostProfileView.h"
-#import "LTPostContentView.h"
-#import "LTPostImagesView.h"
-#import "LTPostLikedView.h"
-#import "LTPostCommentView.h"
-#import "LTPostViewRoundButton.h"
 #import "UIView+Layout.h"
 #import "UIImage+Common.h"
 
@@ -24,24 +18,13 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
 
 @interface LTPostView ()
 
-@property (nonatomic, strong) LTPostProfileView *profileView;
 
-@property (nonatomic, strong) LTPostContentView *contentView;
-
-@property (nonatomic, strong) LTPostImagesView *imagesView;
-
-@property (nonatomic, strong) LTPostViewRoundButton *commitButton;
-
-@property (nonatomic, strong) LTPostViewRoundButton *likeButton;
-
-@property (nonatomic, strong) LTPostLikedView *likedView;
-
-@property (nonatomic, strong) LTPostCommentView *commentsView;
 
 
 @end
 
 @implementation LTPostView
+
 #pragma mark - 高度计算
 +(CGFloat)viewHeightWithData:(LTPostModel *)data{
     /**
@@ -123,26 +106,45 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
 
 #pragma mark - property
 
+#pragma mark signal
+-(RACSignal *)rac_gestureSignal{
+    return self.profileView.rac_gestureSignal;
+}
+
 #pragma mark Data
 -(void)setData:(LTPostModel *)data{
     _data = data;
-    
-    self.profileView.data = data.profileData;
-    self.contentView.data = data.contentData;
-    
-    self.imagesView.data = data.pic;
-    self.imagesView.limit = 9;
-    self.imagesView.hidden = NO;
-    self.imagesView.itemSpace = 6;
-    self.imagesView.needBig = YES;
-    
-    self.likedView.data = data.likedData;
-    
-    self.commentsView.comments = data.comments;
+
+    [self setProfileViewData:data.profileData];
+    [self setContentViewData:data.contentData];
+    [self setImagesViewData:data.pic];
+    [self setLikedViewData:data.likedData];
+    [self setCommentsViewData:data.comments];
     
     [self setNeedsLayout];
     [self layoutIfNeeded];
     
+}
+
+-(void)setProfileViewData:(LTPostProfileModel *)data{
+    self.profileView.data = data;
+}
+-(void)setContentViewData:(LTPostContentModel *)data{
+    self.contentView.data = data;
+}
+-(void)setImagesViewData:(NSArray *)pic{
+    self.imagesView.data = pic;
+    self.imagesView.limit = 9;
+    self.imagesView.hidden = NO;
+    self.imagesView.itemSpace = 6;
+    self.imagesView.needBig = YES;
+}
+-(void)setLikedViewData:(LTPostLikedModel *)data{
+    self.likedView.data = data;
+}
+
+-(void)setCommentsViewData:(NSArray *)data{
+    self.commentsView.comments = data;
 }
 
 #pragma mark View

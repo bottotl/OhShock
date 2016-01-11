@@ -10,6 +10,7 @@
 #import "LTPostImageCollectionViewCell.h"
 #import "UIView+Layout.h"
 #import "LTPostImageModel.h"
+#import "YYPhotoGroupView.h"
 
 @interface LTPostImagesView ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -101,7 +102,24 @@
     return cell;
 }
 
-
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSMutableArray *items = @[].mutableCopy;
+    LTPostImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:LTPostImageCollectionCellIdentifier forIndexPath:indexPath];
+    for (LTPostImageModel *model in self.data) {
+        YYPhotoGroupItem *item = [YYPhotoGroupItem new];
+        item.thumbView = cell;
+        item.largeImageURL = [NSURL URLWithString:model.bigUrlString];
+        item.largeImageSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
+        [items addObject:item];
+    }
+    NSLog(@"点击了图片");
+    for (<#initialization#>; <#condition#>; <#increment#>) {
+        <#statements#>
+    }
+    
+    YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:items.copy];
+    [v presentFromImageView:cell toContainer:self.superview.superview animated:YES completion:nil];
+}
 
 #pragma mark - property
 - (void)setData:(NSArray *)data{

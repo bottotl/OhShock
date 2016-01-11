@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
+
 /**
  *  多图显示控件
  */
@@ -19,6 +21,7 @@
 @property (nonatomic, assign) BOOL      needBig;///< 是否需要显示大图
 
 @property (nonatomic, assign) NSUInteger limit;///< 图片最多数量
+@property (nonatomic, strong) RACSignal *imageTapSignal;///< 图片点击
 
 /**
  *  计算图片显示控件的高度

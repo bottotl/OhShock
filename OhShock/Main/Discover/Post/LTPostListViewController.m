@@ -10,7 +10,7 @@
 #import "LTPostViewCell.h"
 #import "LTPostModel.h"
 #import "YYKit.h"
-
+#import "YYPhotoGroupView.h"
 
 @interface LTPostListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -56,7 +56,8 @@
     LTPostProfileModel *profileData = [LTPostProfileModel new];
     LTPostContentModel *contentData = [LTPostContentModel new];
     
-    profileData.avatarUrl = @"http://ww4.sinaimg.cn/mw690/6b5f103fjw8em2xe1lm4wj20qm0qnadp.jpg";
+    profileData.avatarUrlSmall = @"http://ww4.sinaimg.cn/mw690/6b5f103fjw8em2xe1lm4wj20qm0qnadp.jpg";
+    profileData.avatarUrlBig = @"http://ww4.sinaimg.cn/mw690/6b5f103fjw8em2xe1lm4wj20qm0qnadp.jpg";
     profileData.name = @"jft0m";
     NSMutableAttributedString *content = [[NSMutableAttributedString alloc]initWithString:@"追求别人，我不知道最好的办法，但我知道哪些办法是与幸福生活背道而驰的。时间宝贵，不要浪费，所谓浪费时间，不是你追了但是没有追到，在追求的过程中发现自己的弱点，控制他或者接受他，都是自己的一种成长，不是浪费。所谓浪费，是你在错误的追求方法上反复用力，还期待得到一个圆满的结果，在得不到没有接受的坦荡，反而充满了被亏钱的郁闷和怨恨。"];
     content.font = [UIFont systemFontOfSize:15];
@@ -120,7 +121,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LTPostViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LTPostViewCellIdentifier forIndexPath:indexPath];
-    [cell configCellWithData:self.posts[indexPath.row]];
+    LTPostModel *postModel  = self.posts[indexPath.row];
+    [cell configCellWithData:postModel];
+    [[cell.postView.rac_gestureSignal takeUntil:cell.rac_prepareForReuseSignal] subscribeNext:^(id x) {
+        //NSLog(@"%@",postModel.profileData.avatarUrlBig);
+        YYPhotoGroupItem *item = [YYPhotoGroupItem new];
+        item.thumbView = cell.postView.profileView.avatarView;
+        item.largeImageURL = [NSURL URLWithString:postModel.profileData.avatarUrlBig];
+        item.largeImageSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
+        YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:@[item]];
+        [v presentFromImageView:cell.postView.profileView.avatarView toContainer:self.view animated:YES completion:nil];
+        NSLog(@"点击了头像%@",x);
+    }];
     [cell setNeedsLayout];
     [cell layoutIfNeeded];
     return cell;
