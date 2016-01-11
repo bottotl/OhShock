@@ -23,6 +23,8 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = RGBCOLOR(239, 239, 244);
     
+    //test
+    
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"完成"
                                                                     style:UIBarButtonItemStyleDone
                                                                    target:self
