@@ -59,9 +59,6 @@ static NSString *const AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
     if (![LTLogInService currentUser]) {
         //跳转到介绍登陆&注册
         [self setupIntroductionViewController];
-#warning for test
-        //[self.window setRootViewController:[[UINavigationController alloc]initWithRootViewController:[LTPostListViewController new]]];
-        
     }else{
         //跳转到主业务逻辑页面
         [self setupMainViewController];

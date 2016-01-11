@@ -42,7 +42,38 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
 @end
 
 @implementation LTPostView
+#pragma mark - 高度计算
++(CGFloat)viewHeightWithData:(LTPostModel *)data{
+    /**
+     *  和 -[self layoutSubviews] 中的代码息息相关
+     */
+    CGFloat height = 0;
+    CGFloat offset;
+    height += [LTPostProfileView viewHeight];
+    height += [LTPostContentView viewHeightWithContent:data.contentData.content andPerferedWidth:[UIScreen mainScreen].bounds.size.width];
+    
+    height += [LTPostImagesView heightWithSuggestThreePicWidth:(([UIScreen mainScreen].bounds.size.width) - LTPostContentLeftPadding - LTPostContentRightPadding )
+                                                   andPicCount:data.pic.count
+                                                     andBigPic:YES
+                                                  andItemSpace:6
+                                                     withLimit:9];
+    offset = 20;
+    height += (LTPostButtonHeight +offset);
+    
+    offset = 5;
+    height += ([LTPostLikedView heightWithUsersName:data.likedData.usersNameAttributedString andWith:(([UIScreen mainScreen].bounds.size.width) -LTPostLikedViewLeftPadding - LTPostLikedViewRightPadding)] +offset);
+    
+    
+    offset = 0;
+    height += ([LTPostCommentView suggestHeightWithComments:data.comments andLimit:5 andFold:NO withWidth:(([UIScreen mainScreen].bounds.size.width) -LTPostLikedViewLeftPadding - LTPostLikedViewRightPadding)] + offset);
+    
+    return height;
+}
 
+#pragma mark - layout
+/**
+ *  和 viewHeightWithData 的内容息息相关
+ */
 -(void)layoutSubviews{
     [super layoutSubviews];
     /**
@@ -58,7 +89,7 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
     self.contentView.top= self.profileView.bottom;
     self.contentView.left = LTPostContentLeftPadding;
     
-    self.imagesView.width = self.width;
+    self.imagesView.width = (([UIScreen mainScreen].bounds.size.width) - LTPostContentLeftPadding - LTPostContentRightPadding );
     [self.imagesView sizeToFit];
     self.imagesView.top = self.contentView.bottom;
     self.imagesView.left = 0;
@@ -80,11 +111,11 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
     self.likedView.top = self.likeButton.bottom + offset;
     self.likedView.left = LTPostLikedViewLeftPadding;
     
-    //offset = 3;
+    offset = 0;
     self.commentsView.width = self.width - LTPostLikedViewLeftPadding - LTPostLikedViewRightPadding;
     [self.commentsView sizeToFit];
     [self.commentsView resetTabelView];
-    self.commentsView.top = self.likedView.bottom +offset;
+    self.commentsView.top = self.likedView.bottom + offset;
     self.commentsView.left = LTPostLikedViewLeftPadding;
 
 }
@@ -175,28 +206,7 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
     return _commentsView;
 }
 
-#pragma mark - 高度计算
 
-+(CGFloat)viewHeightWithData:(LTPostModel *)data{
-    CGFloat height = 0;
-    CGFloat offset;
-    height += [LTPostProfileView viewHeight];
-    height += [LTPostContentView viewHeightWithContent:data.contentData.content andPerferedWidth:[UIScreen mainScreen].bounds.size.width];
-    height += [LTPostImagesView heightWithSuggestThreePicWidth:(([UIScreen mainScreen].bounds.size.width) - LTPostContentLeftPadding - LTPostContentRightPadding )
-                                                   andPicCount:data.pic.count
-                                                     andBigPic:YES
-                                                  andItemSpace:6
-                                                     withLimit:9];
-    offset = 20;
-    height += (LTPostButtonHeight +offset);
-    
-    offset = 13;
-    height += [LTPostLikedView heightWithUsersName:data.likedData.usersNameAttributedString andWith:(([UIScreen mainScreen].bounds.size.width) -LTPostLikedViewLeftPadding - LTPostLikedViewRightPadding)];
-    
-    height += [LTPostCommentView suggestHeightWithComments:data.comments andLimit:5 andFold:NO withWidth:(([UIScreen mainScreen].bounds.size.width) -LTPostLikedViewLeftPadding - LTPostLikedViewRightPadding)];
-    
-    return height + 10 */** 竖直方向上 YYLabel 的数量 + 1*/4;
-}
 
 
 @end

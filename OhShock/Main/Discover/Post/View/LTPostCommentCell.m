@@ -18,18 +18,25 @@
 
 @implementation LTPostCommentCell
 
+#pragma mark - Cell 配置
+-(void)setSelected:(BOOL)selected animated:(BOOL)animated{
+    [super setSelected:NO animated:animated];
+}
+
 -(void)configCellWithAttributedString:(NSAttributedString *)string{
     self.commentLabel.attributedText = string;
     [self setNeedsLayout];
     [self layoutIfNeeded];
 }
 
+#pragma mark - layout
 -(void)layoutSubviews{
     [super layoutSubviews];
     self.commentLabel.frame = self.contentView.bounds;
     
 }
 
+#pragma mark - property
 -(YYLabel *)commentLabel{
     if (!_commentLabel) {
         _commentLabel = [YYLabel new];
@@ -40,9 +47,6 @@
     return _commentLabel;
 }
 
--(void)setSelected:(BOOL)selected animated:(BOOL)animated{
-    [super setSelected:NO animated:animated];
-}
 
 #pragma mark - 计算高度
 + (CGFloat)heightWithAttributedString:(NSAttributedString *)string andWidth:(CGFloat)width{

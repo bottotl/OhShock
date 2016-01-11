@@ -32,6 +32,12 @@
     return self;
 }
 
+#pragma mark - property
+-(void)setComments:(NSArray *)comments{
+    _comments = comments;
+    [self resetTabelView];
+}
+
 #pragma mark - reset table view 
 - (void)resetTabelView{
     [self.tableView reloadData];
@@ -68,6 +74,9 @@
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    /**
+     *  每次读取的数据和需要填充给 Cell 的数据不一样，所以要做一个转换
+     */
     LTModelPostComment *model = self.comments[indexPath.row];
     LTPostCommentModel *comment = [[LTPostCommentModel alloc]initWithComment:model];
     return [LTPostCommentCell heightWithAttributedString:comment.text andWidth:[UIScreen mainScreen].bounds.size.width];

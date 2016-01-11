@@ -12,15 +12,25 @@
 
 @interface LTPostCommentView : UIView
 
-/** 评论内容 @[<LTModelPostComment *>] */
+/**
+ *  评论内容 @[<LTModelPostComment *>]
+ */
 @property (nonatomic, strong) NSArray  *comments;
 
-/** 最多显示评论数量 */
+/**
+ *  最多显示多少条评论
+ */
 @property (nonatomic, assign) NSInteger limit;
 
+/**
+ *  是否需要折叠评论（还没做）
+ */
 @property (nonatomic, assign) BOOL      fold;
 
-
+/**
+ *  通过调用这个方法去刷新评论内容
+    设置完 comments 之后都需要调用一次
+ */
 - (void)resetTabelView;
 
 /**

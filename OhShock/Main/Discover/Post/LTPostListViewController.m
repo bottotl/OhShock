@@ -21,10 +21,12 @@
 
 /// @[< NSNumber *>]
 @property (nonatomic, strong) NSArray *heights;
+
 @end
 
 @implementation LTPostListViewController
 
+#pragma mark - View Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -43,7 +45,12 @@
     [_tableView registerClass:[LTPostViewCell class] forCellReuseIdentifier:LTPostViewCellIdentifier];
     
 }
+#pragma mark - 数据
+/// 更新数据
 - (void)makeArray{
+    /**
+     *  暂时用的都是自己模拟的假数据，这里最好创建一个异步线程负责去读取网络数据
+     */
     LTPostModel *mode = [LTPostModel new];
     
     LTPostProfileModel *profileData = [LTPostProfileModel new];
