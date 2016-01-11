@@ -113,9 +113,9 @@
         [items addObject:item];
     }
     NSLog(@"点击了图片");
-    for (<#initialization#>; <#condition#>; <#increment#>) {
-        <#statements#>
-    }
+//    for (<#initialization#>; <#condition#>; <#increment#>) {
+//        <#statements#>
+//    }
     
     YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:items.copy];
     [v presentFromImageView:cell toContainer:self.superview.superview animated:YES completion:nil];
