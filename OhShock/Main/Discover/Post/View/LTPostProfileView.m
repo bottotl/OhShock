@@ -51,12 +51,6 @@ static CGFloat const LTPostProfileViewHeight = 60.0;
 -(YYLabel *)nameLabel{
     if(!_nameLabel){
         _nameLabel = [YYLabel new];
-        //        _nameLabel.displaysAsynchronously = YES;
-        //        _nameLabel.ignoreCommonProperties = YES;
-        //        _nameLabel.fadeOnAsynchronouslyDisplay = NO;
-        //        _nameLabel.fadeOnHighlight = NO;
-        //        _nameLabel.lineBreakMode = NSLineBreakByClipping;
-        //        _nameLabel.textVerticalAlignment = YYTextVerticalAlignmentCenter;
         [self addSubview:_nameLabel];
     }
     return _nameLabel;
@@ -95,7 +89,7 @@ static CGFloat const LTPostProfileViewHeight = 60.0;
     self.nameLabel.textLayout = layout;
 }
 
-#pragma mark -
+#pragma mark - 高度计算
 +(CGFloat)viewHeight{
     return LTPostProfileViewHeight;
 }

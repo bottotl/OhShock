@@ -26,8 +26,6 @@
 
 -(void)layoutSubviews{
     [super layoutSubviews];
-//    YYTextLayout *layout = [YYTextLayout layoutWithContainerSize:self.contentView.size text:self.commentLabel.attributedText];
-//    self.commentLabel.size = layout.textBoundingSize;
     self.commentLabel.frame = self.contentView.bounds;
     
 }
@@ -36,15 +34,21 @@
     if (!_commentLabel) {
         _commentLabel = [YYLabel new];
         _commentLabel.numberOfLines = 0;
+        _commentLabel.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:_commentLabel];
     }
     return _commentLabel;
 }
 
+-(void)setSelected:(BOOL)selected animated:(BOOL)animated{
+    [super setSelected:NO animated:animated];
+}
+
+#pragma mark - 计算高度
 + (CGFloat)heightWithAttributedString:(NSAttributedString *)string andWidth:(CGFloat)width{
     CGSize size = CGSizeMake(width, CGFLOAT_MAX);
     YYTextLayout *layout = [YYTextLayout layoutWithContainerSize:size text:string];
-    return layout.textBoundingSize.height;
+    return layout.textBoundingSize.height + 7;
 }
 
 @end

@@ -24,6 +24,13 @@
     [super layoutSubviews];
 }
 
+#pragma mark - sizeToFit
+-(CGSize)sizeThatFits:(CGSize)size{
+    [self setContent:self.content];
+    return self.contentLabel.size;
+}
+
+
 #pragma mark - property
 
 #pragma mark View
@@ -36,14 +43,8 @@
 }
 
 #pragma mark Data
-
 -(void)setData:(LTPostContentModel *)data{
     self.content = data.content;
-}
-
--(CGSize)sizeThatFits:(CGSize)size{
-    [self setContent:self.content];
-    return self.contentLabel.size;
 }
 
 -(void)setContent:(NSAttributedString *)content{

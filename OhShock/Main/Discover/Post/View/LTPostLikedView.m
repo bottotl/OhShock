@@ -41,8 +41,8 @@
 -(void)setUsersName:(NSAttributedString *)usersName{
     CGSize size = CGSizeMake(self.width, CGFLOAT_MAX);
     YYTextLayout *layout = [YYTextLayout layoutWithContainerSize:size text:usersName];
-    self.usersNameLabel.attributedText = usersName;
     self.usersNameLabel.size = layout.textBoundingSize;
+    self.usersNameLabel.textLayout = layout;
 }
 
 

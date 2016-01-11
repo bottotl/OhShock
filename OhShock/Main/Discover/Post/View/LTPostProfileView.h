@@ -13,10 +13,19 @@
  */
 @interface LTPostProfileView : UIView
 
+/**
+ *  数据
+ */
 @property (nonatomic, strong) LTPostProfileModel *data;
 
+/**
+ *  用户头像 Url
+ */
 @property (nonatomic, copy) NSString *avatatUrlString;
 
+/**
+ *  用户名
+ */
 @property (nonatomic, copy) NSString *name;
 
 

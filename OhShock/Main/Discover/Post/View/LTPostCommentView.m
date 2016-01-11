@@ -26,8 +26,15 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         [self addSubview:_tableView];
+        
+        [_tableView registerClass:[LTPostCommentCell class] forCellReuseIdentifier:LTPostCommentCellIdentifier];
     }
     return self;
+}
+
+#pragma mark - reset table view 
+- (void)resetTabelView{
+    [self.tableView reloadData];
 }
 
 #pragma mark - Layout
@@ -39,6 +46,7 @@
     self.tableView.frame = targetRect;
 }
 
+
 - (CGSize)sizeThatFits:(CGSize)size{
     size.height = [[self class]suggestHeightWithComments:self.comments andLimit:self.limit andFold:self.fold withWidth:size.width];
     return size;
@@ -47,17 +55,22 @@
 #pragma mark - TableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSInteger count =  self.fold?MIN(self.comments.count, self.limit):self.comments.count;
-    if (self.limit < self.comments.count) count++;
+    //if (self.limit < self.comments.count) count++;
     return count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     LTPostCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:LTPostCommentCellIdentifier forIndexPath:indexPath];
-    [cell configCellWithAttributedString:self.comments[indexPath.row]];
+    
+    LTModelPostComment *model = self.comments[indexPath.row];
+    LTPostCommentModel *comment = [[LTPostCommentModel alloc]initWithComment:model];
+    
+    [cell configCellWithAttributedString:comment.text];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    LTPostCommentModel *model = self.comments[indexPath.row];
-    return [LTPostCommentCell heightWithAttributedString:model.text andWidth:[UIScreen mainScreen].bounds.size.width];
+    LTModelPostComment *model = self.comments[indexPath.row];
+    LTPostCommentModel *comment = [[LTPostCommentModel alloc]initWithComment:model];
+    return [LTPostCommentCell heightWithAttributedString:comment.text andWidth:[UIScreen mainScreen].bounds.size.width];
 }
 #pragma mark - 计算高度
 + (CGFloat)suggestHeightWithComments:(NSArray *)comments andLimit:(NSInteger)limit andFold:(BOOL)fold withWidth:(CGFloat)width{
@@ -66,23 +79,23 @@
         for (NSInteger index = 0; index != MIN(limit, comments.count); index++) {
             LTModelPostComment *comment = comments[index];
             LTPostCommentModel *model = [[LTPostCommentModel alloc] initWithComment:comment];
-            height += [LTPostCommentCell heightWithAttributedString:model.text andWidth:width] + 7;
+            height += [LTPostCommentCell heightWithAttributedString:model.text andWidth:width];
         }
     } else {
         for (NSInteger index = 0; index != comments.count; index++) {
             LTModelPostComment *comment = comments[index];
             LTPostCommentModel *model = [[LTPostCommentModel alloc] initWithComment:comment];
-            height += [LTPostCommentCell heightWithAttributedString:model.text andWidth:width] + 7;
+            height += [LTPostCommentCell heightWithAttributedString:model.text andWidth:width];
         }
     }
-    if (limit < comments.count) {
-        height += 30;
-    }
-    return height + 4 + [self topSpace];
+//    if (limit < comments.count) {
+//        height += 30;
+//    }
+    return height + [self topSpace];
 }
-
+/// 距离评论栏的间隙
 + (CGFloat)topSpace{
-    return 6;
+    return 0;
 }
 
 @end

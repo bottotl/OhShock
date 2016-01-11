@@ -15,7 +15,6 @@
     if (self = [super init]) {
         _comment = comment;
         NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
-        style.lineSpacing = 6;
         NSMutableAttributedString *text = [NSMutableAttributedString new];
         if (comment.fromUser.username.length) {
             NSAttributedString *fromUser = [[NSAttributedString alloc] initWithString:comment.fromUser.username attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithHexString:@"446889"], NSParagraphStyleAttributeName : style}];

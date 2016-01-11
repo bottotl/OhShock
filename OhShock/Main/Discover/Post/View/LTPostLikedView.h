@@ -14,9 +14,19 @@
  */
 @interface LTPostLikedView : UIView
 
+/**
+ *  给 View 填充数据用的数据模型
+ */
 @property (nonatomic, strong) LTPostLikedModel *data;
 
-/// 计算高度
+/**
+ *  计算高度
+ *
+ *  @param usersName 包含所有用户名的富文本 eg:（💗A , B ,C …… ）
+ *  @param width     期望的宽度
+ *
+ *  @return 高度
+ */
 +(CGFloat)heightWithUsersName:(NSAttributedString *)usersName andWith:(CGFloat)width;
 
 @end

@@ -12,13 +12,16 @@
 
 @interface LTPostCommentView : UIView
 
-/** 评论内容 @[<LTPostCommentModel *>] */
+/** 评论内容 @[<LTModelPostComment *>] */
 @property (nonatomic, strong) NSArray  *comments;
 
 /** 最多显示评论数量 */
 @property (nonatomic, assign) NSInteger limit;
 
 @property (nonatomic, assign) BOOL      fold;
+
+
+- (void)resetTabelView;
 
 /**
  *  计算高度

@@ -15,6 +15,9 @@ static CGFloat const LTPostContentLabelPadding = 5;
  */
 @interface LTPostContentView : UIView
 
+/**
+ *  数据（包含了内容的富文本）
+ */
 @property (nonatomic, strong) LTPostContentModel *data;
 
 /**

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 /**
- *  显示多张图片
+ *  多图显示控件
  */
 @interface LTPostImagesView : UIView
 
@@ -20,6 +20,17 @@
 
 @property (nonatomic, assign) NSUInteger limit;///< 图片最多数量
 
+/**
+ *  计算图片显示控件的高度
+ *
+ *  @param width  整个控件的预计宽度
+ *  @param count  图片的数量
+ *  @param bigpic 是否需要放大
+ *  @param space  图片间距
+ *  @param limit  最多显示多少张图片
+ *
+ *  @return 高度
+ */
 + (CGFloat)heightWithSuggestThreePicWidth:(CGFloat)width andPicCount:(NSInteger)count andBigPic:(BOOL)bigpic andItemSpace:(CGFloat)space withLimit:(NSInteger)limit;
 
 - (void)reset;

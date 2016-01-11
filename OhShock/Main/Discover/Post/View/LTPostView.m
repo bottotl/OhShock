@@ -45,7 +45,9 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
 
 -(void)layoutSubviews{
     [super layoutSubviews];
-    
+    /**
+     *  offset 标记了竖直方向上控件之间的间距
+     */
     CGFloat offset ;
     self.profileView.width = self.width;
     self.profileView.top = 0;
@@ -72,15 +74,16 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
     self.likeButton.top = self.imagesView.bottom + offset;
     
     
-    offset = 13;
+    offset = 5;
     self.likedView.width = self.width - LTPostLikedViewLeftPadding - LTPostLikedViewRightPadding;
     [self.likedView sizeToFit];
     self.likedView.top = self.likeButton.bottom + offset;
     self.likedView.left = LTPostLikedViewLeftPadding;
     
-    offset = 3;
+    //offset = 3;
     self.commentsView.width = self.width - LTPostLikedViewLeftPadding - LTPostLikedViewRightPadding;
     [self.commentsView sizeToFit];
+    [self.commentsView resetTabelView];
     self.commentsView.top = self.likedView.bottom +offset;
     self.commentsView.left = LTPostLikedViewLeftPadding;
 
@@ -91,7 +94,7 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
 
 #pragma mark Data
 -(void)setData:(LTPostModel *)data{
-    //_data = data;
+    _data = data;
     
     self.profileView.data = data.profileData;
     self.contentView.data = data.contentData;

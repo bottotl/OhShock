@@ -66,7 +66,7 @@ static NSString *const AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
         //跳转到主业务逻辑页面
         [self setupMainViewController];
 #warning for test
-        //[self.window setRootViewController:[[UINavigationController alloc]initWithRootViewController:[LTPostListViewController new]]];
+        [self.window setRootViewController:[[UINavigationController alloc]initWithRootViewController:[LTPostListViewController new]]];
     }
     [self.window makeKeyAndVisible];
     
