@@ -11,15 +11,19 @@
 #import "UIView+Layout.h"
 #import "LTPostImageModel.h"
 #import "YYPhotoGroupView.h"
+#import <Foundation/Foundation.h>
 
 @interface LTPostImagesView ()<UICollectionViewDataSource>
 
 
+
 @property (nonatomic, strong) UICollectionViewFlowLayout *layout;
+
 
 @end
 
 @implementation LTPostImagesView
+@synthesize picItems = _picItems;
 #pragma mark - init
 
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -104,26 +108,47 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSMutableArray *items = @[].mutableCopy;
-    NSIndexPath * index = [NSIndexPath indexPathForRow:0 inSection:0];
-    for (NSUInteger i = 0 ; i < self.limit && i < self.data.count; i++) {
-        LTPostImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:LTPostImageCollectionCellIdentifier forIndexPath:index];
-        LTPostImageModel *pic = self.data[index.row];
-        [cell configCellWithImageUrl:pic.smallUrlString];
-        
-        YYPhotoGroupItem *item = [YYPhotoGroupItem new];
-        item.thumbView = cell.contentView;
-        item.largeImageURL = [NSURL URLWithString:((LTPostImageModel *)self.data[index.row]).bigUrlString];
-        item.largeImageSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
-        [items addObject:item];
-        index = [NSIndexPath indexPathForRow:(index.row + 1) inSection:0];;
-    }
 //    NSLog(@"点击了图片");
-    UINavigationController * viewController = (UINavigationController *)((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).selectedViewController;
-//    NSLog(@"%@",[NSValue valueWithCGRect:[self convertRect:cell.frame toView:viewController.view]]) ;
-    YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:items.copy];
-    [v presentFromImageView:self toContainer:viewController.view animated:YES completion:nil];
+    UINavigationController * viewController = [self theNavi];
+    LTPostImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:LTPostImageCollectionCellIdentifier forIndexPath:indexPath];
+    NSLog(@"%@",[NSValue valueWithCGRect:[self convertRect:cell.frame toView:viewController.view]]) ;
+    YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:self.picItems];
+    [v presentFromImageView:self toContainer:viewController.view animated:YES completion:^{
+        self.picItems = nil;
+    }];
 }
 
+
+
+- (UINavigationController *)theNavi{
+    return (UINavigationController *)((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).selectedViewController;
+}
+
+-(void)setPicItems:(NSArray *)picItems{
+    _picItems = picItems;
+}
+
+- (NSArray *)picItems{
+    NSMutableArray *items = @[].mutableCopy;
+    if (!_picItems) {
+        NSIndexPath * index = [NSIndexPath indexPathForRow:0 inSection:0];
+        for (NSUInteger i = 0 ; i < self.limit && i < self.data.count; i++) {
+            LTPostImageCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:LTPostImageCollectionCellIdentifier forIndexPath:index];
+            LTPostImageModel *pic = self.data[index.row];
+            [cell configCellWithImageUrl:pic.smallUrlString];
+            
+            YYPhotoGroupItem *item = [YYPhotoGroupItem new];
+            item.thumbView = cell.contentView;
+            item.largeImageURL = [NSURL URLWithString:((LTPostImageModel *)self.data[index.row]).bigUrlString];
+            item.largeImageSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
+            [items addObject:item];
+            index = [NSIndexPath indexPathForRow:(index.row + 1) inSection:0];;
+        }
+
+    }
+    return items.copy;
+    
+}
 #pragma mark - property
 - (void)setData:(NSArray *)data{
     _data = data;

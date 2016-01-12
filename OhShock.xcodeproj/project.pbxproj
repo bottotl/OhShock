@@ -327,35 +327,7 @@
 		B807290A1C1AB2EA00E7802A /* xtsegment_bordor_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B80727CD1C1AB2E900E7802A /* xtsegment_bordor_left@2x.png */; };
 		B807290B1C1AB2EA00E7802A /* xtsegment_bordor_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B80727CE1C1AB2E900E7802A /* xtsegment_bordor_right@2x.png */; };
 		B807290F1C1AB5C900E7802A /* LTDiscoverTodoUserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B807290E1C1AB5C900E7802A /* LTDiscoverTodoUserImageView.m */; };
-		B80A363F1C1DABC400C3B226 /* weibo_0.json in Resources */ = {isa = PBXBuildFile; fileRef = B80A36001C1DABC400C3B226 /* weibo_0.json */; };
-		B80A36401C1DABC400C3B226 /* weibo_1.json in Resources */ = {isa = PBXBuildFile; fileRef = B80A36011C1DABC400C3B226 /* weibo_1.json */; };
-		B80A36411C1DABC400C3B226 /* weibo_2.json in Resources */ = {isa = PBXBuildFile; fileRef = B80A36021C1DABC400C3B226 /* weibo_2.json */; };
-		B80A36421C1DABC400C3B226 /* weibo_3.json in Resources */ = {isa = PBXBuildFile; fileRef = B80A36031C1DABC400C3B226 /* weibo_3.json */; };
-		B80A36431C1DABC400C3B226 /* weibo_4.json in Resources */ = {isa = PBXBuildFile; fileRef = B80A36041C1DABC400C3B226 /* weibo_4.json */; };
-		B80A36441C1DABC400C3B226 /* weibo_5.json in Resources */ = {isa = PBXBuildFile; fileRef = B80A36051C1DABC400C3B226 /* weibo_5.json */; };
-		B80A36451C1DABC400C3B226 /* weibo_6.json in Resources */ = {isa = PBXBuildFile; fileRef = B80A36061C1DABC400C3B226 /* weibo_6.json */; };
-		B80A36461C1DABC400C3B226 /* weibo_7.json in Resources */ = {isa = PBXBuildFile; fileRef = B80A36071C1DABC400C3B226 /* weibo_7.json */; };
-		B80A36481C1DABC400C3B226 /* bpg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B80A360C1C1DABC400C3B226 /* bpg.framework */; };
-		B80A36491C1DABC400C3B226 /* WBEmoticonInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = B80A360E1C1DABC400C3B226 /* WBEmoticonInputView.m */; };
-		B80A364A1C1DABC400C3B226 /* WBStatusComposeTextParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B80A36101C1DABC400C3B226 /* WBStatusComposeTextParser.m */; };
-		B80A364B1C1DABC400C3B226 /* WBStatusComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B80A36121C1DABC400C3B226 /* WBStatusComposeViewController.m */; };
-		B80A364C1C1DABC400C3B226 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B80A36131C1DABC400C3B226 /* WebP.framework */; };
-		B80A364D1C1DABC400C3B226 /* WebP.sh in Resources */ = {isa = PBXBuildFile; fileRef = B80A36141C1DABC400C3B226 /* WebP.sh */; };
-		B80A364E1C1DABC400C3B226 /* WBStatusHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B80A36171C1DABC400C3B226 /* WBStatusHelper.m */; };
-		B80A36501C1DABC400C3B226 /* LTStatusCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = B80A361B1C1DABC400C3B226 /* LTStatusCardView.m */; };
-		B80A36511C1DABC400C3B226 /* LTStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B80A361D1C1DABC400C3B226 /* LTStatusCell.m */; };
-		B80A36521C1DABC400C3B226 /* LTStatusProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = B80A361F1C1DABC400C3B226 /* LTStatusProfileView.m */; };
-		B80A36531C1DABC400C3B226 /* LTStatusTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = B80A36211C1DABC400C3B226 /* LTStatusTagView.m */; };
-		B80A36541C1DABC400C3B226 /* LTStatusTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B80A36231C1DABC400C3B226 /* LTStatusTimelineViewController.m */; };
-		B80A36551C1DABC400C3B226 /* LTStatusTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B80A36251C1DABC400C3B226 /* LTStatusTitleView.m */; };
-		B80A36561C1DABC400C3B226 /* LTStatusToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B80A36271C1DABC400C3B226 /* LTStatusToolbarView.m */; };
-		B80A36571C1DABC400C3B226 /* LTStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = B80A36291C1DABC400C3B226 /* LTStatusView.m */; };
-		B80A36581C1DABC400C3B226 /* EmoticonQQ.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B80A362B1C1DABC400C3B226 /* EmoticonQQ.bundle */; };
-		B80A36591C1DABC400C3B226 /* EmoticonWeibo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B80A362C1C1DABC400C3B226 /* EmoticonWeibo.bundle */; };
-		B80A365A1C1DABC400C3B226 /* ResourceWeibo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B80A362D1C1DABC400C3B226 /* ResourceWeibo.bundle */; };
-		B80A36611C1DABC400C3B226 /* WBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B80A363E1C1DABC400C3B226 /* WBModel.m */; };
 		B80A367B1C1DAC6F00C3B226 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B80A367A1C1DAC6F00C3B226 /* UIKit.framework */; };
-		B80A37821C1DAD5F00C3B226 /* WBStatusLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B80A37811C1DAD5F00C3B226 /* WBStatusLayout.m */; };
 		B80A378F1C1DADB600C3B226 /* YYControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B80A37841C1DADB600C3B226 /* YYControl.m */; };
 		B80A37901C1DADB600C3B226 /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B80A37861C1DADB600C3B226 /* YYFPSLabel.m */; };
 		B80A37911C1DADB600C3B226 /* YYPhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = B80A37881C1DADB600C3B226 /* YYPhotoGroupView.m */; };
@@ -481,6 +453,34 @@
 		B84428701C4252FE005FA556 /* LTPostImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B844286F1C4252FE005FA556 /* LTPostImageCollectionViewCell.m */; };
 		B84428731C425325005FA556 /* LTPostCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B84428721C425325005FA556 /* LTPostCommentCell.m */; };
 		B84428761C4264C3005FA556 /* LTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B84428751C4264C3005FA556 /* LTUser.m */; };
+		B845BC711C45072B001DA565 /* weibo_0.json in Resources */ = {isa = PBXBuildFile; fileRef = B845BC441C45072B001DA565 /* weibo_0.json */; };
+		B845BC721C45072B001DA565 /* weibo_1.json in Resources */ = {isa = PBXBuildFile; fileRef = B845BC451C45072B001DA565 /* weibo_1.json */; };
+		B845BC731C45072B001DA565 /* weibo_2.json in Resources */ = {isa = PBXBuildFile; fileRef = B845BC461C45072B001DA565 /* weibo_2.json */; };
+		B845BC741C45072B001DA565 /* weibo_3.json in Resources */ = {isa = PBXBuildFile; fileRef = B845BC471C45072B001DA565 /* weibo_3.json */; };
+		B845BC751C45072B001DA565 /* weibo_4.json in Resources */ = {isa = PBXBuildFile; fileRef = B845BC481C45072B001DA565 /* weibo_4.json */; };
+		B845BC761C45072B001DA565 /* weibo_5.json in Resources */ = {isa = PBXBuildFile; fileRef = B845BC491C45072B001DA565 /* weibo_5.json */; };
+		B845BC771C45072B001DA565 /* weibo_6.json in Resources */ = {isa = PBXBuildFile; fileRef = B845BC4A1C45072B001DA565 /* weibo_6.json */; };
+		B845BC781C45072B001DA565 /* weibo_7.json in Resources */ = {isa = PBXBuildFile; fileRef = B845BC4B1C45072B001DA565 /* weibo_7.json */; };
+		B845BC791C45072B001DA565 /* bpg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B845BC4D1C45072B001DA565 /* bpg.framework */; };
+		B845BC7A1C45072B001DA565 /* WBEmoticonInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = B845BC4F1C45072B001DA565 /* WBEmoticonInputView.m */; };
+		B845BC7B1C45072B001DA565 /* WBStatusComposeTextParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B845BC511C45072B001DA565 /* WBStatusComposeTextParser.m */; };
+		B845BC7C1C45072B001DA565 /* WBStatusComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B845BC531C45072B001DA565 /* WBStatusComposeViewController.m */; };
+		B845BC7D1C45072B001DA565 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B845BC541C45072B001DA565 /* WebP.framework */; };
+		B845BC7E1C45072B001DA565 /* WebP.sh in Resources */ = {isa = PBXBuildFile; fileRef = B845BC551C45072B001DA565 /* WebP.sh */; };
+		B845BC7F1C45072B001DA565 /* WBStatusHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B845BC581C45072B001DA565 /* WBStatusHelper.m */; };
+		B845BC801C45072B001DA565 /* LTStatusCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = B845BC5A1C45072B001DA565 /* LTStatusCardView.m */; };
+		B845BC811C45072B001DA565 /* LTStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B845BC5C1C45072B001DA565 /* LTStatusCell.m */; };
+		B845BC821C45072B001DA565 /* LTStatusProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = B845BC5E1C45072B001DA565 /* LTStatusProfileView.m */; };
+		B845BC831C45072B001DA565 /* LTStatusTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = B845BC601C45072B001DA565 /* LTStatusTagView.m */; };
+		B845BC841C45072B001DA565 /* LTStatusTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B845BC621C45072B001DA565 /* LTStatusTimelineViewController.m */; };
+		B845BC851C45072B001DA565 /* LTStatusTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B845BC641C45072B001DA565 /* LTStatusTitleView.m */; };
+		B845BC861C45072B001DA565 /* LTStatusToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B845BC661C45072B001DA565 /* LTStatusToolbarView.m */; };
+		B845BC871C45072B001DA565 /* LTStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = B845BC681C45072B001DA565 /* LTStatusView.m */; };
+		B845BC881C45072B001DA565 /* EmoticonQQ.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B845BC6A1C45072B001DA565 /* EmoticonQQ.bundle */; };
+		B845BC891C45072B001DA565 /* EmoticonWeibo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B845BC6B1C45072B001DA565 /* EmoticonWeibo.bundle */; };
+		B845BC8A1C45072B001DA565 /* ResourceWeibo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B845BC6C1C45072B001DA565 /* ResourceWeibo.bundle */; };
+		B845BC8B1C45072B001DA565 /* WBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B845BC6E1C45072B001DA565 /* WBModel.m */; };
+		B845BC8C1C45072B001DA565 /* WBStatusLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B845BC701C45072B001DA565 /* WBStatusLayout.m */; };
 		B84C205D1C2A440200F758AD /* AVIMTypedMessage+JSQMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = B84C205C1C2A440200F758AD /* AVIMTypedMessage+JSQMessages.m */; };
 		B855AB2F1C3D050000566B9B /* LTPostImagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = B855AB2E1C3D050000566B9B /* LTPostImagesView.m */; };
 		B85801151C1A849E00786143 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85801121C1A849E00786143 /* AVOSCloud.framework */; };
@@ -1167,46 +1167,6 @@
 		B80727CE1C1AB2E900E7802A /* xtsegment_bordor_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xtsegment_bordor_right@2x.png"; sourceTree = "<group>"; };
 		B807290D1C1AB5C900E7802A /* LTDiscoverTodoUserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTDiscoverTodoUserImageView.h; sourceTree = "<group>"; };
 		B807290E1C1AB5C900E7802A /* LTDiscoverTodoUserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTDiscoverTodoUserImageView.m; sourceTree = "<group>"; };
-		B80A36001C1DABC400C3B226 /* weibo_0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_0.json; sourceTree = "<group>"; };
-		B80A36011C1DABC400C3B226 /* weibo_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_1.json; sourceTree = "<group>"; };
-		B80A36021C1DABC400C3B226 /* weibo_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_2.json; sourceTree = "<group>"; };
-		B80A36031C1DABC400C3B226 /* weibo_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_3.json; sourceTree = "<group>"; };
-		B80A36041C1DABC400C3B226 /* weibo_4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_4.json; sourceTree = "<group>"; };
-		B80A36051C1DABC400C3B226 /* weibo_5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_5.json; sourceTree = "<group>"; };
-		B80A36061C1DABC400C3B226 /* weibo_6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_6.json; sourceTree = "<group>"; };
-		B80A36071C1DABC400C3B226 /* weibo_7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_7.json; sourceTree = "<group>"; };
-		B80A360C1C1DABC400C3B226 /* bpg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = bpg.framework; sourceTree = "<group>"; };
-		B80A360D1C1DABC400C3B226 /* WBEmoticonInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBEmoticonInputView.h; sourceTree = "<group>"; };
-		B80A360E1C1DABC400C3B226 /* WBEmoticonInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBEmoticonInputView.m; sourceTree = "<group>"; };
-		B80A360F1C1DABC400C3B226 /* WBStatusComposeTextParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusComposeTextParser.h; sourceTree = "<group>"; };
-		B80A36101C1DABC400C3B226 /* WBStatusComposeTextParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusComposeTextParser.m; sourceTree = "<group>"; };
-		B80A36111C1DABC400C3B226 /* WBStatusComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusComposeViewController.h; sourceTree = "<group>"; };
-		B80A36121C1DABC400C3B226 /* WBStatusComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusComposeViewController.m; sourceTree = "<group>"; };
-		B80A36131C1DABC400C3B226 /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebP.framework; sourceTree = "<group>"; };
-		B80A36141C1DABC400C3B226 /* WebP.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = WebP.sh; sourceTree = "<group>"; };
-		B80A36161C1DABC400C3B226 /* WBStatusHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusHelper.h; sourceTree = "<group>"; };
-		B80A36171C1DABC400C3B226 /* WBStatusHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusHelper.m; sourceTree = "<group>"; };
-		B80A361A1C1DABC400C3B226 /* LTStatusCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTStatusCardView.h; path = ../LTStatusCardView.h; sourceTree = "<group>"; };
-		B80A361B1C1DABC400C3B226 /* LTStatusCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTStatusCardView.m; path = ../LTStatusCardView.m; sourceTree = "<group>"; };
-		B80A361C1C1DABC400C3B226 /* LTStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTStatusCell.h; path = ../LTStatusCell.h; sourceTree = "<group>"; };
-		B80A361D1C1DABC400C3B226 /* LTStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTStatusCell.m; path = ../LTStatusCell.m; sourceTree = "<group>"; };
-		B80A361E1C1DABC400C3B226 /* LTStatusProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTStatusProfileView.h; path = ../LTStatusProfileView.h; sourceTree = "<group>"; };
-		B80A361F1C1DABC400C3B226 /* LTStatusProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTStatusProfileView.m; path = ../LTStatusProfileView.m; sourceTree = "<group>"; };
-		B80A36201C1DABC400C3B226 /* LTStatusTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTStatusTagView.h; path = ../LTStatusTagView.h; sourceTree = "<group>"; };
-		B80A36211C1DABC400C3B226 /* LTStatusTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTStatusTagView.m; path = ../LTStatusTagView.m; sourceTree = "<group>"; };
-		B80A36221C1DABC400C3B226 /* LTStatusTimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTStatusTimelineViewController.h; sourceTree = "<group>"; };
-		B80A36231C1DABC400C3B226 /* LTStatusTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTStatusTimelineViewController.m; sourceTree = "<group>"; };
-		B80A36241C1DABC400C3B226 /* LTStatusTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTStatusTitleView.h; path = ../LTStatusTitleView.h; sourceTree = "<group>"; };
-		B80A36251C1DABC400C3B226 /* LTStatusTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTStatusTitleView.m; path = ../LTStatusTitleView.m; sourceTree = "<group>"; };
-		B80A36261C1DABC400C3B226 /* LTStatusToolbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTStatusToolbarView.h; path = ../LTStatusToolbarView.h; sourceTree = "<group>"; };
-		B80A36271C1DABC400C3B226 /* LTStatusToolbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTStatusToolbarView.m; path = ../LTStatusToolbarView.m; sourceTree = "<group>"; };
-		B80A36281C1DABC400C3B226 /* LTStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTStatusView.h; path = ../LTStatusView.h; sourceTree = "<group>"; };
-		B80A36291C1DABC400C3B226 /* LTStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTStatusView.m; path = ../LTStatusView.m; sourceTree = "<group>"; };
-		B80A362B1C1DABC400C3B226 /* EmoticonQQ.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EmoticonQQ.bundle; sourceTree = "<group>"; };
-		B80A362C1C1DABC400C3B226 /* EmoticonWeibo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EmoticonWeibo.bundle; sourceTree = "<group>"; };
-		B80A362D1C1DABC400C3B226 /* ResourceWeibo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ResourceWeibo.bundle; sourceTree = "<group>"; };
-		B80A363D1C1DABC400C3B226 /* WBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBModel.h; sourceTree = "<group>"; };
-		B80A363E1C1DABC400C3B226 /* WBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBModel.m; sourceTree = "<group>"; };
 		B80A36621C1DABF100C3B226 /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
 		B80A36641C1DAC0900C3B226 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		B80A36661C1DAC1600C3B226 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -1220,8 +1180,6 @@
 		B80A36761C1DAC4F00C3B226 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		B80A36781C1DAC6A00C3B226 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		B80A367A1C1DAC6F00C3B226 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		B80A37801C1DAD5F00C3B226 /* WBStatusLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusLayout.h; sourceTree = "<group>"; };
-		B80A37811C1DAD5F00C3B226 /* WBStatusLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusLayout.m; sourceTree = "<group>"; };
 		B80A37831C1DADB600C3B226 /* YYControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYControl.h; sourceTree = "<group>"; };
 		B80A37841C1DADB600C3B226 /* YYControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYControl.m; sourceTree = "<group>"; };
 		B80A37851C1DADB600C3B226 /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPSLabel.h; sourceTree = "<group>"; };
@@ -1474,6 +1432,48 @@
 		B84428721C425325005FA556 /* LTPostCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostCommentCell.m; sourceTree = "<group>"; };
 		B84428741C4264C3005FA556 /* LTUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTUser.h; sourceTree = "<group>"; };
 		B84428751C4264C3005FA556 /* LTUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTUser.m; sourceTree = "<group>"; };
+		B845BC441C45072B001DA565 /* weibo_0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_0.json; sourceTree = "<group>"; };
+		B845BC451C45072B001DA565 /* weibo_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_1.json; sourceTree = "<group>"; };
+		B845BC461C45072B001DA565 /* weibo_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_2.json; sourceTree = "<group>"; };
+		B845BC471C45072B001DA565 /* weibo_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_3.json; sourceTree = "<group>"; };
+		B845BC481C45072B001DA565 /* weibo_4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_4.json; sourceTree = "<group>"; };
+		B845BC491C45072B001DA565 /* weibo_5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_5.json; sourceTree = "<group>"; };
+		B845BC4A1C45072B001DA565 /* weibo_6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_6.json; sourceTree = "<group>"; };
+		B845BC4B1C45072B001DA565 /* weibo_7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_7.json; sourceTree = "<group>"; };
+		B845BC4D1C45072B001DA565 /* bpg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = bpg.framework; sourceTree = "<group>"; };
+		B845BC4E1C45072B001DA565 /* WBEmoticonInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBEmoticonInputView.h; sourceTree = "<group>"; };
+		B845BC4F1C45072B001DA565 /* WBEmoticonInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBEmoticonInputView.m; sourceTree = "<group>"; };
+		B845BC501C45072B001DA565 /* WBStatusComposeTextParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusComposeTextParser.h; sourceTree = "<group>"; };
+		B845BC511C45072B001DA565 /* WBStatusComposeTextParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusComposeTextParser.m; sourceTree = "<group>"; };
+		B845BC521C45072B001DA565 /* WBStatusComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusComposeViewController.h; sourceTree = "<group>"; };
+		B845BC531C45072B001DA565 /* WBStatusComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusComposeViewController.m; sourceTree = "<group>"; };
+		B845BC541C45072B001DA565 /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebP.framework; sourceTree = "<group>"; };
+		B845BC551C45072B001DA565 /* WebP.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = WebP.sh; sourceTree = "<group>"; };
+		B845BC571C45072B001DA565 /* WBStatusHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusHelper.h; sourceTree = "<group>"; };
+		B845BC581C45072B001DA565 /* WBStatusHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusHelper.m; sourceTree = "<group>"; };
+		B845BC591C45072B001DA565 /* LTStatusCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTStatusCardView.h; sourceTree = "<group>"; };
+		B845BC5A1C45072B001DA565 /* LTStatusCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTStatusCardView.m; sourceTree = "<group>"; };
+		B845BC5B1C45072B001DA565 /* LTStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTStatusCell.h; sourceTree = "<group>"; };
+		B845BC5C1C45072B001DA565 /* LTStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTStatusCell.m; sourceTree = "<group>"; };
+		B845BC5D1C45072B001DA565 /* LTStatusProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTStatusProfileView.h; sourceTree = "<group>"; };
+		B845BC5E1C45072B001DA565 /* LTStatusProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTStatusProfileView.m; sourceTree = "<group>"; };
+		B845BC5F1C45072B001DA565 /* LTStatusTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTStatusTagView.h; sourceTree = "<group>"; };
+		B845BC601C45072B001DA565 /* LTStatusTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTStatusTagView.m; sourceTree = "<group>"; };
+		B845BC611C45072B001DA565 /* LTStatusTimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTStatusTimelineViewController.h; sourceTree = "<group>"; };
+		B845BC621C45072B001DA565 /* LTStatusTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTStatusTimelineViewController.m; sourceTree = "<group>"; };
+		B845BC631C45072B001DA565 /* LTStatusTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTStatusTitleView.h; sourceTree = "<group>"; };
+		B845BC641C45072B001DA565 /* LTStatusTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTStatusTitleView.m; sourceTree = "<group>"; };
+		B845BC651C45072B001DA565 /* LTStatusToolbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTStatusToolbarView.h; sourceTree = "<group>"; };
+		B845BC661C45072B001DA565 /* LTStatusToolbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTStatusToolbarView.m; sourceTree = "<group>"; };
+		B845BC671C45072B001DA565 /* LTStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTStatusView.h; sourceTree = "<group>"; };
+		B845BC681C45072B001DA565 /* LTStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTStatusView.m; sourceTree = "<group>"; };
+		B845BC6A1C45072B001DA565 /* EmoticonQQ.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EmoticonQQ.bundle; sourceTree = "<group>"; };
+		B845BC6B1C45072B001DA565 /* EmoticonWeibo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EmoticonWeibo.bundle; sourceTree = "<group>"; };
+		B845BC6C1C45072B001DA565 /* ResourceWeibo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ResourceWeibo.bundle; sourceTree = "<group>"; };
+		B845BC6D1C45072B001DA565 /* WBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBModel.h; sourceTree = "<group>"; };
+		B845BC6E1C45072B001DA565 /* WBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBModel.m; sourceTree = "<group>"; };
+		B845BC6F1C45072B001DA565 /* WBStatusLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusLayout.h; sourceTree = "<group>"; };
+		B845BC701C45072B001DA565 /* WBStatusLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusLayout.m; sourceTree = "<group>"; };
 		B84C205B1C2A440200F758AD /* AVIMTypedMessage+JSQMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVIMTypedMessage+JSQMessages.h"; sourceTree = "<group>"; };
 		B84C205C1C2A440200F758AD /* AVIMTypedMessage+JSQMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVIMTypedMessage+JSQMessages.m"; sourceTree = "<group>"; };
 		B855AB2D1C3D050000566B9B /* LTPostImagesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostImagesView.h; sourceTree = "<group>"; };
@@ -1994,13 +1994,13 @@
 			files = (
 				B80A367B1C1DAC6F00C3B226 /* UIKit.framework in Frameworks */,
 				B858011A1C1A84C300786143 /* AVOSCloudCrashReporting.framework in Frameworks */,
-				B80A36481C1DABC400C3B226 /* bpg.framework in Frameworks */,
+				B845BC791C45072B001DA565 /* bpg.framework in Frameworks */,
 				A03A18FF2EB78C95668E7DBE /* Pods.framework in Frameworks */,
 				B85801151C1A849E00786143 /* AVOSCloud.framework in Frameworks */,
 				B8E64C781C43F2E100B4CB64 /* AMapSearchKit.framework in Frameworks */,
+				B845BC7D1C45072B001DA565 /* WebP.framework in Frameworks */,
 				B8E64C771C43F2E100B4CB64 /* AMapLocationKit.framework in Frameworks */,
 				B858011C1C1A84C300786143 /* AVOSCloudIM.framework in Frameworks */,
-				B80A364C1C1DABC400C3B226 /* WebP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2638,111 +2638,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		B80A35FE1C1DABC400C3B226 /* Dynamic */ = {
-			isa = PBXGroup;
-			children = (
-				B80A35FF1C1DABC400C3B226 /* ApiDump */,
-				B80A36081C1DABC400C3B226 /* Cell */,
-				B80A360B1C1DABC400C3B226 /* Compose */,
-				B80A36151C1DABC400C3B226 /* Helper */,
-				B80A36221C1DABC400C3B226 /* LTStatusTimelineViewController.h */,
-				B80A36231C1DABC400C3B226 /* LTStatusTimelineViewController.m */,
-				B80A363D1C1DABC400C3B226 /* WBModel.h */,
-				B80A363E1C1DABC400C3B226 /* WBModel.m */,
-				B80A37801C1DAD5F00C3B226 /* WBStatusLayout.h */,
-				B80A37811C1DAD5F00C3B226 /* WBStatusLayout.m */,
-				B80A362A1C1DABC400C3B226 /* Resource */,
-				B80A363B1C1DABC400C3B226 /* Vendor */,
-			);
-			path = Dynamic;
-			sourceTree = "<group>";
-		};
-		B80A35FF1C1DABC400C3B226 /* ApiDump */ = {
-			isa = PBXGroup;
-			children = (
-				B80A36001C1DABC400C3B226 /* weibo_0.json */,
-				B80A36011C1DABC400C3B226 /* weibo_1.json */,
-				B80A36021C1DABC400C3B226 /* weibo_2.json */,
-				B80A36031C1DABC400C3B226 /* weibo_3.json */,
-				B80A36041C1DABC400C3B226 /* weibo_4.json */,
-				B80A36051C1DABC400C3B226 /* weibo_5.json */,
-				B80A36061C1DABC400C3B226 /* weibo_6.json */,
-				B80A36071C1DABC400C3B226 /* weibo_7.json */,
-			);
-			path = ApiDump;
-			sourceTree = "<group>";
-		};
-		B80A36081C1DABC400C3B226 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				B80A361C1C1DABC400C3B226 /* LTStatusCell.h */,
-				B80A361D1C1DABC400C3B226 /* LTStatusCell.m */,
-				B80A36281C1DABC400C3B226 /* LTStatusView.h */,
-				B80A36291C1DABC400C3B226 /* LTStatusView.m */,
-				B80A361A1C1DABC400C3B226 /* LTStatusCardView.h */,
-				B80A361B1C1DABC400C3B226 /* LTStatusCardView.m */,
-				B80A361E1C1DABC400C3B226 /* LTStatusProfileView.h */,
-				B80A361F1C1DABC400C3B226 /* LTStatusProfileView.m */,
-				B80A36201C1DABC400C3B226 /* LTStatusTagView.h */,
-				B80A36211C1DABC400C3B226 /* LTStatusTagView.m */,
-				B80A36241C1DABC400C3B226 /* LTStatusTitleView.h */,
-				B80A36251C1DABC400C3B226 /* LTStatusTitleView.m */,
-				B80A36261C1DABC400C3B226 /* LTStatusToolbarView.h */,
-				B80A36271C1DABC400C3B226 /* LTStatusToolbarView.m */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		B80A360B1C1DABC400C3B226 /* Compose */ = {
-			isa = PBXGroup;
-			children = (
-				B80A360C1C1DABC400C3B226 /* bpg.framework */,
-				B80A360D1C1DABC400C3B226 /* WBEmoticonInputView.h */,
-				B80A360E1C1DABC400C3B226 /* WBEmoticonInputView.m */,
-				B80A360F1C1DABC400C3B226 /* WBStatusComposeTextParser.h */,
-				B80A36101C1DABC400C3B226 /* WBStatusComposeTextParser.m */,
-				B80A36111C1DABC400C3B226 /* WBStatusComposeViewController.h */,
-				B80A36121C1DABC400C3B226 /* WBStatusComposeViewController.m */,
-				B80A36131C1DABC400C3B226 /* WebP.framework */,
-				B80A36141C1DABC400C3B226 /* WebP.sh */,
-			);
-			path = Compose;
-			sourceTree = "<group>";
-		};
-		B80A36151C1DABC400C3B226 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				B80A36161C1DABC400C3B226 /* WBStatusHelper.h */,
-				B80A36171C1DABC400C3B226 /* WBStatusHelper.m */,
-			);
-			path = Helper;
-			sourceTree = "<group>";
-		};
-		B80A362A1C1DABC400C3B226 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-				B80A362B1C1DABC400C3B226 /* EmoticonQQ.bundle */,
-				B80A362C1C1DABC400C3B226 /* EmoticonWeibo.bundle */,
-				B80A362D1C1DABC400C3B226 /* ResourceWeibo.bundle */,
-			);
-			path = Resource;
-			sourceTree = "<group>";
-		};
-		B80A363B1C1DABC400C3B226 /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-				B80A363C1C1DABC400C3B226 /* iosbuild */,
-			);
-			path = Vendor;
-			sourceTree = "<group>";
-		};
-		B80A363C1C1DABC400C3B226 /* iosbuild */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = iosbuild;
-			sourceTree = "<group>";
-		};
 		B80A367D1C1DAD0000C3B226 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
@@ -2779,6 +2674,7 @@
 				B8D1D5271C33DEEB00DC4EDC /* 小模块 */,
 				B81071D21C197FCE0058130E /* Discover */,
 				B8E64C241C43F2E000B4CB64 /* Group */,
+				B845BC421C45072B001DA565 /* Dynamic */,
 				B81071E01C197FCE0058130E /* Me */,
 				B81071F01C197FCE0058130E /* ToDo */,
 				D4AAD04AA1526B5C57634B62 /* Pods */,
@@ -2851,7 +2747,6 @@
 				B8D1D5291C33EB0200DC4EDC /* Post */,
 				B81071D31C197FCE0058130E /* Cell */,
 				B807266F1C1AAF0F00E7802A /* Todo */,
-				B80A35FE1C1DABC400C3B226 /* Dynamic */,
 				B81071D91C197FCE0058130E /* LTDiscoverViewController.h */,
 				B81071DA1C197FCE0058130E /* LTDiscoverViewController.m */,
 			);
@@ -3267,6 +3162,88 @@
 			);
 			name = Model;
 			path = OhShock/Model;
+			sourceTree = "<group>";
+		};
+		B845BC421C45072B001DA565 /* Dynamic */ = {
+			isa = PBXGroup;
+			children = (
+				B845BC431C45072B001DA565 /* ApiDump */,
+				B845BC4C1C45072B001DA565 /* Compose */,
+				B845BC561C45072B001DA565 /* Helper */,
+				B845BC591C45072B001DA565 /* LTStatusCardView.h */,
+				B845BC5A1C45072B001DA565 /* LTStatusCardView.m */,
+				B845BC5B1C45072B001DA565 /* LTStatusCell.h */,
+				B845BC5C1C45072B001DA565 /* LTStatusCell.m */,
+				B845BC5D1C45072B001DA565 /* LTStatusProfileView.h */,
+				B845BC5E1C45072B001DA565 /* LTStatusProfileView.m */,
+				B845BC5F1C45072B001DA565 /* LTStatusTagView.h */,
+				B845BC601C45072B001DA565 /* LTStatusTagView.m */,
+				B845BC611C45072B001DA565 /* LTStatusTimelineViewController.h */,
+				B845BC621C45072B001DA565 /* LTStatusTimelineViewController.m */,
+				B845BC631C45072B001DA565 /* LTStatusTitleView.h */,
+				B845BC641C45072B001DA565 /* LTStatusTitleView.m */,
+				B845BC651C45072B001DA565 /* LTStatusToolbarView.h */,
+				B845BC661C45072B001DA565 /* LTStatusToolbarView.m */,
+				B845BC671C45072B001DA565 /* LTStatusView.h */,
+				B845BC681C45072B001DA565 /* LTStatusView.m */,
+				B845BC691C45072B001DA565 /* Resource */,
+				B845BC6D1C45072B001DA565 /* WBModel.h */,
+				B845BC6E1C45072B001DA565 /* WBModel.m */,
+				B845BC6F1C45072B001DA565 /* WBStatusLayout.h */,
+				B845BC701C45072B001DA565 /* WBStatusLayout.m */,
+			);
+			name = Dynamic;
+			path = OhShock/Main/Discover/Dynamic;
+			sourceTree = "<group>";
+		};
+		B845BC431C45072B001DA565 /* ApiDump */ = {
+			isa = PBXGroup;
+			children = (
+				B845BC441C45072B001DA565 /* weibo_0.json */,
+				B845BC451C45072B001DA565 /* weibo_1.json */,
+				B845BC461C45072B001DA565 /* weibo_2.json */,
+				B845BC471C45072B001DA565 /* weibo_3.json */,
+				B845BC481C45072B001DA565 /* weibo_4.json */,
+				B845BC491C45072B001DA565 /* weibo_5.json */,
+				B845BC4A1C45072B001DA565 /* weibo_6.json */,
+				B845BC4B1C45072B001DA565 /* weibo_7.json */,
+			);
+			path = ApiDump;
+			sourceTree = "<group>";
+		};
+		B845BC4C1C45072B001DA565 /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				B845BC4D1C45072B001DA565 /* bpg.framework */,
+				B845BC4E1C45072B001DA565 /* WBEmoticonInputView.h */,
+				B845BC4F1C45072B001DA565 /* WBEmoticonInputView.m */,
+				B845BC501C45072B001DA565 /* WBStatusComposeTextParser.h */,
+				B845BC511C45072B001DA565 /* WBStatusComposeTextParser.m */,
+				B845BC521C45072B001DA565 /* WBStatusComposeViewController.h */,
+				B845BC531C45072B001DA565 /* WBStatusComposeViewController.m */,
+				B845BC541C45072B001DA565 /* WebP.framework */,
+				B845BC551C45072B001DA565 /* WebP.sh */,
+			);
+			path = Compose;
+			sourceTree = "<group>";
+		};
+		B845BC561C45072B001DA565 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				B845BC571C45072B001DA565 /* WBStatusHelper.h */,
+				B845BC581C45072B001DA565 /* WBStatusHelper.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		B845BC691C45072B001DA565 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				B845BC6A1C45072B001DA565 /* EmoticonQQ.bundle */,
+				B845BC6B1C45072B001DA565 /* EmoticonWeibo.bundle */,
+				B845BC6C1C45072B001DA565 /* ResourceWeibo.bundle */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		B85801111C1A849E00786143 /* AVOSCloud */ = {
@@ -4422,7 +4399,6 @@
 				B8EEAE731C294F5400F861E8 /* sharemore_pic@2x.png in Resources */,
 				B80728DF1C1AB2EA00E7802A /* task_activity_icon_reassign@2x.png in Resources */,
 				B8EEAE461C294F5400F861E8 /* input-bar-flat.png in Resources */,
-				B80A36581C1DABC400C3B226 /* EmoticonQQ.bundle in Resources */,
 				B80728B41C1AB2E900E7802A /* pop_Task@2x.png in Resources */,
 				B80728CE1C1AB2EA00E7802A /* task_icon_arrow@2x.png in Resources */,
 				B80727D51C1AB2E900E7802A /* btn_delete_tweetimage@2x.png in Resources */,
@@ -4450,18 +4426,16 @@
 				B8EEAE361C294F5400F861E8 /* tusiji_5_cover@2x.png in Resources */,
 				B8EEAE0F1C294F5400F861E8 /* rabbit_22_cover@2x.png in Resources */,
 				B807283F1C1AB2E900E7802A /* icon_file_state_look@2x.png in Resources */,
-				B80A36451C1DABC400C3B226 /* weibo_6.json in Resources */,
 				B8EEAE271C294F5400F861E8 /* tusiji_12_cover@2x.png in Resources */,
 				B80728461C1AB2E900E7802A /* icon_recommended@2x.png in Resources */,
 				B8EEAE4C1C294F5400F861E8 /* loudReceive.caf in Resources */,
 				B81CCC421C21408500D642DB /* JSQMessagesCollectionViewCellOutgoing.xib in Resources */,
 				B80727F21C1AB2E900E7802A /* coding_emoji_01@2x.png in Resources */,
 				B80728F81C1AB2EA00E7802A /* tipIcon_Tweet@2x.png in Resources */,
-				B80A36461C1DABC400C3B226 /* weibo_7.json in Resources */,
 				B80728EA1C1AB2EA00E7802A /* timeline_line_read@2x.png in Resources */,
-				B80A363F1C1DABC400C3B226 /* weibo_0.json in Resources */,
 				B807285D1C1AB2E900E7802A /* intro_tip_0@3x.png in Resources */,
 				B80728881C1AB2E900E7802A /* mrpr_icon_refaused@2x.png in Resources */,
+				B845BC781C45072B001DA565 /* weibo_7.json in Resources */,
 				B80728A81C1AB2E900E7802A /* placeholder_coding_square_150@2x.png in Resources */,
 				B8EEADE41C294F5400F861E8 /* AddGroupMemberBtnHL@2x.png in Resources */,
 				B80728571C1AB2E900E7802A /* intro_icon_4@3x.png in Resources */,
@@ -4469,6 +4443,7 @@
 				B807287B1C1AB2E900E7802A /* logo_coding_top@2x.png in Resources */,
 				B80728761C1AB2E900E7802A /* location_checkmark@2x.png in Resources */,
 				B807289E1C1AB2E900E7802A /* nav_page_selected@2x.png in Resources */,
+				B845BC7E1C45072B001DA565 /* WebP.sh in Resources */,
 				B807289C1C1AB2E900E7802A /* nav_tweet_hot@2x.png in Resources */,
 				B8EEADFD1C294F5400F861E8 /* rabbit_14_cover@2x.png in Resources */,
 				B8EEAE001C294F5400F861E8 /* rabbit_16.gif in Resources */,
@@ -4500,7 +4475,9 @@
 				B80728291C1AB2E900E7802A /* icon_code_tree@2x.png in Resources */,
 				B80729021C1AB2EA00E7802A /* n_btn_followed_both@2x.png in Resources */,
 				B8EEAE811C294F5400F861E8 /* weChatBubble_Sending_LeanChat@2x.png in Resources */,
+				B845BC891C45072B001DA565 /* EmoticonWeibo.bundle in Resources */,
 				B8EEAE551C294F5400F861E8 /* MultiSelectedPanelConfirmBtnbKG@2x.png in Resources */,
+				B845BC731C45072B001DA565 /* weibo_2.json in Resources */,
 				B807285C1C1AB2E900E7802A /* intro_tip_0@2x.png in Resources */,
 				B80727E91C1AB2E900E7802A /* btn_privateMsg_white@2x.png in Resources */,
 				B80728B81C1AB2E900E7802A /* project_tag_icon@2x.png in Resources */,
@@ -4587,7 +4564,6 @@
 				B8EEAE5C1C294F5400F861E8 /* ReceiverVoiceNodePlaying@2x.png in Resources */,
 				B80728861C1AB2E900E7802A /* mrpr_icon_commit@2x.png in Resources */,
 				B80728951C1AB2E900E7802A /* nav_project_code@2x.png in Resources */,
-				B80A364D1C1DABC400C3B226 /* WebP.sh in Resources */,
 				B80728AD1C1AB2E900E7802A /* placeholder_monkey_round_40@2x.png in Resources */,
 				B80728061C1AB2E900E7802A /* coding_emoji_21@2x.png in Resources */,
 				B81071BE1C197F700058130E /* LaunchScreen.storyboard in Resources */,
@@ -4617,6 +4593,7 @@
 				B80728F41C1AB2EA00E7802A /* tipIcon_PullRequestComment@2x.png in Resources */,
 				B807288B1C1AB2E900E7802A /* addUserBtn_Nav@2x.png in Resources */,
 				B8EEAE321C294F5400F861E8 /* tusiji_3_cover@2x.png in Resources */,
+				B845BC8A1C45072B001DA565 /* ResourceWeibo.bundle in Resources */,
 				B80728961C1AB2E900E7802A /* nav_project_file@2x.png in Resources */,
 				B80728031C1AB2E900E7802A /* coding_emoji_18@2x.png in Resources */,
 				B80728F51C1AB2EA00E7802A /* tipIcon_QcTask@2x.png in Resources */,
@@ -4657,21 +4634,19 @@
 				B80728791C1AB2E900E7802A /* logo_about@2x.png in Resources */,
 				B80728071C1AB2E900E7802A /* coding_emoji_22@2x.png in Resources */,
 				B807286E1C1AB2E900E7802A /* keyboard_emotion_emoji@2x.png in Resources */,
-				B80A36441C1DABC400C3B226 /* weibo_5.json in Resources */,
 				B80728DA1C1AB2EA00E7802A /* taskProgress@2x.png in Resources */,
 				B80728E71C1AB2EA00E7802A /* time_clock_icon@2x.png in Resources */,
 				B80728711C1AB2E900E7802A /* keyboard_page_selected@2x.png in Resources */,
 				B807282E1C1AB2E900E7802A /* icon_file_md@2x.png in Resources */,
 				B80728E61C1AB2EA00E7802A /* text_clear_btn@2x.png in Resources */,
 				B80728191C1AB2E900E7802A /* coding_emoji_41@2x.png in Resources */,
-				B80A365A1C1DABC400C3B226 /* ResourceWeibo.bundle in Resources */,
 				B80729061C1AB2EA00E7802A /* n_sex_woman_icon@2x.png in Resources */,
 				B80728181C1AB2E900E7802A /* coding_emoji_40@2x.png in Resources */,
 				B80728C11C1AB2E900E7802A /* me_normal@2x.png in Resources */,
-				B80A36431C1DABC400C3B226 /* weibo_4.json in Resources */,
 				B8EEADFF1C294F5400F861E8 /* rabbit_15_cover@2x.png in Resources */,
 				B80728A11C1AB2E900E7802A /* project_item_code@2x.png in Resources */,
 				B807283E1C1AB2E900E7802A /* icon_file_state_goon@2x.png in Resources */,
+				B845BC771C45072B001DA565 /* weibo_6.json in Resources */,
 				B807280D1C1AB2E900E7802A /* coding_emoji_28@2x.png in Resources */,
 				B807284F1C1AB2E900E7802A /* intro_icon_0@3x.png in Resources */,
 				B8EEAE7E1C294F5400F861E8 /* weChatBubble_Receiving_LeanChat@2x.png in Resources */,
@@ -4679,7 +4654,6 @@
 				B8EEAE191C294F5400F861E8 /* rabbit_7.gif in Resources */,
 				B8EEAE031C294F5400F861E8 /* rabbit_17_cover@2x.png in Resources */,
 				B8EEAE391C294F5400F861E8 /* tusiji_7.gif in Resources */,
-				B80A36421C1DABC400C3B226 /* weibo_3.json in Resources */,
 				B80728321C1AB2E900E7802A /* icon_file_ppt@2x.png in Resources */,
 				B8E64C631C43F2E100B4CB64 /* AddressCell.xib in Resources */,
 				B8EEADE31C294F5400F861E8 /* AddGroupMemberBtn@2x.png in Resources */,
@@ -4700,14 +4674,17 @@
 				B80728251C1AB2E900E7802A /* git_icon_watch@2x.png in Resources */,
 				B80728221C1AB2E900E7802A /* git_icon_fork@2x.png in Resources */,
 				B8EEAE2E1C294F5400F861E8 /* tusiji_1_cover@2x.png in Resources */,
+				B845BC881C45072B001DA565 /* EmoticonQQ.bundle in Resources */,
 				B8EEAE771C294F5400F861E8 /* sharemore_voipvoice@2x.png in Resources */,
 				B807284E1C1AB2E900E7802A /* intro_icon_0@2x.png in Resources */,
 				B8EEAE681C294F5400F861E8 /* SECoreTextView.bundle in Resources */,
 				B80728E21C1AB2EA00E7802A /* task_activity_icon_update_deadline@2x.png in Resources */,
 				B8EEAE701C294F5400F861E8 /* sharemore_location@2x.png in Resources */,
 				B80728941C1AB2E900E7802A /* nav_project_activity@2x.png in Resources */,
+				B845BC761C45072B001DA565 /* weibo_5.json in Resources */,
 				B80727F51C1AB2E900E7802A /* coding_emoji_04@2x.png in Resources */,
 				B80727E11C1AB2E900E7802A /* button_file_upload_enable@2x.png in Resources */,
+				B845BC741C45072B001DA565 /* weibo_3.json in Resources */,
 				B80727CF1C1AB2E900E7802A /* add_user_icon@2x.png in Resources */,
 				B80728481C1AB2E900E7802A /* icon_user_monkey@2x.png in Resources */,
 				B80728C01C1AB2E900E7802A /* STARTIMAGE.jpg in Resources */,
@@ -4793,6 +4770,7 @@
 				B80727E41C1AB2E900E7802A /* btn_followed_not@2x.png in Resources */,
 				B80728201C1AB2E900E7802A /* file_changeType_RENAME@2x.png in Resources */,
 				B8EEADE51C294F5400F861E8 /* avator@2x.png in Resources */,
+				B845BC721C45072B001DA565 /* weibo_1.json in Resources */,
 				B8EEAE0A1C294F5400F861E8 /* rabbit_20.gif in Resources */,
 				B80728BF1C1AB2E900E7802A /* background_start.PNG in Resources */,
 				B80728D21C1AB2EA00E7802A /* taskPriority0_small@2x.png in Resources */,
@@ -4814,11 +4792,11 @@
 				B80727FB1C1AB2E900E7802A /* coding_emoji_10@2x.png in Resources */,
 				B807287A1C1AB2E900E7802A /* logo_coding@2x.png in Resources */,
 				B8EEAE6D1C294F5400F861E8 /* SenderVoiceNodePlaying003@2x.png in Resources */,
+				B845BC711C45072B001DA565 /* weibo_0.json in Resources */,
 				B80728421C1AB2E900E7802A /* icon_not_locationed@2x.png in Resources */,
 				B807285E1C1AB2E900E7802A /* intro_tip_1@2x.png in Resources */,
 				B80728D51C1AB2EA00E7802A /* taskPriority2@2x.png in Resources */,
 				B8EEAE2A1C294F5400F861E8 /* tusiji_14.gif in Resources */,
-				B80A36411C1DABC400C3B226 /* weibo_2.json in Resources */,
 				B80728511C1AB2E900E7802A /* intro_icon_1@3x.png in Resources */,
 				B8E64C671C43F2E100B4CB64 /* LTGroupCell.xib in Resources */,
 				B8EEAE561C294F5400F861E8 /* placeholderImage@2x.png in Resources */,
@@ -4846,9 +4824,7 @@
 				B80728841C1AB2E900E7802A /* mrpr_icon_accepted@2x.png in Resources */,
 				B80728931C1AB2E900E7802A /* twoFABtn_Nav@2x.png in Resources */,
 				B80728FD1C1AB2EA00E7802A /* topic_comment_icon@2x.png in Resources */,
-				B80A36591C1DABC400C3B226 /* EmoticonWeibo.bundle in Resources */,
 				B80728EB1C1AB2EA00E7802A /* timeline_line_unread@2x.png in Resources */,
-				B80A36401C1DABC400C3B226 /* weibo_1.json in Resources */,
 				B807287C1C1AB2E900E7802A /* map_annotation@2x.png in Resources */,
 				B8EEAE531C294F5400F861E8 /* multiMedia_HL@2x.png in Resources */,
 				B8EEAE0C1C294F5400F861E8 /* rabbit_21.gif in Resources */,
@@ -4885,6 +4861,7 @@
 				B80728D41C1AB2EA00E7802A /* taskPriority1_small@2x.png in Resources */,
 				B8EEAE801C294F5400F861E8 /* weChatBubble_Sending_Cavern@2x.png in Resources */,
 				B80728D91C1AB2EA00E7802A /* taskPriority@2x.png in Resources */,
+				B845BC751C45072B001DA565 /* weibo_4.json in Resources */,
 				B8EEAE641C294F5400F861E8 /* RecordingSignal006@2x.png in Resources */,
 				B80728151C1AB2E900E7802A /* coding_emoji_36@2x.png in Resources */,
 				B8EEAE2D1C294F5400F861E8 /* tusiji_15_cover@2x.png in Resources */,
@@ -4993,6 +4970,7 @@
 				B81072551C197FCE0058130E /* IFTTTJazzHandsViewController.m in Sources */,
 				B8D1D52C1C33EB2B00DC4EDC /* LTPostListViewController.m in Sources */,
 				B863A65D1C2CD8D000707D17 /* NSDate+Helper.m in Sources */,
+				B845BC7F1C45072B001DA565 /* WBStatusHelper.m in Sources */,
 				B87677C91C1FE32800A0795B /* LTUserSearchService.m in Sources */,
 				B8EEADA11C294F5400F861E8 /* XHDisplayMediaViewController.m in Sources */,
 				B81CCC441C21408500D642DB /* JSQMessagesInputToolbar.m in Sources */,
@@ -5010,7 +4988,6 @@
 				B8EEADCF1C294F5400F861E8 /* XHBubblePhotoImageView.m in Sources */,
 				B81CCC2D1C21408500D642DB /* JSQMessagesBubbleImageFactory.m in Sources */,
 				B81072631C197FCE0058130E /* LTMeViewController.m in Sources */,
-				B80A36491C1DABC400C3B226 /* WBEmoticonInputView.m in Sources */,
 				B817B2FD1C2F785D00AFDC4C /* LTAddTodoService.m in Sources */,
 				B81CCC231C21408500D642DB /* NSBundle+JSQMessages.m in Sources */,
 				B8EEAD901C294F5400F861E8 /* UIScrollView+XHkeyboardControl.m in Sources */,
@@ -5021,8 +4998,10 @@
 				B87677BB1C1FC7FE00A0795B /* LTLogOutService.m in Sources */,
 				B81CCC271C21408500D642DB /* UIImage+JSQMessages.m in Sources */,
 				B8A128471C1984B100ECA6CD /* NSObject+LKDBHelper.m in Sources */,
+				B845BC8B1C45072B001DA565 /* WBModel.m in Sources */,
 				B80A37911C1DADB600C3B226 /* YYPhotoGroupView.m in Sources */,
 				B84C205D1C2A440200F758AD /* AVIMTypedMessage+JSQMessages.m in Sources */,
+				B845BC821C45072B001DA565 /* LTStatusProfileView.m in Sources */,
 				B8EEADAC1C294F5400F861E8 /* XHVideoOutputSampleBufferFactory.m in Sources */,
 				B8EEADC81C294F5400F861E8 /* XHViewState.m in Sources */,
 				B8EEADA51C294F5400F861E8 /* XHFileAttribute.m in Sources */,
@@ -5047,15 +5026,14 @@
 				B81072571C197FCE0058130E /* LogInViewController.m in Sources */,
 				B8EEADBB1C294F5400F861E8 /* SELinkText.m in Sources */,
 				B810725D1C197FCE0058130E /* LTMainTabBarController.m in Sources */,
+				B845BC831C45072B001DA565 /* LTStatusTagView.m in Sources */,
 				B82BA3C71C2BDED7004AFC37 /* SWActionSheet.m in Sources */,
 				B81072621C197FCE0058130E /* LTMeHeadView.m in Sources */,
 				B81CCC3B1C21408500D642DB /* JSQVideoMediaItem.m in Sources */,
 				B82BA3AA1C2BDCE6004AFC37 /* LTAddTodoViewController.m in Sources */,
-				B80A36511C1DABC400C3B226 /* LTStatusCell.m in Sources */,
 				B8EEAD791C294F5400F861E8 /* CDChatRoomVC.m in Sources */,
 				B8EEAD961C294F5400F861E8 /* XHLocationHelper.m in Sources */,
 				B8EEAD811C294F5400F861E8 /* CDSoundManager.m in Sources */,
-				B80A36561C1DABC400C3B226 /* LTStatusToolbarView.m in Sources */,
 				B8ADC9971C1E8061001ED415 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				B8E64C7D1C43F2E100B4CB64 /* SKTag.m in Sources */,
 				B8EEADCB1C294F5400F861E8 /* XHSoundManager.m in Sources */,
@@ -5063,6 +5041,7 @@
 				B81072721C197FCE0058130E /* JTCalendarContentView.m in Sources */,
 				B8C3360B1C40E7EE001A06BF /* LTPostLikedView.m in Sources */,
 				B82BA3CA1C2BDF2F004AFC37 /* LTAddTodoSelectionCell.m in Sources */,
+				B845BC861C45072B001DA565 /* LTStatusToolbarView.m in Sources */,
 				B87677C21C1FE12600A0795B /* LTLiteUserModel.m in Sources */,
 				B8EEADCD1C294F5400F861E8 /* XHBaseCollectionViewCell.m in Sources */,
 				B87677D01C1FEC9900A0795B /* UISearchBar+RACSignalSupport.m in Sources */,
@@ -5070,14 +5049,16 @@
 				B8EEAD9B1C294F5400F861E8 /* XHBaseNavigationController.m in Sources */,
 				B810725E1C197FCE0058130E /* LTMeHeadUserFollowerAndFolloweeView.m in Sources */,
 				B8EEABC21C28FBA000F861E8 /* LTMeInfoSettingViewController.m in Sources */,
+				B845BC7A1C45072B001DA565 /* WBEmoticonInputView.m in Sources */,
 				B81CCC2E1C21408500D642DB /* JSQMessagesMediaViewBubbleImageMasker.m in Sources */,
 				B8E448D71C3BDD3900D4D717 /* LTPostContentView.m in Sources */,
 				B8EEAD971C294F5400F861E8 /* XHMessageBubbleHelper.m in Sources */,
 				B81CCC4B1C21408500D642DB /* JSQMessagesTypingIndicatorFooterView.m in Sources */,
 				B81072701C197FCE0058130E /* JTCalendar.m in Sources */,
-				B80A364A1C1DABC400C3B226 /* WBStatusComposeTextParser.m in Sources */,
+				B845BC871C45072B001DA565 /* LTStatusView.m in Sources */,
 				B8EEADA81C294F5400F861E8 /* XHMessageAvatorFactory.m in Sources */,
 				B87677D31C20054D00A0795B /* LTUserInfoViewController.m in Sources */,
+				B845BC7C1C45072B001DA565 /* WBStatusComposeViewController.m in Sources */,
 				B82BA3C41C2BDED7004AFC37 /* ActionSheetLocalePicker.m in Sources */,
 				B8E64C6F1C43F2E100B4CB64 /* LTGroupInfoViewController.m in Sources */,
 				B8A128431C1984B100ECA6CD /* LKAlarmMamager.m in Sources */,
@@ -5085,7 +5066,6 @@
 				B81072831C197FCE0058130E /* LTTodoCalenderStyleViewController.m in Sources */,
 				B81CCC341C21408500D642DB /* JSQMessagesCollectionViewLayoutAttributes.m in Sources */,
 				B81CCC301C21408500D642DB /* JSQMessagesToolbarButtonFactory.m in Sources */,
-				B80A37821C1DAD5F00C3B226 /* WBStatusLayout.m in Sources */,
 				B81CCC251C21408500D642DB /* UIColor+JSQMessages.m in Sources */,
 				B84428701C4252FE005FA556 /* LTPostImageCollectionViewCell.m in Sources */,
 				B8EEADDE1C294F5400F861E8 /* XHRefreshCircleView.m in Sources */,
@@ -5093,9 +5073,9 @@
 				B8EEADBA1C294F5400F861E8 /* SELineLayout.m in Sources */,
 				B8EEAD841C294F5400F861E8 /* LZConversationCell.m in Sources */,
 				B8A128421C1984B100ECA6CD /* LKAlarmEvent.m in Sources */,
-				B80A36571C1DABC400C3B226 /* LTStatusView.m in Sources */,
 				B8EEAD8F1C294F5400F861E8 /* UIImage+XHRounded.m in Sources */,
 				B81071B31C197F6F0058130E /* AppDelegate.m in Sources */,
+				B845BC841C45072B001DA565 /* LTStatusTimelineViewController.m in Sources */,
 				B810725B1C197FCE0058130E /* LTDiscoverViewController.m in Sources */,
 				B81CCC261C21408500D642DB /* UIDevice+JSQMessages.m in Sources */,
 				B8EEADDC1C294F5400F861E8 /* XHShareMenuView.m in Sources */,
@@ -5115,6 +5095,7 @@
 				B81072541C197FCE0058130E /* IFTTTCircleView.m in Sources */,
 				B810728A1C197FCE0058130E /* SignUpViewController.m in Sources */,
 				B8EEADAE1C294F5400F861E8 /* XHAnnotation.m in Sources */,
+				B845BC811C45072B001DA565 /* LTStatusCell.m in Sources */,
 				B82BA3C21C2BDED7004AFC37 /* ActionSheetDatePicker.m in Sources */,
 				B8EEAD951C294F5400F861E8 /* XHFoundationCommon.m in Sources */,
 				B81CCC241C21408500D642DB /* NSString+JSQMessages.m in Sources */,
@@ -5153,6 +5134,7 @@
 				B8EEAD9F1C294F5400F861E8 /* XHDisplayEmotionViewController.m in Sources */,
 				B80A37921C1DADB600C3B226 /* YYSimpleWebViewController.m in Sources */,
 				B81CCC381C21408500D642DB /* JSQMessagesAvatarImage.m in Sources */,
+				B845BC7B1C45072B001DA565 /* WBStatusComposeTextParser.m in Sources */,
 				B8EEADBD1C294F5400F861E8 /* SETextAttachment.m in Sources */,
 				B810728E1C197FCE0058130E /* UIView+Layout.m in Sources */,
 				B81CCB961C21259F00D642DB /* LTChatViewController.m in Sources */,
@@ -5170,7 +5152,6 @@
 				B8EEADC61C294F5400F861E8 /* SETextView.m in Sources */,
 				B81CCC361C21408500D642DB /* JSQMediaItem.m in Sources */,
 				B81CCC431C21408500D642DB /* JSQMessagesComposerTextView.m in Sources */,
-				B80A36531C1DABC400C3B226 /* LTStatusTagView.m in Sources */,
 				B8EEADB81C294F5400F861E8 /* SECompatibility.m in Sources */,
 				B87677D71C2005C700A0795B /* LTUserInfoHeadView.m in Sources */,
 				B844284E1C420E8C005FA556 /* LTPostCommentView.m in Sources */,
@@ -5187,10 +5168,12 @@
 				B8EEAD7B1C294F5400F861E8 /* AVIMEmotionMessage.m in Sources */,
 				B8ADC9C61C1EDE44001ED415 /* LTMeLogOutCell.m in Sources */,
 				B8EEADD91C294F5400F861E8 /* XHEmotionCollectionViewFlowLayout.m in Sources */,
+				B845BC8C1C45072B001DA565 /* WBStatusLayout.m in Sources */,
 				B81072791C197FCE0058130E /* JTCalendarWeekView.m in Sources */,
 				B8ADC99A1C1E8365001ED415 /* DiscoverTodoCell.m in Sources */,
 				B8EEADB01C294F5400F861E8 /* XHEmotion.m in Sources */,
 				B8EEAD851C294F5400F861E8 /* LZStatusView.m in Sources */,
+				B845BC801C45072B001DA565 /* LTStatusCardView.m in Sources */,
 				B8E64C791C43F2E100B4CB64 /* DVSwitch.m in Sources */,
 				B8A128461C1984B100ECA6CD /* LKDBUtils.m in Sources */,
 				B8E64C7E1C43F2E100B4CB64 /* SKTagButton.m in Sources */,
@@ -5203,7 +5186,6 @@
 				B8EEADB71C294F5400F861E8 /* LKBadgeView.m in Sources */,
 				B8ADC9931C1E6F7B001ED415 /* LTDiscoverTodoView.m in Sources */,
 				B8EEADBF1C294F5400F861E8 /* SETextGeometry.m in Sources */,
-				B80A36501C1DABC400C3B226 /* LTStatusCardView.m in Sources */,
 				B81CCC3A1C21408500D642DB /* JSQPhotoMediaItem.m in Sources */,
 				B810726D1C197FCE0058130E /* ScheduleFootCell.m in Sources */,
 				B8EEADCA1C294F5400F861E8 /* XHPathCover.m in Sources */,
@@ -5213,6 +5195,7 @@
 				B81CCC2A1C21408500D642DB /* JSQMessagesViewController.m in Sources */,
 				B8EEADCE1C294F5400F861E8 /* XHBaseTableViewCell.m in Sources */,
 				B8EEADA41C294F5400F861E8 /* XHCacheManager.m in Sources */,
+				B845BC851C45072B001DA565 /* LTStatusTitleView.m in Sources */,
 				B84428761C4264C3005FA556 /* LTUser.m in Sources */,
 				B8E64C741C43F2E100B4CB64 /* InputGroupNameViewController.m in Sources */,
 				B8EEADAB1C294F5400F861E8 /* XHMessageVoiceFactory.m in Sources */,
@@ -5231,22 +5214,17 @@
 				B8EEADDD1C294F5400F861E8 /* XHLoadMoreView.m in Sources */,
 				B8A128441C1984B100ECA6CD /* LKDB+Mapping.m in Sources */,
 				B8EEADB61C294F5400F861E8 /* FLAnimatedImageView.m in Sources */,
-				B80A364E1C1DABC400C3B226 /* WBStatusHelper.m in Sources */,
-				B80A36541C1DABC400C3B226 /* LTStatusTimelineViewController.m in Sources */,
 				B81CCC461C21408500D642DB /* JSQMessagesLoadEarlierHeaderView.m in Sources */,
 				B80A37901C1DADB600C3B226 /* YYFPSLabel.m in Sources */,
 				B81CCB991C2126F600D642DB /* LTChatModel.m in Sources */,
 				B87677DD1C2015C300A0795B /* LTUserInfoSendMessageCell.m in Sources */,
 				B81072751C197FCE0058130E /* JTCalendarMenuMonthView.m in Sources */,
-				B80A36551C1DABC400C3B226 /* LTStatusTitleView.m in Sources */,
 				B8EEADE11C294F5400F861E8 /* NSString+Emojize.m in Sources */,
-				B80A36521C1DABC400C3B226 /* LTStatusProfileView.m in Sources */,
 				B825C78A1C3F5CCB006E41C0 /* LTPostView.m in Sources */,
 				B8EEAD801C294F5400F861E8 /* CDMessageHelper.m in Sources */,
 				B84428731C425325005FA556 /* LTPostCommentCell.m in Sources */,
 				B8EEADC41C294F5400F861E8 /* SETextSelection.m in Sources */,
 				B810726F1C197FCE0058130E /* DWBubbleMenuButton.m in Sources */,
-				B80A36611C1DABC400C3B226 /* WBModel.m in Sources */,
 				B844286B1C4226C0005FA556 /* LTPostLikedModel.m in Sources */,
 				B807290F1C1AB5C900E7802A /* LTDiscoverTodoUserImageView.m in Sources */,
 				B8EEADBE1C294F5400F861E8 /* SETextEditingCaret.m in Sources */,
@@ -5268,7 +5246,6 @@
 				B855AB2F1C3D050000566B9B /* LTPostImagesView.m in Sources */,
 				B81CCC291C21408500D642DB /* JSQMessagesKeyboardController.m in Sources */,
 				B8EEADA91C294F5400F861E8 /* XHMessageBubbleFactory.m in Sources */,
-				B80A364B1C1DABC400C3B226 /* WBStatusComposeViewController.m in Sources */,
 				B81072861C197FCE0058130E /* XHPopMenu.m in Sources */,
 				B81071B01C197F6F0058130E /* main.m in Sources */,
 			);
