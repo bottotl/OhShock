@@ -122,8 +122,9 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
     NSLog(@"点击了图片");
     UINavigationController * viewController = (UINavigationController *)((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).selectedViewController;
 //    UIViewController * viewController = (UINavigationController *)((UINavigationController *)(((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).selectedViewController)).topViewController;
-    YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:items.copy];
-    [v presentFromImageView:cell.imageView toContainer:viewController.view animated:YES completion:nil];
+//    YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:items.copy];
+//    [v presentFromImageView:cell.imageView toContainer:viewController.view animated:YES completion:nil];
+    NSLog(@"%@",[NSValue valueWithCGRect:[cell.imageView convertRect:cell.imageView.frame toView:viewController.view]]) ;
 }
 
 
@@ -175,7 +176,7 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
 -(LTPostImagesView *)imagesView{
     if (!_imagesView) {
         _imagesView = [LTPostImagesView new];
-        _imagesView.collectionView.delegate = self;
+        //_imagesView.collectionView.delegate = self;
         [self addSubview:_imagesView];
     }
     return _imagesView;

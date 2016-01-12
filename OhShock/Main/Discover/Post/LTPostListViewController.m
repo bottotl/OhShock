@@ -63,12 +63,15 @@
     content.font = [UIFont systemFontOfSize:15];
     contentData.content = content.copy;
     
-    LTPostImageModel *postImageData = [LTPostImageModel new];
-    postImageData.smallUrlString = @"http://ww3.sinaimg.cn/mw690/6b5f103fjw8ezoov1yvggj20p00p0q59.jpg";
-    postImageData.bigUrlString = @"http://ww4.sinaimg.cn/mw690/6b5f103fjw8em2xe1lm4wj20qm0qnadp.jpg";
+    /**
+     *  多图展示数据模拟
+     */
     NSMutableArray *tempPostImagesData = @[].mutableCopy;
     for (int i = 0; i < 9; i++) {
-        [tempPostImagesData addObject:postImageData];
+        LTPostImageModel *model = [LTPostImageModel new];
+        model.smallUrlString = [NSString stringWithFormat:@"https://coding.net//static/fruit_avatar/Fruit-%d.png",i%19 +1];
+        model.bigUrlString = [NSString stringWithFormat:@"https://coding.net//static/fruit_avatar/Fruit-%d.png",i%19 +2];
+        [tempPostImagesData addObject:model];
     }
     NSArray *postImagesData = tempPostImagesData.copy;
     

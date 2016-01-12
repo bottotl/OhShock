@@ -36,7 +36,7 @@
 - (void)p_initial{
     _layout = [UICollectionViewFlowLayout new];
     _collectionView  = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:_layout];
-    //_collectionView.delegate = self;
+    _collectionView.delegate = self;
     _collectionView.dataSource = self;
     _collectionView.backgroundColor = [UIColor clearColor];
     _collectionView.scrollEnabled = NO;
@@ -102,24 +102,27 @@
     return cell;
 }
 
-//- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-//    NSMutableArray *items = @[].mutableCopy;
-//    LTPostImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:LTPostImageCollectionCellIdentifier forIndexPath:indexPath];
-//    LTPostImageModel *pic = self.data[indexPath.row];
-//    [cell configCellWithImageUrl:pic.smallUrlString];
-//    for (LTPostImageModel *model in self.data) {
-//        YYPhotoGroupItem *item = [YYPhotoGroupItem new];
-//        item.thumbView = cell.imageView;
-//        item.largeImageURL = [NSURL URLWithString:model.bigUrlString];
-//        item.largeImageSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
-//        [items addObject:item];
-//    }
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSMutableArray *items = @[].mutableCopy;
+    NSIndexPath * index = [NSIndexPath indexPathForRow:0 inSection:0];
+    for (NSUInteger i = 0 ; i < self.limit && i < self.data.count; i++) {
+        LTPostImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:LTPostImageCollectionCellIdentifier forIndexPath:index];
+        LTPostImageModel *pic = self.data[index.row];
+        [cell configCellWithImageUrl:pic.smallUrlString];
+        
+        YYPhotoGroupItem *item = [YYPhotoGroupItem new];
+        item.thumbView = cell.contentView;
+        item.largeImageURL = [NSURL URLWithString:((LTPostImageModel *)self.data[index.row]).bigUrlString];
+        item.largeImageSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
+        [items addObject:item];
+        index = [NSIndexPath indexPathForRow:(index.row + 1) inSection:0];;
+    }
 //    NSLog(@"点击了图片");
-//    UINavigationController * viewController = (UINavigationController *)((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).selectedViewController;
-////    UIViewController * viewController = (UINavigationController *)((UINavigationController *)(((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).selectedViewController)).topViewController;
-//    YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:items.copy];
-//    [v presentFromImageView:cell.imageView toContainer:viewController.view animated:YES completion:nil];
-//}
+    UINavigationController * viewController = (UINavigationController *)((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).selectedViewController;
+//    NSLog(@"%@",[NSValue valueWithCGRect:[self convertRect:cell.frame toView:viewController.view]]) ;
+    YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:items.copy];
+    [v presentFromImageView:self toContainer:viewController.view animated:YES completion:nil];
+}
 
 #pragma mark - property
 - (void)setData:(NSArray *)data{
