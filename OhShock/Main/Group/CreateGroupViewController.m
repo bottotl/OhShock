@@ -16,6 +16,9 @@
 #import "SelectAddressViewController.h"
 #import "SetGroupLabelsViewController.h"
 #import "GroupIntroductionViewController.h"
+#import <AVOSCloud/AVOSCloud.h>
+#import "SVProgressHUD.h"
+#import "LTGroup.h"
 
 static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
 
@@ -115,6 +118,57 @@ static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
 }
 
 -(void)next{
+    if (!groupName) {
+        [SVProgressHUD showErrorWithStatus:@"群名不能为空"];
+        return;
+    }
+    if (!groupStyle) {
+        [SVProgressHUD showErrorWithStatus:@"还未选择群类型"];
+        return;
+    }
+    if (!groupAddress) {
+        [SVProgressHUD showErrorWithStatus:@"群地址不能为空"];
+        return;
+    }
+    if (!groupLabels) {
+        [SVProgressHUD showErrorWithStatus:@"群标签不能为空"];
+        return;
+    }
+    if (!groupIntroduction) {
+        [SVProgressHUD showErrorWithStatus:@"群介绍不能为空"];
+        return;
+    }
+    if (!groupImage) {
+        [SVProgressHUD showErrorWithStatus:@"群图片不能为空"];
+        return;
+    }
+    LTGroup *group = [[LTGroup alloc] init];
+    //初始化群主和群成员
+    [group setObject:[AVUser currentUser] forKey:@"groupCreator"];
+    [group addUniqueObjectsFromArray:[NSArray arrayWithObjects:[AVUser currentUser], nil] forKey:@"groupMembers"];
+    
+    [group setObject:groupName forKey:@"groupName"];
+    [group setObject:groupStyle forKey:@"groupStyle"];
+    [group setObject:groupAddress forKey:@"groupAddress"];
+    [group addUniqueObjectsFromArray:groupLabels forKey:@"groupLabels"];
+    [group setObject:groupIntroduction forKey:@"groupIntroduction"];
+    NSData *imageData = UIImagePNGRepresentation(groupImage);
+    AVFile *imageFile = [AVFile fileWithName:@"image.png" data:imageData];
+    [imageFile saveInBackground];
+    [group setObject:imageFile forKey:@"groupImage"];
+    [group saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [SVProgressHUD showSuccessWithStatus:@"创建成功"];
+            
+            NSMutableArray *groupArray = [[AVUser currentUser] objectForKey:@"groupArray"];
+            if (groupArray == nil) {
+                groupArray = [NSMutableArray array];
+            }
+            [groupArray addObject:group];
+            [[AVUser currentUser] setObject:groupArray forKey:@"groupArray"];
+            [[AVUser currentUser] saveInBackground];
+        }
+    }];
     
 }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A03A18FF2EB78C95668E7DBE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E81E092BDCF086AD6DCFC0F1 /* Pods.framework */; };
+		AB76B7941C451D42000A2191 /* LTGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76B7931C451D42000A2191 /* LTGroup.m */; };
 		B80726721C1AAF2F00E7802A /* LTDiscoverTodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B80726711C1AAF2F00E7802A /* LTDiscoverTodoViewController.m */; };
 		B80727CF1C1AB2E900E7802A /* add_user_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B80726781C1AB2E900E7802A /* add_user_icon@2x.png */; };
 		B80727D01C1AB2E900E7802A /* addPictureBgImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B80726791C1AB2E900E7802A /* addPictureBgImage@2x.png */; };
@@ -846,6 +847,8 @@
 		6583791C10546A2EEDBC1DF5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		920DCD1D573C6CF1E98B7BD6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A588F699F37A12F3BBF16972 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		AB76B7921C451D42000A2191 /* LTGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTGroup.h; sourceTree = "<group>"; };
+		AB76B7931C451D42000A2191 /* LTGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroup.m; sourceTree = "<group>"; };
 		B80726701C1AAF2F00E7802A /* LTDiscoverTodoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTDiscoverTodoViewController.h; sourceTree = "<group>"; };
 		B80726711C1AAF2F00E7802A /* LTDiscoverTodoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTDiscoverTodoViewController.m; sourceTree = "<group>"; };
 		B80726781C1AB2E900E7802A /* add_user_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_user_icon@2x.png"; sourceTree = "<group>"; };
@@ -2065,6 +2068,15 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		AB76B7911C451D23000A2191 /* GroupModel */ = {
+			isa = PBXGroup;
+			children = (
+				AB76B7921C451D42000A2191 /* LTGroup.h */,
+				AB76B7931C451D42000A2191 /* LTGroup.m */,
+			);
+			path = GroupModel;
+			sourceTree = "<group>";
+		};
 		B08F36B2DD64CD5785D60B66 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -3250,6 +3262,7 @@
 		B84428581C4226C0005FA556 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AB76B7911C451D23000A2191 /* GroupModel */,
 				B84428741C4264C3005FA556 /* LTUser.h */,
 				B84428751C4264C3005FA556 /* LTUser.m */,
 				B84428591C4226C0005FA556 /* LTPostCommentModel.h */,
@@ -5162,6 +5175,7 @@
 				B81CCC411C21408500D642DB /* JSQMessagesCollectionViewCellOutgoing.m in Sources */,
 				B81CCC221C21408500D642DB /* JSQSystemSoundPlayer+JSQMessages.m in Sources */,
 				B844286A1C4226C0005FA556 /* LTPostImageModel.m in Sources */,
+				AB76B7941C451D42000A2191 /* LTGroup.m in Sources */,
 				B810728C1C197FCE0058130E /* UIColor+expanded.m in Sources */,
 				B84428571C421E0D005FA556 /* LTModels.m in Sources */,
 				B81072771C197FCE0058130E /* JTCalendarMonthView.m in Sources */,

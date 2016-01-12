@@ -13,6 +13,8 @@
 #import "LTGroupMessageViewController.h"
 #import "LTGroupInfoViewController.h"
 #import "CreateGroupViewController.h"
+#import <AVOSCloud/AVOSCloud.h>
+#import "LTGroup.h"
 
 @interface LTGroupViewController ()<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
 
@@ -25,6 +27,9 @@
     UISearchBar *mySearchBar;
     UISearchDisplayController *mySearchDisplayController;
     XHPopMenu *popMenu;
+    
+    //群组数据
+    NSMutableArray *groupArray;
 }
 
 - (void)viewDidLoad {
@@ -72,6 +77,30 @@
     red.layer.cornerRadius = 5;
     red.backgroundColor = [UIColor redColor];
     [leftButton addSubview:red];
+    
+    //初始化数据
+    groupArray = [NSMutableArray array];
+    NSArray *groupIdArray = [[AVUser currentUser] objectForKey:@"groupArray"];
+    for (AVObject *group in groupIdArray) {
+        AVQuery *query = [AVQuery queryWithClassName:@"LTGroup"];
+        [query whereKey:@"objectId" equalTo:group.objectId];
+        [query getFirstObjectInBackgroundWithBlock:^(AVObject *object, NSError *error) {
+            if (object) {
+                LTGroup *group = [[LTGroup alloc]init];
+                group.groupName = [object objectForKey:@"groupName"];
+                group.groupStyle = [object objectForKey:@"groupStyle"];
+                group.groupAddress = [object objectForKey:@"groupAddress"];
+                group.groupLabels = [object objectForKey:@"groupLabels"];
+                group.groupIntroduction = [object objectForKey:@"groupIntroduction"];
+                AVFile *imgData = [object objectForKey:@"groupImage"];
+                group.groupImage = [imgData url];
+                [groupArray addObject:group];
+            }
+            if (groupIdArray.count == groupIdArray.count) {
+                [mainTableView reloadData];
+            }
+        }];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -87,7 +116,7 @@
     if (section == 0) {
         return 1;
     }else if (section == 1){
-        return 9;
+        return groupArray.count;
     }
     return 0;
 }
@@ -103,7 +132,9 @@
         LTGroupCell *cell = [tableView dequeueReusableCellWithIdentifier:@"groupCell"];
         if (cell == nil) {
             [tableView registerNib:[UINib nibWithNibName:@"LTGroupCell" bundle:nil] forCellReuseIdentifier:@"groupCell"];
-            cell = [tableView dequeueReusableCellWithIdentifier:@"groupCell"];    }
+            cell = [tableView dequeueReusableCellWithIdentifier:@"groupCell"];
+        }
+        [cell setCellWithGroup:groupArray[indexPath.row]];
         return cell;
     }
     return nil;

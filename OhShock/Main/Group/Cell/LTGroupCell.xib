@@ -56,6 +56,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="groupImgV" destination="XhK-nC-gEK" id="kMV-Oo-30T"/>
+                <outlet property="groupName" destination="60s-66-DYy" id="fht-ce-B6f"/>
                 <outlet property="starSign" destination="Nqt-NO-Vpv" id="VEG-QJ-EU3"/>
             </connections>
             <point key="canvasLocation" x="375" y="328"/>
