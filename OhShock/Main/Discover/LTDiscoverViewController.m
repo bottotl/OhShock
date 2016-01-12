@@ -21,6 +21,8 @@
 @property (nonatomic, strong) LTStatusTimelineViewController *dynamicViewController;
 @property (nonatomic, strong) LTDiscoverTodoViewController *todoViewController;
 
+@property (nonatomic, strong) LTPostListViewController *postViewController;
+
 @end
 
 @implementation LTDiscoverViewController
@@ -28,8 +30,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    _todoViewController = [LTDiscoverTodoViewController new];
-    _dynamicViewController = [LTStatusTimelineViewController new];
     self.tableView  = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -65,8 +65,33 @@
     return _dataSource;
 }
 
+#pragma mark View
+-(LTStatusTimelineViewController *)dynamicViewController{
+    if (!_dynamicViewController) {
+        _dynamicViewController = [LTStatusTimelineViewController new];
+        _dynamicViewController.hidesBottomBarWhenPushed = YES;
+    }
+    return _dynamicViewController;
+}
+
+-(LTDiscoverTodoViewController *)todoViewController{
+    if (!_todoViewController) {
+        _todoViewController = [LTDiscoverTodoViewController new];
+        _todoViewController.hidesBottomBarWhenPushed = YES;
+    }
+    return _todoViewController;
+}
+
+-(LTPostListViewController *)postViewController{
+    if (!_postViewController) {
+        _postViewController  = [LTPostListViewController new];
+        _postViewController.hidesBottomBarWhenPushed = YES;
+    }
+    return _postViewController;
+}
+
 #pragma mark -
-#pragma mark tableView data source
+#pragma mark TableView data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSArray *sectionArray = self.dataSource[section];
     return sectionArray.count;
@@ -88,17 +113,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            [self.navigationController pushViewController:_dynamicViewController animated:YES];
+            [self.navigationController pushViewController:self.dynamicViewController animated:YES];
         }
     }
     if (indexPath.section == 1) {
         if (indexPath.row == 0) {
-            [self.navigationController pushViewController:_todoViewController animated:YES];
+            [self.navigationController pushViewController:self.todoViewController animated:YES];
         }
     }
     if (indexPath.section == 1) {
         if (indexPath.row == 1) {
-            [self.navigationController pushViewController:[LTPostListViewController new] animated:YES];
+            [self.navigationController pushViewController:self.postViewController animated:YES];
         }
     }
 }

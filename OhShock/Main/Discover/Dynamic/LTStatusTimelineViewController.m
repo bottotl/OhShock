@@ -279,6 +279,7 @@
     }
     
     YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:items];
+    UINavigationController *navi = self.navigationController;
     [v presentFromImageView:fromView toContainer:self.navigationController.view animated:YES completion:nil];
 }
 

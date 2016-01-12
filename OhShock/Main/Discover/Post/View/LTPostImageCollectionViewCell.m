@@ -9,10 +9,11 @@
 #import "LTPostImageCollectionViewCell.h"
 #import "UIImageView+WebCache.h"
 #import "UIView+Layout.h"
+#import "UIColor+expanded.h"
+
 
 @interface LTPostImageCollectionViewCell ()
 
-@property(nonatomic, strong)  UIImageView *imageView;
 @property(nonatomic, strong)  UILabel     *numberLabel;
 @property(nonatomic, strong)  UIView      *numberView;
 
@@ -23,7 +24,6 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         [self initialize];
-        self.imageView.contentMode = UIViewContentModeScaleAspectFill;
         self.numberLabel.hidden = YES;
     }
     return self;
@@ -32,14 +32,17 @@
 
 -(void)prepareForReuse{
     [super prepareForReuse];
-    [self.imageView sd_setImageWithURL:nil];
+    //[self.imageView sd_setImageWithURL:nil];
     self.numberLabel.hidden = YES;
     self.numberView.hidden = YES;
 }
 
 -(void)initialize{
-    _imageView = [UIImageView new];
+    _imageView = [YYControl new];
+    _imageView.hidden = YES;
     _imageView.clipsToBounds = YES;
+    _imageView.backgroundColor = [UIColor colorWithHexString:@"f0f0f0"];
+    _imageView.exclusiveTouch = YES;
     [self.contentView addSubview:_imageView];
     
     _numberView = [UIView new];
@@ -74,6 +77,8 @@
 
 -(void)configCellWithImageUrl:(NSString *)url{
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:url]];
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
 }
 
 

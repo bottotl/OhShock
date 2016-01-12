@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YYControl.h"
 
 static NSString *const LTPostImageCollectionCellIdentifier = @"LTPostImageCollectionViewCell";
 /**
@@ -15,7 +16,7 @@ static NSString *const LTPostImageCollectionCellIdentifier = @"LTPostImageCollec
  */
 @interface LTPostImageCollectionViewCell : UICollectionViewCell
 
-
+@property(nonatomic, strong) YYControl *imageView;
 /**
  *  为图片设置 Url
  *

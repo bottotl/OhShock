@@ -105,20 +105,20 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSMutableArray *items = @[].mutableCopy;
     LTPostImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:LTPostImageCollectionCellIdentifier forIndexPath:indexPath];
+    LTPostImageModel *pic = self.data[indexPath.row];
+    [cell configCellWithImageUrl:pic.smallUrlString];
     for (LTPostImageModel *model in self.data) {
         YYPhotoGroupItem *item = [YYPhotoGroupItem new];
-        item.thumbView = cell;
+        item.thumbView = cell.imageView;
         item.largeImageURL = [NSURL URLWithString:model.bigUrlString];
         item.largeImageSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
         [items addObject:item];
     }
     NSLog(@"点击了图片");
-//    for (<#initialization#>; <#condition#>; <#increment#>) {
-//        <#statements#>
-//    }
-    
+    UINavigationController * viewController = (UINavigationController *)((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).selectedViewController;
+//    UIViewController * viewController = (UINavigationController *)((UINavigationController *)(((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).selectedViewController)).topViewController;
     YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:items.copy];
-    [v presentFromImageView:cell toContainer:self.superview.superview animated:YES completion:nil];
+    [v presentFromImageView:cell.imageView toContainer:viewController.view animated:YES completion:nil];
 }
 
 #pragma mark - property
