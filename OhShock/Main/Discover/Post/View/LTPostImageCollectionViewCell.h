@@ -16,7 +16,14 @@ static NSString *const LTPostImageCollectionCellIdentifier = @"LTPostImageCollec
  */
 @interface LTPostImageCollectionViewCell : UICollectionViewCell
 
-@property(nonatomic, strong) YYControl *imageView;
+/**
+ *  图片展示控件
+ */
+@property (nonatomic, strong) UIImageView *imageView;
+/**
+ *  右下角标记 是 gif 或者是长图
+ */
+@property (nonatomic, strong) UIView *badge;
 /**
  *  为图片设置 Url
  *

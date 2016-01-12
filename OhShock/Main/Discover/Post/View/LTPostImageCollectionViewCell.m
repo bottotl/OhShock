@@ -32,17 +32,30 @@
 
 -(void)prepareForReuse{
     [super prepareForReuse];
-    //[self.imageView sd_setImageWithURL:nil];
+    [self.imageView sd_setImageWithURL:nil];
     self.numberLabel.hidden = YES;
     self.numberView.hidden = YES;
 }
 
 -(void)initialize{
-    _imageView = [YYControl new];
-    _imageView.hidden = YES;
+    _imageView = [UIImageView new];
+    _imageView.hidden = NO;
     _imageView.clipsToBounds = YES;
     _imageView.backgroundColor = [UIColor colorWithHexString:@"f0f0f0"];
     _imageView.exclusiveTouch = YES;
+    
+    _badge = [UIImageView new];
+    
+    
+    _badge.userInteractionEnabled = NO;
+    _badge.contentMode = UIViewContentModeScaleAspectFit;
+    _badge.size = CGSizeMake(56 / 2, 36 / 2);
+    _badge.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin;
+    _badge.right = _imageView.width;
+    _badge.bottom = _imageView.height;
+    _badge.hidden = YES;
+    [_imageView addSubview:_badge];
+    
     [self.contentView addSubview:_imageView];
     
     _numberView = [UIView new];
@@ -62,6 +75,7 @@
 -(void)layoutSubviews{
     [super layoutSubviews];
     self.imageView.frame = self.bounds;
+    //self.badge.frame = self.imageView.bounds;
     
     if (!self.numberLabel.hidden) {
         self.numberView.hidden = NO;
