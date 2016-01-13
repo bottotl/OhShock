@@ -35,12 +35,13 @@
     
     [self makeArray];
     
-    
     _tableView = [UITableView new];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
-    
+    if ([self respondsToSelector:@selector( setAutomaticallyAdjustsScrollViewInsets:)]) {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
     _tableView.frame = self.view.bounds;
     [_tableView registerClass:[LTPostViewCell class] forCellReuseIdentifier:LTPostViewCellIdentifier];
     
@@ -67,7 +68,7 @@
      *  多图展示数据模拟
      */
     NSMutableArray *tempPostImagesData = @[].mutableCopy;
-    for (int i = 0; i < 9; i++) {
+    for (int i = 0; i < 10; i++) {
         LTPostImageModel *model = [LTPostImageModel new];
         model.smallUrlString = [NSString stringWithFormat:@"https://coding.net//static/fruit_avatar/Fruit-%d.png",i%19 +1];
         model.bigUrlString = [NSString stringWithFormat:@"https://coding.net//static/fruit_avatar/Fruit-%d.png",i%19 +2];
@@ -85,7 +86,7 @@
     
     
     NSMutableArray *comments = [NSMutableArray new];
-    for (int i = 0 ; i < 10; i++) {
+    for (int i = 0 ; i < 9; i++) {
         LTModelPostComment *model =[LTModelPostComment new];
         model.content = @"追求别人，我不知道最好的办法，但我知道哪些办法是与幸福生活背道而驰的。";
         model.fromUser = [LTUser currentUser];

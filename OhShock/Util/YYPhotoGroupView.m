@@ -25,7 +25,7 @@
     }
     return nil;
 }
-
+/// _thumbView 是否通过 contentsRect 只显示了部分
 - (BOOL)thumbClippedToTop {
     if (_thumbView) {
         if (_thumbView.layer.contentsRect.size.height < 1) {
@@ -47,20 +47,26 @@
 }
 @end
 
-
-
+/** 用来展示大图的控件 */
 @interface YYPhotoGroupCell : UIScrollView <UIScrollViewDelegate>
-@property (nonatomic, strong) UIView *imageContainerView;
-@property (nonatomic, strong) YYAnimatedImageView *imageView;
-@property (nonatomic, assign) NSInteger page;
 
-@property (nonatomic, assign) BOOL showProgress;
+/**
+ *  容器 
+ *  addSubView: (YYAnimatedImageView *)imageView  */
+@property (nonatomic, strong) UIView *imageContainerView;
+
+@property (nonatomic, strong) YYAnimatedImageView *imageView; ///< 可以播放动图的控件
+@property (nonatomic, assign) NSInteger page;///< 当前第几页
+
+@property (nonatomic, assign) BOOL showProgress;///< 是否需要显示进度条
 @property (nonatomic, assign) CGFloat progress;
 @property (nonatomic, strong) CAShapeLayer *progressLayer;
 
 @property (nonatomic, strong) YYPhotoGroupItem *item;
 @property (nonatomic, readonly) BOOL itemDidLoad;
+
 - (void)resizeSubviewSize;
+
 @end
 
 @implementation YYPhotoGroupCell
@@ -220,16 +226,18 @@
 
 
 
-
+/**
+ *  一个横向的 ScrollView
+ */
 @interface YYPhotoGroupView() <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 @property (nonatomic, weak) UIView *fromView;
 @property (nonatomic, weak) UIView *toContainerView;
 
-@property (nonatomic, strong) UIImage *snapshotImage;
-@property (nonatomic, strong) UIImage *snapshorImageHideFromView;
+@property (nonatomic, strong) UIImage *snapshotImage;///< 含图片的 toContainerView 截屏
+@property (nonatomic, strong) UIImage *snapshorImageHideFromView; ///< 不含图片的 toContainerView 截屏
 
 @property (nonatomic, strong) UIImageView *background;
-@property (nonatomic, strong) UIImageView *blurBackground;
+@property (nonatomic, strong) UIImageView *blurBackground; ///< 黑色的背景图片
 
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -357,31 +365,24 @@
     return self;
 }
 
-
-- (void)presentFromImageView:(UIView *)fromView
+- (void)presentFromView:(UIView *)receiverView
+       andFromItemIndex:(NSInteger)fromItemIndex
+            andCellView:(UIView *)cellContentView
                  toContainer:(UIView *)toContainer
                     animated:(BOOL)animated
-                  completion:(void (^)(void))completion {
+             completion:(void (^)(void))completion{
     if (!toContainer) return;
     
-    _fromView = fromView;
+    _fromView = cellContentView;
     _toContainerView = toContainer;
     
-    NSInteger page = -1;
-    for (NSUInteger i = 0; i < self.groupItems.count; i++) {
-        if (fromView == ((YYPhotoGroupItem *)self.groupItems[i]).thumbView) {
-            page = (int)i;
-            break;
-        }
-    }
-    if (page == -1) page = 0;
-    _fromItemIndex = page;
+    _fromItemIndex = fromItemIndex;
     
     _snapshotImage = [_toContainerView snapshotImageAfterScreenUpdates:NO];
-    BOOL fromViewHidden = fromView.hidden;
-    fromView.hidden = YES;
+    BOOL fromViewHidden = cellContentView.hidden;
+    cellContentView.hidden = YES;
     _snapshorImageHideFromView = [_toContainerView snapshotImage];
-    fromView.hidden = fromViewHidden;
+    cellContentView.hidden = fromViewHidden;
     
     _background.image = _snapshorImageHideFromView;
     if (_blurEffectBackground) {
@@ -394,7 +395,7 @@
     self.blurBackground.alpha = 0;
     self.pager.alpha = 0;
     self.pager.numberOfPages = self.groupItems.count;
-    self.pager.currentPage = page;
+    self.pager.currentPage = _fromItemIndex;
     [_toContainerView addSubview:self];
     
     _scrollView.contentSize = CGSizeMake(_scrollView.width * self.groupItems.count, _scrollView.height);
@@ -423,7 +424,7 @@
     }
     
     if (item.thumbClippedToTop) {
-        CGRect fromFrame = [_fromView convertRect:_fromView.bounds toView:cell];
+        CGRect fromFrame = [receiverView convertRect:_fromView.bounds toView:cell];
         CGRect originFrame = cell.imageContainerView.frame;
         CGFloat scale = fromFrame.size.width / cell.imageContainerView.width;
         
@@ -451,12 +452,175 @@
         }];
         
     } else {
-        CGRect fromFrame = [_fromView convertRect:_fromView.bounds toView:cell.imageContainerView];
+        CGRect fromFrame = [receiverView convertRect:_fromView.frame toView:cell.imageContainerView];
         
         cell.imageContainerView.clipsToBounds = NO;
         cell.imageView.frame = fromFrame;
         cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
         
+        float oneTime = animated ? 0.18 : 0;
+        [UIView animateWithDuration:oneTime*2 delay:0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut animations:^{
+            _blurBackground.alpha = 1;
+        }completion:NULL];
+        
+        _scrollView.userInteractionEnabled = NO;
+        [UIView animateWithDuration:oneTime delay:0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut animations:^{
+            cell.imageView.frame = cell.imageContainerView.bounds;
+            cell.imageView.layer.transformScale = 1.01;
+        }completion:^(BOOL finished) {
+            [UIView animateWithDuration:oneTime delay:0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut animations:^{
+                cell.imageView.layer.transformScale = 1.0;
+                _pager.alpha = 1;
+            }completion:^(BOOL finished) {
+                cell.imageContainerView.clipsToBounds = YES;
+                _isPresented = YES;
+                [self scrollViewDidScroll:_scrollView];
+                _scrollView.userInteractionEnabled = YES;
+                [self hidePager];
+                if (completion) completion();
+            }];
+        }];
+    }
+
+}
+
+
+- (void)presentFromImageView:(UIView *)fromView
+                 toContainer:(UIView *)toContainer
+                    animated:(BOOL)animated
+                  completion:(void (^)(void))completion {
+    if (!toContainer) return;
+    
+    _fromView = fromView;
+    _toContainerView = toContainer;
+    
+    NSInteger page = -1;
+    for (NSUInteger i = 0; i < self.groupItems.count; i++) {
+        if (fromView == ((YYPhotoGroupItem *)self.groupItems[i]).thumbView) {
+            page = (int)i;
+            break;
+        }
+    }
+    if (page == -1) page = 0;
+    _fromItemIndex = page;
+    
+    // 截取 toContainerView 的快照
+    _snapshotImage = [_toContainerView snapshotImageAfterScreenUpdates:NO];
+    BOOL fromViewHidden = fromView.hidden;
+    
+    // 截取不含图片的 toContainerView 的快照
+    fromView.hidden = YES;
+    _snapshorImageHideFromView = [_toContainerView snapshotImage];
+    fromView.hidden = fromViewHidden;
+    
+    // 把不含图片的快照当做背景
+    _background.image = _snapshorImageHideFromView;
+    if (_blurEffectBackground) {
+        _blurBackground.image = [_snapshorImageHideFromView imageByBlurDark]; //Same to UIBlurEffectStyleDark
+    } else {
+        _blurBackground.image = [UIImage imageWithColor:[UIColor blackColor]];
+    }
+    
+    self.size = _toContainerView.size;
+    self.blurBackground.alpha = 0;
+    self.pager.alpha = 0;
+    self.pager.numberOfPages = self.groupItems.count;
+    self.pager.currentPage = page;
+    [_toContainerView addSubview:self];
+    
+    // 根据图片数量初始化 _scrollView.contentSize
+    _scrollView.contentSize = CGSizeMake(_scrollView.width * self.groupItems.count, _scrollView.height);
+    [_scrollView scrollRectToVisible:CGRectMake(_scrollView.width * _pager.currentPage, 0, _scrollView.width, _scrollView.height) animated:NO];
+    [self scrollViewDidScroll:_scrollView];
+    
+    [UIView setAnimationsEnabled:YES];
+    
+    // 保护现场 —— 状态栏的显示状态
+    _fromNavigationBarHidden = [UIApplication sharedApplication].statusBarHidden;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    // 隐藏状态栏
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:animated ? UIStatusBarAnimationFade : UIStatusBarAnimationNone];
+#pragma clang diagnostic pop
+    
+    
+    YYPhotoGroupCell *cell = [self cellForPage:self.currentPage];// 获取需要显示大图视图
+    YYPhotoGroupItem *item = _groupItems[self.currentPage];// 获取需要显示的数据
+    
+    
+    /**
+     *  如果 item.thumbClippedToTop == NO
+     *  说明原先就全图展示过
+     *  侧面说明已经加载进 cache，这时候进 cache 里面尝试读取 （读取失败时会去网络加载）
+     *  把从读取出得数据塞进 Cell 里面 */
+     
+    if (!item.thumbClippedToTop) {
+        
+        NSString *imageKey = [[YYWebImageManager sharedManager] cacheKeyForURL:item.largeImageURL];
+        if ([[YYWebImageManager sharedManager].cache getImageForKey:imageKey withType:YYImageCacheTypeMemory]) {
+            cell.item = item;
+        }
+    }
+    
+    /**
+     *  如果上一步没有执行
+     *  就调用 item.image 方法去获取 UIImage * 并把图片对象传给 cell */
+
+    if (!cell.item) {
+        cell.imageView.image = item.thumbImage;
+        [cell resizeSubviewSize]; // 根据图片对 cell 重新布局
+    }
+    
+    
+    if (item.thumbClippedToTop) {// 如果没有全图展示过
+        
+        //  把被点击的那个 View (fromView )坐标系转化到 cell 的坐标系中
+        CGRect fromFrame = [_fromView convertRect:_fromView.bounds toView:cell];
+        //  把最终要展示的 Frame
+        CGRect originFrame = cell.imageContainerView.frame;
+        
+        /**
+         *  获取 fromView 和容器视图 imageContainerView 的宽度比例
+         *  使 imageContainerView 和 fromView 重叠 */
+        CGFloat scale = fromFrame.size.width / cell.imageContainerView.width;
+        
+        cell.imageContainerView.centerX = CGRectGetMidX(fromFrame);
+        cell.imageContainerView.height = fromFrame.size.height / scale;
+        cell.imageContainerView.layer.transformScale = scale;
+        cell.imageContainerView.centerY = CGRectGetMidY(fromFrame);
+        
+        //  背景遮罩的动画
+        float oneTime = animated ? 0.25 : 0;
+        [UIView animateWithDuration:oneTime delay:0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut animations:^{
+            _blurBackground.alpha = 1;
+        }completion:NULL];
+        
+        /**
+         *  把 imageContainerView 缩放到最后需要的大小 （originFrame）
+         *  为了看起来舒服一点 当完成动画之后把 pager 隐藏 */
+        _scrollView.userInteractionEnabled = NO;
+        [UIView animateWithDuration:oneTime delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            cell.imageContainerView.layer.transformScale = 1;
+            cell.imageContainerView.frame = originFrame;
+            _pager.alpha = 1;
+        }completion:^(BOOL finished) {
+            _isPresented = YES;
+            [self scrollViewDidScroll:_scrollView];
+            _scrollView.userInteractionEnabled = YES;
+            [self hidePager];
+            if (completion) completion();
+        }];
+        
+    } else {// 如果全图展示过
+        
+        //  把被点击的那个 View (fromView )坐标系转化到 imageContainerView 的坐标系中
+        CGRect fromFrame = [_fromView convertRect:_fromView.bounds toView:cell.imageContainerView];
+        //  先把 imageView 和 fromView 重叠
+        cell.imageContainerView.clipsToBounds = NO;
+        cell.imageView.frame = fromFrame;
+        cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
+        
+        //  放大
         float oneTime = animated ? 0.18 : 0;
         [UIView animateWithDuration:oneTime*2 delay:0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut animations:^{
             _blurBackground.alpha = 1;
