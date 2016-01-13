@@ -312,7 +312,7 @@
     } 
     
     if(notification) {
-        [UIView animateWithDuration:animationDuration 
+        [UIView animateWithDuration:animationDuration
                               delay:0 
                             options:UIViewAnimationOptionAllowUserInteraction 
                          animations:^{

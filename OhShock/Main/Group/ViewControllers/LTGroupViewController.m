@@ -15,12 +15,16 @@
 #import "CreateGroupViewController.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import "LTGroup.h"
+#import "LTGroupService.h"
+#import "LTSearchGroupViewController.h"
 
 @interface LTGroupViewController ()<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
 
 @end
 
 @implementation LTGroupViewController{
+    LTGroupService *groupService;
+    
     UIButton *leftButton;
     UIButton *rightButton;
     UITableView *mainTableView;
@@ -78,33 +82,27 @@
     red.backgroundColor = [UIColor redColor];
     [leftButton addSubview:red];
     
+    //注册通知
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshGroup) name:RefreshNotification object:nil];
+    
     //初始化数据
     groupArray = [NSMutableArray array];
-    NSArray *groupIdArray = [[AVUser currentUser] objectForKey:@"groupArray"];
-    for (AVObject *group in groupIdArray) {
-        AVQuery *query = [AVQuery queryWithClassName:@"LTGroup"];
-        [query whereKey:@"objectId" equalTo:group.objectId];
-        [query getFirstObjectInBackgroundWithBlock:^(AVObject *object, NSError *error) {
-            if (object) {
-                LTGroup *group = [[LTGroup alloc]init];
-                group.groupName = [object objectForKey:@"groupName"];
-                group.groupStyle = [object objectForKey:@"groupStyle"];
-                group.groupAddress = [object objectForKey:@"groupAddress"];
-                group.groupLabels = [object objectForKey:@"groupLabels"];
-                group.groupIntroduction = [object objectForKey:@"groupIntroduction"];
-                AVFile *imgData = [object objectForKey:@"groupImage"];
-                group.groupImage = [imgData url];
-                [groupArray addObject:group];
-            }
-            if (groupIdArray.count == groupIdArray.count) {
-                [mainTableView reloadData];
-            }
-        }];
-    }
+    groupService = [[LTGroupService alloc]init];
+    [self refreshGroup];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     self.title = @"群组";
+}
+
+//刷新群组
+- (void)refreshGroup{
+    [groupService getGroupOfUser:[AVUser currentUser] andCallback:^(BOOL succeeded, NSError *error, NSArray *array) {
+        if (succeeded) {
+            groupArray = [array mutableCopy];
+            [mainTableView reloadData];
+        }
+    }];
 }
 
 #pragma mark tableView Delegate
@@ -241,7 +239,8 @@ shouldReloadTableForSearchString:(NSString *)searchString
                 [weakSelf.navigationController pushViewController:controller animated:YES];
             }else if (index == 1 ) {
                 printf("搜索群组 index 0\n");
-
+                LTSearchGroupViewController *controller = [[LTSearchGroupViewController alloc]init];
+                [weakSelf.navigationController pushViewController:controller animated:YES];
             }
         };
     }

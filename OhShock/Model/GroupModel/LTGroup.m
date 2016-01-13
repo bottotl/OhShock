@@ -10,7 +10,7 @@
 
 @implementation LTGroup
 
-@synthesize groupName, groupStyle, groupAddress, groupLabels, groupIntroduction, groupImage;
+@synthesize groupName, groupStyle, groupAddress, groupLabels, groupIntroduction, groupImage, groupImageURL;
 
 
 @end

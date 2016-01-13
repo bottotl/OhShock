@@ -19,6 +19,7 @@
 #import <AVOSCloud/AVOSCloud.h>
 #import "SVProgressHUD.h"
 #import "LTGroup.h"
+#import "LTGroupService.h"
 
 static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
 
@@ -34,6 +35,7 @@ static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
 @end
 
 @implementation CreateGroupViewController{
+    UIBarButtonItem *rightButton;
     UITableView *mainTableView;
     NSString *groupName;//群名
     NSString *groupStyle;//群类型
@@ -43,6 +45,8 @@ static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
     UIImage *groupImage;//群图片
     
     NSInteger selectIndex;//pickerView选中下标
+    
+    LTGroupService *groupService;
 }
 
 - (instancetype)init
@@ -57,7 +61,7 @@ static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"下一步"
+    rightButton = [[UIBarButtonItem alloc] initWithTitle:@"下一步"
                                                                     style:UIBarButtonItemStyleDone
                                                                    target:self
                                                                    action:@selector(next)];
@@ -98,7 +102,7 @@ static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
     
     self.groupStyleArray = @[@"私密群", @"兴趣群", @"学术群", @"家庭群", @"羞羞群"];
     groupLabels = [NSMutableArray array];
-    
+    groupService = [[LTGroupService alloc]init];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -118,58 +122,53 @@ static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
 }
 
 -(void)next{
+    rightButton.enabled = NO;
     if (!groupName) {
         [SVProgressHUD showErrorWithStatus:@"群名不能为空"];
+        rightButton.enabled = YES;
         return;
     }
     if (!groupStyle) {
         [SVProgressHUD showErrorWithStatus:@"还未选择群类型"];
+        rightButton.enabled = YES;
         return;
     }
     if (!groupAddress) {
         [SVProgressHUD showErrorWithStatus:@"群地址不能为空"];
+        rightButton.enabled = YES;
         return;
     }
     if (!groupLabels) {
         [SVProgressHUD showErrorWithStatus:@"群标签不能为空"];
+        rightButton.enabled = YES;
         return;
     }
     if (!groupIntroduction) {
         [SVProgressHUD showErrorWithStatus:@"群介绍不能为空"];
+        rightButton.enabled = YES;
         return;
     }
     if (!groupImage) {
         [SVProgressHUD showErrorWithStatus:@"群图片不能为空"];
+        rightButton.enabled = YES;
         return;
     }
     LTGroup *group = [[LTGroup alloc] init];
-    //初始化群主和群成员
-    [group setObject:[AVUser currentUser] forKey:@"groupCreator"];
-    [group addUniqueObjectsFromArray:[NSArray arrayWithObjects:[AVUser currentUser], nil] forKey:@"groupMembers"];
-    
-    [group setObject:groupName forKey:@"groupName"];
-    [group setObject:groupStyle forKey:@"groupStyle"];
-    [group setObject:groupAddress forKey:@"groupAddress"];
-    [group addUniqueObjectsFromArray:groupLabels forKey:@"groupLabels"];
-    [group setObject:groupIntroduction forKey:@"groupIntroduction"];
-    NSData *imageData = UIImagePNGRepresentation(groupImage);
-    AVFile *imageFile = [AVFile fileWithName:@"image.png" data:imageData];
-    [imageFile saveInBackground];
-    [group setObject:imageFile forKey:@"groupImage"];
-    [group saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    group.groupName = groupName;
+    group.groupStyle = groupStyle;
+    group.groupAddress = groupAddress;
+    group.groupLabels = groupLabels;
+    group.groupIntroduction  = groupIntroduction;
+    group.groupImage = groupImage;
+    [groupService CreateGroupWith:group andCallback:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             [SVProgressHUD showSuccessWithStatus:@"创建成功"];
-            
-            NSMutableArray *groupArray = [[AVUser currentUser] objectForKey:@"groupArray"];
-            if (groupArray == nil) {
-                groupArray = [NSMutableArray array];
-            }
-            [groupArray addObject:group];
-            [[AVUser currentUser] setObject:groupArray forKey:@"groupArray"];
-            [[AVUser currentUser] saveInBackground];
+            rightButton.enabled = YES;
+        }else{
+            [SVProgressHUD showSuccessWithStatus:@"创建失败"];
+            rightButton.enabled = YES;
         }
     }];
-    
 }
 
 #pragma mark - UIPicker Delegate
