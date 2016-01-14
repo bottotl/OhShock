@@ -11,7 +11,6 @@
 #import "LTPostModel.h"
 #import "YYKit.h"
 #import "YYPhotoGroupView.h"
-#import "WBStatusComposeViewController.h"
 
 @interface LTPostListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -46,7 +45,7 @@
     _tableView.frame = self.view.bounds;
     [_tableView registerClass:[LTPostViewCell class] forCellReuseIdentifier:LTPostViewCellIdentifier];
     
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"toolbar_compose_highlighted"] style:UIBarButtonItemStylePlain target:self action:@selector(sendStatus)];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"camer_add_post"] style:UIBarButtonItemStylePlain target:self action:@selector(sendStatus)];
     rightItem.tintColor = UIColorHex(fd8224);
     self.navigationItem.rightBarButtonItem = rightItem;
     
@@ -158,14 +157,7 @@
 
 #pragma mark - 页面跳转
 - (void)sendStatus {
-    WBStatusComposeViewController *vc = [WBStatusComposeViewController new];
-    vc.type = WBStatusComposeViewTypeStatus;
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    __weak __typeof(nav) weakNav = nav;
-    vc.dismiss = ^{
-        [nav dismissViewControllerAnimated:YES completion:NULL];
-    };
-    [self presentViewController:weakNav animated:YES completion:NULL];
+
 }
 
 @end

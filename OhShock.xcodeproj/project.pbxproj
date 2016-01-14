@@ -338,11 +338,6 @@
 		B81071B31C197F6F0058130E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B81071B21C197F6F0058130E /* AppDelegate.m */; };
 		B81071BB1C197F700058130E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B81071BA1C197F700058130E /* Assets.xcassets */; };
 		B81071BE1C197F700058130E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B81071BC1C197F700058130E /* LaunchScreen.storyboard */; };
-		B81072541C197FCE0058130E /* IFTTTCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B81071C71C197FCE0058130E /* IFTTTCircleView.m */; };
-		B81072551C197FCE0058130E /* IFTTTJazzHandsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B81071C91C197FCE0058130E /* IFTTTJazzHandsViewController.m */; };
-		B81072561C197FCE0058130E /* IntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B81071CB1C197FCE0058130E /* IntroductionViewController.m */; };
-		B81072571C197FCE0058130E /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B81071CE1C197FCE0058130E /* LogInViewController.m */; };
-		B81072581C197FCE0058130E /* LTLogInService.m in Sources */ = {isa = PBXBuildFile; fileRef = B81071D01C197FCE0058130E /* LTLogInService.m */; };
 		B81072591C197FCE0058130E /* LTDiscoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B81071D51C197FCE0058130E /* LTDiscoverCell.m */; };
 		B810725B1C197FCE0058130E /* LTDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B81071DA1C197FCE0058130E /* LTDiscoverViewController.m */; };
 		B810725D1C197FCE0058130E /* LTMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B81071DF1C197FCE0058130E /* LTMainTabBarController.m */; };
@@ -375,16 +370,11 @@
 		B81072861C197FCE0058130E /* XHPopMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B810723F1C197FCE0058130E /* XHPopMenu.m */; };
 		B81072871C197FCE0058130E /* XHPopMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B81072411C197FCE0058130E /* XHPopMenuItem.m */; };
 		B81072881C197FCE0058130E /* XHPopMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = B81072431C197FCE0058130E /* XHPopMenuItemView.m */; };
-		B81072891C197FCE0058130E /* LTSignUpService.m in Sources */ = {isa = PBXBuildFile; fileRef = B81072481C197FCE0058130E /* LTSignUpService.m */; };
-		B810728A1C197FCE0058130E /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B810724A1C197FCE0058130E /* SignUpViewController.m */; };
 		B810728B1C197FCE0058130E /* LTTapImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B810724D1C197FCE0058130E /* LTTapImageView.m */; };
 		B810728C1C197FCE0058130E /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = B810724F1C197FCE0058130E /* UIColor+expanded.m */; };
 		B810728D1C197FCE0058130E /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = B81072511C197FCE0058130E /* UIImage+Common.m */; };
 		B810728E1C197FCE0058130E /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = B81072531C197FCE0058130E /* UIView+Layout.m */; };
 		B817B2FD1C2F785D00AFDC4C /* LTAddTodoService.m in Sources */ = {isa = PBXBuildFile; fileRef = B817B2FC1C2F785D00AFDC4C /* LTAddTodoService.m */; };
-		B81CCB961C21259F00D642DB /* LTChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B81CCB951C21259F00D642DB /* LTChatViewController.m */; };
-		B81CCB991C2126F600D642DB /* LTChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B81CCB981C2126F600D642DB /* LTChatModel.m */; };
-		B81CCB9C1C212E2600D642DB /* LTChatService.m in Sources */ = {isa = PBXBuildFile; fileRef = B81CCB9B1C212E2600D642DB /* LTChatService.m */; };
 		B81CCC211C21408500D642DB /* JSQMessagesAssets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B81CCBC21C21408500D642DB /* JSQMessagesAssets.bundle */; };
 		B81CCC221C21408500D642DB /* JSQSystemSoundPlayer+JSQMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = B81CCBC51C21408500D642DB /* JSQSystemSoundPlayer+JSQMessages.m */; };
 		B81CCC231C21408500D642DB /* NSBundle+JSQMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = B81CCBC71C21408500D642DB /* NSBundle+JSQMessages.m */; };
@@ -501,6 +491,16 @@
 		B87677D71C2005C700A0795B /* LTUserInfoHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677D61C2005C700A0795B /* LTUserInfoHeadView.m */; };
 		B87677DA1C2012BE00A0795B /* LTUserInfoFollowButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677D91C2012BE00A0795B /* LTUserInfoFollowButton.m */; };
 		B87677DD1C2015C300A0795B /* LTUserInfoSendMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677DC1C2015C300A0795B /* LTUserInfoSendMessageCell.m */; };
+		B89E0FD91C473CD200CD61FE /* LTChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FC21C473CD200CD61FE /* LTChatModel.m */; };
+		B89E0FDA1C473CD200CD61FE /* LTChatService.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FC41C473CD200CD61FE /* LTChatService.m */; };
+		B89E0FDB1C473CD200CD61FE /* LTChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FC61C473CD200CD61FE /* LTChatViewController.m */; };
+		B89E0FDC1C473CD200CD61FE /* IFTTTCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FC91C473CD200CD61FE /* IFTTTCircleView.m */; };
+		B89E0FDD1C473CD200CD61FE /* IFTTTJazzHandsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FCB1C473CD200CD61FE /* IFTTTJazzHandsViewController.m */; };
+		B89E0FDE1C473CD200CD61FE /* IntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FCD1C473CD200CD61FE /* IntroductionViewController.m */; };
+		B89E0FDF1C473CD200CD61FE /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FD01C473CD200CD61FE /* LogInViewController.m */; };
+		B89E0FE01C473CD200CD61FE /* LTLogInService.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FD21C473CD200CD61FE /* LTLogInService.m */; };
+		B89E0FE11C473CD200CD61FE /* LTSignUpService.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FD61C473CD200CD61FE /* LTSignUpService.m */; };
+		B89E0FE21C473CD200CD61FE /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FD81C473CD200CD61FE /* SignUpViewController.m */; };
 		B8A128421C1984B100ECA6CD /* LKAlarmEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A128341C1984B100ECA6CD /* LKAlarmEvent.m */; };
 		B8A128431C1984B100ECA6CD /* LKAlarmMamager.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A128361C1984B100ECA6CD /* LKAlarmMamager.m */; };
 		B8A128441C1984B100ECA6CD /* LKDB+Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A128391C1984B100ECA6CD /* LKDB+Mapping.m */; };
@@ -1199,16 +1199,6 @@
 		B81071BA1C197F700058130E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = OhShock/Assets.xcassets; sourceTree = "<group>"; };
 		B81071BD1C197F700058130E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B81071BF1C197F700058130E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = OhShock/Info.plist; sourceTree = "<group>"; };
-		B81071C61C197FCE0058130E /* IFTTTCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTTTCircleView.h; sourceTree = "<group>"; };
-		B81071C71C197FCE0058130E /* IFTTTCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTTTCircleView.m; sourceTree = "<group>"; };
-		B81071C81C197FCE0058130E /* IFTTTJazzHandsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTTTJazzHandsViewController.h; sourceTree = "<group>"; };
-		B81071C91C197FCE0058130E /* IFTTTJazzHandsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTTTJazzHandsViewController.m; sourceTree = "<group>"; };
-		B81071CA1C197FCE0058130E /* IntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroductionViewController.h; sourceTree = "<group>"; };
-		B81071CB1C197FCE0058130E /* IntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroductionViewController.m; sourceTree = "<group>"; };
-		B81071CD1C197FCE0058130E /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
-		B81071CE1C197FCE0058130E /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
-		B81071CF1C197FCE0058130E /* LTLogInService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTLogInService.h; sourceTree = "<group>"; };
-		B81071D01C197FCE0058130E /* LTLogInService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTLogInService.m; sourceTree = "<group>"; };
 		B81071D41C197FCE0058130E /* LTDiscoverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTDiscoverCell.h; sourceTree = "<group>"; };
 		B81071D51C197FCE0058130E /* LTDiscoverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTDiscoverCell.m; sourceTree = "<group>"; };
 		B81071D91C197FCE0058130E /* LTDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTDiscoverViewController.h; sourceTree = "<group>"; };
@@ -1274,10 +1264,6 @@
 		B81072411C197FCE0058130E /* XHPopMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHPopMenuItem.m; sourceTree = "<group>"; };
 		B81072421C197FCE0058130E /* XHPopMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHPopMenuItemView.h; sourceTree = "<group>"; };
 		B81072431C197FCE0058130E /* XHPopMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHPopMenuItemView.m; sourceTree = "<group>"; };
-		B81072471C197FCE0058130E /* LTSignUpService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTSignUpService.h; sourceTree = "<group>"; };
-		B81072481C197FCE0058130E /* LTSignUpService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTSignUpService.m; sourceTree = "<group>"; };
-		B81072491C197FCE0058130E /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
-		B810724A1C197FCE0058130E /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		B810724C1C197FCE0058130E /* LTTapImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTapImageView.h; sourceTree = "<group>"; };
 		B810724D1C197FCE0058130E /* LTTapImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTapImageView.m; sourceTree = "<group>"; };
 		B810724E1C197FCE0058130E /* UIColor+expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+expanded.h"; sourceTree = "<group>"; };
@@ -1288,12 +1274,6 @@
 		B81072531C197FCE0058130E /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
 		B817B2FB1C2F785D00AFDC4C /* LTAddTodoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTAddTodoService.h; sourceTree = "<group>"; };
 		B817B2FC1C2F785D00AFDC4C /* LTAddTodoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTAddTodoService.m; sourceTree = "<group>"; };
-		B81CCB941C21259F00D642DB /* LTChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTChatViewController.h; sourceTree = "<group>"; };
-		B81CCB951C21259F00D642DB /* LTChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTChatViewController.m; sourceTree = "<group>"; };
-		B81CCB971C2126F600D642DB /* LTChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTChatModel.h; sourceTree = "<group>"; };
-		B81CCB981C2126F600D642DB /* LTChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTChatModel.m; sourceTree = "<group>"; };
-		B81CCB9A1C212E2600D642DB /* LTChatService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTChatService.h; sourceTree = "<group>"; };
-		B81CCB9B1C212E2600D642DB /* LTChatService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTChatService.m; sourceTree = "<group>"; };
 		B81CCBC21C21408500D642DB /* JSQMessagesAssets.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JSQMessagesAssets.bundle; sourceTree = "<group>"; };
 		B81CCBC41C21408500D642DB /* JSQSystemSoundPlayer+JSQMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSQSystemSoundPlayer+JSQMessages.h"; sourceTree = "<group>"; };
 		B81CCBC51C21408500D642DB /* JSQSystemSoundPlayer+JSQMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSQSystemSoundPlayer+JSQMessages.m"; sourceTree = "<group>"; };
@@ -1504,6 +1484,26 @@
 		B87677D91C2012BE00A0795B /* LTUserInfoFollowButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTUserInfoFollowButton.m; sourceTree = "<group>"; };
 		B87677DB1C2015C300A0795B /* LTUserInfoSendMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTUserInfoSendMessageCell.h; sourceTree = "<group>"; };
 		B87677DC1C2015C300A0795B /* LTUserInfoSendMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTUserInfoSendMessageCell.m; sourceTree = "<group>"; };
+		B89E0FC11C473CD200CD61FE /* LTChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTChatModel.h; sourceTree = "<group>"; };
+		B89E0FC21C473CD200CD61FE /* LTChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTChatModel.m; sourceTree = "<group>"; };
+		B89E0FC31C473CD200CD61FE /* LTChatService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTChatService.h; sourceTree = "<group>"; };
+		B89E0FC41C473CD200CD61FE /* LTChatService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTChatService.m; sourceTree = "<group>"; };
+		B89E0FC51C473CD200CD61FE /* LTChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTChatViewController.h; sourceTree = "<group>"; };
+		B89E0FC61C473CD200CD61FE /* LTChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTChatViewController.m; sourceTree = "<group>"; };
+		B89E0FC81C473CD200CD61FE /* IFTTTCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTTTCircleView.h; sourceTree = "<group>"; };
+		B89E0FC91C473CD200CD61FE /* IFTTTCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTTTCircleView.m; sourceTree = "<group>"; };
+		B89E0FCA1C473CD200CD61FE /* IFTTTJazzHandsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTTTJazzHandsViewController.h; sourceTree = "<group>"; };
+		B89E0FCB1C473CD200CD61FE /* IFTTTJazzHandsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTTTJazzHandsViewController.m; sourceTree = "<group>"; };
+		B89E0FCC1C473CD200CD61FE /* IntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroductionViewController.h; sourceTree = "<group>"; };
+		B89E0FCD1C473CD200CD61FE /* IntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroductionViewController.m; sourceTree = "<group>"; };
+		B89E0FCF1C473CD200CD61FE /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
+		B89E0FD01C473CD200CD61FE /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
+		B89E0FD11C473CD200CD61FE /* LTLogInService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTLogInService.h; sourceTree = "<group>"; };
+		B89E0FD21C473CD200CD61FE /* LTLogInService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTLogInService.m; sourceTree = "<group>"; };
+		B89E0FD51C473CD200CD61FE /* LTSignUpService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTSignUpService.h; sourceTree = "<group>"; };
+		B89E0FD61C473CD200CD61FE /* LTSignUpService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTSignUpService.m; sourceTree = "<group>"; };
+		B89E0FD71C473CD200CD61FE /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		B89E0FD81C473CD200CD61FE /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		B8A128331C1984B100ECA6CD /* LKAlarmEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKAlarmEvent.h; sourceTree = "<group>"; };
 		B8A128341C1984B100ECA6CD /* LKAlarmEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKAlarmEvent.m; sourceTree = "<group>"; };
 		B8A128351C1984B100ECA6CD /* LKAlarmMamager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKAlarmMamager.h; sourceTree = "<group>"; };
@@ -2671,7 +2671,7 @@
 				B81071DE1C197FCE0058130E /* LTMainTabBarController.h */,
 				B81071DF1C197FCE0058130E /* LTMainTabBarController.m */,
 				B81071BA1C197F700058130E /* Assets.xcassets */,
-				B8D1D5271C33DEEB00DC4EDC /* 小模块 */,
+				B89E0FBF1C473CD200CD61FE /* 小模块 */,
 				B81071D21C197FCE0058130E /* Discover */,
 				B8E64C241C43F2E000B4CB64 /* Group */,
 				B845BC421C45072B001DA565 /* Dynamic */,
@@ -2713,32 +2713,6 @@
 				B81071AF1C197F6F0058130E /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		B81071C51C197FCE0058130E /* Intro */ = {
-			isa = PBXGroup;
-			children = (
-				B81071C61C197FCE0058130E /* IFTTTCircleView.h */,
-				B81071C71C197FCE0058130E /* IFTTTCircleView.m */,
-				B81071C81C197FCE0058130E /* IFTTTJazzHandsViewController.h */,
-				B81071C91C197FCE0058130E /* IFTTTJazzHandsViewController.m */,
-				B81071CA1C197FCE0058130E /* IntroductionViewController.h */,
-				B81071CB1C197FCE0058130E /* IntroductionViewController.m */,
-			);
-			name = Intro;
-			path = OhShock/Intro;
-			sourceTree = "<group>";
-		};
-		B81071CC1C197FCE0058130E /* LogIn */ = {
-			isa = PBXGroup;
-			children = (
-				B81071CD1C197FCE0058130E /* LogInViewController.h */,
-				B81071CE1C197FCE0058130E /* LogInViewController.m */,
-				B81071CF1C197FCE0058130E /* LTLogInService.h */,
-				B81071D01C197FCE0058130E /* LTLogInService.m */,
-			);
-			name = LogIn;
-			path = OhShock/LogIn;
 			sourceTree = "<group>";
 		};
 		B81071D21C197FCE0058130E /* Discover */ = {
@@ -2885,26 +2859,6 @@
 			);
 			name = XHPopMenu;
 			path = ../Main/ToDo/XHPopMenu;
-			sourceTree = "<group>";
-		};
-		B81072451C197FCE0058130E /* SignUp */ = {
-			isa = PBXGroup;
-			children = (
-				B81072461C197FCE0058130E /* Service */,
-				B81072491C197FCE0058130E /* SignUpViewController.h */,
-				B810724A1C197FCE0058130E /* SignUpViewController.m */,
-			);
-			name = SignUp;
-			path = OhShock/SignUp;
-			sourceTree = "<group>";
-		};
-		B81072461C197FCE0058130E /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				B81072471C197FCE0058130E /* LTSignUpService.h */,
-				B81072481C197FCE0058130E /* LTSignUpService.m */,
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		B810724B1C197FCE0058130E /* Util */ = {
@@ -3298,18 +3252,80 @@
 			path = HeadView;
 			sourceTree = "<group>";
 		};
-		B87677DE1C202A7800A0795B /* Chat */ = {
+		B89E0FBF1C473CD200CD61FE /* 小模块 */ = {
 			isa = PBXGroup;
 			children = (
-				B81CCB971C2126F600D642DB /* LTChatModel.h */,
-				B81CCB981C2126F600D642DB /* LTChatModel.m */,
-				B81CCB941C21259F00D642DB /* LTChatViewController.h */,
-				B81CCB951C21259F00D642DB /* LTChatViewController.m */,
-				B81CCB9A1C212E2600D642DB /* LTChatService.h */,
-				B81CCB9B1C212E2600D642DB /* LTChatService.m */,
+				B89E0FE31C473D4400CD61FE /* Upload */,
+				B89E0FC01C473CD200CD61FE /* Chat */,
+				B89E0FC71C473CD200CD61FE /* Intro */,
+				B89E0FCE1C473CD200CD61FE /* LogIn */,
+				B89E0FD31C473CD200CD61FE /* SignUp */,
 			);
-			name = Chat;
-			path = OhShock/Chat;
+			name = "小模块";
+			path = "OhShock/小模块";
+			sourceTree = "<group>";
+		};
+		B89E0FC01C473CD200CD61FE /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				B89E0FC11C473CD200CD61FE /* LTChatModel.h */,
+				B89E0FC21C473CD200CD61FE /* LTChatModel.m */,
+				B89E0FC31C473CD200CD61FE /* LTChatService.h */,
+				B89E0FC41C473CD200CD61FE /* LTChatService.m */,
+				B89E0FC51C473CD200CD61FE /* LTChatViewController.h */,
+				B89E0FC61C473CD200CD61FE /* LTChatViewController.m */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		B89E0FC71C473CD200CD61FE /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				B89E0FC81C473CD200CD61FE /* IFTTTCircleView.h */,
+				B89E0FC91C473CD200CD61FE /* IFTTTCircleView.m */,
+				B89E0FCA1C473CD200CD61FE /* IFTTTJazzHandsViewController.h */,
+				B89E0FCB1C473CD200CD61FE /* IFTTTJazzHandsViewController.m */,
+				B89E0FCC1C473CD200CD61FE /* IntroductionViewController.h */,
+				B89E0FCD1C473CD200CD61FE /* IntroductionViewController.m */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
+		B89E0FCE1C473CD200CD61FE /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				B89E0FCF1C473CD200CD61FE /* LogInViewController.h */,
+				B89E0FD01C473CD200CD61FE /* LogInViewController.m */,
+				B89E0FD11C473CD200CD61FE /* LTLogInService.h */,
+				B89E0FD21C473CD200CD61FE /* LTLogInService.m */,
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
+		B89E0FD31C473CD200CD61FE /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				B89E0FD41C473CD200CD61FE /* Service */,
+				B89E0FD71C473CD200CD61FE /* SignUpViewController.h */,
+				B89E0FD81C473CD200CD61FE /* SignUpViewController.m */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		B89E0FD41C473CD200CD61FE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B89E0FD51C473CD200CD61FE /* LTSignUpService.h */,
+				B89E0FD61C473CD200CD61FE /* LTSignUpService.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		B89E0FE31C473D4400CD61FE /* Upload */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Upload;
 			sourceTree = "<group>";
 		};
 		B8A128311C1984B100ECA6CD /* LKAlarmManager */ = {
@@ -3393,17 +3409,6 @@
 				B84428721C425325005FA556 /* LTPostCommentCell.m */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		B8D1D5271C33DEEB00DC4EDC /* 小模块 */ = {
-			isa = PBXGroup;
-			children = (
-				B81072451C197FCE0058130E /* SignUp */,
-				B81071CC1C197FCE0058130E /* LogIn */,
-				B81071C51C197FCE0058130E /* Intro */,
-				B87677DE1C202A7800A0795B /* Chat */,
-			);
-			name = "小模块";
 			sourceTree = "<group>";
 		};
 		B8D1D5291C33EB0200DC4EDC /* Post */ = {
@@ -4962,12 +4967,13 @@
 				B8EEADDA1C294F5400F861E8 /* XHEmotionManagerView.m in Sources */,
 				B8EEAD7E1C294F5400F861E8 /* CDEmotionUtils.m in Sources */,
 				B81CCC451C21408500D642DB /* JSQMessagesLabel.m in Sources */,
+				B89E0FD91C473CD200CD61FE /* LTChatModel.m in Sources */,
 				B8EEAD891C294F5400F861E8 /* UIButton+XHButtonTitlePosition.m in Sources */,
 				B8E64C7C1C43F2E100B4CB64 /* HexColors.m in Sources */,
 				B8EEAD981C294F5400F861E8 /* XHPhotographyHelper.m in Sources */,
 				B8E64C6E1C43F2E100B4CB64 /* CreateGroupViewController.m in Sources */,
 				B8EEADAF1C294F5400F861E8 /* XHContact.m in Sources */,
-				B81072551C197FCE0058130E /* IFTTTJazzHandsViewController.m in Sources */,
+				B89E0FDF1C473CD200CD61FE /* LogInViewController.m in Sources */,
 				B8D1D52C1C33EB2B00DC4EDC /* LTPostListViewController.m in Sources */,
 				B863A65D1C2CD8D000707D17 /* NSDate+Helper.m in Sources */,
 				B845BC7F1C45072B001DA565 /* WBStatusHelper.m in Sources */,
@@ -4978,7 +4984,6 @@
 				B82BA3C61C2BDED7004AFC37 /* DistancePickerView.m in Sources */,
 				B8EEAD9E1C294F5400F861E8 /* XHBaseViewController.m in Sources */,
 				B81CCC3D1C21408500D642DB /* JSQMessagesCollectionView.m in Sources */,
-				B81072561C197FCE0058130E /* IntroductionViewController.m in Sources */,
 				B8E64C761C43F2E100B4CB64 /* SetGroupLabelsViewController.m in Sources */,
 				B87677BF1C1FCEB800A0795B /* LTAddFriendViewController.m in Sources */,
 				B8E64C701C43F2E100B4CB64 /* LTGroupMemberViewController.m in Sources */,
@@ -5010,6 +5015,7 @@
 				B8EEADAD1C294F5400F861E8 /* XHAlbum.m in Sources */,
 				B8EEADA61C294F5400F861E8 /* XHHTTPClient.m in Sources */,
 				B8E64C7F1C43F2E100B4CB64 /* SKTagView.m in Sources */,
+				B89E0FDD1C473CD200CD61FE /* IFTTTJazzHandsViewController.m in Sources */,
 				B8EEAD991C294F5400F861E8 /* XHVoiceCommonHelper.m in Sources */,
 				B8EEADA01C294F5400F861E8 /* XHDisplayLocationViewController.m in Sources */,
 				B8EEADB21C294F5400F861E8 /* XHMessage.m in Sources */,
@@ -5023,7 +5029,6 @@
 				B8BD1A851C3BA12A0011178F /* LTPostProfileView.m in Sources */,
 				B84428691C4226C0005FA556 /* LTPostContentModel.m in Sources */,
 				B8EEADE21C294F5400F861E8 /* UIImage+Icon.m in Sources */,
-				B81072571C197FCE0058130E /* LogInViewController.m in Sources */,
 				B8EEADBB1C294F5400F861E8 /* SELinkText.m in Sources */,
 				B810725D1C197FCE0058130E /* LTMainTabBarController.m in Sources */,
 				B845BC831C45072B001DA565 /* LTStatusTagView.m in Sources */,
@@ -5075,6 +5080,7 @@
 				B8A128421C1984B100ECA6CD /* LKAlarmEvent.m in Sources */,
 				B8EEAD8F1C294F5400F861E8 /* UIImage+XHRounded.m in Sources */,
 				B81071B31C197F6F0058130E /* AppDelegate.m in Sources */,
+				B89E0FE11C473CD200CD61FE /* LTSignUpService.m in Sources */,
 				B845BC841C45072B001DA565 /* LTStatusTimelineViewController.m in Sources */,
 				B810725B1C197FCE0058130E /* LTDiscoverViewController.m in Sources */,
 				B81CCC261C21408500D642DB /* UIDevice+JSQMessages.m in Sources */,
@@ -5083,7 +5089,6 @@
 				B81CCC2C1C21408500D642DB /* JSQMessagesAvatarImageFactory.m in Sources */,
 				B8D1D5261C33CAEA00DC4EDC /* LTSelectFriendsViewController.m in Sources */,
 				B8EEADD21C294F5400F861E8 /* XHMessageStatusView.m in Sources */,
-				B81072891C197FCE0058130E /* LTSignUpService.m in Sources */,
 				B8EEAD8D1C294F5400F861E8 /* UIImage+Utility.m in Sources */,
 				B8E64C731C43F2E100B4CB64 /* GroupIntroductionViewController.m in Sources */,
 				B80726721C1AAF2F00E7802A /* LTDiscoverTodoViewController.m in Sources */,
@@ -5092,8 +5097,6 @@
 				B8EEADD71C294F5400F861E8 /* XHVoiceRecordHUD.m in Sources */,
 				B810728B1C197FCE0058130E /* LTTapImageView.m in Sources */,
 				B82BA3C31C2BDED7004AFC37 /* ActionSheetDistancePicker.m in Sources */,
-				B81072541C197FCE0058130E /* IFTTTCircleView.m in Sources */,
-				B810728A1C197FCE0058130E /* SignUpViewController.m in Sources */,
 				B8EEADAE1C294F5400F861E8 /* XHAnnotation.m in Sources */,
 				B845BC811C45072B001DA565 /* LTStatusCell.m in Sources */,
 				B82BA3C21C2BDED7004AFC37 /* ActionSheetDatePicker.m in Sources */,
@@ -5117,13 +5120,13 @@
 				B82BA3C51C2BDED7004AFC37 /* ActionSheetStringPicker.m in Sources */,
 				B8EEAD931C294F5400F861E8 /* XHAudioPlayerHelper.m in Sources */,
 				B81072611C197FCE0058130E /* LTMeHeadUserInfoView.m in Sources */,
-				B81072581C197FCE0058130E /* LTLogInService.m in Sources */,
 				B81072761C197FCE0058130E /* JTCalendarMenuView.m in Sources */,
 				B81CCC491C21408500D642DB /* JSQMessagesToolbarContentView.m in Sources */,
 				B81072731C197FCE0058130E /* JTCalendarDataCache.m in Sources */,
 				B8EEADB91C294F5400F861E8 /* SEConstants.m in Sources */,
 				B82BA3C11C2BDED7004AFC37 /* ActionSheetCustomPicker.m in Sources */,
 				B8EEAD861C294F5400F861E8 /* NSString+MessageInputView.m in Sources */,
+				B89E0FDB1C473CD200CD61FE /* LTChatViewController.m in Sources */,
 				B8EEAD8B1C294F5400F861E8 /* UIImage+Resize.m in Sources */,
 				B810726E1C197FCE0058130E /* ScheduleHeadCell.m in Sources */,
 				B80A37931C1DADB600C3B226 /* YYTableView.m in Sources */,
@@ -5137,7 +5140,6 @@
 				B845BC7B1C45072B001DA565 /* WBStatusComposeTextParser.m in Sources */,
 				B8EEADBD1C294F5400F861E8 /* SETextAttachment.m in Sources */,
 				B810728E1C197FCE0058130E /* UIView+Layout.m in Sources */,
-				B81CCB961C21259F00D642DB /* LTChatViewController.m in Sources */,
 				B8EEADA21C294F5400F861E8 /* XHDisplayTextViewController.m in Sources */,
 				B8E64C661C43F2E100B4CB64 /* LTGroupCell.m in Sources */,
 				B80A378F1C1DADB600C3B226 /* YYControl.m in Sources */,
@@ -5151,11 +5153,13 @@
 				B8EEADD61C294F5400F861E8 /* XHMessageTextView.m in Sources */,
 				B8EEADC61C294F5400F861E8 /* SETextView.m in Sources */,
 				B81CCC361C21408500D642DB /* JSQMediaItem.m in Sources */,
+				B89E0FE21C473CD200CD61FE /* SignUpViewController.m in Sources */,
 				B81CCC431C21408500D642DB /* JSQMessagesComposerTextView.m in Sources */,
 				B8EEADB81C294F5400F861E8 /* SECompatibility.m in Sources */,
 				B87677D71C2005C700A0795B /* LTUserInfoHeadView.m in Sources */,
 				B844284E1C420E8C005FA556 /* LTPostCommentView.m in Sources */,
 				B844286D1C4226C0005FA556 /* LTPostProfileModel.m in Sources */,
+				B89E0FDC1C473CD200CD61FE /* IFTTTCircleView.m in Sources */,
 				B8EEAD7C1C294F5400F861E8 /* CDChatManager.m in Sources */,
 				B8E64C6A1C43F2E100B4CB64 /* LTGroupMessageCell.m in Sources */,
 				B81CCC281C21408500D642DB /* UIView+JSQMessages.m in Sources */,
@@ -5194,6 +5198,7 @@
 				B81072641C197FCE0058130E /* LTMeViewModel.m in Sources */,
 				B81CCC2A1C21408500D642DB /* JSQMessagesViewController.m in Sources */,
 				B8EEADCE1C294F5400F861E8 /* XHBaseTableViewCell.m in Sources */,
+				B89E0FE01C473CD200CD61FE /* LTLogInService.m in Sources */,
 				B8EEADA41C294F5400F861E8 /* XHCacheManager.m in Sources */,
 				B845BC851C45072B001DA565 /* LTStatusTitleView.m in Sources */,
 				B84428761C4264C3005FA556 /* LTUser.m in Sources */,
@@ -5206,6 +5211,7 @@
 				B82BA3C01C2BDED7004AFC37 /* AbstractActionSheetPicker.m in Sources */,
 				B8EEADC71C294F5400F861E8 /* XHImageViewer.m in Sources */,
 				B8EEADD41C294F5400F861E8 /* XHMessageTableViewCell.m in Sources */,
+				B89E0FDA1C473CD200CD61FE /* LTChatService.m in Sources */,
 				B810727A1C197FCE0058130E /* JTCircleView.m in Sources */,
 				B8EEABC51C28FC9500F861E8 /* LTMeHeaderCell.m in Sources */,
 				B87677C61C1FE1B700A0795B /* LTLiteUserCell.m in Sources */,
@@ -5216,7 +5222,6 @@
 				B8EEADB61C294F5400F861E8 /* FLAnimatedImageView.m in Sources */,
 				B81CCC461C21408500D642DB /* JSQMessagesLoadEarlierHeaderView.m in Sources */,
 				B80A37901C1DADB600C3B226 /* YYFPSLabel.m in Sources */,
-				B81CCB991C2126F600D642DB /* LTChatModel.m in Sources */,
 				B87677DD1C2015C300A0795B /* LTUserInfoSendMessageCell.m in Sources */,
 				B81072751C197FCE0058130E /* JTCalendarMenuMonthView.m in Sources */,
 				B8EEADE11C294F5400F861E8 /* NSString+Emojize.m in Sources */,
@@ -5228,7 +5233,6 @@
 				B844286B1C4226C0005FA556 /* LTPostLikedModel.m in Sources */,
 				B807290F1C1AB5C900E7802A /* LTDiscoverTodoUserImageView.m in Sources */,
 				B8EEADBE1C294F5400F861E8 /* SETextEditingCaret.m in Sources */,
-				B81CCB9C1C212E2600D642DB /* LTChatService.m in Sources */,
 				B810725F1C197FCE0058130E /* LTMeHeadUserFollowInfoView.m in Sources */,
 				B82BA3AD1C2BDD7F004AFC37 /* LTAddTodoTextCell.m in Sources */,
 				B8E64C641C43F2E100B4CB64 /* GroupLabelCell.m in Sources */,
@@ -5245,6 +5249,7 @@
 				B81CCC3E1C21408500D642DB /* JSQMessagesCollectionViewCell.m in Sources */,
 				B855AB2F1C3D050000566B9B /* LTPostImagesView.m in Sources */,
 				B81CCC291C21408500D642DB /* JSQMessagesKeyboardController.m in Sources */,
+				B89E0FDE1C473CD200CD61FE /* IntroductionViewController.m in Sources */,
 				B8EEADA91C294F5400F861E8 /* XHMessageBubbleFactory.m in Sources */,
 				B81072861C197FCE0058130E /* XHPopMenu.m in Sources */,
 				B81071B01C197F6F0058130E /* main.m in Sources */,
