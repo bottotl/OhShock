@@ -12,4 +12,8 @@
 static NSString *const LTUploadTextAndPhotosCellIdentifier = @"LTUploadTextAndPhotosCell";
 @interface LTUploadTextAndPhotosCell : UITableViewCell
 
+-(void)configCell:(NSArray *)photos;
+
++(CGFloat)cellHeight:(NSArray *)photos;
+
 @end

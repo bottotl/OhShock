@@ -39,4 +39,12 @@
 }
 
 
+#pragma mark - 配置 Cell 数据
+
+-(void)configCellWith:(UIImage *)image{
+    self.image = image;
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
+}
+
 @end

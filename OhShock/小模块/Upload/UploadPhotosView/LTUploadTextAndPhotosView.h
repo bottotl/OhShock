@@ -13,4 +13,9 @@
  */
 @interface LTUploadTextAndPhotosView : UIView
 
+
+-(void)configView:(NSArray *)photos;
+
++(CGFloat)heightWithPhotos:(NSArray *)photos;
+
 @end

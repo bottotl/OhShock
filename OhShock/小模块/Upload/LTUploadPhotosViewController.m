@@ -15,6 +15,8 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 
+@property (nonatomic, strong) NSArray *photos;
+
 @end
 
 @implementation LTUploadPhotosViewController
@@ -33,6 +35,9 @@
     
     UIBarButtonItem *cancleButton = [[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancleUpload)];
     self.navigationItem.leftBarButtonItem = cancleButton;
+    
+    UIImage *photo = [UIImage imageNamed:@"tabbar_selected"];
+    self.photos = @[photo,photo,photo,photo,photo];
 }
 
 #pragma mark - UITableViewDataSource
@@ -56,6 +61,7 @@
     UITableViewCell *cell = nil;
     if (indexPath.section == 0 && indexPath.row == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:LTUploadTextAndPhotosCellIdentifier forIndexPath:indexPath];
+        return cell;
     }
     cell = [tableView dequeueReusableCellWithIdentifier:LTBaseTableViewCellIdentifier forIndexPath:indexPath];
     return cell;
@@ -63,14 +69,22 @@
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        LTUploadTextAndPhotosCell *tCell = (LTUploadTextAndPhotosCell *)cell;
+        [tCell configCell:self.photos];
+    }
     if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             [(LTBaseTableViewCell *)cell ConfigCell:[UIImage imageNamed:@"task_activity_icon_update_deadline"] andTitle:@"谁可以看" andaccessoryText:nil];
         }
     }
-    [(LTBaseTableViewCell *)cell ConfigCell:[UIImage imageNamed:@"task_activity_icon_update_deadline"] andTitle:@"谁可以看" andaccessoryText:nil];
+    
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        return [LTUploadTextAndPhotosCell cellHeight:self.photos];
+    }
+    
     return [LTBaseTableViewCell CellHeight];
 }
 

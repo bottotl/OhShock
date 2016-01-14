@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+static NSString *const LTUploadPhotoCollectionCellIdentifier = @"LTUploadPhotoCollectionCell";
+
 /**
  *  显示一张图片
  */
 @interface LTUploadPhotoCollectionCell : UICollectionViewCell
 
 @property (nonatomic, strong) UIImage *image;
+
+-(void)configCellWith:(UIImage *)image;
 
 @end
