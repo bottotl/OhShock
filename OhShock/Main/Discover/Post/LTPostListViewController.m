@@ -10,7 +10,8 @@
 #import "LTPostViewCell.h"
 #import "LTPostModel.h"
 #import "YYKit.h"
-#import "YYPhotoGroupView.h"
+#import "LTUploadPhotosViewController.h"
+
 
 @interface LTPostListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -45,7 +46,7 @@
     _tableView.frame = self.view.bounds;
     [_tableView registerClass:[LTPostViewCell class] forCellReuseIdentifier:LTPostViewCellIdentifier];
     
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"camer_add_post"] style:UIBarButtonItemStylePlain target:self action:@selector(sendStatus)];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"camer_add_post"] style:UIBarButtonItemStylePlain target:self action:@selector(showPostItems)];
     rightItem.tintColor = UIColorHex(fd8224);
     self.navigationItem.rightBarButtonItem = rightItem;
     
@@ -121,7 +122,7 @@
     
 }
 
-#pragma mark - table view data source
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.posts.count;
@@ -129,25 +130,25 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LTPostViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LTPostViewCellIdentifier forIndexPath:indexPath];
+    
+    return cell;
+}
+
+#pragma mark  UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return ((NSNumber *)_heights[indexPath.row]).floatValue;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     LTPostModel *postModel  = self.posts[indexPath.row];
-    [cell configCellWithData:postModel];
-    [[cell.postView.rac_gestureSignal takeUntil:cell.rac_prepareForReuseSignal] subscribeNext:^(id x) {
+    [(LTPostViewCell *)cell configCellWithData:postModel];
+    [[((LTPostViewCell *)cell).postView.rac_gestureSignal takeUntil:cell.rac_prepareForReuseSignal] subscribeNext:^(id x) {
         //NSLog(@"%@",postModel.profileData.avatarUrlBig);
-        YYPhotoGroupItem *item = [YYPhotoGroupItem new];
-        item.thumbView = cell.postView.profileView.avatarView;
-        item.largeImageURL = [NSURL URLWithString:postModel.profileData.avatarUrlBig];
-        item.largeImageSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
-        YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:@[item]];
-        [v presentFromImageView:cell.postView.profileView.avatarView toContainer:self.view animated:YES completion:nil];
         NSLog(@"点击了头像%@",x);
     }];
     [cell setNeedsLayout];
     [cell layoutIfNeeded];
-    return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return ((NSNumber *)_heights[indexPath.row]).floatValue;
 }
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -155,9 +156,23 @@
 }
 
 
-#pragma mark - 页面跳转
-- (void)sendStatus {
+#pragma mark - 上传事件
 
+#pragma mark 按钮点击
+- (void)showPostItems{
+    UIAlertController *uploadAlert = [UIAlertController alertControllerWithTitle:@"上传动态" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+    [uploadAlert addAction:[UIAlertAction actionWithTitle:@"上传图片动态" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSLog(@"上传图片动态");
+    }]];
+    [uploadAlert addAction:[UIAlertAction actionWithTitle:@"上传日程动态" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:[LTUploadPhotosViewController new]];
+        [self.navigationController showDetailViewController:navi sender:self];
+        NSLog(@"上传图片动态");
+    }]];
+    [uploadAlert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        NSLog(@"取消");
+    }]];
+    [self presentViewController:uploadAlert animated:YES completion:nil];
 }
 
 @end
