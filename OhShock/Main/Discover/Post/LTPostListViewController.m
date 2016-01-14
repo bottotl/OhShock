@@ -73,7 +73,7 @@
      *  多图展示数据模拟
      */
     NSMutableArray *tempPostImagesData = @[].mutableCopy;
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 1; i++) {
         LTPostImageModel *model = [LTPostImageModel new];
         model.smallUrlString = [NSString stringWithFormat:@"https://coding.net//static/fruit_avatar/Fruit-%d.png",i%19 +1];
         model.bigUrlString = [NSString stringWithFormat:@"https://coding.net//static/fruit_avatar/Fruit-%d.png",i%19 +2];
@@ -84,14 +84,14 @@
     
     LTPostLikedModel *likedMode = [LTPostLikedModel new];
     NSMutableArray *tempUsersName = @[].mutableCopy;
-    for (int i = 0; i< 60 ; i++) {
+    for (int i = 0; i< 1 ; i++) {
         [tempUsersName addObject:[NSString stringWithFormat:@"用户%d",i]];
     }
     likedMode.users = tempUsersName.copy;
     
     
     NSMutableArray *comments = [NSMutableArray new];
-    for (int i = 0 ; i < 9; i++) {
+    for (int i = 0 ; i < 1; i++) {
         LTModelPostComment *model =[LTModelPostComment new];
         model.content = @"追求别人，我不知道最好的办法，但我知道哪些办法是与幸福生活背道而驰的。";
         model.fromUser = [LTUser currentUser];
@@ -107,7 +107,7 @@
     
     
     NSMutableArray *tempDataSource = @[].mutableCopy;
-    for (int i = 0; i < 60; i++) {
+    for (int i = 0; i < 1000; i++) {
         [tempDataSource addObject:mode];
     }
     
