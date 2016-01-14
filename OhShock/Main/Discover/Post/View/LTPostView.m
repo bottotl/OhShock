@@ -9,6 +9,8 @@
 #import "LTPostView.h"
 #import "UIView+Layout.h"
 #import "UIImage+Common.h"
+#import "LTPostImageCollectionViewCell.h"
+#import "YYPhotoGroupView.h"
 
 static CGFloat const LTPostContentLeftPadding = 5;
 static CGFloat const LTPostContentRightPadding = 3;
@@ -16,7 +18,7 @@ static CGFloat const LTPostButtonHeight = 20;// 点赞、评论按钮的高度
 static CGFloat const LTPostLikedViewLeftPadding = 10;// 点赞列表左边距
 static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
 
-@interface LTPostView ()
+@interface LTPostView ()<UICollectionViewDelegate>
 
 
 
@@ -104,6 +106,29 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
 }
 
 
+#pragma mark - collection view delegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSMutableArray *items = @[].mutableCopy;
+    LTPostImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:LTPostImageCollectionCellIdentifier forIndexPath:indexPath];
+    LTPostImageModel *pic = self.data.pic[indexPath.row];
+    [cell configCellWithImageUrl:pic.smallUrlString];
+    for (LTPostImageModel *model in self.data.pic) {
+        YYPhotoGroupItem *item = [YYPhotoGroupItem new];
+        item.thumbView = cell.imageView;
+        item.largeImageURL = [NSURL URLWithString:model.bigUrlString];
+        item.largeImageSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
+        [items addObject:item];
+    }
+    NSLog(@"点击了图片");
+    UINavigationController * viewController = (UINavigationController *)((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).selectedViewController;
+//    UIViewController * viewController = (UINavigationController *)((UINavigationController *)(((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).selectedViewController)).topViewController;
+//    YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:items.copy];
+//    [v presentFromImageView:cell.imageView toContainer:viewController.view animated:YES completion:nil];
+    NSLog(@"%@",[NSValue valueWithCGRect:[cell.imageView convertRect:cell.imageView.frame toView:viewController.view]]) ;
+}
+
+
+
 #pragma mark - property
 
 #pragma mark signal
@@ -151,6 +176,7 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
 -(LTPostImagesView *)imagesView{
     if (!_imagesView) {
         _imagesView = [LTPostImagesView new];
+        //_imagesView.collectionView.delegate = self;
         [self addSubview:_imagesView];
     }
     return _imagesView;

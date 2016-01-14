@@ -23,6 +23,10 @@
 @property (nonatomic, assign) NSUInteger limit;///< 图片最多数量
 @property (nonatomic, strong) RACSignal *imageTapSignal;///< 图片点击
 
+@property (nonatomic, strong) UICollectionView           *collectionView;
+
+@property (nonatomic, strong) NSArray *picItems;
+
 /**
  *  计算图片显示控件的高度
  *

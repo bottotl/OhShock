@@ -7,7 +7,6 @@
 
 #import <UIKit/UIKit.h>
 
-
 /// Single picture's info.
 @interface YYPhotoGroupItem : NSObject
 @property (nonatomic, strong) UIView *thumbView; ///< thumb image, used for animation position calculation
@@ -33,6 +32,14 @@
                  toContainer:(UIView *)container
                     animated:(BOOL)animated
                   completion:(void (^)(void))completion;
+
+
+- (void)presentFromView:(UIView *)receiverView
+       andFromItemIndex:(NSInteger)fromItemIndex
+            andCellView:(UIView *)cellContentView
+            toContainer:(UIView *)toContainer
+               animated:(BOOL)animated
+             completion:(void (^)(void))completion;
 
 - (void)dismissAnimated:(BOOL)animated completion:(void (^)(void))completion;
 - (void)dismiss;

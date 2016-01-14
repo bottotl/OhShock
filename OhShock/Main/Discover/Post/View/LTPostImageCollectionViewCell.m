@@ -9,10 +9,11 @@
 #import "LTPostImageCollectionViewCell.h"
 #import "UIImageView+WebCache.h"
 #import "UIView+Layout.h"
+#import "UIColor+expanded.h"
+
 
 @interface LTPostImageCollectionViewCell ()
 
-@property(nonatomic, strong)  UIImageView *imageView;
 @property(nonatomic, strong)  UILabel     *numberLabel;
 @property(nonatomic, strong)  UIView      *numberView;
 
@@ -23,7 +24,6 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         [self initialize];
-        self.imageView.contentMode = UIViewContentModeScaleAspectFill;
         self.numberLabel.hidden = YES;
     }
     return self;
@@ -39,7 +39,23 @@
 
 -(void)initialize{
     _imageView = [UIImageView new];
+    _imageView.hidden = NO;
     _imageView.clipsToBounds = YES;
+    _imageView.backgroundColor = [UIColor colorWithHexString:@"f0f0f0"];
+    _imageView.exclusiveTouch = YES;
+    
+    _badge = [UIImageView new];
+    
+    
+    _badge.userInteractionEnabled = NO;
+    _badge.contentMode = UIViewContentModeScaleAspectFit;
+    _badge.size = CGSizeMake(56 / 2, 36 / 2);
+    _badge.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin;
+    _badge.right = _imageView.width;
+    _badge.bottom = _imageView.height;
+    _badge.hidden = YES;
+    [_imageView addSubview:_badge];
+    
     [self.contentView addSubview:_imageView];
     
     _numberView = [UIView new];
@@ -59,6 +75,7 @@
 -(void)layoutSubviews{
     [super layoutSubviews];
     self.imageView.frame = self.bounds;
+    //self.badge.frame = self.imageView.bounds;
     
     if (!self.numberLabel.hidden) {
         self.numberView.hidden = NO;
@@ -74,6 +91,8 @@
 
 -(void)configCellWithImageUrl:(NSString *)url{
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:url]];
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
 }
 
 

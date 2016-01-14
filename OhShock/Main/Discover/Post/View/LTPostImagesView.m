@@ -11,16 +11,22 @@
 #import "UIView+Layout.h"
 #import "LTPostImageModel.h"
 #import "YYPhotoGroupView.h"
+#import <Foundation/Foundation.h>
 
-@interface LTPostImagesView ()<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface LTPostImagesView ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
-@property (nonatomic, strong) UICollectionView           *collectionView;
 @property (nonatomic, strong) UICollectionViewFlowLayout *layout;
 
 @end
 
 @implementation LTPostImagesView
+@synthesize picItems = _picItems;
 #pragma mark - init
+
+-(instancetype)init{
+    self = [self initWithFrame:CGRectZero];
+    return self;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
@@ -103,22 +109,36 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    LTPostImageCollectionViewCell *cell = (LTPostImageCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    LTPostImageModel *pic = self.data[indexPath.row];
+    [cell configCellWithImageUrl:pic.smallUrlString];
+    
     NSMutableArray *items = @[].mutableCopy;
-    LTPostImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:LTPostImageCollectionCellIdentifier forIndexPath:indexPath];
-    for (LTPostImageModel *model in self.data) {
+    NSIndexPath * index = [NSIndexPath indexPathForRow:0 inSection:0];
+    for (NSUInteger i = 0 ; i < self.limit && i < self.data.count; i++) {
+        LTPostImageCollectionViewCell *cell = (LTPostImageCollectionViewCell *)[collectionView cellForItemAtIndexPath:index];
+        LTPostImageModel *pic = self.data[index.row];
+        [cell configCellWithImageUrl:pic.smallUrlString];
+        
         YYPhotoGroupItem *item = [YYPhotoGroupItem new];
-        item.thumbView = cell;
-        item.largeImageURL = [NSURL URLWithString:model.bigUrlString];
+        item.thumbView = cell.imageView;
+        item.largeImageURL = [NSURL URLWithString:((LTPostImageModel *)self.data[index.row]).bigUrlString];
         item.largeImageSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
         [items addObject:item];
+        index = [NSIndexPath indexPathForRow:(index.row + 1) inSection:0];;
     }
-    NSLog(@"点击了图片");
-//    for (<#initialization#>; <#condition#>; <#increment#>) {
-//        <#statements#>
-//    }
-    
-    YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:items.copy];
-    [v presentFromImageView:cell toContainer:self.superview.superview animated:YES completion:nil];
+    UINavigationController * viewController = [self theNavi];
+
+    NSLog(@"%@",[NSValue valueWithCGRect:[self convertRect:cell.frame toView:viewController.view]]) ;
+    YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:items];
+    [v presentFromView:self andFromItemIndex:indexPath.row andCellView:cell toContainer:viewController.view animated:YES completion:nil];
+
+}
+
+
+
+- (UINavigationController *)theNavi{
+    return (UINavigationController *)((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).selectedViewController;
 }
 
 #pragma mark - property
