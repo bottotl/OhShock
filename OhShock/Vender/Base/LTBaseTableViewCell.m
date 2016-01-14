@@ -10,7 +10,7 @@
 #import "UIView+Layout.h"
 #import "UIColor+expanded.h"
 static CGFloat const LTCellHeight = 60;
-static CGFloat const ShowTitleLabelWidth = 60;
+static CGFloat const ShowTitleLabelWidth = 180;
 static CGFloat const AccessoryTextLabelWidth = 30;
 static CGFloat const AccessoryTextLabelRightPadding = 20;
 
@@ -52,25 +52,26 @@ static CGFloat const AccessoryTextLabelRightPadding = 20;
 #pragma mark 数据
 - (void)setShowImage:(UIImage *)showImage{
     _showImage = showImage;
-    if (self.showImageView) {
-        self.showImageView.image = showImage;
-    }
+    self.showImageView.image = showImage;
+//    if (self.showImageView) {
+//        
+//    }
 }
 
 -(void)setAccessoryText:(NSString *)accessoryText{
     _accessoryText = accessoryText;
-    if (self.accessoryTextLabel) {
-        self.accessoryTextLabel.text = accessoryText;
-    }
+    self.accessoryTextLabel.text = accessoryText;
+//    if (self.accessoryTextLabel) {
+//        
+//    }
 }
 
 -(void)setShowTitle:(NSString *)showTitle{
     _showTitle = showTitle;
-    if (self.showTitleLabel) {
-        self.showTitleLabel.font = [UIFont systemFontOfSize:16];
-        self.showTitleLabel.textColor = [UIColor colorWithHexString:@"a8a8aa"];
-        self.showTitleLabel.text = showTitle;
-    }
+    self.showTitleLabel.font = [UIFont systemFontOfSize:16];
+    self.showTitleLabel.textColor = [UIColor colorWithHexString:@"a8a8aa"];
+    self.showTitleLabel.text = showTitle;
+
 }
 
 -(UIImage *)showImage{
