@@ -9,6 +9,7 @@
 #import "LTUploadPhotosViewController.h"
 #import "LTUploadTextAndPhotosCell.h"
 #import "LTBaseTableViewCell.h"
+#import "BSImagePicker-Swift.h"
 
 
 @interface LTUploadPhotosViewController ()<UITableViewDataSource, UITableViewDelegate, AddPhotoDelegae>
@@ -38,6 +39,7 @@
     
     UIImage *photo = [UIImage imageNamed:@"tabbar_selected"];
     self.photos = @[photo,photo,photo,photo,photo];
+
 }
 
 #pragma mark - UITableViewDataSource
@@ -102,6 +104,17 @@
         
     }]];
     [uploadAlert addAction:[UIAlertAction actionWithTitle:@"从手机相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        BSImagePickerViewController *vc = [BSImagePickerViewController new];
+        vc.maxNumberOfSelections = 6;
+        [self presentImagePickerController:vc animated:YES select:^(PHAsset *p) {
+            NSLog(@"%@",p);
+        } deselect:^(PHAsset *p) {
+            NSLog(@"%@",p);
+        } cancel:^(NSArray<PHAsset *> *p) {
+            NSLog(@"%@",p);
+        } finish:^(NSArray<PHAsset *> *p) {
+            NSLog(@"%@",p);
+        } completion:nil];
         
     }]];
     [uploadAlert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
@@ -110,5 +123,17 @@
     
     [self presentViewController:uploadAlert animated:YES completion:nil];
 }
+
+#pragma mark - 展示相册方法
+- (void)presentImagePickerController:(BSImagePickerViewController *)imagePicker animated:(BOOL)animated select:(void (^)(PHAsset * __nonnull))selectBlock deselect:(void (^)(PHAsset *))deselectBlock  cancel:(void (^)(NSArray<PHAsset *> * __nonnull))cancleBlock finish:(void (^)(NSArray<PHAsset *> * __nonnull))finishBlock completion:(void (^)())completionBolck{
+    imagePicker.selectionClosure = selectBlock;
+    imagePicker.deselectionClosure = deselectBlock;
+    imagePicker.cancelClosure = cancleBlock;
+    imagePicker.finishClosure = finishBlock;
+    
+    [self presentViewController:imagePicker animated:animated completion:completionBolck];
+    
+}
+
 
 @end

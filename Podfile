@@ -9,6 +9,7 @@ pod 'TPKeyboardAvoiding'
 pod 'ReactiveCocoa', '~> 4.0.4-alpha-4'
 pod 'FMDB'
 pod 'YYKit',:path =>"./OhShock/Vender/YYKit/YYKit.podspec"
+pod 'BSImagePicker',:path =>"./OhShock/Vender/BSImagePicker/BSImagePicker.podspec"
 #pod 'LeanChatLib',:path =>"./OhShock/Vender/LeanChatLib/LeanChatLib.podspec"
 pod 'SDWebImage'
 #  add parallax header view to scroll views
