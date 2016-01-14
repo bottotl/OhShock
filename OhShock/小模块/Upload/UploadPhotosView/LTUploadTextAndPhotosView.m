@@ -8,6 +8,7 @@
 
 #import "LTUploadTextAndPhotosView.h"
 #import "LTUploadPhotoCollectionCell.h"
+#import "LTUploadAddPhotoColloectionCell.h"
 #import "UIView+Layout.h"
 
 /// 距离屏幕左边距
@@ -46,6 +47,7 @@ static NSInteger const  MaxLineNum        = 4;
         [self addSubview:_collectioneView];
         
         [_collectioneView registerClass:[LTUploadPhotoCollectionCell class] forCellWithReuseIdentifier:LTUploadPhotoCollectionCellIdentifier];
+        [_collectioneView registerClass:[LTUploadAddPhotoColloectionCell class] forCellWithReuseIdentifier:LTUploadAddPhotoCellIdentifier];
         
         _textView = [UITextView new];
         [self addSubview:_textView];
@@ -67,6 +69,11 @@ static NSInteger const  MaxLineNum        = 4;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
+    if (indexPath.row == self.photos.count) {
+        LTUploadAddPhotoColloectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:LTUploadAddPhotoCellIdentifier forIndexPath:indexPath];
+        return cell;
+    }
+    
     LTUploadPhotoCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:LTUploadPhotoCollectionCellIdentifier forIndexPath:indexPath];
     return cell;
     
@@ -74,12 +81,17 @@ static NSInteger const  MaxLineNum        = 4;
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if (indexPath.row == self.photos.count) {
+        NSLog(@"添加图片");
+    }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
-    LTUploadPhotoCollectionCell *mCell= (LTUploadPhotoCollectionCell *)cell;
-    [mCell configCellWith:[UIImage imageNamed:@"tusiji_8_cover"]];
+
+    if(indexPath.row != self.photos.count){
+        [(LTUploadPhotoCollectionCell *)cell configCellWith:[UIImage imageNamed:@"tusiji_8_cover"]];
+    }
+    
 }
 
 #pragma mark - layout 
