@@ -11,8 +11,6 @@
 
 @interface LTUploadAddPhotoColloectionCell ()
 
-@property (nonatomic, strong) UIButton *addPhotoButton;
-
 @end
 
 @implementation LTUploadAddPhotoColloectionCell

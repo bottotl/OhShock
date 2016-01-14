@@ -11,7 +11,7 @@
 
 @interface LTUploadTextAndPhotosCell ()
 
-@property (nonatomic, strong) LTUploadTextAndPhotosView *richView;
+
 
 @end
 

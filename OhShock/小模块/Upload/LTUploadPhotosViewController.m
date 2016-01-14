@@ -11,7 +11,7 @@
 #import "LTBaseTableViewCell.h"
 
 
-@interface LTUploadPhotosViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface LTUploadPhotosViewController ()<UITableViewDataSource, UITableViewDelegate, AddPhotoDelegae>
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -60,7 +60,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = nil;
     if (indexPath.section == 0 && indexPath.row == 0) {
-        cell = [tableView dequeueReusableCellWithIdentifier:LTUploadTextAndPhotosCellIdentifier forIndexPath:indexPath];
+        LTUploadTextAndPhotosCell *cell = [tableView dequeueReusableCellWithIdentifier:LTUploadTextAndPhotosCellIdentifier forIndexPath:indexPath];
+        cell.richView.degate = self;
         return cell;
     }
     cell = [tableView dequeueReusableCellWithIdentifier:LTBaseTableViewCellIdentifier forIndexPath:indexPath];
@@ -92,6 +93,22 @@
 
 - (void)cancleUpload{
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - AddPhotoDelegae
+-(void)addPhotoOnClick{
+    UIAlertController *uploadAlert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [uploadAlert addAction:[UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+    }]];
+    [uploadAlert addAction:[UIAlertAction actionWithTitle:@"从手机相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+    }]];
+    [uploadAlert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        NSLog(@"取消");
+    }]];
+    
+    [self presentViewController:uploadAlert animated:YES completion:nil];
 }
 
 @end

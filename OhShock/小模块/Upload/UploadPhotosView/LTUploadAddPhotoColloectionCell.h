@@ -12,4 +12,6 @@ static NSString *const LTUploadAddPhotoCellIdentifier = @"LTUploadAddPhotoColloe
 
 @interface LTUploadAddPhotoColloectionCell : UICollectionViewCell
 
+@property (nonatomic, strong) UIButton *addPhotoButton;///< 添加图片按钮
+
 @end

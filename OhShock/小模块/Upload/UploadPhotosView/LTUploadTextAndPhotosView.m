@@ -71,6 +71,10 @@ static NSInteger const  MaxLineNum        = 4;
     
     if (indexPath.row == self.photos.count) {
         LTUploadAddPhotoColloectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:LTUploadAddPhotoCellIdentifier forIndexPath:indexPath];
+        if([self.degate respondsToSelector:@selector(addPhotoOnClick)]){
+            [cell.addPhotoButton addTarget:self.degate action:@selector(addPhotoOnClick) forControlEvents:UIControlEventTouchUpInside];
+        }
+        
         return cell;
     }
     
@@ -82,7 +86,6 @@ static NSInteger const  MaxLineNum        = 4;
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == self.photos.count) {
-        NSLog(@"添加图片");
     }
 }
 
