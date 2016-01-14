@@ -10,7 +10,6 @@
 		A03A18FF2EB78C95668E7DBE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E81E092BDCF086AD6DCFC0F1 /* Pods.framework */; };
 		B80726721C1AAF2F00E7802A /* LTDiscoverTodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B80726711C1AAF2F00E7802A /* LTDiscoverTodoViewController.m */; };
 		B80727CF1C1AB2E900E7802A /* add_user_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B80726781C1AB2E900E7802A /* add_user_icon@2x.png */; };
-		B80727D01C1AB2E900E7802A /* addPictureBgImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B80726791C1AB2E900E7802A /* addPictureBgImage@2x.png */; };
 		B80727D11C1AB2E900E7802A /* blankpage_button_reload@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B807267B1C1AB2E900E7802A /* blankpage_button_reload@2x.png */; };
 		B80727D21C1AB2E900E7802A /* blankpage_image_Hi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B807267C1C1AB2E900E7802A /* blankpage_image_Hi@2x.png */; };
 		B80727D31C1AB2E900E7802A /* blankpage_image_loadFail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B807267D1C1AB2E900E7802A /* blankpage_image_loadFail@2x.png */; };
@@ -501,6 +500,10 @@
 		B89E0FE01C473CD200CD61FE /* LTLogInService.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FD21C473CD200CD61FE /* LTLogInService.m */; };
 		B89E0FE11C473CD200CD61FE /* LTSignUpService.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FD61C473CD200CD61FE /* LTSignUpService.m */; };
 		B89E0FE21C473CD200CD61FE /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FD81C473CD200CD61FE /* SignUpViewController.m */; };
+		B89E0FE61C47437800CD61FE /* LTUploadPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FE51C47437800CD61FE /* LTUploadPhotosViewController.m */; };
+		B89E0FEE1C474DC900CD61FE /* LTUploadTextAndPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FED1C474DC900CD61FE /* LTUploadTextAndPhotosView.m */; };
+		B89E0FF11C474DE200CD61FE /* LTUploadTextAndPhotosCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FF01C474DE200CD61FE /* LTUploadTextAndPhotosCell.m */; };
+		B89E0FF51C47568300CD61FE /* LTBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FF41C47568300CD61FE /* LTBaseTableViewCell.m */; };
 		B8A128421C1984B100ECA6CD /* LKAlarmEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A128341C1984B100ECA6CD /* LKAlarmEvent.m */; };
 		B8A128431C1984B100ECA6CD /* LKAlarmMamager.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A128361C1984B100ECA6CD /* LKAlarmMamager.m */; };
 		B8A128441C1984B100ECA6CD /* LKDB+Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A128391C1984B100ECA6CD /* LKDB+Mapping.m */; };
@@ -508,11 +511,13 @@
 		B8A128461C1984B100ECA6CD /* LKDBUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A1283D1C1984B100ECA6CD /* LKDBUtils.m */; };
 		B8A128471C1984B100ECA6CD /* NSObject+LKDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A1283F1C1984B100ECA6CD /* NSObject+LKDBHelper.m */; };
 		B8A128481C1984B100ECA6CD /* NSObject+LKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A128411C1984B100ECA6CD /* NSObject+LKModel.m */; };
+		B8A98DC91C4786A600DB00F1 /* LTUploadPhotoCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A98DC81C4786A600DB00F1 /* LTUploadPhotoCollectionCell.m */; };
 		B8ADC9931C1E6F7B001ED415 /* LTDiscoverTodoView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADC9921C1E6F7B001ED415 /* LTDiscoverTodoView.m */; };
 		B8ADC9971C1E8061001ED415 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADC9961C1E8061001ED415 /* UITableView+FDTemplateLayoutCell.m */; };
 		B8ADC99A1C1E8365001ED415 /* DiscoverTodoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADC9991C1E8365001ED415 /* DiscoverTodoCell.m */; };
 		B8ADC9C21C1ED989001ED415 /* LTMeSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADC9C11C1ED989001ED415 /* LTMeSettingViewController.m */; };
 		B8ADC9C61C1EDE44001ED415 /* LTMeLogOutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADC9C51C1EDE44001ED415 /* LTMeLogOutCell.m */; };
+		B8AF049B1C47B91B00AD6FC3 /* LTUploadAddPhotoColloectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AF049A1C47B91B00AD6FC3 /* LTUploadAddPhotoColloectionCell.m */; };
 		B8BD1A851C3BA12A0011178F /* LTPostProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8BD1A841C3BA12A0011178F /* LTPostProfileView.m */; };
 		B8C336081C40D6D2001A06BF /* LTPostViewRoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C336071C40D6D2001A06BF /* LTPostViewRoundButton.m */; };
 		B8C3360B1C40E7EE001A06BF /* LTPostLikedView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C3360A1C40E7EE001A06BF /* LTPostLikedView.m */; };
@@ -849,7 +854,6 @@
 		B80726701C1AAF2F00E7802A /* LTDiscoverTodoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTDiscoverTodoViewController.h; sourceTree = "<group>"; };
 		B80726711C1AAF2F00E7802A /* LTDiscoverTodoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTDiscoverTodoViewController.m; sourceTree = "<group>"; };
 		B80726781C1AB2E900E7802A /* add_user_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_user_icon@2x.png"; sourceTree = "<group>"; };
-		B80726791C1AB2E900E7802A /* addPictureBgImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addPictureBgImage@2x.png"; sourceTree = "<group>"; };
 		B807267B1C1AB2E900E7802A /* blankpage_button_reload@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blankpage_button_reload@2x.png"; sourceTree = "<group>"; };
 		B807267C1C1AB2E900E7802A /* blankpage_image_Hi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blankpage_image_Hi@2x.png"; sourceTree = "<group>"; };
 		B807267D1C1AB2E900E7802A /* blankpage_image_loadFail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blankpage_image_loadFail@2x.png"; sourceTree = "<group>"; };
@@ -1504,6 +1508,14 @@
 		B89E0FD61C473CD200CD61FE /* LTSignUpService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTSignUpService.m; sourceTree = "<group>"; };
 		B89E0FD71C473CD200CD61FE /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		B89E0FD81C473CD200CD61FE /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		B89E0FE41C47437800CD61FE /* LTUploadPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTUploadPhotosViewController.h; sourceTree = "<group>"; };
+		B89E0FE51C47437800CD61FE /* LTUploadPhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTUploadPhotosViewController.m; sourceTree = "<group>"; };
+		B89E0FEC1C474DC900CD61FE /* LTUploadTextAndPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTUploadTextAndPhotosView.h; sourceTree = "<group>"; };
+		B89E0FED1C474DC900CD61FE /* LTUploadTextAndPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTUploadTextAndPhotosView.m; sourceTree = "<group>"; };
+		B89E0FEF1C474DE200CD61FE /* LTUploadTextAndPhotosCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTUploadTextAndPhotosCell.h; sourceTree = "<group>"; };
+		B89E0FF01C474DE200CD61FE /* LTUploadTextAndPhotosCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTUploadTextAndPhotosCell.m; sourceTree = "<group>"; };
+		B89E0FF31C47568300CD61FE /* LTBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTBaseTableViewCell.h; sourceTree = "<group>"; };
+		B89E0FF41C47568300CD61FE /* LTBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTBaseTableViewCell.m; sourceTree = "<group>"; };
 		B8A128331C1984B100ECA6CD /* LKAlarmEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKAlarmEvent.h; sourceTree = "<group>"; };
 		B8A128341C1984B100ECA6CD /* LKAlarmEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKAlarmEvent.m; sourceTree = "<group>"; };
 		B8A128351C1984B100ECA6CD /* LKAlarmMamager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKAlarmMamager.h; sourceTree = "<group>"; };
@@ -1518,6 +1530,8 @@
 		B8A1283F1C1984B100ECA6CD /* NSObject+LKDBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LKDBHelper.m"; sourceTree = "<group>"; };
 		B8A128401C1984B100ECA6CD /* NSObject+LKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LKModel.h"; sourceTree = "<group>"; };
 		B8A128411C1984B100ECA6CD /* NSObject+LKModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LKModel.m"; sourceTree = "<group>"; };
+		B8A98DC71C4786A600DB00F1 /* LTUploadPhotoCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTUploadPhotoCollectionCell.h; sourceTree = "<group>"; };
+		B8A98DC81C4786A600DB00F1 /* LTUploadPhotoCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTUploadPhotoCollectionCell.m; sourceTree = "<group>"; };
 		B8ADC9911C1E6F7B001ED415 /* LTDiscoverTodoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTDiscoverTodoView.h; sourceTree = "<group>"; };
 		B8ADC9921C1E6F7B001ED415 /* LTDiscoverTodoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTDiscoverTodoView.m; sourceTree = "<group>"; };
 		B8ADC9951C1E8061001ED415 /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
@@ -1528,6 +1542,8 @@
 		B8ADC9C11C1ED989001ED415 /* LTMeSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMeSettingViewController.m; sourceTree = "<group>"; };
 		B8ADC9C41C1EDE44001ED415 /* LTMeLogOutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTMeLogOutCell.h; sourceTree = "<group>"; };
 		B8ADC9C51C1EDE44001ED415 /* LTMeLogOutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTMeLogOutCell.m; sourceTree = "<group>"; };
+		B8AF04991C47B91B00AD6FC3 /* LTUploadAddPhotoColloectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTUploadAddPhotoColloectionCell.h; sourceTree = "<group>"; };
+		B8AF049A1C47B91B00AD6FC3 /* LTUploadAddPhotoColloectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTUploadAddPhotoColloectionCell.m; sourceTree = "<group>"; };
 		B8BD1A831C3BA12A0011178F /* LTPostProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostProfileView.h; sourceTree = "<group>"; };
 		B8BD1A841C3BA12A0011178F /* LTPostProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostProfileView.m; sourceTree = "<group>"; };
 		B8C336061C40D6D2001A06BF /* LTPostViewRoundButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostViewRoundButton.h; sourceTree = "<group>"; };
@@ -2099,7 +2115,6 @@
 			isa = PBXGroup;
 			children = (
 				B80726781C1AB2E900E7802A /* add_user_icon@2x.png */,
-				B80726791C1AB2E900E7802A /* addPictureBgImage@2x.png */,
 				B807267A1C1AB2E900E7802A /* blankpage */,
 				B807267F1C1AB2E900E7802A /* btn_delete_tweetimage@2x.png */,
 				B80726801C1AB2E900E7802A /* btn_file_cancel@2x.png */,
@@ -2641,6 +2656,7 @@
 		B80A367D1C1DAD0000C3B226 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				B89E0FF21C47563000CD61FE /* Base */,
 				B810724B1C197FCE0058130E /* Util */,
 				B863A6591C2CD8D000707D17 /* NSDate+Helper */,
 				B82BA3AE1C2BDED6004AFC37 /* ActionSheetPicker */,
@@ -3324,8 +3340,35 @@
 		B89E0FE31C473D4400CD61FE /* Upload */ = {
 			isa = PBXGroup;
 			children = (
+				B89E0FE81C474D7300CD61FE /* UploadPhotosView */,
+				B89E0FE41C47437800CD61FE /* LTUploadPhotosViewController.h */,
+				B89E0FE51C47437800CD61FE /* LTUploadPhotosViewController.m */,
 			);
 			path = Upload;
+			sourceTree = "<group>";
+		};
+		B89E0FE81C474D7300CD61FE /* UploadPhotosView */ = {
+			isa = PBXGroup;
+			children = (
+				B89E0FEF1C474DE200CD61FE /* LTUploadTextAndPhotosCell.h */,
+				B89E0FF01C474DE200CD61FE /* LTUploadTextAndPhotosCell.m */,
+				B89E0FEC1C474DC900CD61FE /* LTUploadTextAndPhotosView.h */,
+				B89E0FED1C474DC900CD61FE /* LTUploadTextAndPhotosView.m */,
+				B8A98DC71C4786A600DB00F1 /* LTUploadPhotoCollectionCell.h */,
+				B8A98DC81C4786A600DB00F1 /* LTUploadPhotoCollectionCell.m */,
+				B8AF04991C47B91B00AD6FC3 /* LTUploadAddPhotoColloectionCell.h */,
+				B8AF049A1C47B91B00AD6FC3 /* LTUploadAddPhotoColloectionCell.m */,
+			);
+			path = UploadPhotosView;
+			sourceTree = "<group>";
+		};
+		B89E0FF21C47563000CD61FE /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B89E0FF31C47568300CD61FE /* LTBaseTableViewCell.h */,
+				B89E0FF41C47568300CD61FE /* LTBaseTableViewCell.m */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		B8A128311C1984B100ECA6CD /* LKAlarmManager */ = {
@@ -4703,7 +4746,6 @@
 				B80728611C1AB2E900E7802A /* intro_tip_2@3x.png in Resources */,
 				B80728081C1AB2E900E7802A /* coding_emoji_23@2x.png in Resources */,
 				B8EEAE7F1C294F5400F861E8 /* weChatBubble_Receiving_Solid@2x.png in Resources */,
-				B80727D01C1AB2E900E7802A /* addPictureBgImage@2x.png in Resources */,
 				B80728AE1C1AB2E900E7802A /* placeholder_monkey_round_48@2x.png in Resources */,
 				B807284C1C1AB2E900E7802A /* intro_dot_unselected@2x.png in Resources */,
 				B8EEAE421C294F5400F861E8 /* Fav_Cell_Loc@2x.png in Resources */,
@@ -4968,6 +5010,7 @@
 				B8EEAD7E1C294F5400F861E8 /* CDEmotionUtils.m in Sources */,
 				B81CCC451C21408500D642DB /* JSQMessagesLabel.m in Sources */,
 				B89E0FD91C473CD200CD61FE /* LTChatModel.m in Sources */,
+				B89E0FE61C47437800CD61FE /* LTUploadPhotosViewController.m in Sources */,
 				B8EEAD891C294F5400F861E8 /* UIButton+XHButtonTitlePosition.m in Sources */,
 				B8E64C7C1C43F2E100B4CB64 /* HexColors.m in Sources */,
 				B8EEAD981C294F5400F861E8 /* XHPhotographyHelper.m in Sources */,
@@ -4979,6 +5022,7 @@
 				B845BC7F1C45072B001DA565 /* WBStatusHelper.m in Sources */,
 				B87677C91C1FE32800A0795B /* LTUserSearchService.m in Sources */,
 				B8EEADA11C294F5400F861E8 /* XHDisplayMediaViewController.m in Sources */,
+				B8AF049B1C47B91B00AD6FC3 /* LTUploadAddPhotoColloectionCell.m in Sources */,
 				B81CCC441C21408500D642DB /* JSQMessagesInputToolbar.m in Sources */,
 				B8E64C6C1C43F2E100B4CB64 /* TagsTableCell.m in Sources */,
 				B82BA3C61C2BDED7004AFC37 /* DistancePickerView.m in Sources */,
@@ -5051,6 +5095,7 @@
 				B8EEADCD1C294F5400F861E8 /* XHBaseCollectionViewCell.m in Sources */,
 				B87677D01C1FEC9900A0795B /* UISearchBar+RACSignalSupport.m in Sources */,
 				B81CCC3F1C21408500D642DB /* JSQMessagesCollectionViewCellIncoming.m in Sources */,
+				B8A98DC91C4786A600DB00F1 /* LTUploadPhotoCollectionCell.m in Sources */,
 				B8EEAD9B1C294F5400F861E8 /* XHBaseNavigationController.m in Sources */,
 				B810725E1C197FCE0058130E /* LTMeHeadUserFollowerAndFolloweeView.m in Sources */,
 				B8EEABC21C28FBA000F861E8 /* LTMeInfoSettingViewController.m in Sources */,
@@ -5087,6 +5132,7 @@
 				B8EEADDC1C294F5400F861E8 /* XHShareMenuView.m in Sources */,
 				B8EEAD9A1C294F5400F861E8 /* XHVoiceRecordHelper.m in Sources */,
 				B81CCC2C1C21408500D642DB /* JSQMessagesAvatarImageFactory.m in Sources */,
+				B89E0FF11C474DE200CD61FE /* LTUploadTextAndPhotosCell.m in Sources */,
 				B8D1D5261C33CAEA00DC4EDC /* LTSelectFriendsViewController.m in Sources */,
 				B8EEADD21C294F5400F861E8 /* XHMessageStatusView.m in Sources */,
 				B8EEAD8D1C294F5400F861E8 /* UIImage+Utility.m in Sources */,
@@ -5167,6 +5213,7 @@
 				B8E64C721C43F2E100B4CB64 /* LTGroupViewController.m in Sources */,
 				B8EEAD941C294F5400F861E8 /* XHCaptureHelper.m in Sources */,
 				B81CCC3C1C21408500D642DB /* JSQMessagesCellTextView.m in Sources */,
+				B89E0FF51C47568300CD61FE /* LTBaseTableViewCell.m in Sources */,
 				B8A128481C1984B100ECA6CD /* NSObject+LKModel.m in Sources */,
 				B8EEADC31C294F5400F861E8 /* SETextMagnifierRanged.m in Sources */,
 				B8EEAD7B1C294F5400F861E8 /* AVIMEmotionMessage.m in Sources */,
@@ -5249,6 +5296,7 @@
 				B81CCC3E1C21408500D642DB /* JSQMessagesCollectionViewCell.m in Sources */,
 				B855AB2F1C3D050000566B9B /* LTPostImagesView.m in Sources */,
 				B81CCC291C21408500D642DB /* JSQMessagesKeyboardController.m in Sources */,
+				B89E0FEE1C474DC900CD61FE /* LTUploadTextAndPhotosView.m in Sources */,
 				B89E0FDE1C473CD200CD61FE /* IntroductionViewController.m in Sources */,
 				B8EEADA91C294F5400F861E8 /* XHMessageBubbleFactory.m in Sources */,
 				B81072861C197FCE0058130E /* XHPopMenu.m in Sources */,
@@ -5369,8 +5417,8 @@
 			baseConfigurationReference = 5919A20D11D8B88E53E8F170 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OhShock/Frameworks/AVOSCloud",
@@ -5382,7 +5430,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vp.jft0m.OhShock;
 				PRODUCT_NAME = OhShock;
-				PROVISIONING_PROFILE = "d4e24f0b-3c9f-4eb9-842e-a34e26befdcd";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)";
 			};
 			name = Debug;
@@ -5392,8 +5440,8 @@
 			baseConfigurationReference = 5112A4C50FE3C9CE85015EC4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OhShock/Frameworks/AVOSCloud",
@@ -5405,7 +5453,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vp.jft0m.OhShock;
 				PRODUCT_NAME = OhShock;
-				PROVISIONING_PROFILE = "d4e24f0b-3c9f-4eb9-842e-a34e26befdcd";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)";
 			};
 			name = Release;

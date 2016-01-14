@@ -9,6 +9,21 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>BSGridCollectionViewLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>BSImagePicker-BSImagePicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>BSImagePicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>DateTools.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -79,6 +94,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>UIImageViewModeScaleAspect.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>YYKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -87,7 +107,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0FF38C485BD8E73F614C919F834D6EAB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>105BB21DDA17F283BCA6C012BAB3E330</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1480777C918099D38D682DEF323089B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,32 +142,37 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>29CC140B8D075B619B7BB80662FFE427</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3703DB64D71C27C6F353CE2339BF56F0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>3B624C428C71866D63C529AEF179D02C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>67AAC0F340FA9E9E273035B902287A42</key>
+		<key>3BA9A1CC481EB9E7AD3AAFBE959221A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>926A118FD8261C68DB53D3E213293F22</key>
+		<key>40FC3A334ED372E56B768F4702644CDF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9C6242D3F3EB7E1CD96B934DD2EDB4FA</key>
+		<key>5179E134BFEBA65ED6D5548FDE174282</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8AA3DDB8797222294E1288CB197A8347</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>904E935101C8A362E37E2D15EF696689</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>99C3F6CDFC9FBFD95FDCDD0D334FD005</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -152,17 +187,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>AEFCC001AA10DF7BBFCF4D7C88866CA8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C4E62D0FC0CC6087EC9C9D89CB9DD1D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D2AA62976C51F065713F6ADC134426C5</key>
+		<key>C59EE95662AD4757E7FCE220DB1AFA41</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DAFF95AE7B13DADEF1B9E7A7C20074EB</key>
+		<key>F7DE5171AA3C53DA4E4A078B795C78EE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
