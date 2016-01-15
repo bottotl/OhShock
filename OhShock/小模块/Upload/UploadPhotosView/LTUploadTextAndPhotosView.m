@@ -19,6 +19,8 @@ static CGFloat const    PhotosPadding     = 5;
 static CGFloat const    TextViewHeight    = 120;
 /// 每行最多多少张图片
 static NSInteger const  MaxLineNum        = 4;
+/// 输入文本的文字字体大小
+static CGFloat textViewFontSize = 16.0;
 
 
 @interface LTUploadTextAndPhotosView () <UICollectionViewDataSource, UICollectionViewDelegate>
@@ -50,6 +52,7 @@ static NSInteger const  MaxLineNum        = 4;
         [_collectioneView registerClass:[LTUploadAddPhotoColloectionCell class] forCellWithReuseIdentifier:LTUploadAddPhotoCellIdentifier];
         
         _textView = [UITextView new];
+        _textView.font = [UIFont systemFontOfSize:textViewFontSize];
         [self addSubview:_textView];
     }
     
@@ -92,7 +95,7 @@ static NSInteger const  MaxLineNum        = 4;
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
 
     if(indexPath.row != self.photos.count){
-        [(LTUploadPhotoCollectionCell *)cell configCellWith:[UIImage imageNamed:@"tusiji_8_cover"]];
+        [(LTUploadPhotoCollectionCell *)cell configCellWith:self.photos[indexPath.row]];
     }
     
 }
@@ -128,7 +131,7 @@ static NSInteger const  MaxLineNum        = 4;
 
 +(CGFloat)collectionViewHeight:(NSInteger)photoCount{
     CGFloat photoHeight = [LTUploadTextAndPhotosView photoHeight];
-    NSInteger lineNum = photoCount / MaxLineNum  + 1;
+    NSInteger lineNum = (photoCount-1) / MaxLineNum  + 1;
     return PhotosLeftPadding * 2 + photoHeight * lineNum + PhotosPadding * (lineNum - 1);
 }
 

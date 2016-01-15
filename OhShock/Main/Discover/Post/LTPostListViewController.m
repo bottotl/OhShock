@@ -17,10 +17,10 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 
-/// @[<LTPostModel *>]
+/// NSArray <LTPostModel *> * 
 @property (nonatomic, strong) NSArray *posts;
 
-/// @[< NSNumber *>]
+/// NSArray < NSNumber *> *
 @property (nonatomic, strong) NSArray *heights;
 
 @end
@@ -94,8 +94,8 @@
     for (int i = 0 ; i < 1; i++) {
         LTModelPostComment *model =[LTModelPostComment new];
         model.content = @"追求别人，我不知道最好的办法，但我知道哪些办法是与幸福生活背道而驰的。";
-        model.fromUser = [LTUser currentUser];
-        model.toUser = [LTUser currentUser];
+        model.fromUser = [LTModelUser currentUser];
+        model.toUser = [LTModelUser currentUser];
         [comments addObject:model];
     }
     

@@ -11,14 +11,12 @@
 #import "LTDiscoverCell.h"
 #import "Masonry.h"
 #import "LTDiscoverTodoViewController.h"
-#import "LTStatusTimelineViewController.h"
 #import "LTPostListViewController.h"
 
 @interface LTDiscoverViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *dataSource;
-@property (nonatomic, strong) LTStatusTimelineViewController *dynamicViewController;
 @property (nonatomic, strong) LTDiscoverTodoViewController *todoViewController;
 
 @property (nonatomic, strong) LTPostListViewController *postViewController;
@@ -66,13 +64,6 @@
 }
 
 #pragma mark View
--(LTStatusTimelineViewController *)dynamicViewController{
-    if (!_dynamicViewController) {
-        _dynamicViewController = [LTStatusTimelineViewController new];
-        _dynamicViewController.hidesBottomBarWhenPushed = YES;
-    }
-    return _dynamicViewController;
-}
 
 -(LTDiscoverTodoViewController *)todoViewController{
     if (!_todoViewController) {
@@ -113,7 +104,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            [self.navigationController pushViewController:self.dynamicViewController animated:YES];
+            [self.navigationController pushViewController:self.postViewController animated:YES];
         }
     }
     if (indexPath.section == 1) {
