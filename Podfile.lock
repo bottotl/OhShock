@@ -57,9 +57,9 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   BSImagePicker:
-    :path: "./OhShock/Vender/BSImagePicker/BSImagePicker.podspec"
+    :path: ./OhShock/Vender/BSImagePicker/BSImagePicker.podspec
   YYKit:
-    :path: "./OhShock/Vender/YYKit/YYKit.podspec"
+    :path: ./OhShock/Vender/YYKit/YYKit.podspec
 
 SPEC CHECKSUMS:
   APParallaxHeader: 854bc48a2487ca12c702f8a236fec0d89cdac5c3

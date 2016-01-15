@@ -106,7 +106,8 @@
     [uploadAlert addAction:[UIAlertAction actionWithTitle:@"从手机相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         BSImagePickerViewController *vc = [BSImagePickerViewController new];
         vc.maxNumberOfSelections = 6;
-        [self presentImagePickerController:vc animated:YES select:^(PHAsset *p) {
+        
+        [self bs_presentImagePickerController:vc animated:YES select:^(PHAsset *p) {
             NSLog(@"%@",p);
         } deselect:^(PHAsset *p) {
             NSLog(@"%@",p);
@@ -122,17 +123,6 @@
     }]];
     
     [self presentViewController:uploadAlert animated:YES completion:nil];
-}
-
-#pragma mark - 展示相册方法
-- (void)presentImagePickerController:(BSImagePickerViewController *)imagePicker animated:(BOOL)animated select:(void (^)(PHAsset * __nonnull))selectBlock deselect:(void (^)(PHAsset *))deselectBlock  cancel:(void (^)(NSArray<PHAsset *> * __nonnull))cancleBlock finish:(void (^)(NSArray<PHAsset *> * __nonnull))finishBlock completion:(void (^)())completionBolck{
-    imagePicker.selectionClosure = selectBlock;
-    imagePicker.deselectionClosure = deselectBlock;
-    imagePicker.cancelClosure = cancleBlock;
-    imagePicker.finishClosure = finishBlock;
-    
-    [self presentViewController:imagePicker animated:animated completion:completionBolck];
-    
 }
 
 
