@@ -19,7 +19,7 @@
 #import "LTSearchGroupViewController.h"
 #import "CLSearchResultViewController.h"
 
-@interface LTGroupViewController ()<UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating>
+@interface LTGroupViewController ()<UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchControllerDelegate>
 
 @property (nonatomic, strong) UISearchController *mySearchController;
 
@@ -68,6 +68,7 @@
     searchResult = [[CLSearchResultViewController alloc]init];
     self.mySearchController = [[UISearchController alloc] initWithSearchResultsController:searchResult];
     _mySearchController.searchResultsUpdater = self;
+    _mySearchController.delegate = self;
 //    _mySearchController.dimsBackgroundDuringPresentation = NO;
 //    _mySearchController.hidesNavigationBarDuringPresentation = NO;
     _mySearchController.searchBar.frame = CGRectMake(0, 64, 0, 44.0);
@@ -174,7 +175,9 @@
 
 
 #pragma mark UISearchController Delegate Methods
+//搜索聊天记录 实现：：：：
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
+//    mainTableView.top = 64;
 //    NSString *filterString = searchController.searchBar.text;
 //    
 //    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains [c] %@", filterString];
@@ -182,6 +185,18 @@
 //    self.visableArray = [NSMutableArray arrayWithArray:[self.dataSourceArray filteredArrayUsingPredicate:predicate]];
 //    
 //    [self.myTableView reloadData];
+}
+
+
+//在这两个方法中改变tableview frame是因为点击searchbar 时会出现把searchbar弹出顶部的bug，暂时没找到好的解决方法
+-(void)willPresentSearchController:(UISearchController *)searchController{
+    [UIView animateWithDuration:0.2 animations:^{
+        mainTableView.top = 64;
+    }];
+}
+
+-(void)willDismissSearchController:(UISearchController *)searchController{
+     mainTableView.top = 0;
 }
 
 #pragma mark 导航栏点击事件
