@@ -432,16 +432,9 @@
 		B82BA3C71C2BDED7004AFC37 /* SWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = B82BA3BF1C2BDED7004AFC37 /* SWActionSheet.m */; };
 		B82BA3CA1C2BDF2F004AFC37 /* LTAddTodoSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B82BA3C91C2BDF2F004AFC37 /* LTAddTodoSelectionCell.m */; };
 		B844284E1C420E8C005FA556 /* LTPostCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B844284D1C420E8C005FA556 /* LTPostCommentView.m */; };
-		B84428571C421E0D005FA556 /* LTModels.m in Sources */ = {isa = PBXBuildFile; fileRef = B84428561C421E0D005FA556 /* LTModels.m */; };
-		B84428671C4226C0005FA556 /* LTPostCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B844285A1C4226C0005FA556 /* LTPostCommentModel.m */; };
-		B84428691C4226C0005FA556 /* LTPostContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B844285E1C4226C0005FA556 /* LTPostContentModel.m */; };
-		B844286A1C4226C0005FA556 /* LTPostImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B84428601C4226C0005FA556 /* LTPostImageModel.m */; };
-		B844286B1C4226C0005FA556 /* LTPostLikedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B84428621C4226C0005FA556 /* LTPostLikedModel.m */; };
-		B844286C1C4226C0005FA556 /* LTPostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B84428641C4226C0005FA556 /* LTPostModel.m */; };
-		B844286D1C4226C0005FA556 /* LTPostProfileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B84428661C4226C0005FA556 /* LTPostProfileModel.m */; };
 		B84428701C4252FE005FA556 /* LTPostImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B844286F1C4252FE005FA556 /* LTPostImageCollectionViewCell.m */; };
 		B84428731C425325005FA556 /* LTPostCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B84428721C425325005FA556 /* LTPostCommentCell.m */; };
-		B84428761C4264C3005FA556 /* LTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B84428751C4264C3005FA556 /* LTUser.m */; };
+		B84428761C4264C3005FA556 /* LTModelUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B84428751C4264C3005FA556 /* LTModelUser.m */; };
 		B845BC711C45072B001DA565 /* weibo_0.json in Resources */ = {isa = PBXBuildFile; fileRef = B845BC441C45072B001DA565 /* weibo_0.json */; };
 		B845BC721C45072B001DA565 /* weibo_1.json in Resources */ = {isa = PBXBuildFile; fileRef = B845BC451C45072B001DA565 /* weibo_1.json */; };
 		B845BC731C45072B001DA565 /* weibo_2.json in Resources */ = {isa = PBXBuildFile; fileRef = B845BC461C45072B001DA565 /* weibo_2.json */; };
@@ -480,6 +473,14 @@
 		B858011D1C1A84C300786143 /* AVOSCloudIM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B85801141C1A849E00786143 /* AVOSCloudIM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B863A65D1C2CD8D000707D17 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = B863A65B1C2CD8D000707D17 /* NSDate+Helper.m */; };
 		B863A65E1C2CD8D000707D17 /* README.textile in Resources */ = {isa = PBXBuildFile; fileRef = B863A65C1C2CD8D000707D17 /* README.textile */; };
+		B873AC2D1C48DBB4002C04B2 /* LTModelPost.m in Sources */ = {isa = PBXBuildFile; fileRef = B873AC2C1C48DBB4002C04B2 /* LTModelPost.m */; };
+		B873AC3B1C48F8AB002C04B2 /* LTPostCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B873AC301C48F8AB002C04B2 /* LTPostCommentModel.m */; };
+		B873AC3C1C48F8AB002C04B2 /* LTPostContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B873AC321C48F8AB002C04B2 /* LTPostContentModel.m */; };
+		B873AC3D1C48F8AB002C04B2 /* LTPostImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B873AC341C48F8AB002C04B2 /* LTPostImageModel.m */; };
+		B873AC3E1C48F8AB002C04B2 /* LTPostLikedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B873AC361C48F8AB002C04B2 /* LTPostLikedModel.m */; };
+		B873AC3F1C48F8AB002C04B2 /* LTPostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B873AC381C48F8AB002C04B2 /* LTPostModel.m */; };
+		B873AC401C48F8AB002C04B2 /* LTPostProfileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B873AC3A1C48F8AB002C04B2 /* LTPostProfileModel.m */; };
+		B873AC431C48F8DC002C04B2 /* LTModelPostComment.m in Sources */ = {isa = PBXBuildFile; fileRef = B873AC421C48F8DC002C04B2 /* LTModelPostComment.m */; };
 		B87677BB1C1FC7FE00A0795B /* LTLogOutService.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677BA1C1FC7FE00A0795B /* LTLogOutService.m */; };
 		B87677BF1C1FCEB800A0795B /* LTAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677BE1C1FCEB800A0795B /* LTAddFriendViewController.m */; };
 		B87677C21C1FE12600A0795B /* LTLiteUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677C11C1FE12600A0795B /* LTLiteUserModel.m */; };
@@ -1397,25 +1398,12 @@
 		B844284C1C420E8C005FA556 /* LTPostCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostCommentView.h; sourceTree = "<group>"; };
 		B844284D1C420E8C005FA556 /* LTPostCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostCommentView.m; sourceTree = "<group>"; };
 		B84428551C421E0D005FA556 /* LTModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTModels.h; sourceTree = "<group>"; };
-		B84428561C421E0D005FA556 /* LTModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTModels.m; sourceTree = "<group>"; };
-		B84428591C4226C0005FA556 /* LTPostCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostCommentModel.h; sourceTree = "<group>"; };
-		B844285A1C4226C0005FA556 /* LTPostCommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostCommentModel.m; sourceTree = "<group>"; };
-		B844285D1C4226C0005FA556 /* LTPostContentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostContentModel.h; sourceTree = "<group>"; };
-		B844285E1C4226C0005FA556 /* LTPostContentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostContentModel.m; sourceTree = "<group>"; };
-		B844285F1C4226C0005FA556 /* LTPostImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostImageModel.h; sourceTree = "<group>"; };
-		B84428601C4226C0005FA556 /* LTPostImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostImageModel.m; sourceTree = "<group>"; };
-		B84428611C4226C0005FA556 /* LTPostLikedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostLikedModel.h; sourceTree = "<group>"; };
-		B84428621C4226C0005FA556 /* LTPostLikedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostLikedModel.m; sourceTree = "<group>"; };
-		B84428631C4226C0005FA556 /* LTPostModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostModel.h; sourceTree = "<group>"; };
-		B84428641C4226C0005FA556 /* LTPostModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostModel.m; sourceTree = "<group>"; };
-		B84428651C4226C0005FA556 /* LTPostProfileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostProfileModel.h; sourceTree = "<group>"; };
-		B84428661C4226C0005FA556 /* LTPostProfileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostProfileModel.m; sourceTree = "<group>"; };
 		B844286E1C4252FE005FA556 /* LTPostImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostImageCollectionViewCell.h; sourceTree = "<group>"; };
 		B844286F1C4252FE005FA556 /* LTPostImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostImageCollectionViewCell.m; sourceTree = "<group>"; };
 		B84428711C425325005FA556 /* LTPostCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostCommentCell.h; sourceTree = "<group>"; };
 		B84428721C425325005FA556 /* LTPostCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostCommentCell.m; sourceTree = "<group>"; };
-		B84428741C4264C3005FA556 /* LTUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTUser.h; sourceTree = "<group>"; };
-		B84428751C4264C3005FA556 /* LTUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTUser.m; sourceTree = "<group>"; };
+		B84428741C4264C3005FA556 /* LTModelUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTModelUser.h; sourceTree = "<group>"; };
+		B84428751C4264C3005FA556 /* LTModelUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTModelUser.m; sourceTree = "<group>"; };
 		B845BC441C45072B001DA565 /* weibo_0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_0.json; sourceTree = "<group>"; };
 		B845BC451C45072B001DA565 /* weibo_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_1.json; sourceTree = "<group>"; };
 		B845BC461C45072B001DA565 /* weibo_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weibo_2.json; sourceTree = "<group>"; };
@@ -1468,6 +1456,22 @@
 		B863A65A1C2CD8D000707D17 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
 		B863A65B1C2CD8D000707D17 /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
 		B863A65C1C2CD8D000707D17 /* README.textile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.textile; sourceTree = "<group>"; };
+		B873AC2B1C48DBB4002C04B2 /* LTModelPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTModelPost.h; sourceTree = "<group>"; };
+		B873AC2C1C48DBB4002C04B2 /* LTModelPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTModelPost.m; sourceTree = "<group>"; };
+		B873AC2F1C48F8AB002C04B2 /* LTPostCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostCommentModel.h; sourceTree = "<group>"; };
+		B873AC301C48F8AB002C04B2 /* LTPostCommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostCommentModel.m; sourceTree = "<group>"; };
+		B873AC311C48F8AB002C04B2 /* LTPostContentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostContentModel.h; sourceTree = "<group>"; };
+		B873AC321C48F8AB002C04B2 /* LTPostContentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostContentModel.m; sourceTree = "<group>"; };
+		B873AC331C48F8AB002C04B2 /* LTPostImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostImageModel.h; sourceTree = "<group>"; };
+		B873AC341C48F8AB002C04B2 /* LTPostImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostImageModel.m; sourceTree = "<group>"; };
+		B873AC351C48F8AB002C04B2 /* LTPostLikedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostLikedModel.h; sourceTree = "<group>"; };
+		B873AC361C48F8AB002C04B2 /* LTPostLikedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostLikedModel.m; sourceTree = "<group>"; };
+		B873AC371C48F8AB002C04B2 /* LTPostModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostModel.h; sourceTree = "<group>"; };
+		B873AC381C48F8AB002C04B2 /* LTPostModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostModel.m; sourceTree = "<group>"; };
+		B873AC391C48F8AB002C04B2 /* LTPostProfileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostProfileModel.h; sourceTree = "<group>"; };
+		B873AC3A1C48F8AB002C04B2 /* LTPostProfileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostProfileModel.m; sourceTree = "<group>"; };
+		B873AC411C48F8DC002C04B2 /* LTModelPostComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTModelPostComment.h; sourceTree = "<group>"; };
+		B873AC421C48F8DC002C04B2 /* LTModelPostComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTModelPostComment.m; sourceTree = "<group>"; };
 		B87677B91C1FC7FE00A0795B /* LTLogOutService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTLogOutService.h; sourceTree = "<group>"; };
 		B87677BA1C1FC7FE00A0795B /* LTLogOutService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTLogOutService.m; sourceTree = "<group>"; };
 		B87677BD1C1FCEB800A0795B /* LTAddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTAddFriendViewController.h; sourceTree = "<group>"; };
@@ -2683,7 +2687,6 @@
 				B81071B21C197F6F0058130E /* AppDelegate.m */,
 				B84428581C4226C0005FA556 /* Model */,
 				B84428551C421E0D005FA556 /* LTModels.h */,
-				B84428561C421E0D005FA556 /* LTModels.m */,
 				B81071DE1C197FCE0058130E /* LTMainTabBarController.h */,
 				B81071DF1C197FCE0058130E /* LTMainTabBarController.m */,
 				B81071BA1C197F700058130E /* Assets.xcassets */,
@@ -3115,20 +3118,12 @@
 		B84428581C4226C0005FA556 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B84428741C4264C3005FA556 /* LTUser.h */,
-				B84428751C4264C3005FA556 /* LTUser.m */,
-				B84428591C4226C0005FA556 /* LTPostCommentModel.h */,
-				B844285A1C4226C0005FA556 /* LTPostCommentModel.m */,
-				B844285D1C4226C0005FA556 /* LTPostContentModel.h */,
-				B844285E1C4226C0005FA556 /* LTPostContentModel.m */,
-				B844285F1C4226C0005FA556 /* LTPostImageModel.h */,
-				B84428601C4226C0005FA556 /* LTPostImageModel.m */,
-				B84428611C4226C0005FA556 /* LTPostLikedModel.h */,
-				B84428621C4226C0005FA556 /* LTPostLikedModel.m */,
-				B84428631C4226C0005FA556 /* LTPostModel.h */,
-				B84428641C4226C0005FA556 /* LTPostModel.m */,
-				B84428651C4226C0005FA556 /* LTPostProfileModel.h */,
-				B84428661C4226C0005FA556 /* LTPostProfileModel.m */,
+				B873AC2B1C48DBB4002C04B2 /* LTModelPost.h */,
+				B873AC2C1C48DBB4002C04B2 /* LTModelPost.m */,
+				B84428741C4264C3005FA556 /* LTModelUser.h */,
+				B84428751C4264C3005FA556 /* LTModelUser.m */,
+				B873AC411C48F8DC002C04B2 /* LTModelPostComment.h */,
+				B873AC421C48F8DC002C04B2 /* LTModelPostComment.m */,
 			);
 			name = Model;
 			path = OhShock/Model;
@@ -3235,6 +3230,25 @@
 				B863A65C1C2CD8D000707D17 /* README.textile */,
 			);
 			path = "NSDate+Helper";
+			sourceTree = "<group>";
+		};
+		B873AC2E1C48F88E002C04B2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B873AC2F1C48F8AB002C04B2 /* LTPostCommentModel.h */,
+				B873AC301C48F8AB002C04B2 /* LTPostCommentModel.m */,
+				B873AC311C48F8AB002C04B2 /* LTPostContentModel.h */,
+				B873AC321C48F8AB002C04B2 /* LTPostContentModel.m */,
+				B873AC331C48F8AB002C04B2 /* LTPostImageModel.h */,
+				B873AC341C48F8AB002C04B2 /* LTPostImageModel.m */,
+				B873AC351C48F8AB002C04B2 /* LTPostLikedModel.h */,
+				B873AC361C48F8AB002C04B2 /* LTPostLikedModel.m */,
+				B873AC371C48F8AB002C04B2 /* LTPostModel.h */,
+				B873AC381C48F8AB002C04B2 /* LTPostModel.m */,
+				B873AC391C48F8AB002C04B2 /* LTPostProfileModel.h */,
+				B873AC3A1C48F8AB002C04B2 /* LTPostProfileModel.m */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		B87677BC1C1FCE3A00A0795B /* AddFriend */ = {
@@ -3458,6 +3472,7 @@
 		B8D1D5291C33EB0200DC4EDC /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				B873AC2E1C48F88E002C04B2 /* ViewModel */,
 				B8BD1A821C3BA1030011178F /* View */,
 				B81E45EC1C38FC140031A4AD /* Cell */,
 				B8D1D52A1C33EB2B00DC4EDC /* LTPostListViewController.h */,
@@ -5067,12 +5082,12 @@
 				B8EEADD51C294F5400F861E8 /* XHMessageInputView.m in Sources */,
 				B8C336081C40D6D2001A06BF /* LTPostViewRoundButton.m in Sources */,
 				B8E64C811C43F2E100B4CB64 /* SVProgressHUD.m in Sources */,
+				B873AC3B1C48F8AB002C04B2 /* LTPostCommentModel.m in Sources */,
 				B81072591C197FCE0058130E /* LTDiscoverCell.m in Sources */,
 				B8EEADE01C294F5400F861E8 /* XHRefreshView.m in Sources */,
 				B81072881C197FCE0058130E /* XHPopMenuItemView.m in Sources */,
 				B81CCC331C21408500D642DB /* JSQMessagesCollectionViewFlowLayoutInvalidationContext.m in Sources */,
 				B8BD1A851C3BA12A0011178F /* LTPostProfileView.m in Sources */,
-				B84428691C4226C0005FA556 /* LTPostContentModel.m in Sources */,
 				B8EEADE21C294F5400F861E8 /* UIImage+Icon.m in Sources */,
 				B8EEADBB1C294F5400F861E8 /* SELinkText.m in Sources */,
 				B810725D1C197FCE0058130E /* LTMainTabBarController.m in Sources */,
@@ -5162,7 +5177,6 @@
 				B8EEADB51C294F5400F861E8 /* FLAnimatedImage.m in Sources */,
 				B8EEADB31C294F5400F861E8 /* XHShareMenuItem.m in Sources */,
 				B8EEAD9C1C294F5400F861E8 /* XHBaseTableViewController.m in Sources */,
-				B84428671C4226C0005FA556 /* LTPostCommentModel.m in Sources */,
 				B8E64C751C43F2E100B4CB64 /* SelectAddressViewController.m in Sources */,
 				B82BA3C51C2BDED7004AFC37 /* ActionSheetStringPicker.m in Sources */,
 				B8EEAD931C294F5400F861E8 /* XHAudioPlayerHelper.m in Sources */,
@@ -5174,6 +5188,7 @@
 				B82BA3C11C2BDED7004AFC37 /* ActionSheetCustomPicker.m in Sources */,
 				B8EEAD861C294F5400F861E8 /* NSString+MessageInputView.m in Sources */,
 				B89E0FDB1C473CD200CD61FE /* LTChatViewController.m in Sources */,
+				B873AC3D1C48F8AB002C04B2 /* LTPostImageModel.m in Sources */,
 				B8EEAD8B1C294F5400F861E8 /* UIImage+Resize.m in Sources */,
 				B810726E1C197FCE0058130E /* ScheduleHeadCell.m in Sources */,
 				B80A37931C1DADB600C3B226 /* YYTableView.m in Sources */,
@@ -5188,13 +5203,12 @@
 				B8EEADBD1C294F5400F861E8 /* SETextAttachment.m in Sources */,
 				B810728E1C197FCE0058130E /* UIView+Layout.m in Sources */,
 				B8EEADA21C294F5400F861E8 /* XHDisplayTextViewController.m in Sources */,
+				B873AC3C1C48F8AB002C04B2 /* LTPostContentModel.m in Sources */,
 				B8E64C661C43F2E100B4CB64 /* LTGroupCell.m in Sources */,
 				B80A378F1C1DADB600C3B226 /* YYControl.m in Sources */,
 				B81CCC411C21408500D642DB /* JSQMessagesCollectionViewCellOutgoing.m in Sources */,
 				B81CCC221C21408500D642DB /* JSQSystemSoundPlayer+JSQMessages.m in Sources */,
-				B844286A1C4226C0005FA556 /* LTPostImageModel.m in Sources */,
 				B810728C1C197FCE0058130E /* UIColor+expanded.m in Sources */,
-				B84428571C421E0D005FA556 /* LTModels.m in Sources */,
 				B81072771C197FCE0058130E /* JTCalendarMonthView.m in Sources */,
 				B8EEAD7F1C294F5400F861E8 /* CDFailedMessageStore.m in Sources */,
 				B8EEADD61C294F5400F861E8 /* XHMessageTextView.m in Sources */,
@@ -5205,7 +5219,7 @@
 				B8EEADB81C294F5400F861E8 /* SECompatibility.m in Sources */,
 				B87677D71C2005C700A0795B /* LTUserInfoHeadView.m in Sources */,
 				B844284E1C420E8C005FA556 /* LTPostCommentView.m in Sources */,
-				B844286D1C4226C0005FA556 /* LTPostProfileModel.m in Sources */,
+				B873AC431C48F8DC002C04B2 /* LTModelPostComment.m in Sources */,
 				B89E0FDC1C473CD200CD61FE /* IFTTTCircleView.m in Sources */,
 				B8EEAD7C1C294F5400F861E8 /* CDChatManager.m in Sources */,
 				B8E64C6A1C43F2E100B4CB64 /* LTGroupMessageCell.m in Sources */,
@@ -5215,6 +5229,7 @@
 				B8EEAD941C294F5400F861E8 /* XHCaptureHelper.m in Sources */,
 				B81CCC3C1C21408500D642DB /* JSQMessagesCellTextView.m in Sources */,
 				B89E0FF51C47568300CD61FE /* LTBaseTableViewCell.m in Sources */,
+				B873AC401C48F8AB002C04B2 /* LTPostProfileModel.m in Sources */,
 				B8A128481C1984B100ECA6CD /* NSObject+LKModel.m in Sources */,
 				B8EEADC31C294F5400F861E8 /* SETextMagnifierRanged.m in Sources */,
 				B8EEAD7B1C294F5400F861E8 /* AVIMEmotionMessage.m in Sources */,
@@ -5230,6 +5245,7 @@
 				B8A128461C1984B100ECA6CD /* LKDBUtils.m in Sources */,
 				B8E64C7E1C43F2E100B4CB64 /* SKTagButton.m in Sources */,
 				B81CCC321C21408500D642DB /* JSQMessagesCollectionViewFlowLayout.m in Sources */,
+				B873AC2D1C48DBB4002C04B2 /* LTModelPost.m in Sources */,
 				B81CCC371C21408500D642DB /* JSQMessage.m in Sources */,
 				B8EEADD81C294F5400F861E8 /* XHEmotionCollectionViewCell.m in Sources */,
 				B8EEAD921C294F5400F861E8 /* UIView+XHRemoteImage.m in Sources */,
@@ -5249,7 +5265,7 @@
 				B89E0FE01C473CD200CD61FE /* LTLogInService.m in Sources */,
 				B8EEADA41C294F5400F861E8 /* XHCacheManager.m in Sources */,
 				B845BC851C45072B001DA565 /* LTStatusTitleView.m in Sources */,
-				B84428761C4264C3005FA556 /* LTUser.m in Sources */,
+				B84428761C4264C3005FA556 /* LTModelUser.m in Sources */,
 				B8E64C741C43F2E100B4CB64 /* InputGroupNameViewController.m in Sources */,
 				B8EEADAB1C294F5400F861E8 /* XHMessageVoiceFactory.m in Sources */,
 				B81CCC2F1C21408500D642DB /* JSQMessagesTimestampFormatter.m in Sources */,
@@ -5272,19 +5288,19 @@
 				B80A37901C1DADB600C3B226 /* YYFPSLabel.m in Sources */,
 				B87677DD1C2015C300A0795B /* LTUserInfoSendMessageCell.m in Sources */,
 				B81072751C197FCE0058130E /* JTCalendarMenuMonthView.m in Sources */,
+				B873AC3E1C48F8AB002C04B2 /* LTPostLikedModel.m in Sources */,
+				B873AC3F1C48F8AB002C04B2 /* LTPostModel.m in Sources */,
 				B8EEADE11C294F5400F861E8 /* NSString+Emojize.m in Sources */,
 				B825C78A1C3F5CCB006E41C0 /* LTPostView.m in Sources */,
 				B8EEAD801C294F5400F861E8 /* CDMessageHelper.m in Sources */,
 				B84428731C425325005FA556 /* LTPostCommentCell.m in Sources */,
 				B8EEADC41C294F5400F861E8 /* SETextSelection.m in Sources */,
 				B810726F1C197FCE0058130E /* DWBubbleMenuButton.m in Sources */,
-				B844286B1C4226C0005FA556 /* LTPostLikedModel.m in Sources */,
 				B807290F1C1AB5C900E7802A /* LTDiscoverTodoUserImageView.m in Sources */,
 				B8EEADBE1C294F5400F861E8 /* SETextEditingCaret.m in Sources */,
 				B810725F1C197FCE0058130E /* LTMeHeadUserFollowInfoView.m in Sources */,
 				B82BA3AD1C2BDD7F004AFC37 /* LTAddTodoTextCell.m in Sources */,
 				B8E64C641C43F2E100B4CB64 /* GroupLabelCell.m in Sources */,
-				B844286C1C4226C0005FA556 /* LTPostModel.m in Sources */,
 				B8EEADD01C294F5400F861E8 /* XHMessageBubbleView.m in Sources */,
 				B81072841C197FCE0058130E /* LTTodoTypeStyleViewController.m in Sources */,
 				B8EEAD911C294F5400F861E8 /* UIView+XHBadgeView.m in Sources */,

@@ -15,8 +15,10 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 
+/// 展示的数据，通过 PHImageManager 获取，已经尺寸已经进行缩放
 @property (nonatomic, strong) NSMutableArray <UIImage *> *photos;
 
+/// 原始数据（可以通过这个属性获得原始数据）
 @property (nonatomic, strong) NSMutableArray <PHAsset *> *selectedAsset;
 
 @end
@@ -37,8 +39,12 @@
     [_tableView registerClass:[LTUploadTextAndPhotosCell class] forCellReuseIdentifier:LTUploadTextAndPhotosCellIdentifier];
     [_tableView registerClass:[LTBaseTableViewCell class] forCellReuseIdentifier:LTBaseTableViewCellIdentifier];
     
+    /// 导航栏按钮
     UIBarButtonItem *cancleButton = [[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancleUpload)];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(doneUpload)];
+    
     self.navigationItem.leftBarButtonItem = cancleButton;
+    self.navigationItem.rightBarButtonItem = doneButton;
 
 }
 
@@ -113,6 +119,11 @@
 #pragma mark - 导航栏按钮
 
 - (void)cancleUpload{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)doneUpload{
+    
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
