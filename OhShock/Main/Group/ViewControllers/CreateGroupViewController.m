@@ -173,7 +173,7 @@ static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
     group.groupLabels = groupLabels;
     group.groupIntroduction  = groupIntroduction;
     group.groupImage = groupImage;
-    [groupService CreateGroupWith:group andCallback:^(BOOL succeeded, NSError *error) {
+    [groupService createGroupWith:group andCallback:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             [SVProgressHUD showSuccessWithStatus:@"创建成功"];
             rightButton.enabled = YES;

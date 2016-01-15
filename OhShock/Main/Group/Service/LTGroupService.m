@@ -17,7 +17,7 @@
  *  @param user          (AVUser *)
  *  @param complectBlock Block
  */
-- (void)CreateGroupWith:(LTGroup *)group andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock{
+- (void)createGroupWith:(LTGroup *)group andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock{
     [group setObject:[AVUser currentUser] forKey:@"groupCreator"];
     [group addUniqueObjectsFromArray:[NSArray arrayWithObjects:[AVUser currentUser], nil] forKey:@"groupMembers"];
     
@@ -103,6 +103,39 @@
             completeBlock(YES, error, objects);
         }else{
             completeBlock(NO, error, nil);
+        }
+    }];
+}
+
+/**
+ *  加入群组
+ *
+ *  @param group          (LTGroup *)
+ *  @param complectBlock Block
+ */
+- (void)joinGroupWith:(LTGroup *)group andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock{
+    AVQuery *query = [AVQuery queryWithClassName:@"LTGroup"];
+    [query whereKey:@"groupName" equalTo:group.groupName];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            if (objects.count) {
+                AVObject *object = objects[0];
+                NSMutableArray *groupArray = [object objectForKey:@"wantJoins"];//获取想要加入成员数组
+                if (groupArray == nil) {
+                    groupArray = [NSMutableArray array];
+                }
+                [groupArray addObject:[AVUser currentUser]];
+                [object setObject:groupArray forKey:@"wantJoins"];
+                [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    if (succeeded) {
+                        complectBlock(YES, error);
+                    }else{
+                        complectBlock(NO, error);
+                    }
+                }];
+            }
+        }else{
+            complectBlock(NO, error);
         }
     }];
 }

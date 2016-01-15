@@ -9,6 +9,7 @@
 #import "LTSearchGroupViewController.h"
 #import "LTGroupService.h"
 #import "LTGroupCell.h"
+#import "LTGroupInfoViewController.h"
 
 @interface LTSearchGroupViewController ()
 
@@ -40,7 +41,7 @@
     _searchBar.keyboardType=UIKeyboardTypeNamePhonePad;
     self.tableView.tableHeaderView = _searchBar;
     
-    _dataSource = [NSArray new];
+    _dataSource = [NSMutableArray array];
     _service = [LTGroupService new];
 }
 
@@ -57,25 +58,37 @@
         [tableView registerNib:[UINib nibWithNibName:@"LTGroupCell" bundle:nil] forCellReuseIdentifier:@"groupCell"];
         cell = [tableView dequeueReusableCellWithIdentifier:@"groupCell"];
     }
-    AVObject *object = _dataSource[indexPath.row];
-    LTGroup *group = [[LTGroup alloc]init];
-    group.groupName = [object objectForKey:@"groupName"];
-    group.groupStyle = [object objectForKey:@"groupStyle"];
-    group.groupAddress = [object objectForKey:@"groupAddress"];
-    group.groupLabels = [object objectForKey:@"groupLabels"];
-    group.groupIntroduction = [object objectForKey:@"groupIntroduction"];
-    AVFile *imgData = [object objectForKey:@"groupImage"];
-    group.groupImageURL = [imgData url];
     
-    [cell setCellWithGroup:group];
+    [cell setCellWithGroup:_dataSource[indexPath.row]];
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    LTGroupInfoViewController *controller = [[LTGroupInfoViewController alloc]init];
+    controller.group = _dataSource[indexPath.row];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark UISearchBar Delegate
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if (searchText.length) {
         [_service findGroupByPartname:searchText complete:^(BOOL succeeded, NSError *error, NSArray *array) {
-            _dataSource = array;
+            _dataSource = [NSMutableArray array];
+            for (int i = 0; i < array.count; i++) {
+                AVObject *object = array[i];
+                LTGroup *group = [[LTGroup alloc]init];
+                group.groupName = [object objectForKey:@"groupName"];
+                group.groupStyle = [object objectForKey:@"groupStyle"];
+                group.groupAddress = [object objectForKey:@"groupAddress"];
+                group.groupLabels = [object objectForKey:@"groupLabels"];
+                group.groupIntroduction = [object objectForKey:@"groupIntroduction"];
+                AVFile *imgData = [object objectForKey:@"groupImage"];
+                group.groupImageURL = [imgData url];
+                
+                [_dataSource addObject:group];
+            }
+            
             [self.tableView reloadData];
         }];
     }

@@ -18,6 +18,7 @@
 		AB3CF3F41C4768F800F1C57B /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FD01C473CD200CD61FE /* LogInViewController.m */; };
 		AB76B7941C451D42000A2191 /* LTGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76B7931C451D42000A2191 /* LTGroup.m */; };
 		ABE1E8A01C49274C006AA1C1 /* CLSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE1E89F1C49274C006AA1C1 /* CLSearchResultViewController.m */; };
+		ABFBA6991C4949DD00E1863E /* JoinGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFBA6981C4949DD00E1863E /* JoinGroupCell.m */; };
 		B80726721C1AAF2F00E7802A /* LTDiscoverTodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B80726711C1AAF2F00E7802A /* LTDiscoverTodoViewController.m */; };
 		B80727CF1C1AB2E900E7802A /* add_user_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B80726781C1AB2E900E7802A /* add_user_icon@2x.png */; };
 		B80727D01C1AB2E900E7802A /* addPictureBgImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B80726791C1AB2E900E7802A /* addPictureBgImage@2x.png */; };
@@ -868,6 +869,8 @@
 		AB76B7931C451D42000A2191 /* LTGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroup.m; sourceTree = "<group>"; };
 		ABE1E89E1C49274C006AA1C1 /* CLSearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLSearchResultViewController.h; sourceTree = "<group>"; };
 		ABE1E89F1C49274C006AA1C1 /* CLSearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLSearchResultViewController.m; sourceTree = "<group>"; };
+		ABFBA6971C4949DD00E1863E /* JoinGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinGroupCell.h; sourceTree = "<group>"; };
+		ABFBA6981C4949DD00E1863E /* JoinGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinGroupCell.m; sourceTree = "<group>"; };
 		B80726701C1AAF2F00E7802A /* LTDiscoverTodoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTDiscoverTodoViewController.h; sourceTree = "<group>"; };
 		B80726711C1AAF2F00E7802A /* LTDiscoverTodoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTDiscoverTodoViewController.m; sourceTree = "<group>"; };
 		B80726781C1AB2E900E7802A /* add_user_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_user_icon@2x.png"; sourceTree = "<group>"; };
@@ -3486,6 +3489,8 @@
 				B8E64C351C43F2E100B4CB64 /* TagsTableCell.h */,
 				B8E64C361C43F2E100B4CB64 /* TagsTableCell.m */,
 				B8E64C371C43F2E100B4CB64 /* TagsTableCell.xib */,
+				ABFBA6971C4949DD00E1863E /* JoinGroupCell.h */,
+				ABFBA6981C4949DD00E1863E /* JoinGroupCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -5191,6 +5196,7 @@
 				B81072771C197FCE0058130E /* JTCalendarMonthView.m in Sources */,
 				B8EEAD7F1C294F5400F861E8 /* CDFailedMessageStore.m in Sources */,
 				B8EEADD61C294F5400F861E8 /* XHMessageTextView.m in Sources */,
+				ABFBA6991C4949DD00E1863E /* JoinGroupCell.m in Sources */,
 				B8EEADC61C294F5400F861E8 /* SETextView.m in Sources */,
 				B81CCC361C21408500D642DB /* JSQMediaItem.m in Sources */,
 				B89E0FE21C473CD200CD61FE /* SignUpViewController.m in Sources */,

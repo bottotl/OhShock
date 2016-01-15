@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LTSearchGroupViewController : UITableViewController<UISearchBarDelegate>
-@property (nonatomic, strong) NSArray *dataSource;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 @end
