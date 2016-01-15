@@ -15,7 +15,9 @@
 		AB3CF3EE1C46493700F1C57B /* LTGroupMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3CF3E81C46493700F1C57B /* LTGroupMessageViewController.m */; };
 		AB3CF3EF1C46493700F1C57B /* LTGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3CF3EA1C46493700F1C57B /* LTGroupViewController.m */; };
 		AB3CF3F21C46495900F1C57B /* LTSearchGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3CF3F11C46495900F1C57B /* LTSearchGroupViewController.m */; };
+		AB3CF3F41C4768F800F1C57B /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FD01C473CD200CD61FE /* LogInViewController.m */; };
 		AB76B7941C451D42000A2191 /* LTGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76B7931C451D42000A2191 /* LTGroup.m */; };
+		ABE1E8A01C49274C006AA1C1 /* CLSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE1E89F1C49274C006AA1C1 /* CLSearchResultViewController.m */; };
 		B80726721C1AAF2F00E7802A /* LTDiscoverTodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B80726711C1AAF2F00E7802A /* LTDiscoverTodoViewController.m */; };
 		B80727CF1C1AB2E900E7802A /* add_user_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B80726781C1AB2E900E7802A /* add_user_icon@2x.png */; };
 		B80727D01C1AB2E900E7802A /* addPictureBgImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B80726791C1AB2E900E7802A /* addPictureBgImage@2x.png */; };
@@ -505,7 +507,6 @@
 		B89E0FDC1C473CD200CD61FE /* IFTTTCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FC91C473CD200CD61FE /* IFTTTCircleView.m */; };
 		B89E0FDD1C473CD200CD61FE /* IFTTTJazzHandsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FCB1C473CD200CD61FE /* IFTTTJazzHandsViewController.m */; };
 		B89E0FDE1C473CD200CD61FE /* IntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FCD1C473CD200CD61FE /* IntroductionViewController.m */; };
-		B89E0FDF1C473CD200CD61FE /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FD01C473CD200CD61FE /* LogInViewController.m */; };
 		B89E0FE01C473CD200CD61FE /* LTLogInService.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FD21C473CD200CD61FE /* LTLogInService.m */; };
 		B89E0FE11C473CD200CD61FE /* LTSignUpService.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FD61C473CD200CD61FE /* LTSignUpService.m */; };
 		B89E0FE21C473CD200CD61FE /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FD81C473CD200CD61FE /* SignUpViewController.m */; };
@@ -865,6 +866,8 @@
 		AB3CF3F11C46495900F1C57B /* LTSearchGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTSearchGroupViewController.m; sourceTree = "<group>"; };
 		AB76B7921C451D42000A2191 /* LTGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTGroup.h; sourceTree = "<group>"; };
 		AB76B7931C451D42000A2191 /* LTGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroup.m; sourceTree = "<group>"; };
+		ABE1E89E1C49274C006AA1C1 /* CLSearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLSearchResultViewController.h; sourceTree = "<group>"; };
+		ABE1E89F1C49274C006AA1C1 /* CLSearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLSearchResultViewController.m; sourceTree = "<group>"; };
 		B80726701C1AAF2F00E7802A /* LTDiscoverTodoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTDiscoverTodoViewController.h; sourceTree = "<group>"; };
 		B80726711C1AAF2F00E7802A /* LTDiscoverTodoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTDiscoverTodoViewController.m; sourceTree = "<group>"; };
 		B80726781C1AB2E900E7802A /* add_user_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_user_icon@2x.png"; sourceTree = "<group>"; };
@@ -3493,6 +3496,8 @@
 				B8E64C431C43F2E100B4CB64 /* AboutCreateGroup */,
 				AB3CF3E91C46493700F1C57B /* LTGroupViewController.h */,
 				AB3CF3EA1C46493700F1C57B /* LTGroupViewController.m */,
+				ABE1E89E1C49274C006AA1C1 /* CLSearchResultViewController.h */,
+				ABE1E89F1C49274C006AA1C1 /* CLSearchResultViewController.m */,
 				AB3CF3E11C46493700F1C57B /* CreateGroupViewController.h */,
 				AB3CF3E21C46493700F1C57B /* CreateGroupViewController.m */,
 				AB3CF3E31C46493700F1C57B /* LTGroupInfoViewController.h */,
@@ -4990,6 +4995,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB3CF3F41C4768F800F1C57B /* LogInViewController.m in Sources */,
 				B8EEAD831C294F5400F861E8 /* EmojiEmoticons.m in Sources */,
 				B81072741C197FCE0058130E /* JTCalendarDayView.m in Sources */,
 				B8EEADD11C294F5400F861E8 /* XHMessageDisplayTextView.m in Sources */,
@@ -5004,7 +5010,6 @@
 				B8EEAD981C294F5400F861E8 /* XHPhotographyHelper.m in Sources */,
 				B8EEADAF1C294F5400F861E8 /* XHContact.m in Sources */,
 				AB3CF3EC1C46493700F1C57B /* LTGroupInfoViewController.m in Sources */,
-				B81072551C197FCE0058130E /* IFTTTJazzHandsViewController.m in Sources */,
 				B8D1D52C1C33EB2B00DC4EDC /* LTPostListViewController.m in Sources */,
 				B863A65D1C2CD8D000707D17 /* NSDate+Helper.m in Sources */,
 				B845BC7F1C45072B001DA565 /* WBStatusHelper.m in Sources */,
@@ -5098,6 +5103,7 @@
 				B82BA3C41C2BDED7004AFC37 /* ActionSheetLocalePicker.m in Sources */,
 				B8A128431C1984B100ECA6CD /* LKAlarmMamager.m in Sources */,
 				B8EEADA71C294F5400F861E8 /* XHOperationNetworkKit.m in Sources */,
+				ABE1E8A01C49274C006AA1C1 /* CLSearchResultViewController.m in Sources */,
 				B81072831C197FCE0058130E /* LTTodoCalenderStyleViewController.m in Sources */,
 				B81CCC341C21408500D642DB /* JSQMessagesCollectionViewLayoutAttributes.m in Sources */,
 				B81CCC301C21408500D642DB /* JSQMessagesToolbarButtonFactory.m in Sources */,
@@ -5128,8 +5134,6 @@
 				B810728B1C197FCE0058130E /* LTTapImageView.m in Sources */,
 				B82BA3C31C2BDED7004AFC37 /* ActionSheetDistancePicker.m in Sources */,
 				AB3CF3F21C46495900F1C57B /* LTSearchGroupViewController.m in Sources */,
-				B81072541C197FCE0058130E /* IFTTTCircleView.m in Sources */,
-				B810728A1C197FCE0058130E /* SignUpViewController.m in Sources */,
 				B8EEADAE1C294F5400F861E8 /* XHAnnotation.m in Sources */,
 				B845BC811C45072B001DA565 /* LTStatusCell.m in Sources */,
 				B82BA3C21C2BDED7004AFC37 /* ActionSheetDatePicker.m in Sources */,

@@ -17,8 +17,11 @@
 #import "LTGroup.h"
 #import "LTGroupService.h"
 #import "LTSearchGroupViewController.h"
+#import "CLSearchResultViewController.h"
 
-@interface LTGroupViewController ()<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
+@interface LTGroupViewController ()<UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating>
+
+@property (nonatomic, strong) UISearchController *mySearchController;
 
 @end
 
@@ -28,12 +31,11 @@
     UIButton *leftButton;
     UIButton *rightButton;
     UITableView *mainTableView;
-    UISearchBar *mySearchBar;
-    UISearchDisplayController *mySearchDisplayController;
     XHPopMenu *popMenu;
     
     //群组数据
     NSMutableArray *groupArray;
+    CLSearchResultViewController *searchResult;
 }
 
 - (void)viewDidLoad {
@@ -63,17 +65,14 @@
     mainTableView.tableFooterView = [UIView new];
     [self.view addSubview:mainTableView];
     
-    mySearchBar = [[UISearchBar alloc]init];
-    mySearchBar.delegate = self;
-    [mySearchBar setAutocapitalizationType:UITextAutocapitalizationTypeNone];
-    [mySearchBar sizeToFit];
-    mainTableView.tableHeaderView = mySearchBar;
-    
-    mySearchDisplayController = [[UISearchDisplayController alloc]initWithSearchBar:mySearchBar contentsController:self];
-    [mySearchDisplayController setDelegate:self];
-    [mySearchDisplayController setSearchResultsDataSource:self];
-    [mySearchDisplayController setSearchResultsDelegate:self];
-    
+    searchResult = [[CLSearchResultViewController alloc]init];
+    self.mySearchController = [[UISearchController alloc] initWithSearchResultsController:searchResult];
+    _mySearchController.searchResultsUpdater = self;
+//    _mySearchController.dimsBackgroundDuringPresentation = NO;
+//    _mySearchController.hidesNavigationBarDuringPresentation = NO;
+    _mySearchController.searchBar.frame = CGRectMake(0, 64, 0, 44.0);
+    [_mySearchController.searchBar sizeToFit];
+    mainTableView.tableHeaderView = self.mySearchController.searchBar;
     
     //有新消息时候加上小红点，先放在这边
     UIView *red = [[UIView alloc] initWithFrame:CGRectMake(30, 0, 10, 10)];
@@ -174,24 +173,15 @@
 }
 
 
-#pragma mark UISearchBar and UISearchDisplayController Delegate Methods
--(BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
-    //準備搜尋前，把上面調整的TableView調整回全屏幕的狀態，如果要產生動畫效果，要另外執行animation代碼
-
-    return YES;
-}
--(BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar{
-    //搜尋結束後，恢復原狀，如果要產生動畫效果，要另外執行animation代碼
-
-    return YES;
-}
-
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller
-shouldReloadTableForSearchString:(NSString *)searchString
-{
-    //一旦SearchBar輸入內容有變化，則執行這個方法，詢問要不要重裝searchResultTableView的數據
-
-    return YES;
+#pragma mark UISearchController Delegate Methods
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
+//    NSString *filterString = searchController.searchBar.text;
+//    
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains [c] %@", filterString];
+//    
+//    self.visableArray = [NSMutableArray arrayWithArray:[self.dataSourceArray filteredArrayUsingPredicate:predicate]];
+//    
+//    [self.myTableView reloadData];
 }
 
 #pragma mark 导航栏点击事件

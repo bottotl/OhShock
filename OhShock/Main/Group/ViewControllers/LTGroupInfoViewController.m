@@ -132,7 +132,6 @@
             [popMenuItems addObject:popMenuItem];
         }
         
-        __weak __typeof(self) weakSelf = self;
         _popMenu = [[XHPopMenu alloc] initWithMenus:popMenuItems];
         _popMenu.popMenuDidSlectedCompled = ^(NSInteger index, XHPopMenuItem *popMenuItems) {
             if (index == 1) {

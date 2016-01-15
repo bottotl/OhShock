@@ -110,15 +110,28 @@ static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
 }
 
 #pragma mark - button click
+//点击添加照片
 - (void)onAddPicClick{
-    UIActionSheet* sheet = [[UIActionSheet alloc] init];
-    sheet.delegate = self;
-    [sheet addButtonWithTitle:@"拍照"];
-    [sheet addButtonWithTitle:@"从相册选取"];
-    [sheet addButtonWithTitle:@"取消"];
-    
-    sheet.cancelButtonIndex = 2;
-    [sheet showInView:self.view];
+//    UIActionSheet* sheet = [[UIActionSheet alloc] init];
+//    sheet.delegate = self;
+//    [sheet addButtonWithTitle:@"拍照"];
+//    [sheet addButtonWithTitle:@"从相册选取"];
+//    [sheet addButtonWithTitle:@"取消"];
+//    
+//    sheet.cancelButtonIndex = 2;
+//    [sheet showInView:self.view];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *snap = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self snapImage];
+    }];
+    UIAlertAction *pick = [UIAlertAction actionWithTitle:@"从相册选取" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self pickImage];
+    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:snap];
+    [alertController addAction:pick];
+    [alertController addAction:cancel];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 -(void)next{
@@ -487,28 +500,6 @@ static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
     }else if (indexPath.section == 3){
         //群头像
         
-    }
-}
-
-#pragma mark - actionSheet
-- (void)willPresentActionSheet:(UIActionSheet *)actionSheet
-{
-    for (UIView *subView in actionSheet.subviews) {
-        if ([subView isKindOfClass:[UIButton class]]) {
-            UIButton *button = (UIButton*)subView;
-            [button setTitleColor:RGBCOLOR(11, 176, 16)
-                         forState:UIControlStateNormal];
-        }
-    }
-}
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 0) {
-        [self snapImage];
-    }
-    else if (buttonIndex == 1) {
-        [self pickImage];
     }
 }
 

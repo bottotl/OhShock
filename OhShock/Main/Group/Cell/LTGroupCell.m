@@ -23,7 +23,7 @@
 
 - (void)setCellWithGroup:(LTGroup *)group{
     _groupName.text = group.groupName;
-    [_groupImgV setImageWithURL:[NSURL URLWithString:group.groupImageURL]];
+    [_groupImgV sd_setImageWithURL:[NSURL URLWithString:group.groupImageURL]];
 }
 
 @end
