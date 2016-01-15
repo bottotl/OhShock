@@ -11,6 +11,7 @@
 #import "LTPostModel.h"
 #import "YYKit.h"
 #import "LTUploadPhotosViewController.h"
+#import "LTPostListService.h"
 
 
 @interface LTPostListViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -23,6 +24,8 @@
 /// NSArray < NSNumber *> *
 @property (nonatomic, strong) NSArray *heights;
 
+@property (nonatomic, strong) LTPostListService *service;
+
 @end
 
 @implementation LTPostListViewController
@@ -30,6 +33,7 @@
 #pragma mark - View Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _service = [LTPostListService new];
 
     self.posts = [NSArray new];
     self.heights = [NSArray new];
@@ -54,72 +58,19 @@
 #pragma mark - 数据
 /// 更新数据
 - (void)makeArray{
-    /**
-     *  暂时用的都是自己模拟的假数据，这里最好创建一个异步线程负责去读取网络数据
-     */
-    LTPostModel *mode = [LTPostModel new];
-    
-    LTPostProfileModel *profileData = [LTPostProfileModel new];
-    LTPostContentModel *contentData = [LTPostContentModel new];
-    
-    profileData.avatarUrlSmall = @"http://ww4.sinaimg.cn/mw690/6b5f103fjw8em2xe1lm4wj20qm0qnadp.jpg";
-    profileData.avatarUrlBig = @"http://ww4.sinaimg.cn/mw690/6b5f103fjw8em2xe1lm4wj20qm0qnadp.jpg";
-    profileData.name = @"jft0m";
-    NSMutableAttributedString *content = [[NSMutableAttributedString alloc]initWithString:@"追求别人，我不知道最好的办法，但我知道哪些办法是与幸福生活背道而驰的。时间宝贵，不要浪费，所谓浪费时间，不是你追了但是没有追到，在追求的过程中发现自己的弱点，控制他或者接受他，都是自己的一种成长，不是浪费。所谓浪费，是你在错误的追求方法上反复用力，还期待得到一个圆满的结果，在得不到没有接受的坦荡，反而充满了被亏钱的郁闷和怨恨。"];
-    content.font = [UIFont systemFontOfSize:15];
-    contentData.content = content.copy;
-    
-    /**
-     *  多图展示数据模拟
-     */
-    NSMutableArray *tempPostImagesData = @[].mutableCopy;
-    for (int i = 0; i < 1; i++) {
-        LTPostImageModel *model = [LTPostImageModel new];
-        model.smallUrlString = [NSString stringWithFormat:@"https://coding.net//static/fruit_avatar/Fruit-%d.png",i%19 +1];
-        model.bigUrlString = [NSString stringWithFormat:@"https://coding.net//static/fruit_avatar/Fruit-%d.png",i%19 +2];
-        [tempPostImagesData addObject:model];
-    }
-    NSArray *postImagesData = tempPostImagesData.copy;
-    
-    
-    LTPostLikedModel *likedMode = [LTPostLikedModel new];
-    NSMutableArray *tempUsersName = @[].mutableCopy;
-    for (int i = 0; i< 1 ; i++) {
-        [tempUsersName addObject:[NSString stringWithFormat:@"用户%d",i]];
-    }
-    likedMode.users = tempUsersName.copy;
-    
-    
-    NSMutableArray *comments = [NSMutableArray new];
-    for (int i = 0 ; i < 1; i++) {
-        LTModelPostComment *model =[LTModelPostComment new];
-        model.content = @"追求别人，我不知道最好的办法，但我知道哪些办法是与幸福生活背道而驰的。";
-        model.fromUser = [LTModelUser currentUser];
-        model.toUser = [LTModelUser currentUser];
-        [comments addObject:model];
-    }
-    
-    mode.likedData = likedMode;
-    mode.profileData = profileData;
-    mode.contentData = contentData;
-    mode.pic = postImagesData.copy;
-    mode.comments = comments.copy;
-    
-    
-    NSMutableArray *tempDataSource = @[].mutableCopy;
-    for (int i = 0; i < 1000; i++) {
-        [tempDataSource addObject:mode];
-    }
-    
-    
+    __weak __typeof(self) weakSelf = self;
+    [_service findPost:0 length:10 block:^(NSArray *posts, NSError *error) {
+        weakSelf.posts = posts;
+        [self updateHeight];
+    }];
+}
+/// 更新高度数据
+- (void)updateHeight{
     NSMutableArray *heights = @[].mutableCopy;
-    for (LTPostModel *model in tempDataSource) {
+    for (LTPostModel *model in self.posts) {
         [heights addObject:@([LTPostView viewHeightWithData:model])];
     }
-    
-    self.posts = tempDataSource.copy;
     self.heights = heights.copy;
-    
 }
 
 #pragma mark - UITableViewDataSource
@@ -173,6 +124,9 @@
         NSLog(@"取消");
     }]];
     [self presentViewController:uploadAlert animated:YES completion:nil];
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [self makeArray];
 }
 
 @end

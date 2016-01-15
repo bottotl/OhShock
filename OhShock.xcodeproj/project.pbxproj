@@ -496,6 +496,8 @@
 		B8DCE4081C49287D00C233AD /* DiscoverTodoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DCE4021C49287D00C233AD /* DiscoverTodoCell.m */; };
 		B8DCE4091C49287D00C233AD /* LTDiscoverTodoUserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DCE4051C49287D00C233AD /* LTDiscoverTodoUserImageView.m */; };
 		B8DCE40A1C49287D00C233AD /* LTDiscoverTodoView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DCE4071C49287D00C233AD /* LTDiscoverTodoView.m */; };
+		B8DCE40D1C492FD900C233AD /* LTUploadService.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DCE40C1C492FD900C233AD /* LTUploadService.m */; };
+		B8DCE4101C49478100C233AD /* LTPostListService.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DCE40F1C49478100C233AD /* LTPostListService.m */; };
 		B8E448D71C3BDD3900D4D717 /* LTPostContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E448D61C3BDD3900D4D717 /* LTPostContentView.m */; };
 		B8E64C621C43F2E100B4CB64 /* AddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E64C271C43F2E100B4CB64 /* AddressCell.m */; };
 		B8E64C631C43F2E100B4CB64 /* AddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8E64C281C43F2E100B4CB64 /* AddressCell.xib */; };
@@ -1488,6 +1490,10 @@
 		B8DCE4051C49287D00C233AD /* LTDiscoverTodoUserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTDiscoverTodoUserImageView.m; sourceTree = "<group>"; };
 		B8DCE4061C49287D00C233AD /* LTDiscoverTodoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTDiscoverTodoView.h; sourceTree = "<group>"; };
 		B8DCE4071C49287D00C233AD /* LTDiscoverTodoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTDiscoverTodoView.m; sourceTree = "<group>"; };
+		B8DCE40B1C492FD900C233AD /* LTUploadService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTUploadService.h; sourceTree = "<group>"; };
+		B8DCE40C1C492FD900C233AD /* LTUploadService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTUploadService.m; sourceTree = "<group>"; };
+		B8DCE40E1C49478100C233AD /* LTPostListService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostListService.h; sourceTree = "<group>"; };
+		B8DCE40F1C49478100C233AD /* LTPostListService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostListService.m; sourceTree = "<group>"; };
 		B8E448D51C3BDD3900D4D717 /* LTPostContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostContentView.h; sourceTree = "<group>"; };
 		B8E448D61C3BDD3900D4D717 /* LTPostContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostContentView.m; sourceTree = "<group>"; };
 		B8E64C231C43F29000B4CB64 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
@@ -3166,6 +3172,8 @@
 				B89E0FE81C474D7300CD61FE /* UploadPhotosView */,
 				B89E0FE41C47437800CD61FE /* LTUploadPhotosViewController.h */,
 				B89E0FE51C47437800CD61FE /* LTUploadPhotosViewController.m */,
+				B8DCE40B1C492FD900C233AD /* LTUploadService.h */,
+				B8DCE40C1C492FD900C233AD /* LTUploadService.m */,
 			);
 			name = "上传";
 			path = Upload;
@@ -3287,6 +3295,8 @@
 				B8DCE3FC1C4927D900C233AD /* LTPostViewCell.m */,
 				B8D1D52A1C33EB2B00DC4EDC /* LTPostListViewController.h */,
 				B8D1D52B1C33EB2B00DC4EDC /* LTPostListViewController.m */,
+				B8DCE40E1C49478100C233AD /* LTPostListService.h */,
+				B8DCE40F1C49478100C233AD /* LTPostListService.m */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -4850,6 +4860,7 @@
 				B8AF049B1C47B91B00AD6FC3 /* LTUploadAddPhotoColloectionCell.m in Sources */,
 				B81CCC441C21408500D642DB /* JSQMessagesInputToolbar.m in Sources */,
 				B8E64C6C1C43F2E100B4CB64 /* TagsTableCell.m in Sources */,
+				B8DCE4101C49478100C233AD /* LTPostListService.m in Sources */,
 				B82BA3C61C2BDED7004AFC37 /* DistancePickerView.m in Sources */,
 				B8EEAD9E1C294F5400F861E8 /* XHBaseViewController.m in Sources */,
 				B81CCC3D1C21408500D642DB /* JSQMessagesCollectionView.m in Sources */,
@@ -4892,6 +4903,7 @@
 				B873AC3B1C48F8AB002C04B2 /* LTPostCommentModel.m in Sources */,
 				B8EEADE01C294F5400F861E8 /* XHRefreshView.m in Sources */,
 				B81072881C197FCE0058130E /* XHPopMenuItemView.m in Sources */,
+				B8DCE40D1C492FD900C233AD /* LTUploadService.m in Sources */,
 				B81CCC331C21408500D642DB /* JSQMessagesCollectionViewFlowLayoutInvalidationContext.m in Sources */,
 				B8BD1A851C3BA12A0011178F /* LTPostProfileView.m in Sources */,
 				B8EEADE21C294F5400F861E8 /* UIImage+Icon.m in Sources */,

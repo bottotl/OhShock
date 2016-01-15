@@ -17,6 +17,8 @@
 #import "UIImage+Common.h"
 #import <AMapLocationKit/AMapLocationKit.h>
 #import <AMapSearchKit/AMapSearchKit.h>
+#import "LTModelUser.h"
+#import "LTModelPost.h"
 
 
 #warning for test
@@ -41,6 +43,8 @@ static NSString *const AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
 
     /////////////////////////////////////////////////////////////
     /////////////////云服务注册////////////////////////////////////
+    [LTModelUser registerSubclass];
+    [LTModelPost registerSubclass];
     
     [AVOSCloud setApplicationId:AppID
                       clientKey:AppKey];

@@ -52,6 +52,7 @@ static CGFloat textViewFontSize = 16.0;
         [_collectioneView registerClass:[LTUploadAddPhotoColloectionCell class] forCellWithReuseIdentifier:LTUploadAddPhotoCellIdentifier];
         
         _textView = [UITextView new];
+        _textView.delegate = self.textViewDelegate;
         _textView.font = [UIFont systemFontOfSize:textViewFontSize];
         [self addSubview:_textView];
     }
@@ -74,8 +75,8 @@ static CGFloat textViewFontSize = 16.0;
     
     if (indexPath.row == self.photos.count) {
         LTUploadAddPhotoColloectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:LTUploadAddPhotoCellIdentifier forIndexPath:indexPath];
-        if([self.degate respondsToSelector:@selector(addPhotoOnClick)]){
-            [cell.addPhotoButton addTarget:self.degate action:@selector(addPhotoOnClick) forControlEvents:UIControlEventTouchUpInside];
+        if([self.delegate respondsToSelector:@selector(addPhotoOnClick)]){
+            [cell.addPhotoButton addTarget:self.delegate action:@selector(addPhotoOnClick) forControlEvents:UIControlEventTouchUpInside];
         }
         
         return cell;

@@ -9,5 +9,8 @@
 #import "LTModelPost.h"
 
 @implementation LTModelPost
-
+@dynamic pubUser, content, comments, photos;
++ (NSString *)parseClassName {
+    return @"Post";
+}
 @end
