@@ -3271,7 +3271,7 @@
 		B89E0FBF1C473CD200CD61FE /* 小模块 */ = {
 			isa = PBXGroup;
 			children = (
-				B89E0FE31C473D4400CD61FE /* Upload */,
+				B89E0FE31C473D4400CD61FE /* 上传 */,
 				B89E0FC01C473CD200CD61FE /* Chat */,
 				B89E0FC71C473CD200CD61FE /* Intro */,
 				B89E0FCE1C473CD200CD61FE /* LogIn */,
@@ -3337,13 +3337,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
-		B89E0FE31C473D4400CD61FE /* Upload */ = {
+		B89E0FE31C473D4400CD61FE /* 上传 */ = {
 			isa = PBXGroup;
 			children = (
 				B89E0FE81C474D7300CD61FE /* UploadPhotosView */,
 				B89E0FE41C47437800CD61FE /* LTUploadPhotosViewController.h */,
 				B89E0FE51C47437800CD61FE /* LTUploadPhotosViewController.m */,
 			);
+			name = "上传";
 			path = Upload;
 			sourceTree = "<group>";
 		};
