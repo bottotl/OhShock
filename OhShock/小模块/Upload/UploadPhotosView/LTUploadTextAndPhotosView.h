@@ -20,6 +20,8 @@
 
 @property (nonatomic, strong) id <AddPhotoDelegae> degate;
 
++(CGFloat)photoHeight;// 图片展示的大小
+
 -(void)configView:(NSArray *)photos;
 
 +(CGFloat)heightWithPhotos:(NSArray *)photos;

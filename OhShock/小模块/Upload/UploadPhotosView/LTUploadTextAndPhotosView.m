@@ -92,7 +92,7 @@ static NSInteger const  MaxLineNum        = 4;
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
 
     if(indexPath.row != self.photos.count){
-        [(LTUploadPhotoCollectionCell *)cell configCellWith:[UIImage imageNamed:@"tusiji_8_cover"]];
+        [(LTUploadPhotoCollectionCell *)cell configCellWith:self.photos[indexPath.row]];
     }
     
 }

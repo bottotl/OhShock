@@ -85,8 +85,6 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/APParallaxHeader.framework"
-  install_framework "Pods/BSGridCollectionViewLayout.framework"
-  install_framework "Pods/BSImagePicker.framework"
   install_framework "Pods/DateTools.framework"
   install_framework "Pods/FMDB.framework"
   install_framework "Pods/JSBadgeView.framework"
@@ -94,18 +92,16 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/JazzHands.framework"
   install_framework "Pods/Masonry.framework"
   install_framework "Pods/ODRefreshControl.framework"
+  install_framework "Pods/QBImagePickerController.framework"
   install_framework "Pods/ReactiveCocoa.framework"
   install_framework "Pods/Result.framework"
   install_framework "Pods/SDWebImage.framework"
   install_framework "Pods/SMPageControl.framework"
   install_framework "Pods/TPKeyboardAvoiding.framework"
-  install_framework "Pods/UIImageViewModeScaleAspect.framework"
   install_framework "Pods/YYKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/APParallaxHeader.framework"
-  install_framework "Pods/BSGridCollectionViewLayout.framework"
-  install_framework "Pods/BSImagePicker.framework"
   install_framework "Pods/DateTools.framework"
   install_framework "Pods/FMDB.framework"
   install_framework "Pods/JSBadgeView.framework"
@@ -113,11 +109,11 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/JazzHands.framework"
   install_framework "Pods/Masonry.framework"
   install_framework "Pods/ODRefreshControl.framework"
+  install_framework "Pods/QBImagePickerController.framework"
   install_framework "Pods/ReactiveCocoa.framework"
   install_framework "Pods/Result.framework"
   install_framework "Pods/SDWebImage.framework"
   install_framework "Pods/SMPageControl.framework"
   install_framework "Pods/TPKeyboardAvoiding.framework"
-  install_framework "Pods/UIImageViewModeScaleAspect.framework"
   install_framework "Pods/YYKit.framework"
 fi

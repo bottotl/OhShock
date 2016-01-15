@@ -9,18 +9,21 @@
 #import "LTUploadPhotosViewController.h"
 #import "LTUploadTextAndPhotosCell.h"
 #import "LTBaseTableViewCell.h"
-#import "BSImagePicker-Swift.h"
+#import "QBImagePickerController.h"
 
-
-@interface LTUploadPhotosViewController ()<UITableViewDataSource, UITableViewDelegate, AddPhotoDelegae>
+@interface LTUploadPhotosViewController ()<UITableViewDataSource, UITableViewDelegate, AddPhotoDelegae, QBImagePickerControllerDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
-@property (nonatomic, strong) NSArray *photos;
+@property (nonatomic, strong) NSMutableArray <UIImage *> *photos;
+
+@property (nonatomic, strong) NSMutableArray <PHAsset *> *selectedAsset;
 
 @end
 
 @implementation LTUploadPhotosViewController
+
+@synthesize selectedAsset = _selectedAsset;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,12 +39,28 @@
     
     UIBarButtonItem *cancleButton = [[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancleUpload)];
     self.navigationItem.leftBarButtonItem = cancleButton;
-    
-    UIImage *photo = [UIImage imageNamed:@"tabbar_selected"];
-    self.photos = @[photo,photo,photo,photo,photo];
 
 }
 
+#pragma mark - property
+-(NSMutableArray<UIImage *> *)photos{
+    if (!_photos) {
+        _photos = @[].mutableCopy;
+    }
+    return _photos;
+}
+-(NSMutableArray *)selectedAsset{
+    if (!_selectedAsset){
+        _selectedAsset = @[].mutableCopy;
+    }
+    return _selectedAsset;
+}
+
+-(void)setSelectedAsset:(NSMutableArray *)selectedAsset{
+    _selectedAsset = selectedAsset;
+    [self updatePhotos];
+    
+}
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -103,20 +122,16 @@
     [uploadAlert addAction:[UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
     }]];
+    
     [uploadAlert addAction:[UIAlertAction actionWithTitle:@"从手机相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        BSImagePickerViewController *vc = [BSImagePickerViewController new];
-        vc.maxNumberOfSelections = 6;
-        
-        [self bs_presentImagePickerController:vc animated:YES select:^(PHAsset *p) {
-            NSLog(@"%@",p);
-        } deselect:^(PHAsset *p) {
-            NSLog(@"%@",p);
-        } cancel:^(NSArray<PHAsset *> *p) {
-            NSLog(@"%@",p);
-        } finish:^(NSArray<PHAsset *> *p) {
-            NSLog(@"%@",p);
-        } completion:nil];
-        
+        QBImagePickerController *imagePickerController = [[QBImagePickerController alloc] init];
+        [imagePickerController.selectedAssets removeAllObjects];
+        [imagePickerController.selectedAssets addObjectsFromArray:self.selectedAsset];
+        imagePickerController.mediaType = QBImagePickerMediaTypeImage;
+        imagePickerController.delegate = self;
+        imagePickerController.allowsMultipleSelection = YES;
+        imagePickerController.maximumNumberOfSelection = 9;
+        [self presentViewController:imagePickerController animated:YES completion:NULL];
     }]];
     [uploadAlert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
         NSLog(@"取消");
@@ -125,5 +140,30 @@
     [self presentViewController:uploadAlert animated:YES completion:nil];
 }
 
+#pragma mark - QBImagePickerControllerDelegate
+
+- (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didFinishPickingAssets:(NSArray <PHAsset *>*)assets{
+    self.selectedAsset = assets.mutableCopy;
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - 更新图片
+- (void)updatePhotos{
+    [self.photos removeAllObjects];
+    __weak __typeof(self) weakSelf = self;
+    for (PHAsset * asset in self.selectedAsset) {
+        [[PHImageManager defaultManager]requestImageForAsset:asset targetSize:CGSizeMake([LTUploadTextAndPhotosCell photoHeight], [LTUploadTextAndPhotosCell photoHeight]) contentMode:PHImageContentModeDefault options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+            if (result) {
+                [weakSelf.photos addObject:result];
+                [weakSelf.tableView reloadData];
+            }
+            
+        }];
+
+    }
+}
 
 @end

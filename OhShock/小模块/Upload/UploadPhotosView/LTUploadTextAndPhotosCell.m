@@ -43,4 +43,8 @@
     [super setSelected:NO animated:animated];
 }
 
++(CGFloat)photoHeight{
+    return [LTUploadTextAndPhotosView photoHeight];
+}
+
 @end
