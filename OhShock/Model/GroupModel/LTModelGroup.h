@@ -1,5 +1,5 @@
 //
-//  LTGroup.h
+//  LTModelGroup.h
 //  OhShock
 //
 //  Created by chenlong on 16/1/12.
@@ -8,7 +8,7 @@
 
 #import <AVOSCloud/AVOSCloud.h>
 
-@interface LTGroup : AVObject<AVSubclassing>
+@interface LTModelGroup : AVObject<AVSubclassing>
 
 @property (nonatomic, strong) NSString *groupName;//群名
 @property (nonatomic, strong) NSString *groupStyle;//群类型

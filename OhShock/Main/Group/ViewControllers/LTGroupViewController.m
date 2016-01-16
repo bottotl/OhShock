@@ -14,7 +14,7 @@
 #import "LTGroupInfoViewController.h"
 #import "CreateGroupViewController.h"
 #import <AVOSCloud/AVOSCloud.h>
-#import "LTGroup.h"
+#import "LTModelGroup.h"
 #import "LTGroupService.h"
 #import "LTSearchGroupViewController.h"
 #import "CLSearchResultViewController.h"

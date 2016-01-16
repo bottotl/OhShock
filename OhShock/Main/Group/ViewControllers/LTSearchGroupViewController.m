@@ -77,7 +77,7 @@
             _dataSource = [NSMutableArray array];
             for (int i = 0; i < array.count; i++) {
                 AVObject *object = array[i];
-                LTGroup *group = [[LTGroup alloc]init];
+                LTModelGroup *group = [[LTModelGroup alloc]init];
                 group.groupName = [object objectForKey:@"groupName"];
                 group.groupStyle = [object objectForKey:@"groupStyle"];
                 group.groupAddress = [object objectForKey:@"groupAddress"];

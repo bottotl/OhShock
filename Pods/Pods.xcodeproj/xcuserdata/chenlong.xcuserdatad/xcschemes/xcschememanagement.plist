@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>BSImagePicker.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>18</integer>
+		</dict>
 		<key>DateTools.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -59,6 +64,16 @@
 			<key>orderHint</key>
 			<integer>11</integer>
 		</dict>
+		<key>QBImagePickerController-QBImagePicker.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>20</integer>
+		</dict>
+		<key>QBImagePickerController.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>19</integer>
+		</dict>
 		<key>ReactiveCocoa.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -107,6 +122,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>1A94FADB0D68847EC6EDA96C24EB585E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>1ABA1364F52B400F9AB0D9C1C909F3B1</key>
 		<dict>
 			<key>primary</key>
@@ -132,7 +152,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3D2D4A02E025DA65CDE7DEAF9971B39E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>67AAC0F340FA9E9E273035B902287A42</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>77599FF1C1D307CC763C356259814D7A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7E240AD6E96191C7589E096CB23CD3FE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>832584CD90BE2C51BD44602247A9B875</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8D3C05464FFD839CA1CF8EE61488CE9C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -157,7 +202,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B57FD81F24E64C6892ECA3894B648883</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C4E62D0FC0CC6087EC9C9D89CB9DD1D6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CFBE3448E9D038F8AD8EF8B264BA6F10</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -168,6 +223,11 @@
 			<true/>
 		</dict>
 		<key>DAFF95AE7B13DADEF1B9E7A7C20074EB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EF92D8505B58A4B2FF3A39BAE5454330</key>
 		<dict>
 			<key>primary</key>
 			<true/>

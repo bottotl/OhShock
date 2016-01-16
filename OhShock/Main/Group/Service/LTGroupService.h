@@ -7,17 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "LTGroup.h"
+#import "LTModelGroup.h"
 
 @interface LTGroupService : NSObject
 
 /**
  *  创建群组
  *
- *  @param group          (LTGroup *)
+ *  @param group          (LTModelGroup *)
  *  @param complectBlock Block
  */
-- (void)createGroupWith:(LTGroup *)group andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock;
+- (void)createGroupWith:(LTModelGroup *)group andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock;
 
 /**
  *  获取用户群组列表
@@ -39,9 +39,9 @@
 /**
  *  加入群组
  *
- *  @param group          (LTGroup *)
+ *  @param group          (LTModelGroup *)
  *  @param complectBlock Block
  */
-- (void)joinGroupWith:(LTGroup *)group andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock;
+- (void)joinGroupWith:(LTModelGroup *)group andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock;
 
 @end

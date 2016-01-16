@@ -18,7 +18,7 @@
 #import "GroupIntroductionViewController.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import "SVProgressHUD.h"
-#import "LTGroup.h"
+#import "LTModelGroup.h"
 #import "LTGroupService.h"
 
 static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
@@ -166,7 +166,7 @@ static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
         rightButton.enabled = YES;
         return;
     }
-    LTGroup *group = [[LTGroup alloc] init];
+    LTModelGroup *group = [[LTModelGroup alloc] init];
     group.groupName = groupName;
     group.groupStyle = groupStyle;
     group.groupAddress = groupAddress;

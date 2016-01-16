@@ -14,10 +14,10 @@
 /**
  *  创建群组
  *
- *  @param user          (AVUser *)
+ *  @param group          (LTModelGroup *)
  *  @param complectBlock Block
  */
-- (void)createGroupWith:(LTGroup *)group andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock{
+- (void)createGroupWith:(LTModelGroup *)group andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock{
     [group setObject:[AVUser currentUser] forKey:@"groupCreator"];
     [group addUniqueObjectsFromArray:[NSArray arrayWithObjects:[AVUser currentUser], nil] forKey:@"groupMembers"];
     
@@ -64,11 +64,11 @@
     NSMutableArray *resultArray = [NSMutableArray array];//返回结果数组
     NSArray *groupIdArray = [[AVUser currentUser] objectForKey:@"groupArray"];
     for (AVObject *group in groupIdArray) {
-        AVQuery *query = [AVQuery queryWithClassName:@"LTGroup"];
+        AVQuery *query = [AVQuery queryWithClassName:@"LTModelGroup"];
         [query whereKey:@"objectId" equalTo:group.objectId];
         [query getFirstObjectInBackgroundWithBlock:^(AVObject *object, NSError *error) {
             if (object) {
-                LTGroup *group = [[LTGroup alloc]init];
+                LTModelGroup *group = [[LTModelGroup alloc]init];
                 group.groupName = [object objectForKey:@"groupName"];
                 group.groupStyle = [object objectForKey:@"groupStyle"];
                 group.groupAddress = [object objectForKey:@"groupAddress"];
@@ -95,7 +95,7 @@
  *  @param completeBlock 回调 Block
  */
 - (void)findGroupByPartname:(NSString *)partName complete:(void(^)(BOOL succeeded, NSError *error, NSArray *array))completeBlock{
-    AVQuery *query = [AVQuery queryWithClassName:@"LTGroup"];
+    AVQuery *query = [AVQuery queryWithClassName:@"LTModelGroup"];
     [query whereKey:@"groupName" containsString:partName];
     [query orderByAscending:@"updatedAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -110,11 +110,11 @@
 /**
  *  加入群组
  *
- *  @param group          (LTGroup *)
+ *  @param group          (LTModelGroup *)
  *  @param complectBlock Block
  */
-- (void)joinGroupWith:(LTGroup *)group andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock{
-    AVQuery *query = [AVQuery queryWithClassName:@"LTGroup"];
+- (void)joinGroupWith:(LTModelGroup *)group andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock{
+    AVQuery *query = [AVQuery queryWithClassName:@"LTModelGroup"];
     [query whereKey:@"groupName" equalTo:group.groupName];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {

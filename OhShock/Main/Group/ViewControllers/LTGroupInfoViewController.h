@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LTGroup.h"
+#import "LTModelGroup.h"
 
 typedef NS_ENUM(NSUInteger, CLGroupMemberType){
     CLGroupMemberLeader = 0,//群组
@@ -20,6 +20,6 @@ typedef NS_ENUM(NSUInteger, CLGroupMemberType){
 
 @property (nonatomic, strong) NSString *groupName;//群名字，用作导航栏标题
 @property (nonatomic, assign) CLGroupMemberType memberType;//群员类型
-@property (nonatomic, strong) LTGroup *group;//群信息
+@property (nonatomic, strong) LTModelGroup *group;//群信息
 
 @end

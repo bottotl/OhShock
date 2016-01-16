@@ -21,7 +21,7 @@
     // Configure the view for the selected state
 }
 
-- (void)setCellWithGroup:(LTGroup *)group{
+- (void)setCellWithGroup:(LTModelGroup *)group{
     _groupName.text = group.groupName;
     [_groupImgV sd_setImageWithURL:[NSURL URLWithString:group.groupImageURL]];
 }

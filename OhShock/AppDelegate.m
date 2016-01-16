@@ -17,7 +17,7 @@
 #import "UIImage+Common.h"
 #import <AMapLocationKit/AMapLocationKit.h>
 #import <AMapSearchKit/AMapSearchKit.h>
-#import "LTGroup.h"
+#import "LTModelGroup.h"
 #import "LTModelUser.h"
 #import "LTModelPost.h"
 #import "LTModelUser.h"
@@ -168,7 +168,7 @@ static NSString *const AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
 
 #pragma mark 注册LeanCloud 子类
 - (void)registerLeanSubClass{
-    [LTGroup registerSubclass];
+    [LTModelGroup registerSubclass];
 }
 
 @end
