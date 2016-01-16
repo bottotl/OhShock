@@ -16,12 +16,7 @@
 		AB3CF3EF1C46493700F1C57B /* LTGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3CF3EA1C46493700F1C57B /* LTGroupViewController.m */; };
 		AB3CF3F21C46495900F1C57B /* LTSearchGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3CF3F11C46495900F1C57B /* LTSearchGroupViewController.m */; };
 		AB3CF3F41C4768F800F1C57B /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FD01C473CD200CD61FE /* LogInViewController.m */; };
-		AB540F591C4A312A0060FE5C /* LTModelMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = AB540F581C4A312A0060FE5C /* LTModelMessage.m */; };
-		AB76B7941C451D42000A2191 /* LTModelGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76B7931C451D42000A2191 /* LTModelGroup.m */; };
-		AB81ECC91C58F5600072EFEC /* LTModelUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81ECC81C58F5600072EFEC /* LTModelUserInfo.m */; };
-		AB81ECCC1C5A1F7A0072EFEC /* LTGroupMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81ECCB1C5A1F7A0072EFEC /* LTGroupMemberCell.m */; };
-		AB81ECD01C5E515E0072EFEC /* CDUserFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81ECCF1C5E515E0072EFEC /* CDUserFactory.m */; };
-		AB81ECD31C5E5A850072EFEC /* CLChatRoomVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81ECD21C5E5A850072EFEC /* CLChatRoomVC.m */; };
+		AB76B7941C451D42000A2191 /* LTGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76B7931C451D42000A2191 /* LTGroup.m */; };
 		ABE1E8A01C49274C006AA1C1 /* CLSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE1E89F1C49274C006AA1C1 /* CLSearchResultViewController.m */; };
 		ABFBA6991C4949DD00E1863E /* JoinGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFBA6981C4949DD00E1863E /* JoinGroupCell.m */; };
 		B80726721C1AAF2F00E7802A /* LTDiscoverTodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B80726711C1AAF2F00E7802A /* LTDiscoverTodoViewController.m */; };
@@ -466,6 +461,7 @@
 		B873AC3F1C48F8AB002C04B2 /* LTPostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B873AC381C48F8AB002C04B2 /* LTPostModel.m */; };
 		B873AC401C48F8AB002C04B2 /* LTPostProfileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B873AC3A1C48F8AB002C04B2 /* LTPostProfileModel.m */; };
 		B873AC431C48F8DC002C04B2 /* LTModelPostComment.m in Sources */ = {isa = PBXBuildFile; fileRef = B873AC421C48F8DC002C04B2 /* LTModelPostComment.m */; };
+		B8747E561C4A09B4006E2B23 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = B8747E551C4A09B4006E2B23 /* README.md */; };
 		B87677BB1C1FC7FE00A0795B /* LTLogOutService.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677BA1C1FC7FE00A0795B /* LTLogOutService.m */; };
 		B87677BF1C1FCEB800A0795B /* LTAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677BE1C1FCEB800A0795B /* LTAddFriendViewController.m */; };
 		B87677C21C1FE12600A0795B /* LTLiteUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677C11C1FE12600A0795B /* LTLiteUserModel.m */; };
@@ -520,6 +516,8 @@
 		B8E64C651C43F2E100B4CB64 /* GroupLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8E64C2B1C43F2E100B4CB64 /* GroupLabelCell.xib */; };
 		B8E64C661C43F2E100B4CB64 /* LTGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E64C2D1C43F2E100B4CB64 /* LTGroupCell.m */; };
 		B8E64C671C43F2E100B4CB64 /* LTGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8E64C2E1C43F2E100B4CB64 /* LTGroupCell.xib */; };
+		B8E64C681C43F2E100B4CB64 /* LTGroupMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E64C301C43F2E100B4CB64 /* LTGroupMemberCell.m */; };
+		B8E64C691C43F2E100B4CB64 /* LTGroupMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8E64C311C43F2E100B4CB64 /* LTGroupMemberCell.xib */; };
 		B8E64C6A1C43F2E100B4CB64 /* LTGroupMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E64C331C43F2E100B4CB64 /* LTGroupMessageCell.m */; };
 		B8E64C6B1C43F2E100B4CB64 /* LTGroupMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8E64C341C43F2E100B4CB64 /* LTGroupMessageCell.xib */; };
 		B8E64C6C1C43F2E100B4CB64 /* TagsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E64C361C43F2E100B4CB64 /* TagsTableCell.m */; };
@@ -848,18 +846,8 @@
 		AB3CF3EA1C46493700F1C57B /* LTGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroupViewController.m; sourceTree = "<group>"; };
 		AB3CF3F01C46495900F1C57B /* LTSearchGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTSearchGroupViewController.h; sourceTree = "<group>"; };
 		AB3CF3F11C46495900F1C57B /* LTSearchGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTSearchGroupViewController.m; sourceTree = "<group>"; };
-		AB540F571C4A312A0060FE5C /* LTModelMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTModelMessage.h; sourceTree = "<group>"; };
-		AB540F581C4A312A0060FE5C /* LTModelMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTModelMessage.m; sourceTree = "<group>"; };
-		AB76B7921C451D42000A2191 /* LTModelGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTModelGroup.h; sourceTree = "<group>"; };
-		AB76B7931C451D42000A2191 /* LTModelGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTModelGroup.m; sourceTree = "<group>"; };
-		AB81ECC71C58F5600072EFEC /* LTModelUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTModelUserInfo.h; sourceTree = "<group>"; };
-		AB81ECC81C58F5600072EFEC /* LTModelUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTModelUserInfo.m; sourceTree = "<group>"; };
-		AB81ECCA1C5A1F7A0072EFEC /* LTGroupMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTGroupMemberCell.h; sourceTree = "<group>"; };
-		AB81ECCB1C5A1F7A0072EFEC /* LTGroupMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroupMemberCell.m; sourceTree = "<group>"; };
-		AB81ECCE1C5E515E0072EFEC /* CDUserFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDUserFactory.h; sourceTree = "<group>"; };
-		AB81ECCF1C5E515E0072EFEC /* CDUserFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDUserFactory.m; sourceTree = "<group>"; };
-		AB81ECD11C5E5A850072EFEC /* CLChatRoomVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLChatRoomVC.h; sourceTree = "<group>"; };
-		AB81ECD21C5E5A850072EFEC /* CLChatRoomVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLChatRoomVC.m; sourceTree = "<group>"; };
+		AB76B7921C451D42000A2191 /* LTGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTGroup.h; sourceTree = "<group>"; };
+		AB76B7931C451D42000A2191 /* LTGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroup.m; sourceTree = "<group>"; };
 		ABE1E89E1C49274C006AA1C1 /* CLSearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLSearchResultViewController.h; sourceTree = "<group>"; };
 		ABE1E89F1C49274C006AA1C1 /* CLSearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLSearchResultViewController.m; sourceTree = "<group>"; };
 		ABFBA6971C4949DD00E1863E /* JoinGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinGroupCell.h; sourceTree = "<group>"; };
@@ -1435,6 +1423,7 @@
 		B873AC3A1C48F8AB002C04B2 /* LTPostProfileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostProfileModel.m; sourceTree = "<group>"; };
 		B873AC411C48F8DC002C04B2 /* LTModelPostComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTModelPostComment.h; sourceTree = "<group>"; };
 		B873AC421C48F8DC002C04B2 /* LTModelPostComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTModelPostComment.m; sourceTree = "<group>"; };
+		B8747E551C4A09B4006E2B23 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B87677B91C1FC7FE00A0795B /* LTLogOutService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTLogOutService.h; sourceTree = "<group>"; };
 		B87677BA1C1FC7FE00A0795B /* LTLogOutService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTLogOutService.m; sourceTree = "<group>"; };
 		B87677BD1C1FCEB800A0795B /* LTAddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTAddFriendViewController.h; sourceTree = "<group>"; };
@@ -1544,6 +1533,9 @@
 		B8E64C2C1C43F2E100B4CB64 /* LTGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTGroupCell.h; sourceTree = "<group>"; };
 		B8E64C2D1C43F2E100B4CB64 /* LTGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroupCell.m; sourceTree = "<group>"; };
 		B8E64C2E1C43F2E100B4CB64 /* LTGroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTGroupCell.xib; sourceTree = "<group>"; };
+		B8E64C2F1C43F2E100B4CB64 /* LTGroupMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTGroupMemberCell.h; sourceTree = "<group>"; };
+		B8E64C301C43F2E100B4CB64 /* LTGroupMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroupMemberCell.m; sourceTree = "<group>"; };
+		B8E64C311C43F2E100B4CB64 /* LTGroupMemberCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTGroupMemberCell.xib; sourceTree = "<group>"; };
 		B8E64C321C43F2E100B4CB64 /* LTGroupMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTGroupMessageCell.h; sourceTree = "<group>"; };
 		B8E64C331C43F2E100B4CB64 /* LTGroupMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroupMessageCell.m; sourceTree = "<group>"; };
 		B8E64C341C43F2E100B4CB64 /* LTGroupMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTGroupMessageCell.xib; sourceTree = "<group>"; };
@@ -1603,6 +1595,7 @@
 		B8EEABDE1C294F5400F861E8 /* CDSoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDSoundManager.h; sourceTree = "<group>"; };
 		B8EEABDF1C294F5400F861E8 /* CDSoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDSoundManager.m; sourceTree = "<group>"; };
 		B8EEABE01C294F5400F861E8 /* CDUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDUserModel.h; sourceTree = "<group>"; };
+		B8EEABE11C294F5400F861E8 /* LeanChatLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeanChatLib.h; sourceTree = "<group>"; };
 		B8EEABE41C294F5400F861E8 /* Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Emoji.h; sourceTree = "<group>"; };
 		B8EEABE51C294F5400F861E8 /* Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Emoji.m; sourceTree = "<group>"; };
 		B8EEABE61C294F5400F861E8 /* EmojiEmoticons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiEmoticons.h; sourceTree = "<group>"; };
@@ -2048,7 +2041,6 @@
 			children = (
 				AB3CF3DE1C4641BC00F1C57B /* LTGroupService.h */,
 				AB3CF3DF1C4641BC00F1C57B /* LTGroupService.m */,
-				AB81ECCD1C5E4A440072EFEC /* Chat */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -2056,21 +2048,10 @@
 		AB76B7911C451D23000A2191 /* GroupModel */ = {
 			isa = PBXGroup;
 			children = (
-				AB76B7921C451D42000A2191 /* LTModelGroup.h */,
-				AB76B7931C451D42000A2191 /* LTModelGroup.m */,
+				AB76B7921C451D42000A2191 /* LTGroup.h */,
+				AB76B7931C451D42000A2191 /* LTGroup.m */,
 			);
 			path = GroupModel;
-			sourceTree = "<group>";
-		};
-		AB81ECCD1C5E4A440072EFEC /* Chat */ = {
-			isa = PBXGroup;
-			children = (
-				AB81ECCE1C5E515E0072EFEC /* CDUserFactory.h */,
-				AB81ECCF1C5E515E0072EFEC /* CDUserFactory.m */,
-				AB81ECD11C5E5A850072EFEC /* CLChatRoomVC.h */,
-				AB81ECD21C5E5A850072EFEC /* CLChatRoomVC.m */,
-			);
-			path = Chat;
 			sourceTree = "<group>";
 		};
 		B08F36B2DD64CD5785D60B66 /* Pods */ = {
@@ -2649,6 +2630,7 @@
 		B81071A21C197F6F0058130E = {
 			isa = PBXGroup;
 			children = (
+				B8747E551C4A09B4006E2B23 /* README.md */,
 				B81071AD1C197F6F0058130E /* OhShock */,
 				B80A367D1C1DAD0000C3B226 /* Vender */,
 				B81071BF1C197F700058130E /* Info.plist */,
@@ -3076,10 +3058,6 @@
 				AB76B7911C451D23000A2191 /* GroupModel */,
 				B84428741C4264C3005FA556 /* LTModelUser.h */,
 				B84428751C4264C3005FA556 /* LTModelUser.m */,
-				AB81ECC71C58F5600072EFEC /* LTModelUserInfo.h */,
-				AB81ECC81C58F5600072EFEC /* LTModelUserInfo.m */,
-				AB540F571C4A312A0060FE5C /* LTModelMessage.h */,
-				AB540F581C4A312A0060FE5C /* LTModelMessage.m */,
 			);
 			name = Model;
 			path = OhShock/Model;
@@ -3395,8 +3373,9 @@
 				B8E64C2C1C43F2E100B4CB64 /* LTGroupCell.h */,
 				B8E64C2D1C43F2E100B4CB64 /* LTGroupCell.m */,
 				B8E64C2E1C43F2E100B4CB64 /* LTGroupCell.xib */,
-				AB81ECCA1C5A1F7A0072EFEC /* LTGroupMemberCell.h */,
-				AB81ECCB1C5A1F7A0072EFEC /* LTGroupMemberCell.m */,
+				B8E64C2F1C43F2E100B4CB64 /* LTGroupMemberCell.h */,
+				B8E64C301C43F2E100B4CB64 /* LTGroupMemberCell.m */,
+				B8E64C311C43F2E100B4CB64 /* LTGroupMemberCell.xib */,
 				B8E64C321C43F2E100B4CB64 /* LTGroupMessageCell.h */,
 				B8E64C331C43F2E100B4CB64 /* LTGroupMessageCell.m */,
 				B8E64C341C43F2E100B4CB64 /* LTGroupMessageCell.xib */,
@@ -3509,6 +3488,7 @@
 			children = (
 				B8EEABC81C294F5400F861E8 /* controllers */,
 				B8EEABCD1C294F5400F861E8 /* data */,
+				B8EEABE11C294F5400F861E8 /* LeanChatLib.h */,
 				B8EEABE21C294F5400F861E8 /* vendor */,
 			);
 			path = Classes;
@@ -4700,6 +4680,7 @@
 				B80728591C1AB2E900E7802A /* intro_icon_5@3x.png in Resources */,
 				B8EEAE1B1C294F5400F861E8 /* rabbit_8.gif in Resources */,
 				B80728581C1AB2E900E7802A /* intro_icon_5@2x.png in Resources */,
+				B8E64C691C43F2E100B4CB64 /* LTGroupMemberCell.xib in Resources */,
 				B80727FE1C1AB2E900E7802A /* coding_emoji_13@2x.png in Resources */,
 				B80728601C1AB2E900E7802A /* intro_tip_2@2x.png in Resources */,
 				B80727EA1C1AB2E900E7802A /* btn_project_add@2x.png in Resources */,
@@ -4950,7 +4931,6 @@
 				B8EEADAC1C294F5400F861E8 /* XHVideoOutputSampleBufferFactory.m in Sources */,
 				B8EEADC81C294F5400F861E8 /* XHViewState.m in Sources */,
 				B8EEADA51C294F5400F861E8 /* XHFileAttribute.m in Sources */,
-				AB81ECCC1C5A1F7A0072EFEC /* LTGroupMemberCell.m in Sources */,
 				B8EEADC91C294F5400F861E8 /* XHZoomingImageView.m in Sources */,
 				B8EEAD881C294F5400F861E8 /* NSString+XHMD5.m in Sources */,
 				B8EEADAD1C294F5400F861E8 /* XHAlbum.m in Sources */,
@@ -5042,6 +5022,7 @@
 				B81CCC241C21408500D642DB /* NSString+JSQMessages.m in Sources */,
 				B8EEADDF1C294F5400F861E8 /* XHRefreshControl.m in Sources */,
 				B8EEADC11C294F5400F861E8 /* SETextLayout.m in Sources */,
+				B8747E561C4A09B4006E2B23 /* README.md in Sources */,
 				B8EEADC01C294F5400F861E8 /* SETextInput.m in Sources */,
 				B8EEAD781C294F5400F861E8 /* CDChatListVC.m in Sources */,
 				B8EEAD8A1C294F5400F861E8 /* UIImage+Alpha.m in Sources */,
@@ -5081,12 +5062,11 @@
 				B810728E1C197FCE0058130E /* UIView+Layout.m in Sources */,
 				B8EEADA21C294F5400F861E8 /* XHDisplayTextViewController.m in Sources */,
 				B873AC3C1C48F8AB002C04B2 /* LTPostContentModel.m in Sources */,
-				AB81ECD31C5E5A850072EFEC /* CLChatRoomVC.m in Sources */,
 				B8E64C661C43F2E100B4CB64 /* LTGroupCell.m in Sources */,
 				B80A378F1C1DADB600C3B226 /* YYControl.m in Sources */,
 				B81CCC411C21408500D642DB /* JSQMessagesCollectionViewCellOutgoing.m in Sources */,
 				B81CCC221C21408500D642DB /* JSQSystemSoundPlayer+JSQMessages.m in Sources */,
-				AB76B7941C451D42000A2191 /* LTModelGroup.m in Sources */,
+				AB76B7941C451D42000A2191 /* LTGroup.m in Sources */,
 				AB3CF3EE1C46493700F1C57B /* LTGroupMessageViewController.m in Sources */,
 				B810728C1C197FCE0058130E /* UIColor+expanded.m in Sources */,
 				B81072771C197FCE0058130E /* JTCalendarMonthView.m in Sources */,
@@ -5105,6 +5085,7 @@
 				B8EEAD7C1C294F5400F861E8 /* CDChatManager.m in Sources */,
 				B8E64C6A1C43F2E100B4CB64 /* LTGroupMessageCell.m in Sources */,
 				B81CCC281C21408500D642DB /* UIView+JSQMessages.m in Sources */,
+				B8E64C681C43F2E100B4CB64 /* LTGroupMemberCell.m in Sources */,
 				B8EEAD941C294F5400F861E8 /* XHCaptureHelper.m in Sources */,
 				B81CCC3C1C21408500D642DB /* JSQMessagesCellTextView.m in Sources */,
 				B89E0FF51C47568300CD61FE /* LTBaseTableViewCell.m in Sources */,
@@ -5164,14 +5145,12 @@
 				B81CCC461C21408500D642DB /* JSQMessagesLoadEarlierHeaderView.m in Sources */,
 				B80A37901C1DADB600C3B226 /* YYFPSLabel.m in Sources */,
 				B87677DD1C2015C300A0795B /* LTUserInfoSendMessageCell.m in Sources */,
-				AB81ECC91C58F5600072EFEC /* LTModelUserInfo.m in Sources */,
 				B81072751C197FCE0058130E /* JTCalendarMenuMonthView.m in Sources */,
 				B873AC3E1C48F8AB002C04B2 /* LTPostLikedModel.m in Sources */,
 				B873AC3F1C48F8AB002C04B2 /* LTPostModel.m in Sources */,
 				B8EEADE11C294F5400F861E8 /* NSString+Emojize.m in Sources */,
 				B825C78A1C3F5CCB006E41C0 /* LTPostView.m in Sources */,
 				B8EEAD801C294F5400F861E8 /* CDMessageHelper.m in Sources */,
-				AB81ECD01C5E515E0072EFEC /* CDUserFactory.m in Sources */,
 				B84428731C425325005FA556 /* LTPostCommentCell.m in Sources */,
 				B8EEADC41C294F5400F861E8 /* SETextSelection.m in Sources */,
 				B810726F1C197FCE0058130E /* DWBubbleMenuButton.m in Sources */,
@@ -5193,7 +5172,6 @@
 				B81CCC291C21408500D642DB /* JSQMessagesKeyboardController.m in Sources */,
 				B89E0FEE1C474DC900CD61FE /* LTUploadTextAndPhotosView.m in Sources */,
 				B89E0FDE1C473CD200CD61FE /* IntroductionViewController.m in Sources */,
-				AB540F591C4A312A0060FE5C /* LTModelMessage.m in Sources */,
 				B8EEADA91C294F5400F861E8 /* XHMessageBubbleFactory.m in Sources */,
 				B81072861C197FCE0058130E /* XHPopMenu.m in Sources */,
 				B81071B01C197F6F0058130E /* main.m in Sources */,
@@ -5322,7 +5300,7 @@
 					"$(PROJECT_DIR)/OhShock/Main/Group/Widget",
 				);
 				INFOPLIST_FILE = OhShock/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vp.jft0m.OhShock;
 				PRODUCT_NAME = OhShock;
@@ -5345,7 +5323,7 @@
 					"$(PROJECT_DIR)/OhShock/Main/Group/Widget",
 				);
 				INFOPLIST_FILE = OhShock/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vp.jft0m.OhShock;
 				PRODUCT_NAME = OhShock;
