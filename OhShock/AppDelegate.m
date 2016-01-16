@@ -20,6 +20,8 @@
 #import "LTGroup.h"
 #import "LTModelUser.h"
 #import "LTModelPost.h"
+#import "LTModelUser.h"
+#import "LTModelPost.h"
 
 #warning for test
 #import "LTPostListViewController.h"
