@@ -13,14 +13,14 @@
 /**
  *  一条评论
  */
-@interface LTModelPostComment : AVObject
+@interface LTModelPostComment : AVObject<AVSubclassing>
 
 /** 回应内容 */
-@property (nonatomic, copy) NSString * content;
+@property (nonatomic, copy)   NSString     *content;
 /** 被回应的用户 */
-@property (nonatomic, strong) LTModelUser * toUser;
+@property (nonatomic, strong) LTModelUser  *toUser;
 /** 发表回应用户 */
-@property (nonatomic, strong) LTModelUser * fromUser;
+@property (nonatomic, strong) LTModelUser  *fromUser;
 
 @end
 

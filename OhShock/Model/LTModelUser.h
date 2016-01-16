@@ -8,6 +8,6 @@
 
 #import <AVOSCloud/AVOSCloud.h>
 
-@interface LTModelUser : AVUser
+@interface LTModelUser : AVUser <AVSubclassing>
 
 @end

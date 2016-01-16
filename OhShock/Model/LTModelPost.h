@@ -7,8 +7,9 @@
 //
 
 #import <AVOSCloud/AVOSCloud.h>
+
 @class LTModelUser;
-@interface LTModelPost : AVObject
+@interface LTModelPost : AVObject <AVSubclassing>
 
 /** 发布者 */
 @property (nonatomic, strong) LTModelUser *pubUser;
@@ -19,5 +20,7 @@
 /** 评论 NSArray <LTModelPostComment *>* */
 @property (nonatomic, strong) NSArray *comments;
 
+/** 需要上传的图片 _File */
+@property (nonatomic, strong) NSArray *photos;
 
 @end

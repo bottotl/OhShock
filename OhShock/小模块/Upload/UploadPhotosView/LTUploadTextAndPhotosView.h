@@ -18,7 +18,8 @@
  */
 @interface LTUploadTextAndPhotosView : UIView
 
-@property (nonatomic, strong) id <AddPhotoDelegae> degate;
+@property (nonatomic, strong) id <AddPhotoDelegae> delegate;
+@property (nonatomic, strong) id <UITextViewDelegate> textViewDelegate;
 
 +(CGFloat)photoHeight;// 图片展示的大小
 

@@ -9,5 +9,7 @@
 #import "LTModelUser.h"
 
 @implementation LTModelUser
-
++ (NSString *)parseClassName {
+    return @"_User";
+}
 @end

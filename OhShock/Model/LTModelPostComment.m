@@ -8,6 +8,8 @@
 
 #import "LTModelPostComment.h"
 
+
 @implementation LTModelPostComment
+@dynamic content, toUser, fromUser;
 
 @end

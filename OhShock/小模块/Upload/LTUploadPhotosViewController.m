@@ -10,16 +10,23 @@
 #import "LTUploadTextAndPhotosCell.h"
 #import "LTBaseTableViewCell.h"
 #import "QBImagePickerController.h"
+#import "LTUploadService.h"
 
-@interface LTUploadPhotosViewController ()<UITableViewDataSource, UITableViewDelegate, AddPhotoDelegae, QBImagePickerControllerDelegate>
+@interface LTUploadPhotosViewController ()<UITableViewDataSource, UITableViewDelegate, AddPhotoDelegae, QBImagePickerControllerDelegate, UITextViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
-/// 展示的数据，通过 PHImageManager 获取，已经尺寸已经进行缩放
+/// 展示的数据（待上传的图片）
 @property (nonatomic, strong) NSMutableArray <UIImage *> *photos;
 
 /// 原始数据（可以通过这个属性获得原始数据）
 @property (nonatomic, strong) NSMutableArray <PHAsset *> *selectedAsset;
+
+/// 主内容文本
+@property (nonatomic, copy) NSString *content;
+
+/// 上传服务类
+@property (nonatomic, strong) LTUploadService *service;
 
 @end
 
@@ -49,6 +56,12 @@
 }
 
 #pragma mark - property
+-(LTUploadService *)service{
+    if (!_service) {
+        _service = [LTUploadService new];
+    }
+    return _service;
+}
 -(NSMutableArray<UIImage *> *)photos{
     if (!_photos) {
         _photos = @[].mutableCopy;
@@ -88,7 +101,8 @@
     UITableViewCell *cell = nil;
     if (indexPath.section == 0 && indexPath.row == 0) {
         LTUploadTextAndPhotosCell *cell = [tableView dequeueReusableCellWithIdentifier:LTUploadTextAndPhotosCellIdentifier forIndexPath:indexPath];
-        cell.richView.degate = self;
+        cell.richView.delegate = self;
+        cell.richView.textViewDelegate = self;
         return cell;
     }
     cell = [tableView dequeueReusableCellWithIdentifier:LTBaseTableViewCellIdentifier forIndexPath:indexPath];
@@ -117,17 +131,27 @@
 }
 
 #pragma mark - 导航栏按钮
-
+/// 取消按钮响应事件
 - (void)cancleUpload{
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
+/// 上传按钮响应事件
 - (void)doneUpload{
+    [self.service uploadPost:self.photos andContent: self.content andBlock:^(BOOL success, NSError *error) {
+        if (success) {
+            NSLog(@"success");
+        }else{
+            NSLog(@"error: %@",error);
+        }
+        
+    }];
     
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark - AddPhotoDelegae
+#pragma mark - delegate
+#pragma mark AddPhotoDelegae
 -(void)addPhotoOnClick{
     UIAlertController *uploadAlert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [uploadAlert addAction:[UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
@@ -151,7 +175,7 @@
     [self presentViewController:uploadAlert animated:YES completion:nil];
 }
 
-#pragma mark - QBImagePickerControllerDelegate
+#pragma mark QBImagePickerControllerDelegate
 
 - (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didFinishPickingAssets:(NSArray <PHAsset *>*)assets{
     self.selectedAsset = assets.mutableCopy;
@@ -160,13 +184,19 @@
 - (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+#pragma mark UITextViewDelegate
+- (void)textViewDidChange:(UITextView *)textView{
+    self.content = textView.text;
+}
 
-#pragma mark - 更新图片
+
+#pragma mark - 
+#pragma mark 更新图片
 - (void)updatePhotos{
     [self.photos removeAllObjects];
     __weak __typeof(self) weakSelf = self;
     for (PHAsset * asset in self.selectedAsset) {
-        [[PHImageManager defaultManager]requestImageForAsset:asset targetSize:CGSizeMake([LTUploadTextAndPhotosCell photoHeight], [LTUploadTextAndPhotosCell photoHeight]) contentMode:PHImageContentModeDefault options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        [[PHImageManager defaultManager]requestImageForAsset:asset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeDefault options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
             if (result) {
                 [weakSelf.photos addObject:result];
                 [weakSelf.tableView reloadData];
