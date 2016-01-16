@@ -461,6 +461,7 @@
 		B873AC3F1C48F8AB002C04B2 /* LTPostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B873AC381C48F8AB002C04B2 /* LTPostModel.m */; };
 		B873AC401C48F8AB002C04B2 /* LTPostProfileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B873AC3A1C48F8AB002C04B2 /* LTPostProfileModel.m */; };
 		B873AC431C48F8DC002C04B2 /* LTModelPostComment.m in Sources */ = {isa = PBXBuildFile; fileRef = B873AC421C48F8DC002C04B2 /* LTModelPostComment.m */; };
+		B8747E561C4A09B4006E2B23 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = B8747E551C4A09B4006E2B23 /* README.md */; };
 		B87677BB1C1FC7FE00A0795B /* LTLogOutService.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677BA1C1FC7FE00A0795B /* LTLogOutService.m */; };
 		B87677BF1C1FCEB800A0795B /* LTAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677BE1C1FCEB800A0795B /* LTAddFriendViewController.m */; };
 		B87677C21C1FE12600A0795B /* LTLiteUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677C11C1FE12600A0795B /* LTLiteUserModel.m */; };
@@ -1422,6 +1423,7 @@
 		B873AC3A1C48F8AB002C04B2 /* LTPostProfileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostProfileModel.m; sourceTree = "<group>"; };
 		B873AC411C48F8DC002C04B2 /* LTModelPostComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTModelPostComment.h; sourceTree = "<group>"; };
 		B873AC421C48F8DC002C04B2 /* LTModelPostComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTModelPostComment.m; sourceTree = "<group>"; };
+		B8747E551C4A09B4006E2B23 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B87677B91C1FC7FE00A0795B /* LTLogOutService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTLogOutService.h; sourceTree = "<group>"; };
 		B87677BA1C1FC7FE00A0795B /* LTLogOutService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTLogOutService.m; sourceTree = "<group>"; };
 		B87677BD1C1FCEB800A0795B /* LTAddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTAddFriendViewController.h; sourceTree = "<group>"; };
@@ -2628,6 +2630,7 @@
 		B81071A21C197F6F0058130E = {
 			isa = PBXGroup;
 			children = (
+				B8747E551C4A09B4006E2B23 /* README.md */,
 				B81071AD1C197F6F0058130E /* OhShock */,
 				B80A367D1C1DAD0000C3B226 /* Vender */,
 				B81071BF1C197F700058130E /* Info.plist */,
@@ -3050,25 +3053,11 @@
 				B8DCE3FA1C49247900C233AD /* LTModels.h */,
 				B873AC2B1C48DBB4002C04B2 /* LTModelPost.h */,
 				B873AC2C1C48DBB4002C04B2 /* LTModelPost.m */,
-				B84428741C4264C3005FA556 /* LTModelUser.h */,
-				B84428751C4264C3005FA556 /* LTModelUser.m */,
 				B873AC411C48F8DC002C04B2 /* LTModelPostComment.h */,
 				B873AC421C48F8DC002C04B2 /* LTModelPostComment.m */,
 				AB76B7911C451D23000A2191 /* GroupModel */,
-				B84428741C4264C3005FA556 /* LTUser.h */,
-				B84428751C4264C3005FA556 /* LTUser.m */,
-				B84428591C4226C0005FA556 /* LTPostCommentModel.h */,
-				B844285A1C4226C0005FA556 /* LTPostCommentModel.m */,
-				B844285D1C4226C0005FA556 /* LTPostContentModel.h */,
-				B844285E1C4226C0005FA556 /* LTPostContentModel.m */,
-				B844285F1C4226C0005FA556 /* LTPostImageModel.h */,
-				B84428601C4226C0005FA556 /* LTPostImageModel.m */,
-				B84428611C4226C0005FA556 /* LTPostLikedModel.h */,
-				B84428621C4226C0005FA556 /* LTPostLikedModel.m */,
-				B84428631C4226C0005FA556 /* LTPostModel.h */,
-				B84428641C4226C0005FA556 /* LTPostModel.m */,
-				B84428651C4226C0005FA556 /* LTPostProfileModel.h */,
-				B84428661C4226C0005FA556 /* LTPostProfileModel.m */,
+				B84428741C4264C3005FA556 /* LTModelUser.h */,
+				B84428751C4264C3005FA556 /* LTModelUser.m */,
 			);
 			name = Model;
 			path = OhShock/Model;
@@ -5033,6 +5022,7 @@
 				B81CCC241C21408500D642DB /* NSString+JSQMessages.m in Sources */,
 				B8EEADDF1C294F5400F861E8 /* XHRefreshControl.m in Sources */,
 				B8EEADC11C294F5400F861E8 /* SETextLayout.m in Sources */,
+				B8747E561C4A09B4006E2B23 /* README.md in Sources */,
 				B8EEADC01C294F5400F861E8 /* SETextInput.m in Sources */,
 				B8EEAD781C294F5400F861E8 /* CDChatListVC.m in Sources */,
 				B8EEAD8A1C294F5400F861E8 /* UIImage+Alpha.m in Sources */,
@@ -5076,7 +5066,6 @@
 				B80A378F1C1DADB600C3B226 /* YYControl.m in Sources */,
 				B81CCC411C21408500D642DB /* JSQMessagesCollectionViewCellOutgoing.m in Sources */,
 				B81CCC221C21408500D642DB /* JSQSystemSoundPlayer+JSQMessages.m in Sources */,
-				B844286A1C4226C0005FA556 /* LTPostImageModel.m in Sources */,
 				AB76B7941C451D42000A2191 /* LTGroup.m in Sources */,
 				AB3CF3EE1C46493700F1C57B /* LTGroupMessageViewController.m in Sources */,
 				B810728C1C197FCE0058130E /* UIColor+expanded.m in Sources */,
