@@ -16,6 +16,10 @@
 #import "SelectAddressViewController.h"
 #import "SetGroupLabelsViewController.h"
 #import "GroupIntroductionViewController.h"
+#import <AVOSCloud/AVOSCloud.h>
+#import "SVProgressHUD.h"
+#import "LTGroup.h"
+#import "LTGroupService.h"
 
 static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
 
@@ -31,6 +35,7 @@ static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
 @end
 
 @implementation CreateGroupViewController{
+    UIBarButtonItem *rightButton;
     UITableView *mainTableView;
     NSString *groupName;//群名
     NSString *groupStyle;//群类型
@@ -40,6 +45,8 @@ static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
     UIImage *groupImage;//群图片
     
     NSInteger selectIndex;//pickerView选中下标
+    
+    LTGroupService *groupService;
 }
 
 - (instancetype)init
@@ -54,7 +61,7 @@ static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"下一步"
+    rightButton = [[UIBarButtonItem alloc] initWithTitle:@"下一步"
                                                                     style:UIBarButtonItemStyleDone
                                                                    target:self
                                                                    action:@selector(next)];
@@ -95,7 +102,7 @@ static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
     
     self.groupStyleArray = @[@"私密群", @"兴趣群", @"学术群", @"家庭群", @"羞羞群"];
     groupLabels = [NSMutableArray array];
-    
+    groupService = [[LTGroupService alloc]init];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -103,19 +110,78 @@ static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
 }
 
 #pragma mark - button click
+//点击添加照片
 - (void)onAddPicClick{
-    UIActionSheet* sheet = [[UIActionSheet alloc] init];
-    sheet.delegate = self;
-    [sheet addButtonWithTitle:@"拍照"];
-    [sheet addButtonWithTitle:@"从相册选取"];
-    [sheet addButtonWithTitle:@"取消"];
-    
-    sheet.cancelButtonIndex = 2;
-    [sheet showInView:self.view];
+//    UIActionSheet* sheet = [[UIActionSheet alloc] init];
+//    sheet.delegate = self;
+//    [sheet addButtonWithTitle:@"拍照"];
+//    [sheet addButtonWithTitle:@"从相册选取"];
+//    [sheet addButtonWithTitle:@"取消"];
+//    
+//    sheet.cancelButtonIndex = 2;
+//    [sheet showInView:self.view];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *snap = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self snapImage];
+    }];
+    UIAlertAction *pick = [UIAlertAction actionWithTitle:@"从相册选取" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self pickImage];
+    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:snap];
+    [alertController addAction:pick];
+    [alertController addAction:cancel];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 -(void)next{
-    
+    rightButton.enabled = NO;
+    if (!groupName) {
+        [SVProgressHUD showErrorWithStatus:@"群名不能为空"];
+        rightButton.enabled = YES;
+        return;
+    }
+    if (!groupStyle) {
+        [SVProgressHUD showErrorWithStatus:@"还未选择群类型"];
+        rightButton.enabled = YES;
+        return;
+    }
+    if (!groupAddress) {
+        [SVProgressHUD showErrorWithStatus:@"群地址不能为空"];
+        rightButton.enabled = YES;
+        return;
+    }
+    if (!groupLabels) {
+        [SVProgressHUD showErrorWithStatus:@"群标签不能为空"];
+        rightButton.enabled = YES;
+        return;
+    }
+    if (!groupIntroduction) {
+        [SVProgressHUD showErrorWithStatus:@"群介绍不能为空"];
+        rightButton.enabled = YES;
+        return;
+    }
+    if (!groupImage) {
+        [SVProgressHUD showErrorWithStatus:@"群图片不能为空"];
+        rightButton.enabled = YES;
+        return;
+    }
+    LTGroup *group = [[LTGroup alloc] init];
+    group.groupName = groupName;
+    group.groupStyle = groupStyle;
+    group.groupAddress = groupAddress;
+    group.groupLabels = groupLabels;
+    group.groupIntroduction  = groupIntroduction;
+    group.groupImage = groupImage;
+    [groupService createGroupWith:group andCallback:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [SVProgressHUD showSuccessWithStatus:@"创建成功"];
+            rightButton.enabled = YES;
+        }else{
+            [SVProgressHUD showSuccessWithStatus:@"创建失败"];
+            rightButton.enabled = YES;
+        }
+    }];
 }
 
 #pragma mark - UIPicker Delegate
@@ -434,28 +500,6 @@ static NSString *const kTagsTableCellReuseIdentifier = @"TagsTableCell";
     }else if (indexPath.section == 3){
         //群头像
         
-    }
-}
-
-#pragma mark - actionSheet
-- (void)willPresentActionSheet:(UIActionSheet *)actionSheet
-{
-    for (UIView *subView in actionSheet.subviews) {
-        if ([subView isKindOfClass:[UIButton class]]) {
-            UIButton *button = (UIButton*)subView;
-            [button setTitleColor:RGBCOLOR(11, 176, 16)
-                         forState:UIControlStateNormal];
-        }
-    }
-}
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 0) {
-        [self snapImage];
-    }
-    else if (buttonIndex == 1) {
-        [self pickImage];
     }
 }
 

@@ -23,7 +23,6 @@
     [q whereKey:@"objectId" notEqualTo:curUser.objectId];
     [q orderByDescending:@"updatedAt"];
     [q findObjectsInBackgroundWithBlock:completeBlock];
-
 }
 - (void)getFollowRelationShipWithMe:(NSString *)userId complete:(LTFindFollowTypeResponse)completeBlock{
     

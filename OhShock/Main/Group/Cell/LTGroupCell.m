@@ -7,6 +7,7 @@
 //
 
 #import "LTGroupCell.h"
+#import "UIImageView+WebCache.h"
 
 @implementation LTGroupCell
 
@@ -18,6 +19,11 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)setCellWithGroup:(LTGroup *)group{
+    _groupName.text = group.groupName;
+    [_groupImgV sd_setImageWithURL:[NSURL URLWithString:group.groupImageURL]];
 }
 
 @end

@@ -17,7 +17,7 @@
 #import "UIImage+Common.h"
 #import <AMapLocationKit/AMapLocationKit.h>
 #import <AMapSearchKit/AMapSearchKit.h>
-
+#import "LTGroup.h"
 
 #warning for test
 #import "LTPostListViewController.h"
@@ -158,6 +158,11 @@ static NSString *const AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
 }
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     NSLog(@"注册失败，无法获取设备 ID, 具体错误: %@", error);
+}
+
+#pragma mark 注册LeanCloud 子类
+- (void)registerLeanSubClass{
+    [LTGroup registerSubclass];
 }
 
 @end

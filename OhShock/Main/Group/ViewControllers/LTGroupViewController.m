@@ -13,18 +13,29 @@
 #import "LTGroupMessageViewController.h"
 #import "LTGroupInfoViewController.h"
 #import "CreateGroupViewController.h"
+#import <AVOSCloud/AVOSCloud.h>
+#import "LTGroup.h"
+#import "LTGroupService.h"
+#import "LTSearchGroupViewController.h"
+#import "CLSearchResultViewController.h"
 
-@interface LTGroupViewController ()<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
+@interface LTGroupViewController ()<UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchControllerDelegate>
+
+@property (nonatomic, strong) UISearchController *mySearchController;
 
 @end
 
 @implementation LTGroupViewController{
+    LTGroupService *groupService;
+    
     UIButton *leftButton;
     UIButton *rightButton;
     UITableView *mainTableView;
-    UISearchBar *mySearchBar;
-    UISearchDisplayController *mySearchDisplayController;
     XHPopMenu *popMenu;
+    
+    //群组数据
+    NSMutableArray *groupArray;
+    CLSearchResultViewController *searchResult;
 }
 
 - (void)viewDidLoad {
@@ -54,17 +65,15 @@
     mainTableView.tableFooterView = [UIView new];
     [self.view addSubview:mainTableView];
     
-    mySearchBar = [[UISearchBar alloc]init];
-    mySearchBar.delegate = self;
-    [mySearchBar setAutocapitalizationType:UITextAutocapitalizationTypeNone];
-    [mySearchBar sizeToFit];
-    mainTableView.tableHeaderView = mySearchBar;
-    
-    mySearchDisplayController = [[UISearchDisplayController alloc]initWithSearchBar:mySearchBar contentsController:self];
-    [mySearchDisplayController setDelegate:self];
-    [mySearchDisplayController setSearchResultsDataSource:self];
-    [mySearchDisplayController setSearchResultsDelegate:self];
-    
+    searchResult = [[CLSearchResultViewController alloc]init];
+    self.mySearchController = [[UISearchController alloc] initWithSearchResultsController:searchResult];
+    _mySearchController.searchResultsUpdater = self;
+    _mySearchController.delegate = self;
+//    _mySearchController.dimsBackgroundDuringPresentation = NO;
+//    _mySearchController.hidesNavigationBarDuringPresentation = NO;
+    _mySearchController.searchBar.frame = CGRectMake(0, 64, 0, 44.0);
+    [_mySearchController.searchBar sizeToFit];
+    mainTableView.tableHeaderView = self.mySearchController.searchBar;
     
     //有新消息时候加上小红点，先放在这边
     UIView *red = [[UIView alloc] initWithFrame:CGRectMake(30, 0, 10, 10)];
@@ -72,10 +81,28 @@
     red.layer.cornerRadius = 5;
     red.backgroundColor = [UIColor redColor];
     [leftButton addSubview:red];
+    
+    //注册通知
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshGroup) name:RefreshNotification object:nil];
+    
+    //初始化数据
+    groupArray = [NSMutableArray array];
+    groupService = [[LTGroupService alloc]init];
+    [self refreshGroup];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     self.title = @"群组";
+}
+
+//刷新群组
+- (void)refreshGroup{
+    [groupService getGroupOfUser:[AVUser currentUser] andCallback:^(BOOL succeeded, NSError *error, NSArray *array) {
+        if (succeeded) {
+            groupArray = [array mutableCopy];
+            [mainTableView reloadData];
+        }
+    }];
 }
 
 #pragma mark tableView Delegate
@@ -87,7 +114,7 @@
     if (section == 0) {
         return 1;
     }else if (section == 1){
-        return 9;
+        return groupArray.count;
     }
     return 0;
 }
@@ -103,7 +130,9 @@
         LTGroupCell *cell = [tableView dequeueReusableCellWithIdentifier:@"groupCell"];
         if (cell == nil) {
             [tableView registerNib:[UINib nibWithNibName:@"LTGroupCell" bundle:nil] forCellReuseIdentifier:@"groupCell"];
-            cell = [tableView dequeueReusableCellWithIdentifier:@"groupCell"];    }
+            cell = [tableView dequeueReusableCellWithIdentifier:@"groupCell"];
+        }
+        [cell setCellWithGroup:groupArray[indexPath.row]];
         return cell;
     }
     return nil;
@@ -145,24 +174,29 @@
 }
 
 
-#pragma mark UISearchBar and UISearchDisplayController Delegate Methods
--(BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
-    //準備搜尋前，把上面調整的TableView調整回全屏幕的狀態，如果要產生動畫效果，要另外執行animation代碼
-
-    return YES;
+#pragma mark UISearchController Delegate Methods
+//搜索聊天记录 实现：：：：
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
+//    mainTableView.top = 64;
+//    NSString *filterString = searchController.searchBar.text;
+//    
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains [c] %@", filterString];
+//    
+//    self.visableArray = [NSMutableArray arrayWithArray:[self.dataSourceArray filteredArrayUsingPredicate:predicate]];
+//    
+//    [self.myTableView reloadData];
 }
--(BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar{
-    //搜尋結束後，恢復原狀，如果要產生動畫效果，要另外執行animation代碼
 
-    return YES;
+
+//在这两个方法中改变tableview frame是因为点击searchbar 时会出现把searchbar弹出顶部的bug，暂时没找到好的解决方法
+-(void)willPresentSearchController:(UISearchController *)searchController{
+    [UIView animateWithDuration:0.2 animations:^{
+        mainTableView.top = 64;
+    }];
 }
 
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller
-shouldReloadTableForSearchString:(NSString *)searchString
-{
-    //一旦SearchBar輸入內容有變化，則執行這個方法，詢問要不要重裝searchResultTableView的數據
-
-    return YES;
+-(void)willDismissSearchController:(UISearchController *)searchController{
+     mainTableView.top = 0;
 }
 
 #pragma mark 导航栏点击事件
@@ -210,7 +244,8 @@ shouldReloadTableForSearchString:(NSString *)searchString
                 [weakSelf.navigationController pushViewController:controller animated:YES];
             }else if (index == 1 ) {
                 printf("搜索群组 index 0\n");
-
+                LTSearchGroupViewController *controller = [[LTSearchGroupViewController alloc]init];
+                [weakSelf.navigationController pushViewController:controller animated:YES];
             }
         };
     }

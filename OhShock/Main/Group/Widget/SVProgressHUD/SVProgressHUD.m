@@ -172,7 +172,13 @@
     CGRect labelRect = CGRectZero;
     
     if(string) {
-        CGSize stringSize = [string sizeWithFont:self.stringLabel.font constrainedToSize:CGSizeMake(200, 300)];
+        
+//        CGSize stringSize = [string sizeWithFont:self.stringLabel.font constrainedToSize:CGSizeMake(200, 300)];
+        NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+        [style setLineBreakMode:NSLineBreakByCharWrapping];
+        
+        NSDictionary *attributes = @{ NSFontAttributeName : self.stringLabel.font, NSParagraphStyleAttributeName : style };
+        CGSize stringSize = [string boundingRectWithSize:CGSizeMake(200, 300) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
         stringWidth = stringSize.width;
         stringHeight = stringSize.height;
         hudHeight = 80+stringHeight;
@@ -247,7 +253,8 @@
 - (void)positionHUD:(NSNotification*)notification {
     
     CGFloat keyboardHeight;
-    double animationDuration;
+    double animationDuration = 0;
+//    NSTimeInterval animationDuration;
     
     UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
     
@@ -312,7 +319,7 @@
     } 
     
     if(notification) {
-        [UIView animateWithDuration:animationDuration 
+        [UIView animateWithDuration:animationDuration
                               delay:0 
                             options:UIViewAnimationOptionAllowUserInteraction 
                          animations:^{
@@ -471,7 +478,7 @@
 		stringLabel.textColor = [UIColor whiteColor];
 		stringLabel.backgroundColor = [UIColor clearColor];
 		stringLabel.adjustsFontSizeToFitWidth = YES;
-		stringLabel.textAlignment = UITextAlignmentCenter;
+		stringLabel.textAlignment = NSTextAlignmentCenter;
 		stringLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
 		stringLabel.font = [UIFont boldSystemFontOfSize:16];
 		stringLabel.shadowColor = [UIColor blackColor];

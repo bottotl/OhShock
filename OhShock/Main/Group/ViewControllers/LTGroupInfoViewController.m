@@ -12,12 +12,15 @@
 #import "Header.h"
 #import "LTDiscoverTodoViewController.h"
 #import "LTGroupMemberViewController.h"
+#import "LTGroupService.h"
+#import "SVProgressHUD.h"
 
 @interface LTGroupInfoViewController ()
 
 @property (nonatomic, strong) XHPopMenu *popMenu;
 @property (nonatomic, strong) DVSwitch *switcher;
 @property (nonatomic, strong) UIScrollView *mainScrollView;
+@property (nonatomic, strong) LTGroupService *groupService;
 
 @end
 
@@ -83,6 +86,7 @@
     };
     [self.view addSubview:self.switcher];
     
+    _groupService = [[LTGroupService alloc]init];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -140,7 +144,7 @@
             }else if (index == 0 ) {
 
             }else if (index == 2 ) {
-                
+                [weakSelf joinGroup];
             }
             
         };
@@ -148,5 +152,15 @@
     return _popMenu;
 }
 
+#pragma mark 更多按钮包含的方法
+
+//加入该群
+- (void)joinGroup{
+    [_groupService joinGroupWith:_group andCallback:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [SVProgressHUD showSuccessWithStatus:@"申请成功"];
+        }
+    }];
+}
 
 @end
