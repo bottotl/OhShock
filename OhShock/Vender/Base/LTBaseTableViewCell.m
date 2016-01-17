@@ -124,7 +124,7 @@ static CGFloat const AccessoryTextLabelRightPadding = 20;
         self.showTitleLabel.width = ShowTitleLabelWidth;
         self.showTitleLabel.height = self.height;
         self.showTitleLabel.left = left;
-        left += self.showTitleLabel.width;
+//        left += self.showTitleLabel.width;
     }
     if (self.accessoryText) {
         self.accessoryTextLabel.width  = AccessoryTextLabelWidth;

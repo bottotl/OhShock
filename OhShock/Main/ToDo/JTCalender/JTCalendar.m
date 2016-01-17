@@ -219,10 +219,10 @@ static NSString *const kJTCalendarDaySelected = @"kJTCalendarDaySelected";
     // Position to the middle page
     CGFloat pageWidth = CGRectGetWidth(self.contentView.frame);
     self.contentView.contentOffset = CGPointMake(pageWidth * ((NUMBER_PAGES_LOADED / 2)), self.contentView.contentOffset.y);
-    CGFloat x = self.contentView.contentOffset.x;
+//    CGFloat x = self.contentView.contentOffset.x;
     CGFloat menuPageWidth = CGRectGetWidth([self.menuMonthsView.subviews.firstObject frame]);
     self.menuMonthsView.contentOffset = CGPointMake(menuPageWidth * ((NUMBER_PAGES_LOADED / 2)), self.menuMonthsView.contentOffset.y);
-    x = self.contentView.contentOffset.x;
+//    x = self.contentView.contentOffset.x;
 }
 
 - (void)loadNextMonth

@@ -18,5 +18,4 @@
 -(UIImage*)scaledToSize:(CGSize)targetSize;
 -(UIImage*)scaledToSize:(CGSize)targetSize highQuality:(BOOL)highQuality;
 -(UIImage*)scaledToMaxSize:(CGSize )size;
-
 @end
