@@ -11,6 +11,10 @@
 typedef void (^LTUploadResponse)(BOOL success, NSError *error);
 
 @class UIImage;
+
+/**
+ *  提供了上传 post 所需的接口
+ */
 @interface LTUploadService : NSObject
 
 -(void)uploadPost:(NSArray <UIImage *> *)images andContent:(NSString *)content andBlock:(LTUploadResponse)block;

@@ -18,6 +18,8 @@ pod 'APParallaxHeader'
 pod 'JSQSystemSoundPlayer'
 # 刷新头
 pod 'ODRefreshControl'
+# 动态代码注入（方便调试）
+pod 'dyci', :git => 'https://github.com/DyCI/dyci-main.git'
 
 pod 'JSBadgeView' , '1.4.1'
 pod 'DateTools' , '1.5.0'

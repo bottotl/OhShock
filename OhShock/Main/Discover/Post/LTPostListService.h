@@ -9,16 +9,26 @@
 #import <Foundation/Foundation.h>
 
 @class LTModelPost;
-typedef void (^LTPostFindResponse)(NSArray <LTModelPost *> *posts, NSError *error);
+@class LTPostModel;
+typedef void (^LTModelPostFindResponse)(NSArray <LTModelPost *> *posts, NSError *error);
+typedef void (^LTPostModelFindResponse)(NSArray <LTPostModel *> *posts, NSError *error);
 
 @interface LTPostListService : NSObject
 /**
- *  查询 Post
+ *  查询 LTModelPost
  *
  *  @param fromIndex 从第几条开始查询（0...N）
  *  @param length    查询几条
- *  @param block     回调
+ *  @param block     (^LTModelPostFindResponse)(NSArray <LTModelPost *> *posts, NSError *error)
  */
--(void)findPost:(NSInteger)fromIndex length:(NSUInteger)length block:(LTPostFindResponse)block;
+-(void)findModelPost:(NSInteger)fromIndex length:(NSUInteger)length block:(LTModelPostFindResponse)block;
 
+/**
+ *  获得 LTPostModel
+ *
+ *  @param fromIndex 从第几条开始查询（0...N）
+ *  @param length    查询几条
+ *  @param block     (^LTPostModelFindResponse)(NSArray <LTPostModel *> *posts, NSError *error)
+ */
+-(void)findPostModels:(NSInteger)fromIndex length:(NSUInteger)length block:(LTPostModelFindResponse)block;
 @end

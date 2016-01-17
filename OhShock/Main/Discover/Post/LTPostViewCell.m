@@ -8,12 +8,18 @@
 
 #import "LTPostViewCell.h"
 
+@interface LTPostViewCell ()
+@end
+
 @implementation LTPostViewCell
 
 #pragma mark - Init
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    self.postView.frame = self.contentView.bounds;
+    if (self) {
+        
+        self.postView.frame = self.contentView.bounds;
+    }
     return self;
 }
 #pragma mark - Cell 配置

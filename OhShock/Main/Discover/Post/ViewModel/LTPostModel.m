@@ -7,7 +7,9 @@
 //
 
 #import "LTPostModel.h"
+#import "LTModelPost.h"
 
 @implementation LTPostModel
+
 
 @end

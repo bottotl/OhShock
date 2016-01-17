@@ -8,10 +8,11 @@
 
 #import "LTPostListService.h"
 #import "LTModelPost.h"
+#import "LTPostModel.h"
 
 @implementation LTPostListService
 
--(void)findPost:(NSInteger)fromIndex length:(NSUInteger)length block:(LTPostFindResponse)block{
+-(void)findModelPost:(NSInteger)fromIndex length:(NSUInteger)length block:(LTModelPostFindResponse)block{
     AVQuery *query = [LTModelPost query];
     [query orderByDescending:@"createdAt"];
     query.skip = fromIndex ;
@@ -25,5 +26,16 @@
         }
     }];
 }
-
+-(void)findPostModels:(NSInteger)fromIndex length:(NSUInteger)length block:(LTPostModelFindResponse)block{
+    
+//    [self findModelPost:fromIndex length:length block:^(NSArray<LTModelPost *> *posts, NSError *error) {
+//        NSMutableArray *postModels = @[].mutableCopy;
+//        for (LTModelPost *model in posts) {
+//            LTPostModel *post = [LTPostModel new];
+//            post.profileData = [LTPostProfileModel new];
+//            post.profileData.name = model.pubUser.username;
+//            post.profileData.
+//        }
+//    }];
+}
 @end

@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
+/**
+ *  负责给
+ */
 @interface LTPostProfileModel : NSObject
 /** 用户名 */
 @property (nonatomic, copy) NSString *name;

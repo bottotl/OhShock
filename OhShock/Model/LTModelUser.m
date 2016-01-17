@@ -9,6 +9,8 @@
 #import "LTModelUser.h"
 
 @implementation LTModelUser
+
+@dynamic avatar;
 + (NSString *)parseClassName {
     return @"_User";
 }

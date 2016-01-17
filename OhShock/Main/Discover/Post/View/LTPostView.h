@@ -18,6 +18,8 @@
 #import "LTPostCommentView.h"
 #import "LTPostViewRoundButton.h"
 
+@class LTPostViewModel;
+
 /**
  *  动态 View 页面
     主要负责把零碎的其他小页面、按钮组合在一起
@@ -41,6 +43,8 @@
 @property (nonatomic, strong) LTPostLikedView *likedView;
 
 @property (nonatomic, strong) LTPostCommentView *commentsView;
+
+@property (nonatomic, strong) LTPostViewModel *viewModel;
 
 
 +(CGFloat) viewHeightWithData:(LTPostModel *)data;

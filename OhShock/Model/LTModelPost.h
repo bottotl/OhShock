@@ -9,6 +9,9 @@
 #import <AVOSCloud/AVOSCloud.h>
 
 @class LTModelUser;
+/**
+ *  图文动态
+ */
 @interface LTModelPost : AVObject <AVSubclassing>
 
 /** 发布者 */
