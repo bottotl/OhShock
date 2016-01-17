@@ -20,6 +20,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     self.parentViewController.title = @"分类模式";
 }
 

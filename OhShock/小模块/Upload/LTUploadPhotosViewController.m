@@ -14,9 +14,11 @@
 
 @interface LTUploadPhotosViewController ()<UITableViewDataSource, UITableViewDelegate, AddPhotoDelegae, QBImagePickerControllerDelegate, UITextViewDelegate>
 
+@property (nonatomic, strong) QBImagePickerController *imagePickerController;
+
 @property (nonatomic, strong) UITableView *tableView;
 
-/// 展示的数据（待上传的图片）
+/// 展示的数据
 @property (nonatomic, strong) NSMutableArray <UIImage *> *photos;
 
 /// 原始数据（可以通过这个属性获得原始数据）
@@ -56,6 +58,16 @@
 }
 
 #pragma mark - property
+-(QBImagePickerController *)imagePickerController{
+    if (!_imagePickerController) {
+        _imagePickerController = [QBImagePickerController new];
+        _imagePickerController.mediaType = QBImagePickerMediaTypeImage;
+        _imagePickerController.delegate = self;
+        _imagePickerController.allowsMultipleSelection = YES;
+        _imagePickerController.maximumNumberOfSelection = 9;
+    }
+    return _imagePickerController;
+}
 -(LTUploadService *)service{
     if (!_service) {
         _service = [LTUploadService new];
@@ -138,7 +150,7 @@
 
 /// 上传按钮响应事件
 - (void)doneUpload{
-    [self.service uploadPost:self.photos andContent:self.content andBlock:^(BOOL success, NSError *error) {
+    [self.service uploadPost:self.selectedAsset andContent:self.content andBlock:^(BOOL success, NSError *error) {
         if (success) {
             NSLog(@"成功上传 post");
         }else{
@@ -147,7 +159,7 @@
         
     }];
     
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+   // [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - delegate
@@ -157,16 +169,12 @@
     [uploadAlert addAction:[UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
     }]];
-    
+    __weak __typeof(self) weakSelf = self;
     [uploadAlert addAction:[UIAlertAction actionWithTitle:@"从手机相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        QBImagePickerController *imagePickerController = [[QBImagePickerController alloc] init];
-        [imagePickerController.selectedAssets removeAllObjects];
-        [imagePickerController.selectedAssets addObjectsFromArray:self.selectedAsset];
-        imagePickerController.mediaType = QBImagePickerMediaTypeImage;
-        imagePickerController.delegate = self;
-        imagePickerController.allowsMultipleSelection = YES;
-        imagePickerController.maximumNumberOfSelection = 9;
-        [self presentViewController:imagePickerController animated:YES completion:NULL];
+        [weakSelf.imagePickerController.selectedAssets removeAllObjects];
+        [weakSelf.imagePickerController.selectedAssets addObjectsFromArray:weakSelf.selectedAsset];
+        
+        [weakSelf presentViewController:weakSelf.imagePickerController animated:YES completion:NULL];
     }]];
     [uploadAlert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
         NSLog(@"取消");
@@ -178,11 +186,12 @@
 #pragma mark QBImagePickerControllerDelegate
 
 - (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didFinishPickingAssets:(NSArray <PHAsset *>*)assets{
+    [self.selectedAsset removeAllObjects];
     self.selectedAsset = assets.mutableCopy;
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [imagePickerController dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [imagePickerController dismissViewControllerAnimated:YES completion:nil];
 }
 #pragma mark UITextViewDelegate
 - (void)textViewDidChange:(UITextView *)textView{
@@ -196,7 +205,7 @@
     [self.photos removeAllObjects];
     __weak __typeof(self) weakSelf = self;
     for (PHAsset * asset in self.selectedAsset) {
-        [[PHImageManager defaultManager]requestImageForAsset:asset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeDefault options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        [[PHImageManager defaultManager]requestImageForAsset:asset targetSize:CGSizeMake(40, 40) contentMode:PHImageContentModeDefault options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
             if (result) {
                 [weakSelf.photos addObject:result];
                 [weakSelf.tableView reloadData];
