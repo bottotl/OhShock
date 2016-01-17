@@ -51,7 +51,6 @@
             }];
         }
     }];
-
 }
 
 /**
@@ -128,12 +127,56 @@
                 [object setObject:groupArray forKey:@"wantJoins"];
                 [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                     if (succeeded) {
-                        complectBlock(YES, error);
+                        //向群主添加未读消息
+                        LTModelMessage *message = [[LTModelMessage alloc]init];
+                        message.content = [NSString stringWithFormat:@"申请加入 %@", [object objectForKey:@"groupName"]];
+                        message.sendTo = (LTModelUser *)[object objectForKey:@"groupCreator"];
+                        message.isRead = NO;
+                        message.isGroup = NO;
+                        message.info = nil;
+                        [self addUnReadMessafe:message andCallback:^(BOOL succeeded, NSError *error) {
+                            if (succeeded) {
+                                complectBlock(YES, error);
+                            }else{
+                                complectBlock(NO, error);
+                            }
+                        }];
                     }else{
                         complectBlock(NO, error);
                     }
                 }];
             }
+        }else{
+            complectBlock(NO, error);
+        }
+    }];
+}
+
+
+/**
+ *  为用户添加未读消息
+ *
+ *  @param message       (LTModelMessage *)
+ *  @param complectBlock Block
+ */
+- (void)addUnReadMessafe:(LTModelMessage *)message andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock{
+    [message setObject:message.sendFrom forKey:@"sendFrom"];
+    [message setObject:message.sendTo forKey:@"sendTo"];
+    [message setObject:message.content forKey:@"content"];
+    [message setObject:@(message.isRead) forKey:@"isRead"];
+    [message setObject:@(message.isGroup) forKey:@"isGroup"];
+    [message setObject:message.info forKey:@"info"];
+    [message saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            //消息保存完毕后，推送消息目标用户
+            AVUser *sendToUser = (AVUser *) message.sendTo;
+            NSLog(@"user name of sendTo :: %@", [sendToUser objectForKey:@"objectId"]);
+            AVQuery *pushQuery = [AVInstallation query];
+            [pushQuery whereKey:@"Token" equalTo:[sendToUser objectForKey:@"objectId"]];
+            AVPush *push = [[AVPush alloc]init];
+            [push setQuery:pushQuery];
+            [push setMessage:[NSString stringWithFormat:@"%@%@", [[AVUser currentUser] objectForKey:@"username"], message.content]];
+            [push sendPushInBackground];
         }else{
             complectBlock(NO, error);
         }

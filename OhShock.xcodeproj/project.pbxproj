@@ -16,6 +16,7 @@
 		AB3CF3EF1C46493700F1C57B /* LTGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3CF3EA1C46493700F1C57B /* LTGroupViewController.m */; };
 		AB3CF3F21C46495900F1C57B /* LTSearchGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3CF3F11C46495900F1C57B /* LTSearchGroupViewController.m */; };
 		AB3CF3F41C4768F800F1C57B /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FD01C473CD200CD61FE /* LogInViewController.m */; };
+		AB540F591C4A312A0060FE5C /* LTModelMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = AB540F581C4A312A0060FE5C /* LTModelMessage.m */; };
 		AB76B7941C451D42000A2191 /* LTModelGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76B7931C451D42000A2191 /* LTModelGroup.m */; };
 		ABE1E8A01C49274C006AA1C1 /* CLSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE1E89F1C49274C006AA1C1 /* CLSearchResultViewController.m */; };
 		ABFBA6991C4949DD00E1863E /* JoinGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFBA6981C4949DD00E1863E /* JoinGroupCell.m */; };
@@ -845,6 +846,8 @@
 		AB3CF3EA1C46493700F1C57B /* LTGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroupViewController.m; sourceTree = "<group>"; };
 		AB3CF3F01C46495900F1C57B /* LTSearchGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTSearchGroupViewController.h; sourceTree = "<group>"; };
 		AB3CF3F11C46495900F1C57B /* LTSearchGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTSearchGroupViewController.m; sourceTree = "<group>"; };
+		AB540F571C4A312A0060FE5C /* LTModelMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTModelMessage.h; sourceTree = "<group>"; };
+		AB540F581C4A312A0060FE5C /* LTModelMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTModelMessage.m; sourceTree = "<group>"; };
 		AB76B7921C451D42000A2191 /* LTModelGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTModelGroup.h; sourceTree = "<group>"; };
 		AB76B7931C451D42000A2191 /* LTModelGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTModelGroup.m; sourceTree = "<group>"; };
 		ABE1E89E1C49274C006AA1C1 /* CLSearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLSearchResultViewController.h; sourceTree = "<group>"; };
@@ -3055,6 +3058,8 @@
 				AB76B7911C451D23000A2191 /* GroupModel */,
 				B84428741C4264C3005FA556 /* LTModelUser.h */,
 				B84428751C4264C3005FA556 /* LTModelUser.m */,
+				AB540F571C4A312A0060FE5C /* LTModelMessage.h */,
+				AB540F581C4A312A0060FE5C /* LTModelMessage.m */,
 			);
 			name = Model;
 			path = OhShock/Model;
@@ -5168,6 +5173,7 @@
 				B81CCC291C21408500D642DB /* JSQMessagesKeyboardController.m in Sources */,
 				B89E0FEE1C474DC900CD61FE /* LTUploadTextAndPhotosView.m in Sources */,
 				B89E0FDE1C473CD200CD61FE /* IntroductionViewController.m in Sources */,
+				AB540F591C4A312A0060FE5C /* LTModelMessage.m in Sources */,
 				B8EEADA91C294F5400F861E8 /* XHMessageBubbleFactory.m in Sources */,
 				B81072861C197FCE0058130E /* XHPopMenu.m in Sources */,
 				B81071B01C197F6F0058130E /* main.m in Sources */,
@@ -5296,7 +5302,7 @@
 					"$(PROJECT_DIR)/OhShock/Main/Group/Widget",
 				);
 				INFOPLIST_FILE = OhShock/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vp.jft0m.OhShock;
 				PRODUCT_NAME = OhShock;
@@ -5319,7 +5325,7 @@
 					"$(PROJECT_DIR)/OhShock/Main/Group/Widget",
 				);
 				INFOPLIST_FILE = OhShock/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vp.jft0m.OhShock;
 				PRODUCT_NAME = OhShock;

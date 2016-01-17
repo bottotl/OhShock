@@ -3617,6 +3617,17 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					1ABA1364F52B400F9AB0D9C1C909F3B1 = {
+						DevelopmentTeam = 2NCX2WCTH8;
+					};
+					23CF27B2BA6AC7125EFFEDA8C5AA819F = {
+						DevelopmentTeam = 57HWCM983X;
+					};
+					C4E62D0FC0CC6087EC9C9D89CB9DD1D6 = {
+						DevelopmentTeam = 57HWCM983X;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -4341,6 +4352,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FEB2797A25078B2B0E7EF1DBAAF2BCA0 /* FMDB.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -4356,6 +4368,7 @@
 				MODULEMAP_FILE = "Target Support Files/FMDB/FMDB.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = FMDB;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4582,6 +4595,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FEB2797A25078B2B0E7EF1DBAAF2BCA0 /* FMDB.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -4597,6 +4611,7 @@
 				MODULEMAP_FILE = "Target Support Files/FMDB/FMDB.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = FMDB;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4756,6 +4771,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AC14CFECBEAC7136CBA55A8DE362FF08 /* DateTools.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -4771,6 +4787,7 @@
 				MODULEMAP_FILE = "Target Support Files/DateTools/DateTools.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = DateTools;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4783,6 +4800,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6C4CC1F9BC16C82A000CC6C1EB9C28B4 /* APParallaxHeader.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -4798,6 +4816,7 @@
 				MODULEMAP_FILE = "Target Support Files/APParallaxHeader/APParallaxHeader.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = APParallaxHeader;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5111,6 +5130,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AC14CFECBEAC7136CBA55A8DE362FF08 /* DateTools.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -5126,6 +5146,7 @@
 				MODULEMAP_FILE = "Target Support Files/DateTools/DateTools.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = DateTools;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5138,6 +5159,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6C4CC1F9BC16C82A000CC6C1EB9C28B4 /* APParallaxHeader.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -5153,6 +5175,7 @@
 				MODULEMAP_FILE = "Target Support Files/APParallaxHeader/APParallaxHeader.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = APParallaxHeader;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";

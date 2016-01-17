@@ -147,6 +147,9 @@ static NSString *const AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
 }
 #pragma mark - 注册推送
 - (void)registerPush{
+    //设置生产坏境还是开发环境
+    [AVPush setProductionMode:NO];
+    
     UIMutableUserNotificationCategory *categorys = [[UIMutableUserNotificationCategory alloc] init];
     UIUserNotificationSettings *userSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge|UIUserNotificationTypeSound|UIUserNotificationTypeAlert
                                                                                  categories:[NSSet setWithObject:categorys]];

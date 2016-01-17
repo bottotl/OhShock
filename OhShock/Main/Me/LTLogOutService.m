@@ -14,6 +14,10 @@
 @implementation LTLogOutService
 +(void)logOut{
     [AVUser logOut];
+    //在登出时抹掉token
+    AVInstallation *installation = [AVInstallation currentInstallation];
+    [installation setObject:@"" forKey:@"Token"];
+    [installation saveInBackground];
     LogInViewController *loginViewController = [LogInViewController new];
     [[UIApplication sharedApplication].delegate.window.rootViewController removeFromParentViewController];
      [[UIApplication sharedApplication].delegate.window setRootViewController:loginViewController];
