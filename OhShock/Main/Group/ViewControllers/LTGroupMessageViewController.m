@@ -9,6 +9,8 @@
 #import "LTGroupMessageViewController.h"
 #import "Header.h"
 #import "LTGroupMessageCell.h"
+#import "LTGroupService.h"
+#import "JoinGroupCell.h"
 
 @interface LTGroupMessageViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -16,6 +18,9 @@
 
 @implementation LTGroupMessageViewController{
     UITableView *mainTableView;
+    NSMutableArray *dataSource;
+    
+    LTGroupService *service;
 }
 
 - (instancetype)init
@@ -35,6 +40,32 @@
     mainTableView.delegate = self;
     mainTableView.tableFooterView = [UIView new];
     [self.view addSubview:mainTableView];
+    
+    //初始化数据
+    dataSource = [NSMutableArray array];
+    service = [[LTGroupService alloc]init];
+    [self refreshTableData];
+}
+
+- (void)refreshTableData{
+    [service getUnReadMessagesWithcomplete:^(BOOL succeeded, NSError *error, NSArray *array) {
+        dataSource = [array mutableCopy];
+        //按消息时间排序
+        NSComparator cmptr = ^(id obj1, id obj2){
+            LTModelMessage *message1 = (LTModelMessage *)obj1;
+            LTModelMessage *message2 = (LTModelMessage *)obj2;
+            if ([[message1 objectForKey:@"createdAt"] timeIntervalSinceDate:[message2 objectForKey:@"createdAt"]] < 0) {
+                return (NSComparisonResult)NSOrderedDescending;
+            }
+            
+            if ([[message1 objectForKey:@"createdAt"] timeIntervalSinceDate:[message2 objectForKey:@"createdAt"]] > 0) {
+                return (NSComparisonResult)NSOrderedAscending;
+            }
+            return (NSComparisonResult)NSOrderedSame;
+        };
+        dataSource = [[dataSource sortedArrayUsingComparator:cmptr] mutableCopy];
+        [mainTableView reloadData];
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -43,15 +74,21 @@
 
 #pragma mark UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return dataSource.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    LTGroupMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"groupMsgCell"];
+//    LTGroupMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"groupMsgCell"];
+//    if (cell == nil) {
+//        [tableView registerNib:[UINib nibWithNibName:@"LTGroupMessageCell" bundle:nil] forCellReuseIdentifier:@"groupMsgCell"];
+//        cell = [tableView dequeueReusableCellWithIdentifier:@"groupMsgCell"];
+//    }
+//    return cell;
+    JoinGroupCell *cell = [tableView dequeueReusableCellWithIdentifier:@"joinGroupCell"];
     if (cell == nil) {
-        [tableView registerNib:[UINib nibWithNibName:@"LTGroupMessageCell" bundle:nil] forCellReuseIdentifier:@"groupMsgCell"];
-        cell = [tableView dequeueReusableCellWithIdentifier:@"groupMsgCell"];
+        cell = [[JoinGroupCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"joinGroupCell"];
     }
+    [cell setCellWithMessage:dataSource[indexPath.row]];
     return cell;
 }
 

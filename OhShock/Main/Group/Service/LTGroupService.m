@@ -107,7 +107,7 @@
 }
 
 /**
- *  加入群组
+ *  申请加入群组
  *
  *  @param group          (LTModelGroup *)
  *  @param complectBlock Block
@@ -130,11 +130,12 @@
                         //向群主添加未读消息
                         LTModelMessage *message = [[LTModelMessage alloc]init];
                         message.content = [NSString stringWithFormat:@"申请加入 %@", [object objectForKey:@"groupName"]];
+                        message.sendFrom = (LTModelUser *)[AVUser currentUser];
                         message.sendTo = (LTModelUser *)[object objectForKey:@"groupCreator"];
                         message.isRead = NO;
                         message.isGroup = NO;
                         message.info = nil;
-                        [self addUnReadMessafe:message andCallback:^(BOOL succeeded, NSError *error) {
+                        [self addMessage:message andCallback:^(BOOL succeeded, NSError *error) {
                             if (succeeded) {
                                 complectBlock(YES, error);
                             }else{
@@ -154,12 +155,12 @@
 
 
 /**
- *  为用户添加未读消息
+ *  添加消息
  *
  *  @param message       (LTModelMessage *)
  *  @param complectBlock Block
  */
-- (void)addUnReadMessafe:(LTModelMessage *)message andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock{
+- (void)addMessage:(LTModelMessage *)message andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock{
     [message setObject:message.sendFrom forKey:@"sendFrom"];
     [message setObject:message.sendTo forKey:@"sendTo"];
     [message setObject:message.content forKey:@"content"];
@@ -168,19 +169,73 @@
     [message setObject:message.info forKey:@"info"];
     [message saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            //消息保存完毕后，推送消息目标用户
+            //消息保存完毕后，推送消息目标用户,目标用户接受到推送后在响应后再加到他自己的未读消息队列
             AVUser *sendToUser = (AVUser *) message.sendTo;
-            NSLog(@"user name of sendTo :: %@", [sendToUser objectForKey:@"objectId"]);
             AVQuery *pushQuery = [AVInstallation query];
             [pushQuery whereKey:@"Token" equalTo:[sendToUser objectForKey:@"objectId"]];
+            NSLog(@"unReadMessage ID is ::%@", [message objectForKey:@"objectId"]);
+            NSDictionary *data = @{
+                                   @"alert": [NSString stringWithFormat:@"%@%@", [[AVUser currentUser] objectForKey:@"username"], message.content],
+                                   @"badge":@"Increment",
+                                   @"unReadMessageId":[message objectForKey:@"objectId"],
+                                   @"type":@"0"//消息类型，这里先随便设置，0是未读消息到达
+                                   
+                                   };
             AVPush *push = [[AVPush alloc]init];
             [push setQuery:pushQuery];
-            [push setMessage:[NSString stringWithFormat:@"%@%@", [[AVUser currentUser] objectForKey:@"username"], message.content]];
+            [push setData:data];
             [push sendPushInBackground];
         }else{
             complectBlock(NO, error);
         }
     }];
+}
+
+/**
+ *  添加未读消息到队列（该队列在user表中是一个字段，保存为消息ID数组）
+ *
+ *  @param message       (LTModelMessage *)
+ *  @param complectBlock Block
+ */
+- (void)addUnreadMessage:(NSString *)messageID andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock{
+    NSMutableArray *messageArray = [[AVUser currentUser] objectForKey:@"unReadMessages"];
+    if (messageArray == nil) {
+        messageArray = [NSMutableArray array];
+    }
+    [messageArray addObject:messageID];
+    [[AVUser currentUser] setObject:messageArray forKey:@"unReadMessages"];
+    [[AVUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        complectBlock(succeeded, error);
+    }];
+}
+
+/**
+ *  获取未读消息队列
+ *
+ *  @param completeBlock 回调 Block
+ */
+- (void)getUnReadMessagesWithcomplete:(void(^)(BOOL succeeded, NSError *error, NSArray *array))completeBlock{
+    NSArray *messageArray = [[AVUser currentUser]objectForKey:@"unReadMessages"];
+    if (messageArray.count) {
+        NSMutableArray *resultArray = [NSMutableArray array];
+        for (int i = 0; i < messageArray.count; i++) {
+            AVQuery *query = [AVQuery queryWithClassName:@"LTModelMessage"];
+            [query whereKey:@"objectId" equalTo:messageArray[i]];
+            [query getFirstObjectInBackgroundWithBlock:^(AVObject *object, NSError *error) {
+                if (!error) {
+                    [resultArray addObject:object];
+                    if (resultArray.count == messageArray.count) {//获取到全部的数据
+                        completeBlock(YES, nil, resultArray);
+                    }
+                }
+            }];
+        }
+#warning For 由于本地消息缓存还没写，清空先放着
+        //获取完未读消息，清空未读消息字段
+        
+    }else{
+        completeBlock(YES, nil, [NSArray array]);//无数据
+    }
 }
 
 @end

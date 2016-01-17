@@ -22,9 +22,12 @@
 #import "LTModelPost.h"
 #import "LTModelUser.h"
 #import "LTModelPost.h"
+#import "LTGroupService.h"
+#import "LTGroupMessageViewController.h"
 
 #warning for test
 #import "LTPostListViewController.h"
+#import "SVProgressHUD.h"
 
 #define kColorTableSectionBg [UIColor colorWithHexString:@"0xe5e5e5"]
 #define  kNavTitleFontSize 19
@@ -37,11 +40,12 @@ static NSString *const AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
 
 @end
 
-@implementation AppDelegate
+@implementation AppDelegate{
+    LTMainTabBarController *mainViewController;
+}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
 
     /////////////////////////////////////////////////////////////
     /////////////////云服务注册////////////////////////////////////
@@ -91,6 +95,18 @@ static NSString *const AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
     return YES;
 }
 
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    //清badge
+    long num = application.applicationIconBadgeNumber;
+    if(num!=0){
+        AVInstallation *currentInstallation = [AVInstallation currentInstallation];
+        [currentInstallation setBadge:0];
+        [currentInstallation saveEventually];
+        application.applicationIconBadgeNumber=0;
+    }
+    [application cancelAllLocalNotifications];
+}
+
 #pragma mark - 页面跳转
 #pragma mark 跳转到引导页面
 
@@ -101,7 +117,7 @@ static NSString *const AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
 
 #pragma mark 跳转到主业务逻辑页面
 - (void)setupMainViewController{
-    LTMainTabBarController *mainViewController = [LTMainTabBarController new];
+    mainViewController = [LTMainTabBarController new];
     [self.window setRootViewController:mainViewController];
 }
 
@@ -156,15 +172,36 @@ static NSString *const AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
     [[UIApplication sharedApplication] registerUserNotificationSettings:userSettings];
     [[UIApplication sharedApplication] registerForRemoteNotifications];
 }
+
+
 - (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     AVInstallation *currentInstallation = [AVInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:deviceToken];
     [currentInstallation saveInBackground];
-    [AVPush setProductionMode:YES];
+//    [AVPush setProductionMode:YES];
 }
+
+//接收到推送
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))handler {
     NSLog(@"didReceiveRemoteNotification");
+
+    BOOL isActive = [UIApplication sharedApplication].applicationState == UIApplicationStateActive;//这个要事先保存起来，发现如果由通知打开app，在回调返回后应用状态会从UIApplicationStateInactive变成UIApplicationStateActive
+    if ([userInfo[@"type"] isEqualToString:@"0"]) {//添加未读消息
+        LTGroupService *service = [[LTGroupService alloc]init];
+        [service addUnreadMessage:userInfo[@"unReadMessageId"] andCallback:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                
+                if (!isActive) {//保存未读消息成功后，判断应用是否在后台，在后台收到未读消息通知调到未读消息界面
+                    mainViewController.selectedIndex = 1;
+                    LTGroupMessageViewController *controller = [[LTGroupMessageViewController alloc]init];
+                    [mainViewController.selectedViewController pushViewController:controller animated:YES];
+                }
+            }
+        }];
+    }
 }
+
+
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     NSLog(@"注册失败，无法获取设备 ID, 具体错误: %@", error);
 }

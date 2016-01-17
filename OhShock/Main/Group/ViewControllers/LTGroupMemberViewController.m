@@ -9,6 +9,7 @@
 #import "LTGroupMemberViewController.h"
 #import "Header.h"
 #import "LTGroupMemberCell.h"
+#import "LTGroupService.h"
 
 @interface LTGroupMemberViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -16,6 +17,9 @@
 
 @implementation LTGroupMemberViewController{
     UITableView* mainTableView;
+    NSMutableArray *dataSource;
+
+    LTGroupService *service;
 }
 
 - (instancetype)init
@@ -36,6 +40,16 @@
     mainTableView.delegate = self;
     mainTableView.tableFooterView = [UIView new];
     [self.view addSubview:mainTableView];
+    
+    //初始化数据
+    dataSource = [NSMutableArray array];
+    service = [[LTGroupService alloc]init];
+    [self refreshTableData];
+}
+
+//刷新数据源
+- (void)refreshTableData{
+    
 }
 
 #pragma mark tableView Delegate

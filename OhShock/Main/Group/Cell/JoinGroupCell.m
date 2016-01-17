@@ -8,6 +8,9 @@
 
 #import "JoinGroupCell.h"
 #import "Header.h"
+#import "UIImageView+WebCache.h"
+#import "LTChatService.h"
+#import "JSQMessagesTimestampFormatter.h"
 
 @implementation JoinGroupCell
 
@@ -26,8 +29,35 @@
         _message = [[UILabel alloc]initWithFrame:CGRectMake(58, 35, kScreen_Width - 78, 16)];
         _message.font = [UIFont systemFontOfSize:13];
         [self.contentView addSubview:_message];
+        
+        _time = [[UILabel alloc]initWithFrame:CGRectMake(kScreen_Width - 68, 8, 60, 21)];
+        _time.textAlignment = NSTextAlignmentRight;
+        _time.textColor = RGBCOLOR(205, 205, 228);
+        _time.font = [UIFont systemFontOfSize:12];
+        [self.contentView addSubview:_time];
     }
     return self;
+}
+
+- (void)setCellWithMessage:(LTModelMessage *)message{
+    AVQuery *query = [AVQuery queryWithClassName:@"_User"];
+    [query whereKey:@"objectId" equalTo:[[message objectForKey:@"sendFrom"] objectForKey:@"objectId"]];
+    [query getFirstObjectInBackgroundWithBlock:^(AVObject *object, NSError *error) {//得到消息发出方
+        if (!error) {
+            LTChatService *service = [[LTChatService alloc]init];
+            [service getAvatorUrlString:(AVUser *)object complete:^(NSString *urlString, NSError *error) {
+                if (!error) {
+                    [_avatar sd_setImageWithURL:[NSURL URLWithString:urlString]];
+                }
+            }];
+            //    NSLog(@"user Name is : %@", [[message objectForKey:@"sendFrom"] objectForKey:@"username"]);
+            _userName.text = [object objectForKey:@"username"];
+            _message.text = [message objectForKey:@"content"];
+
+        }
+    }];
+//    NSLog(@"ddddddd%@", [message objectForKey:@"createdAt"]);
+    _time.attributedText = [[JSQMessagesTimestampFormatter sharedFormatter] attributedTimestampForDate:[message objectForKey:@"createdAt"]];
 }
 
 @end

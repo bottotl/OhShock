@@ -41,7 +41,7 @@
 
 
 /**
- *  加入群组
+ *  申请加入群组
  *
  *  @param group          (LTModelGroup *)
  *  @param complectBlock Block
@@ -50,11 +50,28 @@
 
 
 /**
- *  为用户添加未读消息
+ *  添加消息
  *
  *  @param message       (LTModelMessage *)
  *  @param complectBlock Block
  */
-- (void)addUnReadMessafe:(LTModelMessage *)message andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock;
+- (void)addMessage:(LTModelMessage *)message andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock;
+
+
+/**
+ *  添加未读消息到队列（该队列在user表中是一个字段，保存为消息ID数组）
+ *
+ *  @param message       (LTModelMessage *)
+ *  @param complectBlock Block
+ */
+- (void)addUnreadMessage:(NSString *)messageID andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock;
+
+
+/**
+ *  获取未读消息队列
+ *
+ *  @param completeBlock 回调 Block
+ */
+- (void)getUnReadMessagesWithcomplete:(void(^)(BOOL succeeded, NSError *error, NSArray *array))completeBlock;
 
 @end
