@@ -12,6 +12,7 @@
 #import "YYKit.h"
 #import "LTUploadPhotosViewController.h"
 #import "LTPostListService.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 
 @interface LTPostListViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -19,10 +20,10 @@
 @property (nonatomic, strong) UITableView *tableView;
 
 /// NSArray <LTPostModel *> * 
-@property (nonatomic, strong) NSArray *posts;
+@property (nonatomic, strong) NSMutableArray *posts;
 
 /// NSArray < NSNumber *> *
-@property (nonatomic, strong) NSArray *heights;
+@property (nonatomic, strong) NSMutableArray *heights;
 
 @property (nonatomic, strong) LTPostListService *service;
 
@@ -33,20 +34,20 @@
 #pragma mark - View Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if ([self respondsToSelector:@selector( setAutomaticallyAdjustsScrollViewInsets:)]) {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+    
     _service = [LTPostListService new];
 
-    self.posts = [NSArray new];
-    self.heights = [NSArray new];
-    
-    [self makeArray];
+    self.posts   = @[].mutableCopy;
+    self.heights = @[].mutableCopy;
     
     _tableView = [UITableView new];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
-    if ([self respondsToSelector:@selector( setAutomaticallyAdjustsScrollViewInsets:)]) {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
+    
     _tableView.frame = self.view.bounds;
     [_tableView registerClass:[LTPostViewCell class] forCellReuseIdentifier:LTPostViewCellIdentifier];
     
@@ -55,15 +56,25 @@
     self.navigationItem.rightBarButtonItem = rightItem;
     
 }
+
 #pragma mark - 数据
 /// 更新数据
-- (void)makeArray{
-    __weak __typeof(self) weakSelf = self;
-    [_service findPost:0 length:10 block:^(NSArray *posts, NSError *error) {
-        weakSelf.posts = posts;
-        [self updateHeight];
-    }];
-}
+//- (void)makeArray{
+//    __weak __typeof(self) weakSelf = self;
+//    [_service findModelPost:0 length:10 block:^(NSArray *posts, NSError *error) {
+//        weakSelf.posts = posts;
+//        [self updateHeight];
+//    }];
+//}
+
+///// convert LTModelPost to LTPostModel
+//- (void)converModelPostToPostModel:(NSArray <LTModelPost *>*)modelArray postArray:(void(^)(NSArray *a))block{
+//    NSMutableArray *postModels = @[].mutableCopy;
+//    for (LTModelPost *model in array) {
+//        <#statements#>
+//    }
+//}
+
 /// 更新高度数据
 - (void)updateHeight{
     NSMutableArray *heights = @[].mutableCopy;
@@ -81,14 +92,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LTPostViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LTPostViewCellIdentifier forIndexPath:indexPath];
-    
     return cell;
 }
 
 #pragma mark  UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return ((NSNumber *)_heights[indexPath.row]).floatValue;
+//    return ((NSNumber *)_heights[indexPath.row]).floatValue;
+    return 60;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -125,8 +136,7 @@
     }]];
     [self presentViewController:uploadAlert animated:YES completion:nil];
 }
--(void)viewWillAppear:(BOOL)animated{
-    [self makeArray];
-}
+
+
 
 @end

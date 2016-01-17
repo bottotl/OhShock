@@ -13,6 +13,7 @@
 #import "LTPostLikedModel.h"
 #import "LTPostCommentModel.h"
 
+@class LTModelPost;
 /**
  *  Post 的数据模型
     负责给 LTPostView 填充数据
@@ -33,5 +34,7 @@
 
 /** 评论@[<LTModelPostComment *>] */
 @property (nonatomic, strong) NSArray *comments;
+
+-(instancetype)initWithModel:(LTModelPost *)model;
 
 @end

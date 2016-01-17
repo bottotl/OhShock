@@ -13,24 +13,31 @@
 @implementation LTUploadService
 
 -(void)uploadPost:(NSArray<UIImage *> *)images andContent:(NSString *)content andBlock:(LTUploadResponse)block{
-    LTModelPost *post = [LTModelPost new];
-    post.pubUser = [LTModelUser currentUser];
-    post.content = content;
+    __block LTModelPost *post = [LTModelPost new];
+    post.pubUser              = [LTModelUser currentUser];
+    post.content              = content;
     
-    NSMutableArray *photoFiles = [NSMutableArray array];
-    NSError *theError;
-    for (UIImage *photo in images) {
-        AVFile *photoFile = [AVFile fileWithData:UIImageJPEGRepresentation(photo, 0.6)];
-        [photoFile save:&theError];
-        if (theError) {
-            block(NO, theError);
-            return;
-        }
-        [photoFiles addObject:photoFile];
+    NSUInteger countAll            = images.count;
+    __block NSUInteger count       = 0;
+    __block NSMutableArray *photos = [NSMutableArray array];
+    
+    for (UIImage *image in images) {
+        AVFile *photoFile = [AVFile fileWithData:UIImagePNGRepresentation(image)];
+        [photoFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if(succeeded){
+                [photos addObject:photoFile];
+                count ++;
+                if (count == countAll) {
+                    post.photos = photos.copy;
+                    [post saveInBackgroundWithBlock:block];
+                }
+            }else{
+                NSLog(@"photoFile save %@",error);
+            }
+        }];
     }
-    post.photos = photoFiles;
     
-    [post saveInBackgroundWithBlock:block];
+    
 }
 
 @end

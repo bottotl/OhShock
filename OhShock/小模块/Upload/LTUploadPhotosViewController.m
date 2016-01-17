@@ -138,9 +138,9 @@
 
 /// 上传按钮响应事件
 - (void)doneUpload{
-    [self.service uploadPost:self.photos andContent: self.content andBlock:^(BOOL success, NSError *error) {
+    [self.service uploadPost:self.photos andContent:self.content andBlock:^(BOOL success, NSError *error) {
         if (success) {
-            NSLog(@"success");
+            NSLog(@"成功上传 post");
         }else{
             NSLog(@"error: %@",error);
         }
