@@ -22,28 +22,33 @@
     __block NSUInteger count       = 0;
     __block NSMutableArray *photos = [NSMutableArray array];
     
-    [[PHImageManager defaultManager]requestImageForAsset:selectedAsset[0] targetSize:CGSizeMake(80, 80)  contentMode:PHImageContentModeDefault options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info){
-
-    }];
     for (PHAsset * asset in selectedAsset) {
-//        [[PHImageManager defaultManager]requestImageForAsset:asset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeDefault options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-//            NSLog(@"result is :%@",result);
-////            AVFile *photoFile = [AVFile fileWithData:info];
-////            [photoFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-////                if(succeeded){
-////                    [photos addObject:photoFile];
-////                    count ++;
-////                    if (count == countAll) {
-//////                        post.photos = photos.copy;
-//////                        [post saveInBackgroundWithBlock:block];
-////                    }
-////                }else{
-////                    NSLog(@"photoFile save %@",error);
-////                }
-////            }];
-//
-//        }];
+        [[PHImageManager defaultManager]requestImageDataForAsset:asset options:nil resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+            AVFile *file = [AVFile fileWithData:imageData];
+            [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    NSLog(@"file save succeeded");
+                    [photos addObject:[AVFile fileWithData:imageData]];
+                    count ++;
+                    if (count == countAll) {
+                        post.photos = photos;
+                        [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                            if (succeeded) {
+                                NSLog(@"post sava succeeded");
+                            }else{
+                                NSLog(@"%@",error);
+                            }
+                        }];
+                    }
+
+                }else{
+                    NSLog(@"%@",error);
+                }
+            }];
+        }];
         
     }
 }
+
+
 @end
