@@ -501,6 +501,7 @@
 		B8C3360B1C40E7EE001A06BF /* LTPostLikedView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C3360A1C40E7EE001A06BF /* LTPostLikedView.m */; };
 		B8D1D5261C33CAEA00DC4EDC /* LTSelectFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D1D5251C33CAEA00DC4EDC /* LTSelectFriendsViewController.m */; };
 		B8D1D52C1C33EB2B00DC4EDC /* LTPostListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D1D52B1C33EB2B00DC4EDC /* LTPostListViewController.m */; };
+		B8D2B3A81C4CF70600F3E066 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D2B3A71C4CF70600F3E066 /* libz.tbd */; };
 		B8DCE3FD1C4927D900C233AD /* LTPostViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DCE3FC1C4927D900C233AD /* LTPostViewCell.m */; };
 		B8DCE4001C4927F300C233AD /* LTDiscoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DCE3FF1C4927F300C233AD /* LTDiscoverCell.m */; };
 		B8DCE4081C49287D00C233AD /* DiscoverTodoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DCE4021C49287D00C233AD /* DiscoverTodoCell.m */; };
@@ -1504,6 +1505,7 @@
 		B8D1D5251C33CAEA00DC4EDC /* LTSelectFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTSelectFriendsViewController.m; sourceTree = "<group>"; };
 		B8D1D52A1C33EB2B00DC4EDC /* LTPostListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostListViewController.h; sourceTree = "<group>"; };
 		B8D1D52B1C33EB2B00DC4EDC /* LTPostListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostListViewController.m; sourceTree = "<group>"; };
+		B8D2B3A71C4CF70600F3E066 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		B8DCE3FA1C49247900C233AD /* LTModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LTModels.h; sourceTree = "<group>"; };
 		B8DCE3FB1C4927D900C233AD /* LTPostViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostViewCell.h; sourceTree = "<group>"; };
 		B8DCE3FC1C4927D900C233AD /* LTPostViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostViewCell.m; sourceTree = "<group>"; };
@@ -1963,6 +1965,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8D2B3A81C4CF70600F3E066 /* libz.tbd in Frameworks */,
 				B80A367B1C1DAC6F00C3B226 /* UIKit.framework in Frameworks */,
 				B858011A1C1A84C300786143 /* AVOSCloudCrashReporting.framework in Frameworks */,
 				A03A18FF2EB78C95668E7DBE /* Pods.framework in Frameworks */,
@@ -2007,6 +2010,7 @@
 		792A4A886052DAEEDC712B56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B8D2B3A71C4CF70600F3E066 /* libz.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
