@@ -9,6 +9,7 @@
 #import "LTUploadService.h"
 #import "LTModelPost.h"
 #import "LTModelUser.h"
+#import "YYKit.h"
 
 
 @implementation LTUploadService
@@ -20,21 +21,24 @@
     
     NSUInteger countAll            = selectedAsset.count;
     __block NSUInteger count       = 0;
-    __block NSMutableArray *photos = [NSMutableArray array];
-    
+    NSMutableArray *photos = [NSMutableArray array];
+    PHImageRequestOptions *option = [PHImageRequestOptions new];
+    option.synchronous = YES;
+    option.version = PHImageRequestOptionsVersionCurrent;
     for (PHAsset * asset in selectedAsset) {
-        [[PHImageManager defaultManager]requestImageDataForAsset:asset options:nil resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+        [[PHImageManager defaultManager]requestImageDataForAsset:asset options:option resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
             AVFile *file = [AVFile fileWithData:imageData];
             [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (succeeded) {
                     NSLog(@"file save succeeded");
-                    [photos addObject:[AVFile fileWithData:imageData]];
+                    [photos addObject:file];
                     count ++;
                     if (count == countAll) {
                         post.photos = photos;
-                        [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                            if (succeeded) {
-                                NSLog(@"post sava succeeded");
+                        @weakify(self);
+                        [weak_self uploadPostWithPost:post andBlock:^(BOOL success, NSError *error) {
+                            if (success) {
+                                NSLog(@"uploadPostWithPost success");
                             }else{
                                 NSLog(@"%@",error);
                             }
@@ -46,9 +50,24 @@
                 }
             }];
         }];
-        
     }
+    
 }
 
+
+-(void)uploadPostWithPost:(LTModelPost *)post andBlock:(LTUploadResponse)block{
+    if(post){
+        [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                NSLog(@"post sava succeeded");
+            }else{
+                NSLog(@"%@",error);
+            }
+        }];
+    }else{
+        block(NO,nil);
+    }
+    
+}
 
 @end

@@ -58,6 +58,11 @@
 }
 
 #pragma mark - 数据
+// 加载一次 post
+-(void)loadMorePostList{
+//    LTModelPost *post =
+}
+
 /// 更新数据
 //- (void)makeArray{
 //    __weak __typeof(self) weakSelf = self;
