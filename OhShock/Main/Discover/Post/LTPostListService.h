@@ -22,13 +22,4 @@ typedef void (^LTPostModelFindResponse)(NSArray <LTPostModel *> *posts, NSError 
  *  @param block     (^LTModelPostFindResponse)(NSArray <LTModelPost *> *posts, NSError *error)
  */
 -(void)findModelPost:(NSInteger)fromIndex length:(NSUInteger)length block:(LTModelPostFindResponse)block;
-
-/**
- *  获得 LTPostModel
- *
- *  @param fromIndex 从第几条开始查询（0...N）
- *  @param length    查询几条
- *  @param block     (^LTPostModelFindResponse)(NSArray <LTPostModel *> *posts, NSError *error)
- */
--(void)findPostModels:(NSInteger)fromIndex length:(NSUInteger)length block:(LTPostModelFindResponse)block;
 @end

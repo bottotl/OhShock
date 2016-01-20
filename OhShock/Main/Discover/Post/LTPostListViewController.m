@@ -84,10 +84,12 @@ static NSUInteger const onceLoadPostNum = 10;
 #pragma mark - 数据
 // 加载一次 post
 -(void)loadMorePostList{
+    [self.dataSource removeAllObjects];
     __weak __typeof(self) weakSelf = self;
     [self.service findModelPost:self.lastPostCount length:onceLoadPostNum block:^(NSArray<LTModelPost *> *posts, NSError *error) {
         if (posts) {
             [weakSelf.dataSource addObjectsFromArray:posts.copy];
+            //self.lastPostCount ++;
             [weakSelf updateHeight];
             [weakSelf.tableView reloadData];
         }else{
@@ -95,39 +97,34 @@ static NSUInteger const onceLoadPostNum = 10;
         }
     }];
 }
-/// 更新数据
-//- (void)makeArray{
-//    __weak __typeof(self) weakSelf = self;
-//    [_service findModelPost:0 length:10 block:^(NSArray *posts, NSError *error) {
-//        weakSelf.posts = posts;
-//        [self updateHeight];
-//    }];
-//}
-
-///// convert LTModelPost to LTPostModel
-//- (void)converModelPostToPostModel:(NSArray <LTModelPost *>*)modelArray postArray:(void(^)(NSArray *a))block{
-//    NSMutableArray *postModels = @[].mutableCopy;
-//    for (LTModelPost *model in array) {
-//        <#statements#>
-//    }
-//}
 
 /// 更新高度数据
 - (void)updateHeight{
-//    for (LTPostModel *model in self.posts) {
-//        [heights addObject:@([LTPostView viewHeightWithData:model])];
-//    }
+    __weak __typeof(self) weakSelf = self;
     for (LTModelPost *model in self.dataSource) {
-        [self.heights addObject:@([LTPostView heightWithContent:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@",model.content]]
-                                               andPicCound:model.photos.count
-                                              andUsersName:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@",model.pubUser.username]]
-                                               andComments:model.comments
-                                            andCommitLimit:6
-                                            andCommentFold:NO
-                                          andPreferedWidth:[UIScreen mainScreen].bounds.size.width])];
+        LTModelUser *user = [model objectForKey:@"pubUser"];
+        AVQuery *query = [AVQuery queryWithClassName:@"_User"];
+        [query whereKey:@"objectId" equalTo:user.objectId];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (objects && objects.count > 0) {
+                LTModelUser *user = [objects firstObject];
+                NSLog(@"%@",user);
+                [weakSelf.heights addObject:@([LTPostView heightWithContent:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@",[model objectForKey:@"content"]]]
+                                                            andPicCound:model.photos.count
+                                                           andUsersName:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@",user.username]]
+                                                            andComments:model.comments
+                                                         andCommitLimit:6
+                                                         andCommentFold:NO
+                                                       andPreferedWidth:[UIScreen mainScreen].bounds.size.width])];
+            }
+            
+        }];
+        
     }
 }
-
+//- (LTModelUser *)p_getUser:(LTModelUser *)user{
+//    AVQuery *queue = [LTModelUser query];
+//}
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

@@ -7,7 +7,7 @@
 //
 
 #import "LTUserSearchService.h"
-#import <AVOSCloud/AVOSCloud.h>
+#import "LTModelUser.h"
 @interface LTUserSearchService()
 ///判断我是否关注了他
 @property (nonatomic ,assign) BOOL isIFollowedHim;
@@ -16,10 +16,10 @@
 @end
 @implementation LTUserSearchService
 - (void)findUsersByPartname:(NSString *)partName complete:(LTFindUsersResponse)completeBlock{
-    AVQuery *q = [AVUser query];
+    AVQuery *q = [LTModelUser query];
     //[q setCachePolicy:kAVCachePolicyNetworkElseCache];
     [q whereKey:@"username" containsString:partName];
-    AVUser *curUser = [AVUser currentUser];
+    LTModelUser *curUser = [LTModelUser currentUser];
     [q whereKey:@"objectId" notEqualTo:curUser.objectId];
     [q orderByDescending:@"updatedAt"];
     [q findObjectsInBackgroundWithBlock:completeBlock];
@@ -70,7 +70,7 @@
 
 }
 - (BOOL)getIfIFollowedHim:(NSString *)userId{
-    AVUser *me = [AVUser currentUser];
+    LTModelUser *me = [LTModelUser currentUser];
     AVQuery *query = [self getFollowerQuery:userId];
     [query whereKey:@"follower" equalTo:me];
     NSArray *objects = [query findObjects];
@@ -82,7 +82,7 @@
 }
 
 - (BOOL)getIfHeFollowedMe:(NSString *)userId{
-    AVUser *me = [AVUser currentUser];
+    LTModelUser *me = [LTModelUser currentUser];
     AVQuery *query = [self getFolloweeQuery:userId];
     [query whereKey:@"followee" equalTo:me];
     NSArray *objects = [query findObjects];
@@ -95,15 +95,15 @@
 /// 获取用户粉丝列表
 - (AVQuery *)getFollowerQuery:(NSString *)userID{
     
-    return [AVUser followerQuery:(NSString*)userID];
+    return [LTModelUser followerQuery:(NSString*)userID];
 }
 /// 获取用户关注列表
 - (AVQuery *)getFolloweeQuery:(NSString *)userID{
     
-    return [AVUser followeeQuery:(NSString*)userID];
+    return [LTModelUser followeeQuery:(NSString*)userID];
 }
-- (void)followUserWith:(AVUser *)user andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock{
-    AVUser *me = [AVUser currentUser];
+- (void)followUserWith:(LTModelUser *)user andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock{
+    LTModelUser *me = [LTModelUser currentUser];
     [me follow:user.objectId andCallback:^(BOOL succeeded, NSError *error) {
         if (!error) {
             if (complectBlock) {
@@ -119,8 +119,8 @@
     }];
 
 }
-- (void)unfollowUserWith:(AVUser *)user andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock{
-    AVUser *me = [AVUser currentUser];
+- (void)unfollowUserWith:(LTModelUser *)user andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock{
+    LTModelUser *me = [LTModelUser currentUser];
     [me unfollow:user.objectId andCallback:^(BOOL succeeded, NSError *error) {
         if (!error) {
             if (complectBlock) {
@@ -137,7 +137,7 @@
     
 }
 
-- (void)changeFollowType:(AVUser *)user andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock{
+- (void)changeFollowType:(LTModelUser *)user andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock{
     if ([self getIfIFollowedHim:user.objectId]) {
         [self unfollowUserWith:user andCallback:complectBlock];
     }else{
@@ -145,8 +145,8 @@
     }
 }
 
-- (void)getFollowerNum:(AVUser *)user complete:(void(^)(NSUInteger num, NSError *error))completeBlock{
-    AVQuery *query= [AVUser followerQuery:user.objectId];
+- (void)getFollowerNum:(LTModelUser *)user complete:(void(^)(NSUInteger num, NSError *error))completeBlock{
+    AVQuery *query= [LTModelUser followerQuery:user.objectId];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             if (completeBlock) {
@@ -158,8 +158,8 @@
     }];
 }
 
-- (void)getFolloweeNum:(AVUser *)user complete:(void(^)(NSUInteger num, NSError *error))completeBlock{
-    AVQuery *query= [AVUser followeeQuery:user.objectId];
+- (void)getFolloweeNum:(LTModelUser *)user complete:(void(^)(NSUInteger num, NSError *error))completeBlock{
+    AVQuery *query= [LTModelUser followeeQuery:user.objectId];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             if (completeBlock) {
@@ -171,7 +171,7 @@
     }];
 }
 /// 获取用户头像
-- (void)getAvatorImageOfUser:(AVUser *)user complete:(void(^)(UIImage *image, NSError *error))complectBlock{
+- (void)getAvatorImageOfUser:(LTModelUser *)user complete:(void(^)(UIImage *image, NSError *error))complectBlock{
     AVFile *avatar = [user objectForKey:@"avatar"];
     if (avatar) {
         [avatar getDataInBackgroundWithBlock: ^(NSData *data, NSError *error) {
@@ -186,7 +186,7 @@
     
 }
 
-- (void)getAvatorUrlString:(AVUser *)user complete:(void(^)(NSString *urlString, NSError *error))completeBlock{
+- (void)getAvatorUrlString:(LTModelUser *)user complete:(void(^)(NSString *urlString, NSError *error))completeBlock{
     //AVQuery *query = [AVQuery queryWithClassName:@"_User"];
     
     AVFile *avatorFile = [user objectForKey:@"avatar"];

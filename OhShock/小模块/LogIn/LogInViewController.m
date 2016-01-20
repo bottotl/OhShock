@@ -255,7 +255,7 @@ static NSString * logInBtnColor = @"#4F68D7";
         [self.logInService
          logInWithAccount:self.accountTextField.text
          password:self.passwordTextField.text
-         complete:^(AVUser *user, NSError *error) {
+         complete:^(LTModelUser *user, NSError *error) {
              if (!error) {
                  [subscriber sendNext:user];
                  [subscriber sendCompleted];

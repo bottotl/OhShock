@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @class AVUser;
-typedef void (^LTLogInResponse)(AVUser *user, NSError *error);
+@class LTModelUser;
+typedef void (^LTLogInResponse)(LTModelUser *user, NSError *error);
 /**
  *  @author Lintao Yu, 15-12-04 16:12:44
  *

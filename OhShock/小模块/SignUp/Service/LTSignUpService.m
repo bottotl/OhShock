@@ -7,12 +7,12 @@
 //
 
 #import "LTSignUpService.h"
-#import <AVOSCloud/AVOSCloud.h>
+#import "LTModelUser.h"
 
 @implementation LTSignUpService
 
 - (void)signUpWithAccount:(nonnull NSString *)account password:(nonnull NSString *)password email:(nullable NSString *)email phone:(nullable NSString *)phone complete:(nullable LTSignUpResponse)completeBlock{
-    AVUser *user = [AVUser new];
+    LTModelUser *user = [LTModelUser new];
     user.username = account;
     user.password = password;
     //user.email = email;

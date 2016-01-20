@@ -7,7 +7,7 @@
 //
 
 #import "LTLogInService.h"
-#import <AVOSCloud/AVOSCloud.h>
+#import "LTModelUser.h"
 
 @implementation LTLogInService
 
@@ -15,8 +15,9 @@
     return [AVUser currentUser];
 }
 - (void)logInWithAccount:(NSString *)account password:(NSString *)password complete:(LTLogInResponse)completeBlock{
-    [AVUser logInWithUsernameInBackground:account password:password block:^(AVUser *user, NSError *error) {
-        completeBlock(user,error);
+    [LTModelUser logInWithUsernameInBackground:account password:password block:^(AVUser *user, NSError *error) {
+        LTModelUser *me = [LTModelUser currentUser];
+        completeBlock(me,error);
     }];
 }
 
