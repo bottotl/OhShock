@@ -13,7 +13,7 @@
 @interface LTPostContentView ()
 
 @property (nonatomic, strong) YYLabel *contentLabel;
-@property (nonatomic, copy) NSAttributedString *content;
+
 
 @end
 
@@ -43,9 +43,6 @@
 }
 
 #pragma mark Data
--(void)setData:(LTPostContentModel *)data{
-    self.content = data.content;
-}
 
 -(void)setContent:(NSAttributedString *)content{
     _content = content;
@@ -56,7 +53,7 @@
 }
 
 #pragma mark - 高度计算
-+(CGFloat)viewHeightWithContent:(NSAttributedString *)content andPerferedWidth:(CGFloat)width{
++(CGFloat)heightWithContent:(NSAttributedString *)content andPreferedWidth:(CGFloat)width{
     CGSize size = CGSizeMake(width, CGFLOAT_MAX);
     YYTextLayout *layout = [YYTextLayout layoutWithContainerSize:size text:content];
     return layout.textBoundingSize.height;

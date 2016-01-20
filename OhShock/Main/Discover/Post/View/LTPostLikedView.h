@@ -7,17 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LTPostLikedModel.h"
 
 /**
  *  显示谁点了赞
  */
 @interface LTPostLikedView : UIView
 
-/**
- *  给 View 填充数据用的数据模型
- */
-@property (nonatomic, strong) LTPostLikedModel *data;
+@property (nonatomic, strong) NSAttributedString *usersName;///< 包含所有用户名的富文本 eg:（💗A , B ,C …… ）
 
 /**
  *  计算高度
