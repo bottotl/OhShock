@@ -20,38 +20,27 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
 
 @interface LTPostView ()<UICollectionViewDelegate>
 
-
-
-
 @end
 
 @implementation LTPostView
 
 #pragma mark - 高度计算
-+(CGFloat)viewHeightWithData:(LTPostModel *)data{
-    /**
-     *  和 -[self layoutSubviews] 中的代码息息相关
-     */
++ (CGFloat)heightWithContent:(NSAttributedString *)content andPicCound:(NSInteger)picCount andUsersName:(NSAttributedString *)usersName andComments:(NSArray<NSAttributedString *> *)comments andCommitLimit:(NSInteger)limit andCommentFold:(BOOL)commentFold andPreferedWidth:(CGFloat)width{
     CGFloat height = 0;
-    CGFloat offset;
+    CGFloat offset = 0;
     height += [LTPostProfileView viewHeight];
-    height += [LTPostContentView viewHeightWithContent:data.contentData.content andPerferedWidth:[UIScreen mainScreen].bounds.size.width];
-    
+    height += [LTPostContentView heightWithContent:content andPreferedWidth:width];
     height += [LTPostImagesView heightWithSuggestThreePicWidth:(([UIScreen mainScreen].bounds.size.width) - LTPostContentLeftPadding - LTPostContentRightPadding )
-                                                   andPicCount:data.pic.count
+                                                   andPicCount:picCount
                                                      andBigPic:YES
                                                   andItemSpace:6
                                                      withLimit:9];
     offset = 20;
     height += (LTPostButtonHeight +offset);
-    
     offset = 5;
-    height += ([LTPostLikedView heightWithUsersName:data.likedData.usersNameAttributedString andWith:(([UIScreen mainScreen].bounds.size.width) -LTPostLikedViewLeftPadding - LTPostLikedViewRightPadding)] +offset);
-    
-    
+    height += ([LTPostLikedView heightWithUsersName:usersName andWith:(([UIScreen mainScreen].bounds.size.width) -LTPostLikedViewLeftPadding - LTPostLikedViewRightPadding)] +offset);
     offset = 0;
-    height += ([LTPostCommentView suggestHeightWithComments:data.comments andLimit:5 andFold:NO withWidth:(([UIScreen mainScreen].bounds.size.width) -LTPostLikedViewLeftPadding - LTPostLikedViewRightPadding)] + offset);
-    
+    height += ([LTPostCommentView heightWithComments:comments andLimit:limit andFold:commentFold withWidth:(([UIScreen mainScreen].bounds.size.width) -LTPostLikedViewLeftPadding - LTPostLikedViewRightPadding)] + offset);
     return height;
 }
 
@@ -107,70 +96,29 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
 
 
 #pragma mark - collection view delegate
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSMutableArray *items = @[].mutableCopy;
-    LTPostImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:LTPostImageCollectionCellIdentifier forIndexPath:indexPath];
-    LTPostImageModel *pic = self.data.pic[indexPath.row];
-    [cell configCellWithImageUrl:pic.smallUrlString];
-    for (LTPostImageModel *model in self.data.pic) {
-        YYPhotoGroupItem *item = [YYPhotoGroupItem new];
-        item.thumbView = cell.imageView;
-        item.largeImageURL = [NSURL URLWithString:model.bigUrlString];
-        item.largeImageSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
-        [items addObject:item];
-    }
-    NSLog(@"点击了图片");
-    UINavigationController * viewController = (UINavigationController *)((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).selectedViewController;
-//    UIViewController * viewController = (UINavigationController *)((UINavigationController *)(((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).selectedViewController)).topViewController;
-//    YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:items.copy];
-//    [v presentFromImageView:cell.imageView toContainer:viewController.view animated:YES completion:nil];
-    NSLog(@"%@",[NSValue valueWithCGRect:[cell.imageView convertRect:cell.imageView.frame toView:viewController.view]]) ;
-}
+//- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+//    NSMutableArray *items = @[].mutableCopy;
+//    LTPostImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:LTPostImageCollectionCellIdentifier forIndexPath:indexPath];
+//    LTPostImageModel *pic = self.data.pic[indexPath.row];
+//    [cell configCellWithImageUrl:pic.smallUrlString];
+//    for (LTPostImageModel *model in self.data.pic) {
+//        YYPhotoGroupItem *item = [YYPhotoGroupItem new];
+//        item.thumbView = cell.imageView;
+//        item.largeImageURL = [NSURL URLWithString:model.bigUrlString];
+//        item.largeImageSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
+//        [items addObject:item];
+//    }
+//    NSLog(@"点击了图片");
+//    UINavigationController * viewController = (UINavigationController *)((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).selectedViewController;
+////    UIViewController * viewController = (UINavigationController *)((UINavigationController *)(((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).selectedViewController)).topViewController;
+////    YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:items.copy];
+////    [v presentFromImageView:cell.imageView toContainer:viewController.view animated:YES completion:nil];
+//    NSLog(@"%@",[NSValue valueWithCGRect:[cell.imageView convertRect:cell.imageView.frame toView:viewController.view]]) ;
+//}
 
 
 
 #pragma mark - property
-
-#pragma mark signal
--(RACSignal *)rac_gestureSignal{
-    return self.profileView.rac_gestureSignal;
-}
-
-#pragma mark Data
--(void)setData:(LTPostModel *)data{
-    _data = data;
-
-    [self setProfileViewData:data.profileData];
-    [self setContentViewData:data.contentData];
-    [self setImagesViewData:data.pic];
-    [self setLikedViewData:data.likedData];
-    [self setCommentsViewData:data.comments];
-    
-    [self setNeedsLayout];
-    [self layoutIfNeeded];
-    
-}
-
--(void)setProfileViewData:(LTPostProfileModel *)data{
-    self.profileView.data = data;
-}
--(void)setContentViewData:(LTPostContentModel *)data{
-    self.contentView.data = data;
-}
--(void)setImagesViewData:(NSArray *)pic{
-    self.imagesView.data = pic;
-    self.imagesView.limit = 9;
-    self.imagesView.hidden = NO;
-    self.imagesView.itemSpace = 6;
-    self.imagesView.needBig = YES;
-}
--(void)setLikedViewData:(LTPostLikedModel *)data{
-    self.likedView.data = data;
-}
-
--(void)setCommentsViewData:(NSArray *)data{
-    self.commentsView.comments = data;
-}
 
 #pragma mark View
 -(LTPostImagesView *)imagesView{

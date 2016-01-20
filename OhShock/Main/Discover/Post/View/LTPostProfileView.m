@@ -7,7 +7,6 @@
 //
 
 #import "LTPostProfileView.h"
-#import "UIImageView+WebCache.h"
 #import "YYKit.h"
 #import "UIView+Layout.h"
 
@@ -15,6 +14,10 @@
 static CGFloat const LTPostProfileViewHeight = 60.0;
 
 @interface LTPostProfileView()
+/**
+ *  头像展示控件
+ */
+@property (nonatomic, strong) UIImageView  *avatarView;
 
 @property (nonatomic, strong) YYLabel      *nameLabel;///< 用户名
 
@@ -79,17 +82,6 @@ static CGFloat const LTPostProfileViewHeight = 60.0;
 }
 
 #pragma mark  Data property
--(void)setData:(LTPostProfileModel *)data{
-    _data = data;
-    [self setAvatatUrlString:_data.avatarUrlSmall];
-    [self setName:data.name];
-}
-
--(void)setAvatatUrlString:(NSString *)avatatUrlString{
-    _avatatUrlSmall = avatatUrlString;
-    [self.avatarView sd_setImageWithURL:[NSURL URLWithString:avatatUrlString]];
-}
-
 -(void)setName:(NSString *)name{
     _name = name;
     CGSize size = CGSizeMake(kScreenWidth - 110, 24);

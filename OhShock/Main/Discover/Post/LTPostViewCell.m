@@ -27,10 +27,6 @@
     [super setSelected:NO animated:animated];
 }
 
--(void)configCellWithData:(LTPostModel *)data{
-    self.postView.data = data;
-}
-
 #pragma mark - layout
 -(void)layoutSubviews{
     [super layoutSubviews];

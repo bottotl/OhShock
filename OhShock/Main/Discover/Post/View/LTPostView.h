@@ -7,10 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-#import "LTPostModel.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
-
 #import "LTPostProfileView.h"
 #import "LTPostContentView.h"
 #import "LTPostImagesView.h"
@@ -25,10 +22,6 @@
     主要负责把零碎的其他小页面、按钮组合在一起
  */
 @interface LTPostView : UIView
-
-@property (nonatomic, strong) LTPostModel *data;
-
-@property (nonatomic,strong) RACSignal *rac_gestureSignal;
 
 @property (nonatomic, strong) LTPostProfileView *profileView;
 
@@ -46,7 +39,5 @@
 
 @property (nonatomic, strong) LTPostViewModel *viewModel;
 
-
-+(CGFloat) viewHeightWithData:(LTPostModel *)data;
-
++(CGFloat)heightWithContent:(NSAttributedString *)content andPicCound:(NSInteger)picCount andUsersName:(NSAttributedString *)usersName andComments:(NSArray<NSAttributedString *> *)comments andCommitLimit:(NSInteger)limit andCommentFold:(BOOL)commentFold andPreferedWidth:(CGFloat)width;
 @end

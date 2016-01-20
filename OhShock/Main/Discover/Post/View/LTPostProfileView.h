@@ -8,27 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
-#import "LTPostProfileModel.h"
 
 /**
  *  显示个人信息
  */
 @interface LTPostProfileView : UIView
-/**
- *  头像展示控件
- */
-@property (nonatomic, strong) UIImageView  *avatarView;
-
-/**
- *  数据
- */
-@property (nonatomic, strong) LTPostProfileModel *data;
-
-/**
- *  用户小头像 Url
- */
-@property (nonatomic, copy) NSString *avatatUrlSmall;
-
 
 /**
  *  用户名

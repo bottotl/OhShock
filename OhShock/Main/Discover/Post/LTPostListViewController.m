@@ -8,24 +8,30 @@
 
 #import "LTPostListViewController.h"
 #import "LTPostViewCell.h"
-#import "LTPostModel.h"
 #import "YYKit.h"
 #import "LTUploadPhotosViewController.h"
 #import "LTPostListService.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import "LTModelPost.h"
 
-
+static NSUInteger const onceLoadPostNum = 10;
 @interface LTPostListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 
-/// NSArray <LTPostModel *> * 
-@property (nonatomic, strong) NSMutableArray *posts;
+/// <LTPostModel *> *
+@property (nonatomic, strong) NSMutableArray <LTPostModel *> *posts;
 
-/// NSArray < NSNumber *> *
+/// < NSNumber *> *
 @property (nonatomic, strong) NSMutableArray *heights;
 
 @property (nonatomic, strong) LTPostListService *service;
+
+@property (nonatomic, assign) NSUInteger lastPostCount;
+
+/// LTPostModel
+@property (nonatomic, strong) NSMutableArray <LTModelPost *> *dataSource;
+
 
 @end
 
@@ -39,9 +45,6 @@
     }
     
     _service = [LTPostListService new];
-
-    self.posts   = @[].mutableCopy;
-    self.heights = @[].mutableCopy;
     
     _tableView = [UITableView new];
     _tableView.delegate = self;
@@ -54,16 +57,44 @@
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"camer_add_post"] style:UIBarButtonItemStylePlain target:self action:@selector(showPostItems)];
     rightItem.tintColor = UIColorHex(fd8224);
     self.navigationItem.rightBarButtonItem = rightItem;
+    [self loadMorePostList];
     
+}
+
+#pragma mark property
+-(NSMutableArray *)dataSource{
+    if (!_dataSource) {
+        _dataSource = @[].mutableCopy;
+    }
+    return _dataSource;
+}
+-(NSMutableArray *)posts{
+    if (!_posts) {
+        _posts = @[].mutableCopy;
+    }
+    return _posts;
+}
+-(NSMutableArray *)heights{
+    if (!_heights) {
+        _heights = @[].mutableCopy;
+    }
+    return _heights;
 }
 
 #pragma mark - 数据
 // 加载一次 post
 -(void)loadMorePostList{
-//    LTModelPost *post =
-    
+    __weak __typeof(self) weakSelf = self;
+    [self.service findModelPost:self.lastPostCount length:onceLoadPostNum block:^(NSArray<LTModelPost *> *posts, NSError *error) {
+        if (posts) {
+            [weakSelf.dataSource addObjectsFromArray:posts.copy];
+            [weakSelf updateHeight];
+            [weakSelf.tableView reloadData];
+        }else{
+            NSLog(@"%@",error);
+        }
+    }];
 }
-
 /// 更新数据
 //- (void)makeArray{
 //    __weak __typeof(self) weakSelf = self;
@@ -83,17 +114,24 @@
 
 /// 更新高度数据
 - (void)updateHeight{
-    NSMutableArray *heights = @[].mutableCopy;
-    for (LTPostModel *model in self.posts) {
-        [heights addObject:@([LTPostView viewHeightWithData:model])];
+//    for (LTPostModel *model in self.posts) {
+//        [heights addObject:@([LTPostView viewHeightWithData:model])];
+//    }
+    for (LTModelPost *model in self.dataSource) {
+        [self.heights addObject:@([LTPostView heightWithContent:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@",model.content]]
+                                               andPicCound:model.photos.count
+                                              andUsersName:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@",model.pubUser.username]]
+                                               andComments:model.comments
+                                            andCommitLimit:6
+                                            andCommentFold:NO
+                                          andPreferedWidth:[UIScreen mainScreen].bounds.size.width])];
     }
-    self.heights = heights.copy;
 }
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.posts.count;
+    return self.dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -104,19 +142,22 @@
 #pragma mark  UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return ((NSNumber *)_heights[indexPath.row]).floatValue;
-    return 60;
+    return ((NSNumber *)self.heights[indexPath.row]).floatValue;
+
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    LTPostModel *postModel  = self.posts[indexPath.row];
-    [(LTPostViewCell *)cell configCellWithData:postModel];
-    [[((LTPostViewCell *)cell).postView.rac_gestureSignal takeUntil:cell.rac_prepareForReuseSignal] subscribeNext:^(id x) {
-        //NSLog(@"%@",postModel.profileData.avatarUrlBig);
-        NSLog(@"点击了头像%@",x);
-    }];
-    [cell setNeedsLayout];
-    [cell layoutIfNeeded];
+    LTPostViewCell *p_cell = (LTPostView *)cell;
+//    p_cell
+//    LTPostModel *postModel  = self.posts[indexPath.row];
+//    [(LTPostViewCell *)cell configCellWithData:postModel];
+//    [[((LTPostViewCell *)cell).postView.rac_gestureSignal takeUntil:cell.rac_prepareForReuseSignal] subscribeNext:^(id x) {
+//        //NSLog(@"%@",postModel.profileData.avatarUrlBig);
+//        NSLog(@"点击了头像%@",x);
+//    }];
+//    [cell setNeedsLayout];
+//    [cell layoutIfNeeded];
+    
 }
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -130,7 +171,7 @@
 - (void)showPostItems{
     UIAlertController *uploadAlert = [UIAlertController alertControllerWithTitle:@"上传动态" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
     [uploadAlert addAction:[UIAlertAction actionWithTitle:@"上传图片动态" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        NSLog(@"上传图片动态");
+        [self loadMorePostList];
     }]];
     [uploadAlert addAction:[UIAlertAction actionWithTitle:@"上传日程动态" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:[LTUploadPhotosViewController new]];

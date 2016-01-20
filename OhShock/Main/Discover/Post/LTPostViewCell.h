@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "LTPostView.h"
-#import "LTPostModel.h"
 
 static NSString *const LTPostViewCellIdentifier = @"LTPostViewCell";
 
@@ -22,12 +21,5 @@ static NSString *const LTPostViewCellIdentifier = @"LTPostViewCell";
  *  真实的 Post 视图
  */
 @property (nonatomic, strong) LTPostView *postView;
-
-/**
- *  配置 Cell 数据
- *
- *  @param data post 原始数据
- */
--(void)configCellWithData:(LTPostModel *)data;
 
 @end

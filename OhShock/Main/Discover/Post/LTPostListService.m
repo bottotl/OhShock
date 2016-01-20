@@ -8,7 +8,6 @@
 
 #import "LTPostListService.h"
 #import "LTModelPost.h"
-#import "LTPostModel.h"
 
 @implementation LTPostListService
 

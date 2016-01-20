@@ -8,14 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "LTModels.h"
-#import "LTPostCommentModel.h"
-
+/**
+ *  评论列表
+ */
 @interface LTPostCommentView : UIView
 
 /**
- *  评论内容 @[<LTModelPostComment *>]
+ *  评论内容
  */
-@property (nonatomic, strong) NSArray  *comments;
+@property (nonatomic, strong) NSArray <NSAttributedString *> *comments;
 
 /**
  *  最多显示多少条评论
@@ -34,15 +35,15 @@
 - (void)resetTabelView;
 
 /**
- *  计算高度
+ *  根据元数据获取高度
  *
- *  @param comments LTModelPostComment *
+ *  @param comments NSArray <NSAttributedString *>*
  *  @param limit    最多评论数
- *  @param fold     是否需要折叠
+ *  @param fold     是否折叠
  *  @param width    宽度
  *
- *  @return 高度
+ *  @return 整个 View 的高度
  */
-+ (CGFloat)suggestHeightWithComments:(NSArray *)comments andLimit:(NSInteger)limit andFold:(BOOL)fold withWidth:(CGFloat)width;
++ (CGFloat)heightWithComments:(NSArray <NSAttributedString *>*)comments andLimit:(NSInteger)limit andFold:(BOOL)fold withWidth:(CGFloat)width;
 
 @end

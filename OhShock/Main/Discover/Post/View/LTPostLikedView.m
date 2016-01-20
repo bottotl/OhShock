@@ -13,8 +13,6 @@
 
 @property (nonatomic, strong) YYLabel *usersNameLabel;///< 显示有哪些用户点赞了
 
-@property (nonatomic, strong) NSAttributedString *usersName;///< 包含所有用户名的富文本 eg:（💗A , B ,C …… ）
-
 @end
 
 @implementation LTPostLikedView
@@ -33,13 +31,6 @@
 //        };
     }
     return _usersNameLabel;
-}
-
--(void)setData:(LTPostLikedModel *)data{
-    if (!data) {
-        return;
-    }
-    self.usersName = data.usersNameAttributedString;
 }
 
 #pragma mark - sizeToFit

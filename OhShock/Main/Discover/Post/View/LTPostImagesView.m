@@ -9,7 +9,6 @@
 #import "LTPostImagesView.h"
 #import "LTPostImageCollectionViewCell.h"
 #import "UIView+Layout.h"
-#import "LTPostImageModel.h"
 #import "YYPhotoGroupView.h"
 #import <Foundation/Foundation.h>
 
@@ -98,40 +97,33 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    LTPostImageCollectionViewCell *cell = (LTPostImageCollectionViewCell  *)[collectionView dequeueReusableCellWithReuseIdentifier:LTPostImageCollectionCellIdentifier forIndexPath:indexPath];
-    LTPostImageModel *pic = self.data[indexPath.row];
-    [cell configCellWithImageUrl:pic.smallUrlString];
-//    if (self.limit < self.data.count && indexPath.row == self.limit - 1) {
-//        cell.numberLabel.hidden = NO;
-//        cell.numberLabel.text = [@(self.data.count) stringValue];
-//    }
-    return cell;
+    return (LTPostImageCollectionViewCell  *)[collectionView dequeueReusableCellWithReuseIdentifier:LTPostImageCollectionCellIdentifier forIndexPath:indexPath];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    LTPostImageCollectionViewCell *cell = (LTPostImageCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    LTPostImageModel *pic = self.data[indexPath.row];
-    [cell configCellWithImageUrl:pic.smallUrlString];
-    
-    NSMutableArray *items = @[].mutableCopy;
-    NSIndexPath * index = [NSIndexPath indexPathForRow:0 inSection:0];
-    for (NSUInteger i = 0 ; i < self.limit && i < self.data.count; i++) {
-        LTPostImageCollectionViewCell *cell = (LTPostImageCollectionViewCell *)[collectionView cellForItemAtIndexPath:index];
-        LTPostImageModel *pic = self.data[index.row];
-        [cell configCellWithImageUrl:pic.smallUrlString];
-        
-        YYPhotoGroupItem *item = [YYPhotoGroupItem new];
-        item.thumbView = cell.imageView;
-        item.largeImageURL = [NSURL URLWithString:((LTPostImageModel *)self.data[index.row]).bigUrlString];
-        item.largeImageSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
-        [items addObject:item];
-        index = [NSIndexPath indexPathForRow:(index.row + 1) inSection:0];;
-    }
-    UINavigationController * viewController = [self theNavi];
-
-    NSLog(@"%@",[NSValue valueWithCGRect:[self convertRect:cell.frame toView:viewController.view]]) ;
-    YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:items];
-    [v presentFromView:self andFromItemIndex:indexPath.row andCellView:cell toContainer:viewController.view animated:YES completion:nil];
+//    LTPostImageCollectionViewCell *cell = (LTPostImageCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+//    LTPostImageModel *pic = self.data[indexPath.row];
+//    [cell configCellWithImageUrl:pic.smallUrlString];
+//    
+//    NSMutableArray *items = @[].mutableCopy;
+//    NSIndexPath * index = [NSIndexPath indexPathForRow:0 inSection:0];
+//    for (NSUInteger i = 0 ; i < self.limit && i < self.data.count; i++) {
+//        LTPostImageCollectionViewCell *cell = (LTPostImageCollectionViewCell *)[collectionView cellForItemAtIndexPath:index];
+//        LTPostImageModel *pic = self.data[index.row];
+//        [cell configCellWithImageUrl:pic.smallUrlString];
+//        
+//        YYPhotoGroupItem *item = [YYPhotoGroupItem new];
+//        item.thumbView = cell.imageView;
+//        item.largeImageURL = [NSURL URLWithString:((LTPostImageModel *)self.data[index.row]).bigUrlString];
+//        item.largeImageSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
+//        [items addObject:item];
+//        index = [NSIndexPath indexPathForRow:(index.row + 1) inSection:0];;
+//    }
+//    UINavigationController * viewController = [self theNavi];
+//
+//    NSLog(@"%@",[NSValue valueWithCGRect:[self convertRect:cell.frame toView:viewController.view]]) ;
+//    YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:items];
+//    [v presentFromView:self andFromItemIndex:indexPath.row andCellView:cell toContainer:viewController.view animated:YES completion:nil];
 
 }
 
