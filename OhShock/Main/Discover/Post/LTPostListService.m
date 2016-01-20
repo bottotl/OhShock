@@ -25,16 +25,4 @@
         }
     }];
 }
--(void)findPostModels:(NSInteger)fromIndex length:(NSUInteger)length block:(LTPostModelFindResponse)block{
-    
-//    [self findModelPost:fromIndex length:length block:^(NSArray<LTModelPost *> *posts, NSError *error) {
-//        NSMutableArray *postModels = @[].mutableCopy;
-//        for (LTModelPost *model in posts) {
-//            LTPostModel *post = [LTPostModel new];
-//            post.profileData = [LTPostProfileModel new];
-//            post.profileData.name = model.pubUser.username;
-//            post.profileData.
-//        }
-//    }];
-}
 @end
