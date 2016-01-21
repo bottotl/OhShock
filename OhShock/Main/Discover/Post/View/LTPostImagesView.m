@@ -14,13 +14,28 @@
 
 @interface LTPostImagesView ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
+@property (nonatomic, assign) NSUInteger                 picNum;    ///< 将要展示多少张图片
+
+@property (nonatomic, assign) CGFloat                    itemSpace; ///< 图片间距
+
+@property (nonatomic, assign) BOOL                       needBig;   ///< 是否需要显示大图
+
+@property (nonatomic, assign) NSUInteger                 limit;     ///< 图片最多数量
+
+@property (nonatomic, strong) RACSignal                  *imageTapSignal;///< 图片点击
+
 @property (nonatomic, strong) UICollectionViewFlowLayout *layout;
 
 @end
 
 @implementation LTPostImagesView
-@synthesize picItems = _picItems;
 #pragma mark - init
+-(void)configViewWithPicNum:(NSUInteger)picNum needBig:(BOOL)needBig itemSpace:(CGFloat)itemSpace  limit:(NSUInteger )limit{
+    self.picNum = picNum;
+    self.needBig = needBig;
+    self.itemSpace = itemSpace;
+    self.limit = limit;
+}
 
 -(instancetype)init{
     self = [self initWithFrame:CGRectZero];
@@ -31,7 +46,6 @@
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor clearColor];
         [self p_initial];
-        [self reset];
     }
     return self;
 }
@@ -52,14 +66,14 @@
 #pragma mark - layout
 - (void)layoutSubviews{
     [super layoutSubviews];
-    NSInteger count = MIN(self.data.count, self.limit);
+    NSInteger count = MIN(self.picNum, self.limit);
     CGFloat picWidth = ( self.width - 2 * self.itemSpace ) / 3;
     if ((self.needBig && count == 1) || count == 4 || count == 2) {
         picWidth = (self.width - self.itemSpace ) / 2;
     } else if (count == 1 && !self.needBig){
         picWidth = self.width;
     }
-    if (self.data.count == 1 && self.needBig) {
+    if (self.picNum == 1 && self.needBig) {
         self.layout.itemSize = CGSizeMake(self.height, self.height);
     } else {
         self.layout.itemSize = CGSizeMake(picWidth, picWidth);
@@ -70,7 +84,7 @@
 #pragma mark - sizeToFit
 - (CGSize)sizeThatFits:(CGSize)size{
     if (size.width == 0) return size;
-    NSInteger count = MIN(self.data.count, self.limit);
+    NSInteger count = MIN(self.picNum, self.limit);
     CGFloat picWidth = ( self.width - 2 * self.itemSpace ) / 3;
     if (( self.needBig && count == 1 ) || count == 4) {
         size.width = self.itemSpace + 2 * picWidth;
@@ -79,25 +93,27 @@
         size.height = picWidth;
         size.width = count * (picWidth + self.itemSpace) - self.itemSpace;
     } else {
-        size.height = [[self class] heightWithSuggestThreePicWidth:size.width andPicCount:self.data.count andBigPic:self.needBig andItemSpace:6 withLimit:self.limit];
+        size.height = [[self class] heightWithSuggestThreePicWidth:size.width andPicCount:self.picNum andBigPic:self.needBig andItemSpace:6 withLimit:self.limit];
     }
     return size;
-}
-
-- (void)reset{
-    
-    self.needBig = YES;
-    self.data = nil;
 }
 
 #pragma mark - collectionView  delegate
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.data.count;
+    return self.picNum;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return (LTPostImageCollectionViewCell  *)[collectionView dequeueReusableCellWithReuseIdentifier:LTPostImageCollectionCellIdentifier forIndexPath:indexPath];
+    return [collectionView dequeueReusableCellWithReuseIdentifier:LTPostImageCollectionCellIdentifier forIndexPath:indexPath];
+}
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
+    LTPostImageCollectionViewCell *p_cell = (LTPostImageCollectionViewCell *)cell;
+    if (self.photos.count > indexPath.row) {
+        p_cell.imageView.image = self.photos[[NSString stringWithFormat:@"%lu",(unsigned long)indexPath.row]];
+    }
+    
+    
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -134,15 +150,17 @@
 }
 
 #pragma mark - property
-- (void)setData:(NSArray *)data{
-    _data = data;
-    [self.collectionView reloadData];
-}
 
 - (void)setItemSpace:(CGFloat)itemSpace{
     _itemSpace = itemSpace;
     self.layout.minimumLineSpacing = itemSpace;
     self.layout.minimumInteritemSpacing = itemSpace;
+}
+-(NSMutableDictionary *)photos{
+    if (!_photos) {
+        _photos = @{}.mutableCopy;
+    }
+    return _photos;
 }
 
 #pragma mark - 计算总高度

@@ -23,8 +23,6 @@
 #import "LTModelUser.h"
 #import "LTModelPost.h"
 
-#warning for test
-#import "LTPostListViewController.h"
 
 #define kColorTableSectionBg [UIColor colorWithHexString:@"0xe5e5e5"]
 #define  kNavTitleFontSize 19
@@ -81,8 +79,6 @@ static NSString *const AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
     }else{
         //跳转到主业务逻辑页面
         [self setupMainViewController];
-#warning for test
-        //[self.window setRootViewController:[[UINavigationController alloc]initWithRootViewController:[LTPostListViewController new]]];
     }
     [self.window makeKeyAndVisible];
     
