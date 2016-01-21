@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YYControl.h"
+
 /// 添加图片按钮的点击
-@protocol AddPhotoDelegae <NSObject>
+@protocol LTUploadTextAndPhotosViewDelegae <NSObject>
 @required
 - (void)addPhotoOnClick;
 @end
@@ -18,8 +20,8 @@
  */
 @interface LTUploadTextAndPhotosView : UIView
 
-@property (nonatomic, strong) id <AddPhotoDelegae> delegate;
-@property (nonatomic, strong) id <UITextViewDelegate> textViewDelegate;
+@property (nonatomic, strong) id <LTUploadTextAndPhotosViewDelegae> delegate;
+@property (nonatomic, strong) YYTextView *textView;
 
 +(CGFloat)photoHeight;// 图片展示的大小
 

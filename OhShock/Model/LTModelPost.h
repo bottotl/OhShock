@@ -18,7 +18,7 @@
 @property (nonatomic, strong) LTModelUser *pubUser;
 
 /** post 内容 */
-@property (nonatomic, copy) NSString *content;
+@property (nonatomic, copy) NSData *content;
 
 /** 评论 NSArray <LTModelPostComment *>* */
 @property (nonatomic, strong) NSArray *comments;

@@ -14,10 +14,12 @@
 
 @implementation LTUploadService
 
--(void)uploadPost:(NSArray<PHAsset *> *)selectedAsset andContent:(NSString *)content andBlock:(LTUploadResponse)block{
+-(void)uploadPost:(NSArray<PHAsset *> *)selectedAsset andContent:(NSAttributedString *)content andBlock:(LTUploadResponse)block{
     __block LTModelPost *post = [LTModelPost new];
     post.pubUser              = [LTModelUser currentUser];
-    post.content              = content;
+    post.content              = [content dataFromRange:NSMakeRange(0, content.length)
+                                    documentAttributes:@{NSDocumentTypeDocumentAttribute : NSRTFTextDocumentType }
+                                                error:nil];
     
     NSUInteger countAll            = selectedAsset.count;
     __block NSUInteger count       = 0;

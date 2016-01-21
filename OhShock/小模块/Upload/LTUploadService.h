@@ -15,6 +15,8 @@ typedef void (^LTUploadResponse)(BOOL success, NSError *error);
 
 /**
  *  提供了上传 post 所需的接口
+ *  上传的内容为 (NSAttributedString *)content 
+    但是由于暂时没有做富文本的输入，这里就只做一个兼容性的处理，为了后期扩展成富文本提供便利
  */
 @interface LTUploadService : NSObject
 
@@ -25,6 +27,6 @@ typedef void (^LTUploadResponse)(BOOL success, NSError *error);
 *  @param content       Post 文本
 *  @param block         callback
 */
--(void)uploadPost:(NSArray <PHAsset *> *)selectedAsset andContent:(NSString *)content andBlock:(LTUploadResponse)block;
+-(void)uploadPost:(NSArray <PHAsset *> *)selectedAsset andContent:(NSAttributedString *)content andBlock:(LTUploadResponse)block;
 
 @end

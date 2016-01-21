@@ -12,7 +12,7 @@
 #import "QBImagePickerController.h"
 #import "LTUploadService.h"
 
-@interface LTUploadPhotosViewController ()<UITableViewDataSource, UITableViewDelegate, AddPhotoDelegae, QBImagePickerControllerDelegate, UITextViewDelegate>
+@interface LTUploadPhotosViewController ()<UITableViewDataSource, UITableViewDelegate, LTUploadTextAndPhotosViewDelegae, QBImagePickerControllerDelegate, YYTextViewDelegate>
 
 @property (nonatomic, strong) QBImagePickerController *imagePickerController;
 
@@ -24,8 +24,11 @@
 /// 原始数据（可以通过这个属性获得原始数据）
 @property (nonatomic, strong) NSMutableArray <PHAsset *> *selectedAsset;
 
-/// 主内容文本
-@property (nonatomic, copy) NSString *content;
+///// 主内容文本
+//@property (nonatomic, copy) NSString *content;
+
+/// 主内容富文本
+@property (nonatomic, strong) NSAttributedString *attributedContent;
 
 /// 上传服务类
 @property (nonatomic, strong) LTUploadService *service;
@@ -114,7 +117,7 @@
     if (indexPath.section == 0 && indexPath.row == 0) {
         LTUploadTextAndPhotosCell *cell = [tableView dequeueReusableCellWithIdentifier:LTUploadTextAndPhotosCellIdentifier forIndexPath:indexPath];
         cell.richView.delegate = self;
-        cell.richView.textViewDelegate = self;
+        cell.richView.textView.delegate = self;
         return cell;
     }
     cell = [tableView dequeueReusableCellWithIdentifier:LTBaseTableViewCellIdentifier forIndexPath:indexPath];
@@ -150,7 +153,7 @@
 
 /// 上传按钮响应事件
 - (void)doneUpload{
-    [self.service uploadPost:self.selectedAsset andContent:self.content andBlock:^(BOOL success, NSError *error) {
+    [self.service uploadPost:self.selectedAsset andContent:self.attributedContent andBlock:^(BOOL success, NSError *error) {
         if (success) {
             NSLog(@"成功上传 post");
         }else{
@@ -193,9 +196,9 @@
 - (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController{
     [imagePickerController dismissViewControllerAnimated:YES completion:nil];
 }
-#pragma mark UITextViewDelegate
-- (void)textViewDidChange:(UITextView *)textView{
-    self.content = textView.text;
+#pragma mark YYTextViewDelegate
+- (void)textViewDidChange:(YYTextView *)textView;{
+    self.attributedContent = textView.attributedText;
 }
 
 
