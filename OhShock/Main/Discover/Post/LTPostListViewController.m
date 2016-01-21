@@ -84,16 +84,18 @@ static NSUInteger const onceLoadPostNum = 10;
 #pragma mark - 数据
 // 加载一次 post
 -(void)loadMorePostList{
-    [self.dataSource removeAllObjects];
     __weak __typeof(self) weakSelf = self;
-    [self.service findModelPost:self.lastPostCount length:onceLoadPostNum block:^(NSArray<LTModelPost *> *posts, NSError *error) {
-        if (posts) {
-            [weakSelf.dataSource addObjectsFromArray:posts.copy];
-            //self.lastPostCount ++;
-            [weakSelf updateHeight];
-            [weakSelf.tableView reloadData];
-        }else{
+    AVQuery *query = [LTModelPost query];
+    [query orderByDescending:@"createdAt"];
+    query.skip = self.lastPostCount ;
+    query.limit = onceLoadPostNum;
+    [query setCachePolicy:kAVCachePolicyNetworkElseCache];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (error) {
             NSLog(@"%@",error);
+        }else{
+            [weakSelf.dataSource addObjectsFromArray:objects];
+            [weakSelf updateHeight];
         }
     }];
 }
@@ -108,16 +110,19 @@ static NSUInteger const onceLoadPostNum = 10;
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (objects && objects.count > 0) {
                 LTModelUser *user = [objects firstObject];
-                NSLog(@"%@",user);
-                [weakSelf.heights addObject:@([LTPostView heightWithContent:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@",[model objectForKey:@"content"]]]
-                                                            andPicCound:model.photos.count
-                                                           andUsersName:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@",user.username]]
-                                                            andComments:model.comments
-                                                         andCommitLimit:6
-                                                         andCommentFold:NO
-                                                       andPreferedWidth:[UIScreen mainScreen].bounds.size.width])];
+                NSDictionary *options = @{NSDocumentTypeDocumentAttribute : NSRTFTextDocumentType};
+                NSAttributedString *content = [[NSAttributedString alloc]initWithData:[model objectForKey:@"content"] options:options documentAttributes:nil error:nil];
+                
+                [weakSelf.heights addObject:@([LTPostView heightWithContent:content
+                                                                andPicCound:model.photos.count
+                                                               andUsersName:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@",user.username]]
+                                                                andComments:model.comments
+                                                             andCommitLimit:6
+                                                             andCommentFold:NO
+                                                           andPreferedWidth:[UIScreen mainScreen].bounds.size.width])];
+                
+                [weakSelf.tableView reloadData];
             }
-            
         }];
         
     }

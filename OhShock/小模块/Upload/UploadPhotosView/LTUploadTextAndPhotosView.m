@@ -26,7 +26,7 @@ static CGFloat textViewFontSize = 16.0;
 @interface LTUploadTextAndPhotosView () <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectioneView;
-@property (nonatomic, strong) UITextView *textView;
+
 @property (nonatomic, strong) NSArray *photos;
 
 @end
@@ -51,8 +51,7 @@ static CGFloat textViewFontSize = 16.0;
         [_collectioneView registerClass:[LTUploadPhotoCollectionCell class] forCellWithReuseIdentifier:LTUploadPhotoCollectionCellIdentifier];
         [_collectioneView registerClass:[LTUploadAddPhotoColloectionCell class] forCellWithReuseIdentifier:LTUploadAddPhotoCellIdentifier];
         
-        _textView = [UITextView new];
-        _textView.delegate = self.textViewDelegate;
+        _textView = [YYTextView new];
         _textView.font = [UIFont systemFontOfSize:textViewFontSize];
         [self addSubview:_textView];
     }
