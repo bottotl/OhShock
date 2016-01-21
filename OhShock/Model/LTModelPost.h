@@ -17,13 +17,15 @@
 /** 发布者 */
 @property (nonatomic, strong) LTModelUser *pubUser;
 
+@property (nonatomic, strong) NSData *avatarData;
+
 /** post 内容 */
 @property (nonatomic, copy) NSData *content;
 
 /** 评论 NSArray <LTModelPostComment *>* */
 @property (nonatomic, strong) NSArray *comments;
 
-/** 需要上传的图片 _File */
+/** 图片 _File */
 @property (nonatomic, strong) NSArray *photos;
 
 @end

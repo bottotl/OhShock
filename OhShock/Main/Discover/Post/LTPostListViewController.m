@@ -138,6 +138,8 @@ static NSUInteger const onceLoadPostNum = 10;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LTPostViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LTPostViewCellIdentifier forIndexPath:indexPath];
+    LTModelPost *post = self.dataSource[indexPath.row];
+    [cell.postView.imagesView configViewWithPicNum:post.photos.count needBig:YES itemSpace:6 limit:9];
     return cell;
 }
 
@@ -149,8 +151,49 @@ static NSUInteger const onceLoadPostNum = 10;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    LTPostViewCell *p_cell = (LTPostView *)cell;
-//    p_cell
+    LTPostView *postView = ((LTPostViewCell *)cell).postView;
+    LTModelPost *post = self.dataSource[indexPath.row];
+    
+    /// 个人信息填充
+    // 这时候用户内部没有数据 得去查一遍
+    AVQuery *query = [LTModelUser query];
+    [query whereKey:@"objectId" equalTo:post.pubUser.objectId];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (objects && objects.count > 0) {
+            LTModelUser *user = [objects firstObject];
+            postView.profileView.name = user.username;
+            AVFile *avatar = user.avatar;
+            [avatar getThumbnail:YES width:LTPostProfileViewAvatarViewHeight height:LTPostProfileViewAvatarViewHeight withBlock:^(UIImage *thumbImage, NSError *error) {
+                postView.profileView.avatarView.image = thumbImage;
+            }];
+        }
+    }];
+    
+    /// 文字内容填充
+    NSDictionary *options = @{NSDocumentTypeDocumentAttribute : NSRTFTextDocumentType};
+    postView.contentView.content = [[NSAttributedString alloc]initWithData:[post objectForKey:@"content"] options:options documentAttributes:nil error:nil];
+    
+    /// 图片内容填充
+    for (int i = 0; i < post.photos.count; i++) {
+        AVFile *photo = post.photos[i];
+        
+        // 这时候 photo 内部没有数据 得去查一遍
+        AVQuery *query = [AVFile query];
+        [query whereKey:@"objectId" equalTo:photo.objectId];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (objects && objects.count > 0) {
+                AVFile *file = [objects firstObject];
+                [file getThumbnail:YES width:150 height:150 withBlock:^(UIImage *image, NSError *error) {
+                    [postView.imagesView.photos setObject:image forKey:[NSString stringWithFormat:@"%lu",(unsigned long)i]];
+                }];
+            }
+        }];
+        
+        
+    }
+    
+
+    
 //    LTPostModel *postModel  = self.posts[indexPath.row];
 //    [(LTPostViewCell *)cell configCellWithData:postModel];
 //    [[((LTPostViewCell *)cell).postView.rac_gestureSignal takeUntil:cell.rac_prepareForReuseSignal] subscribeNext:^(id x) {

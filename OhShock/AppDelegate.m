@@ -28,10 +28,6 @@
 #import "CDUserFactory.h"
 
 
-#warning for test
-#import "LTPostListViewController.h"
-#import "SVProgressHUD.h"
-
 #define kColorTableSectionBg [UIColor colorWithHexString:@"0xe5e5e5"]
 #define  kNavTitleFontSize 19
 #define GAODE_APPKEY @"cbf7020906739e6c33110f18bc6f261e" //高德地图key
@@ -89,8 +85,6 @@ static NSString *const AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
     }else{
         //跳转到主业务逻辑页面
         [self setupMainViewController];
-#warning for test
-        //[self.window setRootViewController:[[UINavigationController alloc]initWithRootViewController:[LTPostListViewController new]]];
     }
     [self.window makeKeyAndVisible];
     

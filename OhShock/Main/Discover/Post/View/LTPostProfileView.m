@@ -14,10 +14,7 @@
 static CGFloat const LTPostProfileViewHeight = 60.0;
 
 @interface LTPostProfileView()
-/**
- *  头像展示控件
- */
-@property (nonatomic, strong) UIImageView  *avatarView;
+
 
 @property (nonatomic, strong) YYLabel      *nameLabel;///< 用户名
 
@@ -40,7 +37,7 @@ static CGFloat const LTPostProfileViewHeight = 60.0;
 
 -(void)layoutSubviews{
     
-    self.avatarView.size = CGSizeMake(45, 45);
+    self.avatarView.size = CGSizeMake(LTPostProfileViewAvatarViewHeight, LTPostProfileViewAvatarViewHeight);
     self.avatarView.layer.cornerRadius = self.avatarView.height/2;
     self.avatarView.backgroundColor = [UIColor redColor];
     self.avatarView.left = 10;
@@ -65,6 +62,7 @@ static CGFloat const LTPostProfileViewHeight = 60.0;
 -(UIImageView *)avatarView{
     if (!_avatarView) {
         _avatarView = [UIImageView new];
+        _avatarView.contentMode = UIViewContentModeScaleAspectFill;
         _avatarView.clipsToBounds = YES;
         _avatarView.userInteractionEnabled = YES;
         [self addSubview:_avatarView];

@@ -14,18 +14,19 @@
  */
 @interface LTPostImagesView : UIView
 
-@property (nonatomic, strong) NSArray   *data;///< 图片数据 @[<LTPostImageModel *>]
+@property (nonatomic, strong) NSMutableDictionary *photos;          ///< 图片数据 @{index:image}
 
-@property (nonatomic, assign) CGFloat   itemSpace;///< 图片间距
+@property (nonatomic, strong) UICollectionView    *collectionView;  ///< 暴露出来方便设置 delegate
 
-@property (nonatomic, assign) BOOL      needBig;///< 是否需要显示大图
-
-@property (nonatomic, assign) NSUInteger limit;///< 图片最多数量
-@property (nonatomic, strong) RACSignal *imageTapSignal;///< 图片点击
-
-@property (nonatomic, strong) UICollectionView           *collectionView;
-
-@property (nonatomic, strong) NSArray *picItems;
+/**
+ *  配置 View
+ *
+ *  @param picNum    将要展示多少张图片
+ *  @param needBig   是否需要显示大图
+ *  @param itemSpace 图片间距
+ *  @param limit     最多显示多少图片
+ */
+-(void)configViewWithPicNum:(NSUInteger)picNum needBig:(BOOL)needBig itemSpace:(CGFloat)itemSpace limit:(NSUInteger)limit;
 
 /**
  *  计算图片显示控件的高度
@@ -40,7 +41,6 @@
  */
 + (CGFloat)heightWithSuggestThreePicWidth:(CGFloat)width andPicCount:(NSInteger)count andBigPic:(BOOL)bigpic andItemSpace:(CGFloat)space withLimit:(NSInteger)limit;
 
-- (void)reset;
 
 @end
 
