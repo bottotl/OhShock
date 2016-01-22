@@ -20,9 +20,21 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
 
 @interface LTPostView ()<UICollectionViewDelegate>
 
+@property (nonatomic, strong) LTPostViewRoundButton *commitButton;
+
+@property (nonatomic, strong) LTPostViewRoundButton *likeButton;
 @end
 
 @implementation LTPostView
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.liked = NO;
+    }
+    return self;
+}
 
 #pragma mark - 高度计算
 + (CGFloat)heightWithContent:(NSAttributedString *)content andPicCound:(NSInteger)picCount andUsersName:(NSAttributedString *)usersName andComments:(NSArray<NSAttributedString *> *)comments andCommitLimit:(NSInteger)limit andCommentFold:(BOOL)commentFold andPreferedWidth:(CGFloat)width{
@@ -94,7 +106,6 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
 
 }
 
-
 #pragma mark - collection view delegate
 //- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 //    NSMutableArray *items = @[].mutableCopy;
@@ -116,10 +127,16 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
 //    NSLog(@"%@",[NSValue valueWithCGRect:[cell.imageView convertRect:cell.imageView.frame toView:viewController.view]]) ;
 //}
 
-
-
 #pragma mark - property
-
+#pragma mark 点赞
+-(void)setLiked:(BOOL)liked{
+    _liked = liked;
+    if(liked){//设置为点过赞状态
+        [self.likeButton setImage:[[UIImage imageNamed:@"post_like_selected_btn"]scaledToSize:CGSizeMake(20, 20) ] forState:UIControlStateNormal];
+    }else{
+        [self.likeButton setImage:[[UIImage imageNamed:@"post_like_normal_btn"]scaledToSize:CGSizeMake(20, 20) ] forState:UIControlStateNormal];
+    }
+}
 #pragma mark View
 -(LTPostImagesView *)imagesView{
     if (!_imagesView) {
@@ -150,7 +167,6 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
     if (!_likeButton) {
         _likeButton = [[LTPostViewRoundButton alloc]initWithFrame:CGRectMake(0, 0, 45, LTPostButtonHeight)];
         [_likeButton setTitle:@"点赞" forState:UIControlStateNormal];
-        [_likeButton setImage:[[UIImage imageNamed:@"post_like_selected_btn"]scaledToSize:CGSizeMake(20, 20) ] forState:UIControlStateNormal];
         [self addSubview:_likeButton];
     }
     return _likeButton;
@@ -182,7 +198,12 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
     return _commentsView;
 }
 
+-(RACSignal *)rac_likeSignal{
+    return [self.likeButton rac_signalForControlEvents:UIControlEventTouchUpInside];
+}
 
-
+-(RACSignal *)rac_commitSignal{
+    return [self.commitButton rac_signalForControlEvents:UIControlEventTouchUpInside];
+}
 
 @end

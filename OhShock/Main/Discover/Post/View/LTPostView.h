@@ -23,21 +23,21 @@
  */
 @interface LTPostView : UIView
 
-@property (nonatomic, strong) LTPostProfileView *profileView;
+@property (nonatomic, strong) LTPostProfileView *profileView;   ///< 个人信息
 
-@property (nonatomic, strong) LTPostContentView *contentView;
+@property (nonatomic, strong) LTPostContentView *contentView;   ///< 文字内容
 
-@property (nonatomic, strong) LTPostImagesView *imagesView;
+@property (nonatomic, strong) LTPostImagesView  *imagesView;    ///< 多图展示
 
-@property (nonatomic, strong) LTPostViewRoundButton *commitButton;
+@property (nonatomic, strong) LTPostLikedView   *likedView;     ///< 点赞用户
 
-@property (nonatomic, strong) LTPostViewRoundButton *likeButton;
+@property (nonatomic, strong) LTPostCommentView *commentsView;  ///< 评论列表
 
-@property (nonatomic, strong) LTPostLikedView *likedView;
+@property (nonatomic, assign) BOOL liked;///< 是否点过赞
 
-@property (nonatomic, strong) LTPostCommentView *commentsView;
-
-@property (nonatomic, strong) LTPostViewModel *viewModel;
+/// signal
+-(RACSignal *)rac_likeSignal;///< 点赞按钮点击
+-(RACSignal *)rac_commitSignal;///< 评论按钮点击
 
 +(CGFloat)heightWithContent:(NSAttributedString *)content andPicCound:(NSInteger)picCount andUsersName:(NSAttributedString *)usersName andComments:(NSArray<NSAttributedString *> *)comments andCommitLimit:(NSInteger)limit andCommentFold:(BOOL)commentFold andPreferedWidth:(CGFloat)width;
 @end

@@ -17,7 +17,8 @@
 /** 发布者 */
 @property (nonatomic, strong) LTModelUser *pubUser;
 
-@property (nonatomic, strong) NSData *avatarData;
+/** 点赞的用户 NSArray < LTModelUser * >*  */
+@property (nonatomic, strong) NSArray *likedUser;
 
 /** post 内容 */
 @property (nonatomic, copy) NSData *content;
