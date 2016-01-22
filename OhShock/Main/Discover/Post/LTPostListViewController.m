@@ -179,13 +179,14 @@ static NSUInteger const onceLoadPostNum = 10;
         
         // 这时候 photo 内部没有数据 得去查一遍
         AVQuery *query = [AVFile query];
+        __weak LTPostView * weakPostView = postView;
         [query whereKey:@"objectId" equalTo:photo.objectId];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (objects && objects.count > 0) {
                 AVFile *file = [AVFile fileWithAVObject:[objects firstObject]];
                 [file getThumbnail:YES width:150 height:150 withBlock:^(UIImage *image, NSError *error) {
-                    [postView.imagesView.photos setObject:image forKey:[NSString stringWithFormat:@"%lu",(unsigned long)i]];
-                    [postView.imagesView.collectionView reloadData];
+                    [weakPostView.imagesView.photos setObject:image forKey:[NSString stringWithFormat:@"%lu",(unsigned long)i]];
+                    [weakPostView.imagesView.collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:i inSection:0]]];
                 }];
             }
         }];
