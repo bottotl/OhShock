@@ -95,6 +95,7 @@ static NSUInteger const onceLoadPostNum = 10;
             NSLog(@"%@",error);
         }else{
             [weakSelf.dataSource addObjectsFromArray:objects];
+            self.lastPostCount += objects.count;
             [weakSelf updateHeight];
         }
     }];
@@ -120,8 +121,8 @@ static NSUInteger const onceLoadPostNum = 10;
                                                              andCommitLimit:6
                                                              andCommentFold:NO
                                                            andPreferedWidth:[UIScreen mainScreen].bounds.size.width])];
-                
                 [weakSelf.tableView reloadData];
+                
             }
         }];
         
@@ -133,13 +134,45 @@ static NSUInteger const onceLoadPostNum = 10;
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataSource.count;
+    return self.heights.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LTPostViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LTPostViewCellIdentifier forIndexPath:indexPath];
     LTModelPost *post = self.dataSource[indexPath.row];
     [cell.postView.imagesView configViewWithPicNum:post.photos.count needBig:YES itemSpace:6 limit:9];
+    [[cell.postView.rac_likeSignal takeUntil:cell.rac_prepareForReuseSignal]subscribeNext:^(id x) {
+        LTPostViewRoundButton *button = x;
+        cell.postView.liked = !cell.postView.liked ;
+        button.enabled = NO;/// 点击一次之后不允许点击了
+        
+        LTModelPost *post = self.dataSource[indexPath.row];
+        BOOL needRemove = NO;// 标记需要移除还是添加
+        NSMutableArray *likedUsers = [[NSMutableArray alloc]initWithArray:post.likedUser];
+        for (LTModelUser *user in likedUsers) {
+            if([user.objectId isEqualToString:([LTModelUser currentUser].objectId)]){
+                [likedUsers removeObject:user];
+                needRemove = YES;
+                break;
+            }
+        }
+        
+        if (needRemove || likedUsers.count == 0) {
+            [likedUsers addObject:[LTModelUser currentUser]];
+        }
+        post.likedUser = likedUsers.copy;
+        [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                button.enabled = YES;/// 保存结束，设置可以点击点赞
+            }else{
+                NSLog(@"%@",error);
+            }
+        }];
+    }];
+    [[cell.postView.rac_commitSignal takeUntil:cell.rac_prepareForReuseSignal]subscribeNext:^(id x){
+        NSLog(@"评论 %@",x);
+        
+    }];
     return cell;
 }
 
@@ -157,6 +190,7 @@ static NSUInteger const onceLoadPostNum = 10;
     /// 个人信息填充
     // 这时候用户内部没有数据 得去查一遍
     AVQuery *query = [LTModelUser query];
+    query.cachePolicy = kAVCachePolicyCacheElseNetwork;
     [query whereKey:@"objectId" equalTo:post.pubUser.objectId];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (objects && objects.count > 0) {
@@ -186,7 +220,8 @@ static NSUInteger const onceLoadPostNum = 10;
                 AVFile *file = [AVFile fileWithAVObject:[objects firstObject]];
                 [file getThumbnail:YES width:150 height:150 withBlock:^(UIImage *image, NSError *error) {
                     [weakPostView.imagesView.photos setObject:image forKey:[NSString stringWithFormat:@"%lu",(unsigned long)i]];
-                    [weakPostView.imagesView.collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:i inSection:0]]];
+                    [weakPostView.imagesView.collectionView reloadData];
+//                    [weakPostView.imagesView.collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:i inSection:0]]];
                 }];
             }
         }];
