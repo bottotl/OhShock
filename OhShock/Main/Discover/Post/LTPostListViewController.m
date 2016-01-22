@@ -13,19 +13,20 @@
 #import "LTPostListService.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "LTModelPost.h"
+#import "LTPostModel.h"
+
 
 static NSUInteger const onceLoadPostNum = 10;
 @interface LTPostListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 
-/// <LTPostModel *> *
-@property (nonatomic, strong) NSMutableArray <LTPostModel *> *posts;
-
 /// < NSNumber *> *
-@property (nonatomic, strong) NSMutableArray *heights;
+//@property (nonatomic, strong) NSMutableArray *heights;
 
 @property (nonatomic, strong) LTPostListService *service;
+
+@property (nonatomic, strong) NSMutableArray *posts;
 
 @property (nonatomic, assign) NSUInteger lastPostCount;
 
@@ -68,18 +69,13 @@ static NSUInteger const onceLoadPostNum = 10;
     }
     return _dataSource;
 }
--(NSMutableArray *)posts{
-    if (!_posts) {
-        _posts = @[].mutableCopy;
-    }
-    return _posts;
-}
--(NSMutableArray *)heights{
-    if (!_heights) {
-        _heights = @[].mutableCopy;
-    }
-    return _heights;
-}
+
+//-(NSMutableArray *)heights{
+//    if (!_heights) {
+//        _heights = @[].mutableCopy;
+//    }
+//    return _heights;
+//}
 
 #pragma mark - 数据
 // 加载一次 post
@@ -96,45 +92,45 @@ static NSUInteger const onceLoadPostNum = 10;
         }else{
             [weakSelf.dataSource addObjectsFromArray:objects];
             self.lastPostCount += objects.count;
-            [weakSelf updateHeight];
+//            [weakSelf updateHeight];
         }
     }];
 }
 
 /// 更新高度数据
-- (void)updateHeight{
-    __weak __typeof(self) weakSelf = self;
-    for (LTModelPost *model in self.dataSource) {
-        LTModelUser *user = [model objectForKey:@"pubUser"];
-        AVQuery *query = [AVQuery queryWithClassName:@"_User"];
-        [query whereKey:@"objectId" equalTo:user.objectId];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            if (objects && objects.count > 0) {
-                LTModelUser *user = [objects firstObject];
-                NSDictionary *options = @{NSDocumentTypeDocumentAttribute : NSRTFTextDocumentType};
-                NSAttributedString *content = [[NSAttributedString alloc]initWithData:[model objectForKey:@"content"] options:options documentAttributes:nil error:nil];
-                
-                [weakSelf.heights addObject:@([LTPostView heightWithContent:content
-                                                                andPicCound:model.photos.count
-                                                               andUsersName:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@",user.username]]
-                                                                andComments:model.comments
-                                                             andCommitLimit:6
-                                                             andCommentFold:NO
-                                                           andPreferedWidth:[UIScreen mainScreen].bounds.size.width])];
-                [weakSelf.tableView reloadData];
-                
-            }
-        }];
-        
-    }
-}
+//- (void)updateHeight{
+//    __weak __typeof(self) weakSelf = self;
+//    for (LTModelPost *model in self.dataSource) {
+//        LTModelUser *user = [model objectForKey:@"pubUser"];
+//        AVQuery *query = [AVQuery queryWithClassName:@"_User"];
+//        [query whereKey:@"objectId" equalTo:user.objectId];
+//        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//            if (objects && objects.count > 0) {
+//                LTModelUser *user = [objects firstObject];
+//                NSDictionary *options = @{NSDocumentTypeDocumentAttribute : NSRTFTextDocumentType};
+//                NSAttributedString *content = [[NSAttributedString alloc]initWithData:[model objectForKey:@"content"] options:options documentAttributes:nil error:nil];
+//                
+//                [weakSelf.heights addObject:@([LTPostView heightWithContent:content
+//                                                                andPicCound:model.photos.count
+//                                                               andUsersName:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@",user.username]]
+//                                                                andComments:model.comments
+//                                                             andCommitLimit:6
+//                                                             andCommentFold:NO
+//                                                           andPreferedWidth:[UIScreen mainScreen].bounds.size.width])];
+//                [weakSelf.tableView reloadData];
+//                
+//            }
+//        }];
+//        
+//    }
+//}
 //- (LTModelUser *)p_getUser:(LTModelUser *)user{
 //    AVQuery *queue = [LTModelUser query];
 //}
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.heights.count;
+    return self.posts.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -161,13 +157,14 @@ static NSUInteger const onceLoadPostNum = 10;
             [likedUsers addObject:[LTModelUser currentUser]];
         }
         post.likedUser = likedUsers.copy;
-        [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (succeeded) {
-                button.enabled = YES;/// 保存结束，设置可以点击点赞
-            }else{
-                NSLog(@"%@",error);
-            }
-        }];
+        [post saveEventually];
+//        [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//            if (succeeded) {
+//                button.enabled = YES;/// 保存结束，设置可以点击点赞
+//            }else{
+//                NSLog(@"%@",error);
+//            }
+//        }];
     }];
     [[cell.postView.rac_commitSignal takeUntil:cell.rac_prepareForReuseSignal]subscribeNext:^(id x){
         NSLog(@"评论 %@",x);
@@ -179,7 +176,14 @@ static NSUInteger const onceLoadPostNum = 10;
 #pragma mark  UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return ((NSNumber *)self.heights[indexPath.row]).floatValue;
+    LTPostModel *post = self.posts[indexPath.row];
+    return [LTPostView heightWithContent:post.content
+                               andPicCound:post.picUrls.count
+                              andUsersName:[[NSAttributedString alloc]initWithString:post.userName]
+                               andComments:post.comments
+                            andCommitLimit:6
+                            andCommentFold:NO
+                          andPreferedWidth:[UIScreen mainScreen].bounds.size.width];
 
 }
 
@@ -190,7 +194,7 @@ static NSUInteger const onceLoadPostNum = 10;
     /// 个人信息填充
     // 这时候用户内部没有数据 得去查一遍
     AVQuery *query = [LTModelUser query];
-    query.cachePolicy = kAVCachePolicyCacheElseNetwork;
+    [query setCachePolicy:kAVCachePolicyCacheElseNetwork];
     [query whereKey:@"objectId" equalTo:post.pubUser.objectId];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (objects && objects.count > 0) {

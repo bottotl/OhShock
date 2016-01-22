@@ -449,6 +449,7 @@
 		B858011D1C1A84C300786143 /* AVOSCloudIM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B85801141C1A849E00786143 /* AVOSCloudIM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B863A65D1C2CD8D000707D17 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = B863A65B1C2CD8D000707D17 /* NSDate+Helper.m */; };
 		B863A65E1C2CD8D000707D17 /* README.textile in Resources */ = {isa = PBXBuildFile; fileRef = B863A65C1C2CD8D000707D17 /* README.textile */; };
+		B8698FB51C5242E6001C0175 /* LTPostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8698FB41C5242E6001C0175 /* LTPostModel.m */; };
 		B873AC2D1C48DBB4002C04B2 /* LTModelPost.m in Sources */ = {isa = PBXBuildFile; fileRef = B873AC2C1C48DBB4002C04B2 /* LTModelPost.m */; };
 		B873AC431C48F8DC002C04B2 /* LTModelPostComment.m in Sources */ = {isa = PBXBuildFile; fileRef = B873AC421C48F8DC002C04B2 /* LTModelPostComment.m */; };
 		B87677BB1C1FC7FE00A0795B /* LTLogOutService.m in Sources */ = {isa = PBXBuildFile; fileRef = B87677BA1C1FC7FE00A0795B /* LTLogOutService.m */; };
@@ -1393,6 +1394,8 @@
 		B863A65A1C2CD8D000707D17 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
 		B863A65B1C2CD8D000707D17 /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
 		B863A65C1C2CD8D000707D17 /* README.textile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.textile; sourceTree = "<group>"; };
+		B8698FB31C5242E6001C0175 /* LTPostModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostModel.h; sourceTree = "<group>"; };
+		B8698FB41C5242E6001C0175 /* LTPostModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostModel.m; sourceTree = "<group>"; };
 		B873AC2B1C48DBB4002C04B2 /* LTModelPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTModelPost.h; sourceTree = "<group>"; };
 		B873AC2C1C48DBB4002C04B2 /* LTModelPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTModelPost.m; sourceTree = "<group>"; };
 		B873AC411C48F8DC002C04B2 /* LTModelPostComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTModelPostComment.h; sourceTree = "<group>"; };
@@ -3249,6 +3252,8 @@
 				B8D1D52B1C33EB2B00DC4EDC /* LTPostListViewController.m */,
 				B8DCE40E1C49478100C233AD /* LTPostListService.h */,
 				B8DCE40F1C49478100C233AD /* LTPostListService.m */,
+				B8698FB31C5242E6001C0175 /* LTPostModel.h */,
+				B8698FB41C5242E6001C0175 /* LTPostModel.m */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -4936,6 +4941,7 @@
 				B8EEADCD1C294F5400F861E8 /* XHBaseCollectionViewCell.m in Sources */,
 				B87677D01C1FEC9900A0795B /* UISearchBar+RACSignalSupport.m in Sources */,
 				B81CCC3F1C21408500D642DB /* JSQMessagesCollectionViewCellIncoming.m in Sources */,
+				B8698FB51C5242E6001C0175 /* LTPostModel.m in Sources */,
 				B8A98DC91C4786A600DB00F1 /* LTUploadPhotoCollectionCell.m in Sources */,
 				B8D2B3D01C4E53F400F3E066 /* LTAddTodoService.m in Sources */,
 				B8EEAD9B1C294F5400F861E8 /* XHBaseNavigationController.m in Sources */,
