@@ -23,6 +23,8 @@ static CGFloat const LTPostProfileViewAvatarViewHeight = 45;
  */
 @property (nonatomic, strong) UIImageView  *avatarView;
 
+@property (nonatomic, strong) NSString *avatarUrlString;
+
 /**
  *  头像点击信号
  */

@@ -9,6 +9,7 @@
 #import "LTPostProfileView.h"
 #import "YYKit.h"
 #import "UIView+Layout.h"
+#import "UIImageView+WebCache.h"
 
 
 static CGFloat const LTPostProfileViewHeight = 60.0;
@@ -68,6 +69,12 @@ static CGFloat const LTPostProfileViewHeight = 60.0;
         [self addSubview:_avatarView];
     }
     return _avatarView;
+}
+-(void)setAvatarUrlString:(NSString *)avatarUrlString{
+    _avatarUrlString = avatarUrlString;
+    if (_avatarUrlString) {
+        [self.avatarView sd_setImageWithURL:[NSURL URLWithString:_avatarUrlString]];
+    }
 }
 - (RACSignal *)rac_gestureSignal{
     if (!_rac_gestureSignal) {

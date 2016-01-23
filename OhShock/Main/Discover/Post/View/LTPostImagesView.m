@@ -11,6 +11,7 @@
 #import "UIView+Layout.h"
 #import "YYPhotoGroupView.h"
 #import <Foundation/Foundation.h>
+#import "UIImageView+WebCache.h"
 
 @interface LTPostImagesView ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -29,6 +30,7 @@
 @end
 
 @implementation LTPostImagesView
+@synthesize photos = _photos;
 #pragma mark - init
 -(void)configViewWithPicNum:(NSUInteger)picNum needBig:(BOOL)needBig itemSpace:(CGFloat)itemSpace  limit:(NSUInteger )limit{
     self.picNum = picNum;
@@ -110,7 +112,7 @@
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
     LTPostImageCollectionViewCell *p_cell = (LTPostImageCollectionViewCell *)cell;
     if (self.photos.count > indexPath.row) {
-        p_cell.imageView.image = self.photos[[NSString stringWithFormat:@"%lu",(unsigned long)indexPath.row]];
+        [p_cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.photos[[NSString stringWithFormat:@"%d",(int)indexPath.row]]]];
     }
     
     
@@ -156,11 +158,16 @@
     self.layout.minimumLineSpacing = itemSpace;
     self.layout.minimumInteritemSpacing = itemSpace;
 }
--(NSMutableDictionary *)photos{
+-(NSDictionary *)photos{
     if (!_photos) {
-        _photos = @{}.mutableCopy;
+        _photos = @{}.copy;
     }
     return _photos;
+}
+
+-(void)setPhotos:(NSDictionary *)photos{
+    _photos = photos;
+    [self.collectionView reloadData];
 }
 
 #pragma mark - 计算总高度
