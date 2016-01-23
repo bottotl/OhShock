@@ -14,7 +14,7 @@
  */
 @interface LTPostImagesView : UIView
 
-@property (nonatomic, strong) NSMutableDictionary *photos;          ///< 图片数据 @{index:image}
+@property (nonatomic, strong) NSDictionary *photos;          ///< 图片数据(urlString) @{index:NSString}
 
 @property (nonatomic, strong) UICollectionView    *collectionView;  ///< 暴露出来方便设置 delegate
 

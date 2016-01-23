@@ -106,6 +106,8 @@ static NSUInteger const onceLoadPostNum = 10;
                         onceLoadPostsArray[i] = post;
                         if (i == objects.count - 1) {
                             [self.posts addObjectsFromArray:onceLoadPostsArray.copy];
+                            NSLog(@"post 加载完成");
+                            [weakSelf.tableView reloadData];
                         }
                     }else{
                         NSLog(@"加载 post 错误 %@ ",error);
@@ -118,27 +120,22 @@ static NSUInteger const onceLoadPostNum = 10;
 
 -(void)p_dequePostFromModel:(LTModelPost *)model block:(void(^)(LTPostModel *post, NSError *error))block{
     __block LTPostModel *post = [LTPostModel new];
-    
+    NSError *error = nil;
     /// 个人信息
-    LTModelUser *user = [model objectForKey:@"pubUser"];
+    LTModelUser *modelUser = [model objectForKey:@"pubUser"];
     AVQuery *userQuery = [AVQuery queryWithClassName:@"_User"];
-    [userQuery setCachePolicy:kAVCachePolicyCacheElseNetwork];
-    [userQuery whereKey:@"objectId" equalTo:user.objectId];
-    [userQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            // 填充用户名
-            LTModelUser *user = [objects firstObject];
-            post.userName = user.username;
-            
-            // 填充头像 url
-            AVFile *avatarFile = user.avatar;
-            post.avatarUrlString = [avatarFile getThumbnailURLWithScaleToFit:false width:60 height:60];
-            
-            
-        }else{
-            NSLog(@"发生错误 user query error:%@",error);
-        }
-    }];
+//    [userQuery setCachePolicy:kAVCachePolicyNetworkElseCache];
+    [userQuery whereKey:@"objectId" equalTo:modelUser.objectId];
+    NSArray *array =  [userQuery findObjects:&error];
+    if (error) {
+        block(nil, error);
+    }
+    LTModelUser *user = [array firstObject];
+    post.userName = user.username;
+    
+    // 填充头像 url
+    AVFile *avatarFile = user.avatar;
+    post.avatarUrlString = [avatarFile getThumbnailURLWithScaleToFit:false width:60 height:60];
     
     /// 文字内容填充
     NSDictionary *options = @{NSDocumentTypeDocumentAttribute : NSRTFTextDocumentType};
@@ -151,42 +148,38 @@ static NSUInteger const onceLoadPostNum = 10;
         // 这时候 photo 内部没有数据 得去查一遍
         AVQuery *query = [AVFile query];
         [query whereKey:@"objectId" equalTo:photo.objectId];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            if (!error) {
-                AVFile *file = [AVFile fileWithAVObject:[objects firstObject]];
-                [photoThumbUrls setObject:[file getThumbnailURLWithScaleToFit:NO width:300 height:300] forKey:[NSString stringWithFormat:@"%d",i]];
-                if(i == model.photos.count - 1 ){
-                    post.photoThumbUrls = photoThumbUrls.copy;
-                }
-            }else{
-                NSLog(@"发生错误 when query photoThumbUrls:%@",error);
-            }
-        }];
+//        [query setCachePolicy:kAVCachePolicyNetworkElseCache];
+        AVObject *fileObject = [[query findObjects:&error] firstObject];
+        
+        AVFile *file = [AVFile fileWithAVObject:fileObject];
+        if (error) {
+            block(nil, error);
+        }
+        NSString *thumbImageUrl = [file getThumbnailURLWithScaleToFit:NO width:300 height:300];
+        [photoThumbUrls setObject:thumbImageUrl forKey:[NSString stringWithFormat:@"%d",i]];
+        if(i == model.photos.count - 1 ){
+            post.photoThumbUrls = photoThumbUrls.copy;
+        }
     }
     /// 点赞用户填充
-    __block NSMutableAttributedString *likedUsersAttributedString = [[NSMutableAttributedString alloc]init];
+    NSMutableAttributedString *likedUsersAttributedString = [[NSMutableAttributedString alloc]init];
     for (int i = 0; i < model.likedUser.count; i++) {
-        LTModelUser *user = model.likedUser[i];
+        LTModelUser *modelUser = model.likedUser[i];
         AVQuery *userQuery = [AVQuery queryWithClassName:@"_User"];
-        [userQuery setCachePolicy:kAVCachePolicyCacheElseNetwork];
-        [userQuery whereKey:@"objectId" equalTo:user.objectId];
-        [userQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            if (!error) {
-                // 填充用户名
-                LTModelUser *user = [objects firstObject];
-                [likedUsersAttributedString appendString:user.username];
-                if (i == model.likedUser.count - 1) {
-                    post.likedUsersAttributedString = likedUsersAttributedString.copy;
-                    block(post,error);
-                }
-            }else{
-                NSLog(@"点赞用户填充 发生错误 user query error:%@",error);
-            }
-        }];
+//        [userQuery setCachePolicy:kAVCachePolicyNetworkElseCache];
+        [userQuery whereKey:@"objectId" equalTo:modelUser.objectId];
+        LTModelUser *user = [[userQuery findObjects:&error] firstObject];
+        if (error) {
+            block(nil, error);
+        }
+        [likedUsersAttributedString appendString:user.username];
+        if (i == model.likedUser.count - 1) {
+            post.likedUsersAttributedString = likedUsersAttributedString.copy;
+            
+        }
     }
-    if (model.likedUser || model.likedUser.count == 0){
-        block(post,nil);
-    }
+    NSLog(@"加载了一个 post");
+    block(post,error);
     
     
 }
@@ -229,36 +222,29 @@ static NSUInteger const onceLoadPostNum = 10;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LTPostViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LTPostViewCellIdentifier forIndexPath:indexPath];
-    LTModelPost *post = self.dataSource[indexPath.row];
-    [cell.postView.imagesView configViewWithPicNum:post.photos.count needBig:YES itemSpace:6 limit:9];
+    
     [[cell.postView.rac_likeSignal takeUntil:cell.rac_prepareForReuseSignal]subscribeNext:^(id x) {
         LTPostViewRoundButton *button = x;
         cell.postView.liked = !cell.postView.liked ;
         button.enabled = NO;/// 点击一次之后不允许点击了
         
-        LTModelPost *post = self.dataSource[indexPath.row];
-        BOOL needRemove = NO;// 标记需要移除还是添加
-        NSMutableArray *likedUsers = [[NSMutableArray alloc]initWithArray:post.likedUser];
-        for (LTModelUser *user in likedUsers) {
-            if([user.objectId isEqualToString:([LTModelUser currentUser].objectId)]){
-                [likedUsers removeObject:user];
-                needRemove = YES;
-                break;
-            }
-        }
-        
-        if (needRemove || likedUsers.count == 0) {
-            [likedUsers addObject:[LTModelUser currentUser]];
-        }
-        post.likedUser = likedUsers.copy;
-        [post saveEventually];
-//        [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//            if (succeeded) {
-//                button.enabled = YES;/// 保存结束，设置可以点击点赞
-//            }else{
-//                NSLog(@"%@",error);
+//        LTPostmod *post = self.posts[indexPath.row];
+//        BOOL needRemove = NO;// 标记需要移除还是添加
+//        NSMutableArray *likedUsers = [[NSMutableArray alloc]initWithArray:post.likedUser];
+//        for (LTModelUser *user in likedUsers) {
+//            if([user.objectId isEqualToString:([LTModelUser currentUser].objectId)]){
+//                [likedUsers removeObject:user];
+//                needRemove = YES;
+//                break;
 //            }
-//        }];
+//        }
+//        
+//        if (needRemove || likedUsers.count == 0) {
+//            [likedUsers addObject:[LTModelUser currentUser]];
+//        }
+//        post.likedUser = likedUsers.copy;
+//        [post saveEventually];
+
     }];
     [[cell.postView.rac_commitSignal takeUntil:cell.rac_prepareForReuseSignal]subscribeNext:^(id x){
         NSLog(@"评论 %@",x);
@@ -272,7 +258,7 @@ static NSUInteger const onceLoadPostNum = 10;
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     LTPostModel *post = self.posts[indexPath.row];
     return [LTPostView heightWithContent:post.content
-                               andPicCound:post.picUrls.count
+                               andPicCound:post.photoThumbUrls.count
                               andUsersName:[[NSAttributedString alloc]initWithString:post.userName]
                                andComments:post.comments
                             andCommitLimit:6
@@ -283,52 +269,13 @@ static NSUInteger const onceLoadPostNum = 10;
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     LTPostView *postView = ((LTPostViewCell *)cell).postView;
-    LTModelPost *post = self.dataSource[indexPath.row];
+    LTPostModel *post = self.posts[indexPath.row];
+    [postView.imagesView configViewWithPicNum:post.photoThumbUrls.count needBig:YES itemSpace:6 limit:9];
+    postView.profileView.name = post.userName;
+    postView.profileView.avatarUrlString = post.avatarUrlString;
     
-    /// 个人信息填充
-    // 这时候用户内部没有数据 得去查一遍
-    AVQuery *query = [LTModelUser query];
-    [query setCachePolicy:kAVCachePolicyCacheElseNetwork];
-    [query whereKey:@"objectId" equalTo:post.pubUser.objectId];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (objects && objects.count > 0) {
-            LTModelUser *user = [objects firstObject];
-            postView.profileView.name = user.username;
-            AVFile *avatar = user.avatar;
-            [avatar getThumbnail:YES width:LTPostProfileViewAvatarViewHeight height:LTPostProfileViewAvatarViewHeight withBlock:^(UIImage *thumbImage, NSError *error) {
-                postView.profileView.avatarView.image = thumbImage;
-            }];
-        }
-    }];
-    
-    /// 文字内容填充
-    NSDictionary *options = @{NSDocumentTypeDocumentAttribute : NSRTFTextDocumentType};
-    postView.contentView.content = [[NSAttributedString alloc]initWithData:[post objectForKey:@"content"] options:options documentAttributes:nil error:nil];
-    
-    /// 图片内容填充
-    for (int i = 0; i < post.photos.count; i++) {
-        AVFile *photo = post.photos[i];
-        
-        // 这时候 photo 内部没有数据 得去查一遍
-        AVQuery *query = [AVFile query];
-        __weak LTPostView * weakPostView = postView;
-        [query whereKey:@"objectId" equalTo:photo.objectId];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            if (objects && objects.count > 0) {
-                AVFile *file = [AVFile fileWithAVObject:[objects firstObject]];
-                [file getThumbnail:YES width:150 height:150 withBlock:^(UIImage *image, NSError *error) {
-                    [weakPostView.imagesView.photos setObject:image forKey:[NSString stringWithFormat:@"%lu",(unsigned long)i]];
-                    [weakPostView.imagesView.collectionView reloadData];
-//                    [weakPostView.imagesView.collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:i inSection:0]]];
-                }];
-            }
-        }];
-        
-        
-    }
-    
-
-    
+    postView.contentView.content = post.content;
+    postView.imagesView.photos = post.photoThumbUrls;
 //    LTPostModel *postModel  = self.posts[indexPath.row];
 //    [(LTPostViewCell *)cell configCellWithData:postModel];
 //    [[((LTPostViewCell *)cell).postView.rac_gestureSignal takeUntil:cell.rac_prepareForReuseSignal] subscribeNext:^(id x) {
@@ -350,8 +297,10 @@ static NSUInteger const onceLoadPostNum = 10;
 #pragma mark 按钮点击
 - (void)showPostItems{
     UIAlertController *uploadAlert = [UIAlertController alertControllerWithTitle:@"上传动态" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+    __weak __typeof(self) weakSelf = self;
     [uploadAlert addAction:[UIAlertAction actionWithTitle:@"上传图片动态" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        [self loadMorePostList];
+        //[weakSelf loadMorePostList];
+        [weakSelf.tableView reloadData];
     }]];
     [uploadAlert addAction:[UIAlertAction actionWithTitle:@"上传日程动态" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:[LTUploadPhotosViewController new]];
