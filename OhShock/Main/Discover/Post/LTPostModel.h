@@ -18,6 +18,10 @@
 
 @property (nonatomic, strong) NSArray < NSString *> *picUrls;
 
+@property (nonatomic, strong) NSDictionary *photoThumbUrls;
+
+@property (nonatomic, strong) NSAttributedString *likedUsersAttributedString;
+
 @property (nonatomic, strong) NSArray < NSAttributedString *> *comments;
 
 @end
