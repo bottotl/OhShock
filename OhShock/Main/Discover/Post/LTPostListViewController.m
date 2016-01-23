@@ -24,7 +24,7 @@ static NSUInteger const onceLoadPostNum = 10;
 /// < NSNumber *> *
 //@property (nonatomic, strong) NSMutableArray *heights;
 
-@property (nonatomic, strong) LTPostListService *service;
+//@property (nonatomic, strong) LTPostListService *service;
 
 @property (nonatomic, strong) NSMutableArray *posts;
 
@@ -45,7 +45,7 @@ static NSUInteger const onceLoadPostNum = 10;
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
     
-    _service = [LTPostListService new];
+//    _service = [LTPostListService new];
     
     _tableView = [UITableView new];
     _tableView.delegate = self;
@@ -69,7 +69,15 @@ static NSUInteger const onceLoadPostNum = 10;
     }
     return _dataSource;
 }
-
+-(NSMutableArray *)posts{
+    if(!_posts){
+        _posts = @[].mutableCopy;
+    }
+    return _posts;
+}
+-(NSUInteger)lastPostCount{
+    return self.posts.count;
+}
 //-(NSMutableArray *)heights{
 //    if (!_heights) {
 //        _heights = @[].mutableCopy;
@@ -90,11 +98,97 @@ static NSUInteger const onceLoadPostNum = 10;
         if (error) {
             NSLog(@"%@",error);
         }else{
-            [weakSelf.dataSource addObjectsFromArray:objects];
-            self.lastPostCount += objects.count;
-//            [weakSelf updateHeight];
+            NSMutableArray < LTPostModel *> *onceLoadPostsArray = [[NSMutableArray alloc]initWithCapacity:objects.count];
+            for (int i = 0; i < objects.count; i ++) {
+                LTModelPost *model = objects[i];
+                [weakSelf p_dequePostFromModel:model block:^(LTPostModel *post, NSError *error) {
+                    if (!error) {
+                        onceLoadPostsArray[i] = post;
+                        if (i == objects.count - 1) {
+                            [self.posts addObjectsFromArray:onceLoadPostsArray.copy];
+                        }
+                    }else{
+                        NSLog(@"加载 post 错误 %@ ",error);
+                    }
+                }];
+            }
         }
     }];
+}
+
+-(void)p_dequePostFromModel:(LTModelPost *)model block:(void(^)(LTPostModel *post, NSError *error))block{
+    __block LTPostModel *post = [LTPostModel new];
+    
+    /// 个人信息
+    LTModelUser *user = [model objectForKey:@"pubUser"];
+    AVQuery *userQuery = [AVQuery queryWithClassName:@"_User"];
+    [userQuery setCachePolicy:kAVCachePolicyCacheElseNetwork];
+    [userQuery whereKey:@"objectId" equalTo:user.objectId];
+    [userQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // 填充用户名
+            LTModelUser *user = [objects firstObject];
+            post.userName = user.username;
+            
+            // 填充头像 url
+            AVFile *avatarFile = user.avatar;
+            post.avatarUrlString = [avatarFile getThumbnailURLWithScaleToFit:false width:60 height:60];
+            
+            
+        }else{
+            NSLog(@"发生错误 user query error:%@",error);
+        }
+    }];
+    
+    /// 文字内容填充
+    NSDictionary *options = @{NSDocumentTypeDocumentAttribute : NSRTFTextDocumentType};
+    post.content = [[NSAttributedString alloc]initWithData:[model objectForKey:@"content"] options:options documentAttributes:nil error:nil].copy;
+
+    /// 图片内容填充
+    NSMutableDictionary *photoThumbUrls  = @{}.mutableCopy;
+    for (int i = 0; i < model.photos.count; i++) {
+        AVFile *photo = model.photos[i];
+        // 这时候 photo 内部没有数据 得去查一遍
+        AVQuery *query = [AVFile query];
+        [query whereKey:@"objectId" equalTo:photo.objectId];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                AVFile *file = [AVFile fileWithAVObject:[objects firstObject]];
+                [photoThumbUrls setObject:[file getThumbnailURLWithScaleToFit:NO width:300 height:300] forKey:[NSString stringWithFormat:@"%d",i]];
+                if(i == model.photos.count - 1 ){
+                    post.photoThumbUrls = photoThumbUrls.copy;
+                }
+            }else{
+                NSLog(@"发生错误 when query photoThumbUrls:%@",error);
+            }
+        }];
+    }
+    /// 点赞用户填充
+    __block NSMutableAttributedString *likedUsersAttributedString = [[NSMutableAttributedString alloc]init];
+    for (int i = 0; i < model.likedUser.count; i++) {
+        LTModelUser *user = model.likedUser[i];
+        AVQuery *userQuery = [AVQuery queryWithClassName:@"_User"];
+        [userQuery setCachePolicy:kAVCachePolicyCacheElseNetwork];
+        [userQuery whereKey:@"objectId" equalTo:user.objectId];
+        [userQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                // 填充用户名
+                LTModelUser *user = [objects firstObject];
+                [likedUsersAttributedString appendString:user.username];
+                if (i == model.likedUser.count - 1) {
+                    post.likedUsersAttributedString = likedUsersAttributedString.copy;
+                    block(post,error);
+                }
+            }else{
+                NSLog(@"点赞用户填充 发生错误 user query error:%@",error);
+            }
+        }];
+    }
+    if (model.likedUser || model.likedUser.count == 0){
+        block(post,nil);
+    }
+    
+    
 }
 
 /// 更新高度数据
