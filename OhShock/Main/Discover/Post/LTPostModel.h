@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class AVFile;
 @interface LTPostModel : NSObject
 
 @property (nonatomic, strong) NSString *userName;
@@ -16,9 +17,9 @@
 
 @property (nonatomic, strong) NSAttributedString *content;
 
-@property (nonatomic, strong) NSArray < NSString *> *picUrls;
+@property (nonatomic, strong) NSArray < AVFile *> *picFiles;
 
-@property (nonatomic, strong) NSDictionary *photoThumbUrls;
+//@property (nonatomic, strong) NSDictionary *photoThumbUrls;
 
 @property (nonatomic, strong) NSAttributedString *likedUsersAttributedString;
 
