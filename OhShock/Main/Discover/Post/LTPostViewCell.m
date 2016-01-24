@@ -12,44 +12,33 @@
 @end
 
 @implementation LTPostViewCell
-
-#pragma mark - Init
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        
-        self.postView.frame = self.contentView.bounds;
-    }
+    self.loadedData = NO;
     return self;
 }
-#pragma mark - Cell 配置
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:NO animated:animated];
 }
-
-#pragma mark - layout
 -(void)layoutSubviews{
     [super layoutSubviews];
+    if (self.loadedData) {
+        self.postView.frame = self.bounds;
+    }
     
-    self.postView.frame = self.contentView.bounds;
 }
-
 
 #pragma mark - property
 -(LTPostView *)postView{
     if (!_postView) {
         _postView = [LTPostView new];
+        _postView.frame = CGRectZero;
         [self.contentView addSubview:_postView];
     }
     return _postView;
 }
 
--(void)prepareForReuse{
-    [super prepareForReuse];
-    
-    self.postView.imagesView.photos = nil;
-    
-}
 
 
 @end

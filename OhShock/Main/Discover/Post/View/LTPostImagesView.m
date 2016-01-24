@@ -37,6 +37,7 @@
     self.needBig = needBig;
     self.itemSpace = itemSpace;
     self.limit = limit;
+    self.collectionView.hidden = NO;
 }
 
 -(instancetype)init{
@@ -61,6 +62,7 @@
     _collectionView.dataSource = self;
     _collectionView.backgroundColor = [UIColor clearColor];
     _collectionView.scrollEnabled = NO;
+    _collectionView.hidden = YES;
     [_collectionView registerClass:[LTPostImageCollectionViewCell class] forCellWithReuseIdentifier:LTPostImageCollectionCellIdentifier];
     [self addSubview:_collectionView];
     
@@ -80,7 +82,9 @@
     } else {
         self.layout.itemSize = CGSizeMake(picWidth, picWidth);
     }
-    self.collectionView.frame = self.bounds;
+    if (self.layout.itemSize.height > 0) {
+        self.collectionView.frame = self.bounds;
+    }
     
 }
 #pragma mark - sizeToFit
@@ -103,6 +107,8 @@
 #pragma mark - collectionView  delegate
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 1
+    ;
     return self.picNum;
 }
 

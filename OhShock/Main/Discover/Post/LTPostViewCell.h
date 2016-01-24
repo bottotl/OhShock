@@ -22,4 +22,6 @@ static NSString *const LTPostViewCellIdentifier = @"LTPostViewCell";
  */
 @property (nonatomic, strong) LTPostView *postView;
 
+@property (nonatomic, assign) BOOL loadedData;
+
 @end

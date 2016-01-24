@@ -141,6 +141,7 @@ static CGFloat const LTPostLikedViewRightPadding = 10;// 点赞列表右边距
 -(LTPostImagesView *)imagesView{
     if (!_imagesView) {
         _imagesView = [LTPostImagesView new];
+
         //_imagesView.collectionView.delegate = self;
         [self addSubview:_imagesView];
     }
