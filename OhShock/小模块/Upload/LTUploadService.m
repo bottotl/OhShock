@@ -44,6 +44,7 @@
                         [weak_self uploadPostWithPost:post andBlock:^(BOOL success, NSError *error) {
                             if (success) {
                                 NSLog(@"uploadPostWithPost success");
+                                
                             }else{
                                 NSLog(@"%@",error);
                             }
@@ -88,6 +89,20 @@
 
 -(void)uploadPostWithPost:(LTModelPost *)post andBlock:(LTUploadResponse)block{
     if(post){
+//        NSMutableArray *array = @[].mutableCopy;
+//        for(int i = 0 ;i<60;i++){
+//            LTModelPost *p_post = [LTModelPost new];
+//            p_post.pubUser = post.pubUser;
+//            p_post.thumbPhotos = post.thumbPhotos;
+//            p_post.content = post.content;
+//            p_post.photos = post.photos;
+//            [array addObject:p_post];
+//        }
+//        [LTModelPost saveAllInBackground:array block:^(BOOL succeeded, NSError *error) {
+//            if (succeeded) {
+//                NSLog(@"saveAllInBackground succeeded");
+//            }
+//        }];
         [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
                 NSLog(@"post sava succeeded");

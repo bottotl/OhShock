@@ -16,7 +16,7 @@
 #import "LTPostModel.h"
 
 
-static NSUInteger const onceLoadPostNum = 10;
+static NSUInteger const onceLoadPostNum = 100;
 @interface LTPostListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -92,8 +92,8 @@ static NSUInteger const onceLoadPostNum = 10;
     __weak __typeof(self) weakSelf = self;
     AVQuery *query = [LTModelPost query];
     [query orderByDescending:@"createdAt"];
-//    query.skip = self.lastPostCount ;
-//    query.limit = onceLoadPostNum;
+    query.skip = self.lastPostCount ;
+    query.limit = onceLoadPostNum;
     [query setCachePolicy:kAVCachePolicyNetworkElseCache];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (error) {
@@ -241,6 +241,8 @@ static NSUInteger const onceLoadPostNum = 10;
     }
     postView.imagesView.photos = dic;
     cell.loadedData = YES;
+    [cell setNeedsLayout];
+    [cell layoutIfNeeded];
 
     
     

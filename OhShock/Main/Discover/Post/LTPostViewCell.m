@@ -38,7 +38,13 @@
     }
     return _postView;
 }
-
+-(void)prepareForReuse{
+    [super prepareForReuse];
+    self.loadedData = NO;
+    self.postView.profileView.avatarUrlString = nil;
+    self.postView.contentView.content = nil;
+    self.postView.imagesView.photos = nil;
+}
 
 
 @end
