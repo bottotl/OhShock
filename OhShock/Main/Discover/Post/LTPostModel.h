@@ -19,6 +19,8 @@
 
 @property (nonatomic, strong) NSArray < AVFile *> *picFiles;
 
+@property (nonatomic, strong) NSMutableArray < AVFile *> *picThumbFiles;
+
 //@property (nonatomic, strong) NSDictionary *photoThumbUrls;
 
 @property (nonatomic, strong) NSAttributedString *likedUsersAttributedString;

@@ -41,6 +41,7 @@
     _imageView = [UIImageView new];
     _imageView.hidden = NO;
     _imageView.clipsToBounds = YES;
+    _imageView.contentMode = UIViewContentModeScaleAspectFill;
     _imageView.backgroundColor = [UIColor colorWithHexString:@"f0f0f0"];
     _imageView.exclusiveTouch = YES;
     
