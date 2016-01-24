@@ -158,16 +158,11 @@
     self.layout.minimumLineSpacing = itemSpace;
     self.layout.minimumInteritemSpacing = itemSpace;
 }
--(NSDictionary *)photos{
+-(NSMutableDictionary *)photos{
     if (!_photos) {
-        _photos = @{}.copy;
+        _photos = @{}.mutableCopy;
     }
     return _photos;
-}
-
--(void)setPhotos:(NSDictionary *)photos{
-    _photos = photos;
-    [self.collectionView reloadData];
 }
 
 #pragma mark - 计算总高度

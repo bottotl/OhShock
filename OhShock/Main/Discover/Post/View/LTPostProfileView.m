@@ -88,8 +88,12 @@ static CGFloat const LTPostProfileViewHeight = 60.0;
 
 #pragma mark  Data property
 -(void)setName:(NSString *)name{
+    if (!name) {
+        return;
+    }
     _name = name;
     CGSize size = CGSizeMake(kScreenWidth - 110, 24);
+    
     
     NSMutableAttributedString *temp = [[NSMutableAttributedString alloc]initWithString:name];
     temp.font = [UIFont systemFontOfSize:15];
