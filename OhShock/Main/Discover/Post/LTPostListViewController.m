@@ -60,6 +60,7 @@ static NSUInteger const onceLoadPostNum = 10;
     self.navigationItem.rightBarButtonItem = rightItem;
     [self loadMorePostList];
     
+    
 }
 
 #pragma mark property
@@ -107,7 +108,10 @@ static NSUInteger const onceLoadPostNum = 10;
                         if (onceLoadPosts.count == objects.count) {
                             [self.posts addEntriesFromDictionary:onceLoadPosts.copy];
                             NSLog(@"post 加载完成");
-                            [weakSelf.tableView reloadData];
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                [self.tableView reloadData];
+                            });
+                            
                         }
                     }else{
                         NSLog(@"加载 post 错误 %@ ",error);
@@ -217,13 +221,29 @@ static NSUInteger const onceLoadPostNum = 10;
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"numberOfRowsInSection");
+    NSLog(@"numberOfRowsInSection = %lu",self.posts.count);
     return self.posts.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"cellForRowAtIndexPath");
     LTPostViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LTPostViewCellIdentifier forIndexPath:indexPath];
+    LTPostView *postView = cell.postView;
+    LTPostModel *post = self.posts[[NSString stringWithFormat:@"%d",(int)indexPath.row]];
+    [postView.imagesView configViewWithPicNum:post.picFiles.count needBig:YES itemSpace:6 limit:9];
+    postView.profileView.name = post.userName;
+    postView.profileView.avatarUrlString = post.avatarUrlString;
+    
+    postView.contentView.content = post.content;
+    NSMutableDictionary *dic = @{}.mutableCopy;
+    for (int i = 0; i < post.picThumbFiles.count; i++) {
+        [dic setValue:post.picThumbFiles[i].url forKey:[NSString stringWithFormat:@"%d",i]];
+    }
+    postView.imagesView.photos = dic;
+    cell.loadedData = YES;
+
+    
+    
     [[cell.postView.rac_likeSignal takeUntil:cell.rac_prepareForReuseSignal]subscribeNext:^(id x) {
         LTPostViewRoundButton *button = x;
         cell.postView.liked = !cell.postView.liked ;
@@ -251,6 +271,7 @@ static NSUInteger const onceLoadPostNum = 10;
         NSLog(@"评论 %@",x);
         
     }];
+    NSLog(@"end cell for row");
     return cell;
 }
 
@@ -259,38 +280,17 @@ static NSUInteger const onceLoadPostNum = 10;
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     LTPostModel *post = self.posts[[NSString stringWithFormat:@"%d",(int)indexPath.row]];
     NSLog(@"算高");
-    return [LTPostView heightWithContent:post.content
+    CGFloat height = [LTPostView heightWithContent:post.content
                                andPicCound:post.picThumbFiles.count
                               andUsersName:[[NSAttributedString alloc]initWithString:post.userName]
                                andComments:post.comments
                             andCommitLimit:6
                             andCommentFold:NO
                           andPreferedWidth:[UIScreen mainScreen].bounds.size.width];
+    NSLog(@"end heightForRowAtIndexPath ");
+    return height;
 
 }
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    LTPostView *postView = ((LTPostViewCell *)cell).postView;
-    postView.profileView.avatarUrlString = nil;
-    postView.contentView.content = nil;
-    postView.imagesView.photos = nil;
-    
-    LTPostModel *post = self.posts[[NSString stringWithFormat:@"%d",(int)indexPath.row]];
-    [postView.imagesView configViewWithPicNum:post.picFiles.count needBig:YES itemSpace:6 limit:9];
-    postView.profileView.name = post.userName;
-    postView.profileView.avatarUrlString = post.avatarUrlString;
-    
-    postView.contentView.content = post.content;
-    NSMutableDictionary *dic = @{}.mutableCopy;
-    for (int i = 0; i < post.picThumbFiles.count; i++) {
-        [dic setValue:post.picThumbFiles[i].url forKey:[NSString stringWithFormat:@"%d",i]];
-    }
-    postView.imagesView.photos = dic;
-    [postView.imagesView.collectionView reloadData];
-    [postView setNeedsLayout];
-    [postView layoutIfNeeded];
-}
-
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
     return NO;
