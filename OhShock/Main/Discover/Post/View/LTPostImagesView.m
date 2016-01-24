@@ -107,8 +107,6 @@
 #pragma mark - collectionView  delegate
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 1
-    ;
     return self.picNum;
 }
 
