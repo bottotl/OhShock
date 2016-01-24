@@ -26,6 +26,7 @@
 -(UIImageView *)imageView{
     if (!_imageView) {
         _imageView = [UIImageView new];
+        _imageView.contentMode = UIViewContentModeScaleAspectFill;
         [self.contentView addSubview:_imageView];
     }
     return _imageView;

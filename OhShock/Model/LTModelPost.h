@@ -29,4 +29,7 @@
 /** 图片 _File */
 @property (nonatomic, strong) NSArray *photos;
 
+/** 缩略图 _File */
+@property (nonatomic, strong) NSArray *thumbPhotos;
+
 @end

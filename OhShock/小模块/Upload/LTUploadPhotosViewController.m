@@ -207,15 +207,14 @@
 - (void)updatePhotos{
     [self.photos removeAllObjects];
     __weak __typeof(self) weakSelf = self;
-    for (PHAsset * asset in self.selectedAsset) {
-        [[PHImageManager defaultManager]requestImageForAsset:asset targetSize:CGSizeMake(40, 40) contentMode:PHImageContentModeDefault options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+    for (int i = 0;i < self.selectedAsset.count; i++){
+        [[PHImageManager defaultManager]requestImageForAsset:self.selectedAsset[i] targetSize:CGSizeMake(40, 40) contentMode:PHImageContentModeAspectFill options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
             if (result) {
-                [weakSelf.photos addObject:result];
+                weakSelf.photos[i] = result;
                 [weakSelf.tableView reloadData];
             }
             
         }];
-
     }
 }
 

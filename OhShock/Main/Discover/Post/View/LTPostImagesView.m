@@ -107,13 +107,17 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return [collectionView dequeueReusableCellWithReuseIdentifier:LTPostImageCollectionCellIdentifier forIndexPath:indexPath];
-}
-- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
-    LTPostImageCollectionViewCell *p_cell = (LTPostImageCollectionViewCell *)cell;
+    LTPostImageCollectionViewCell *p_cell = [collectionView dequeueReusableCellWithReuseIdentifier:LTPostImageCollectionCellIdentifier forIndexPath:indexPath];
     if (self.photos.count > indexPath.row) {
         [p_cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.photos[[NSString stringWithFormat:@"%d",(int)indexPath.row]]]];
     }
+    return p_cell;
+}
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
+//    LTPostImageCollectionViewCell *p_cell = (LTPostImageCollectionViewCell *)cell;
+//    if (self.photos.count > indexPath.row) {
+//        [p_cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.photos[[NSString stringWithFormat:@"%d",(int)indexPath.row]]]];
+//    }
     
     
 }

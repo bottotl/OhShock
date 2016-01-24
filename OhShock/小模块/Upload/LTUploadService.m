@@ -23,16 +23,45 @@
     
     NSUInteger countAll            = selectedAsset.count;
     __block NSUInteger count       = 0;
+    __block NSUInteger thumbCount  = 0;
     NSMutableArray *photos = [NSMutableArray array];
+    NSMutableArray *thumbPhotos = [NSMutableArray array];
     PHImageRequestOptions *option = [PHImageRequestOptions new];
     option.synchronous = YES;
     option.version = PHImageRequestOptionsVersionCurrent;
     for (PHAsset * asset in selectedAsset) {
-        [[PHImageManager defaultManager]requestImageDataForAsset:asset options:option resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
-            AVFile *file = [AVFile fileWithData:imageData];
+        [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:CGSizeMake(300, 300) contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+            AVFile *file = [AVFile fileWithData:UIImagePNGRepresentation(result) ];
+            NSLog(@"缩略图加载完成");
             [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (succeeded) {
-                    NSLog(@"file save succeeded");
+                    NSLog(@"缩略图 save succeeded");
+                    [thumbPhotos addObject:file];
+                    thumbCount ++;
+                    if (thumbCount == countAll ) {
+                        post.thumbPhotos = thumbPhotos;
+                        @weakify(self);
+                        [weak_self uploadPostWithPost:post andBlock:^(BOOL success, NSError *error) {
+                            if (success) {
+                                NSLog(@"uploadPostWithPost success");
+                            }else{
+                                NSLog(@"%@",error);
+                            }
+                        }];
+                    }
+                    
+                }else{
+                    NSLog(@"%@",error);
+                }
+            }];
+        }];
+
+        [[PHImageManager defaultManager]requestImageDataForAsset:asset options:option resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+            AVFile *file = [AVFile fileWithData:imageData];
+            NSLog(@"原图加载完成");
+            [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    NSLog(@"原图 save succeeded");
                     [photos addObject:file];
                     count ++;
                     if (count == countAll) {

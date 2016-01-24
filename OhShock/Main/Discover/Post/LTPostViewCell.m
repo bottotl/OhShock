@@ -44,7 +44,12 @@
     return _postView;
 }
 
-
+-(void)prepareForReuse{
+    [super prepareForReuse];
+    
+    self.postView.imagesView.photos = nil;
+    
+}
 
 
 @end

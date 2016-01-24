@@ -148,6 +148,17 @@ static NSUInteger const onceLoadPostNum = 10;
         
         /// 图片内容填充
         post.picFiles = model.photos.copy;
+        post.picThumbFiles = @[].mutableCopy;
+        for (int i = 0; i < model.thumbPhotos.count; i++) {
+            AVFile *thumbPhoto = model.thumbPhotos[i];
+            // 这时候 photo 内部没有数据 得去查一遍
+            AVQuery *query = [AVFile query];
+            [query setCachePolicy:kAVCachePolicyCacheElseNetwork];
+            AVFile *file = [AVFile fileWithAVObject:[query getObjectWithId:thumbPhoto.objectId]];
+            [post.picThumbFiles addObject:file];
+            
+        }
+        
         /// 点赞用户填充
         NSMutableAttributedString *likedUsersAttributedString = [[NSMutableAttributedString alloc]init];
         for (int i = 0; i < model.likedUser.count; i++) {
@@ -206,12 +217,13 @@ static NSUInteger const onceLoadPostNum = 10;
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSLog(@"numberOfRowsInSection");
     return self.posts.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"cellForRowAtIndexPath");
     LTPostViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LTPostViewCellIdentifier forIndexPath:indexPath];
-    
     [[cell.postView.rac_likeSignal takeUntil:cell.rac_prepareForReuseSignal]subscribeNext:^(id x) {
         LTPostViewRoundButton *button = x;
         cell.postView.liked = !cell.postView.liked ;
@@ -246,8 +258,9 @@ static NSUInteger const onceLoadPostNum = 10;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     LTPostModel *post = self.posts[[NSString stringWithFormat:@"%d",(int)indexPath.row]];
+    NSLog(@"算高");
     return [LTPostView heightWithContent:post.content
-                               andPicCound:post.picFiles.count
+                               andPicCound:post.picThumbFiles.count
                               andUsersName:[[NSAttributedString alloc]initWithString:post.userName]
                                andComments:post.comments
                             andCommitLimit:6
@@ -268,38 +281,14 @@ static NSUInteger const onceLoadPostNum = 10;
     postView.profileView.avatarUrlString = post.avatarUrlString;
     
     postView.contentView.content = post.content;
-    __weak __typeof(postView) weakPostView = postView;
-    for (int i = 0; i < post.picFiles.count; i++) {
-        AVFile *photo = post.picFiles[i];
-        // 这时候 photo 内部没有数据 得去查一遍
-        AVQuery *query = [AVFile query];
-        [query whereKey:@"objectId" equalTo:photo.objectId];
-        [query getFirstObjectInBackgroundWithBlock:^(AVObject *object, NSError *error) {
-            if (!error) {
-                AVFile *file = [AVFile fileWithAVObject:object];
-                NSString *thumbImageUrl = [file getThumbnailURLWithScaleToFit:NO width:300 height:300];
-                [weakPostView.imagesView.photos setObject:thumbImageUrl forKey:[NSString stringWithFormat:@"%d",i]];
-                [weakPostView.imagesView.collectionView reloadData];
-            }else{
-                NSLog(@"发生错误 find picFiles:%@",error);
-            }
-        }];
+    NSMutableDictionary *dic = @{}.mutableCopy;
+    for (int i = 0; i < post.picThumbFiles.count; i++) {
+        [dic setValue:post.picThumbFiles[i].url forKey:[NSString stringWithFormat:@"%d",i]];
     }
+    postView.imagesView.photos = dic;
+    [postView.imagesView.collectionView reloadData];
     [postView setNeedsLayout];
     [postView layoutIfNeeded];
-
-    
-    
-//    postView.imagesView.photos = post.photoThumbUrls;
-//    LTPostModel *postModel  = self.posts[indexPath.row];
-//    [(LTPostViewCell *)cell configCellWithData:postModel];
-//    [[((LTPostViewCell *)cell).postView.rac_gestureSignal takeUntil:cell.rac_prepareForReuseSignal] subscribeNext:^(id x) {
-//        //NSLog(@"%@",postModel.profileData.avatarUrlBig);
-//        NSLog(@"点击了头像%@",x);
-//    }];
-//    [cell setNeedsLayout];
-//    [cell layoutIfNeeded];
-    
 }
 
 
