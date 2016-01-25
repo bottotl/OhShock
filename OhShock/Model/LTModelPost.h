@@ -12,7 +12,7 @@
 /**
  *  图文动态
  */
-@interface LTModelPost : AVObject <AVSubclassing>
+@interface LTModelPost : AVObject <AVSubclassing, NSCopying>
 
 /** 发布者 */
 @property (nonatomic, strong) LTModelUser *pubUser;

@@ -12,7 +12,7 @@
 #import "UIView+Layout.h"
 
 /// 距离屏幕左边距
-static CGFloat const    PhotosLeftPadding = 5;
+static CGFloat const    LeftPadding = 5;
 /// 图片间距
 static CGFloat const    PhotosPadding     = 5;
 /// 文本输入框的高度
@@ -26,6 +26,7 @@ static CGFloat textViewFontSize = 16.0;
 @interface LTUploadTextAndPhotosView () <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectioneView;
+@property (nonatomic, strong) UICollectionViewFlowLayout *layout;
 
 @property (nonatomic, strong) NSArray *photos;
 
@@ -38,10 +39,10 @@ static CGFloat textViewFontSize = 16.0;
     self = [super initWithFrame:frame];
     
     if (self) {
-        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-        CGFloat with = [LTUploadTextAndPhotosView photoHeight];;
-        layout.itemSize = CGSizeMake(with, with);
-        _collectioneView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
+        _layout = [[UICollectionViewFlowLayout alloc]init];
+        _layout.minimumInteritemSpacing = PhotosPadding;
+        _layout.minimumLineSpacing = PhotosPadding;
+        _collectioneView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:self.layout];
         _collectioneView.scrollEnabled = NO;
         _collectioneView.backgroundColor = [UIColor clearColor];
         _collectioneView.delegate = self;
@@ -97,42 +98,38 @@ static CGFloat textViewFontSize = 16.0;
     if(indexPath.row != self.photos.count){
         [(LTUploadPhotoCollectionCell *)cell configCellWith:self.photos[indexPath.row]];
     }
+    cell.backgroundColor = [UIColor blueColor];
     
 }
 
 #pragma mark - layout 
 -(void)layoutSubviews{
     [super layoutSubviews];
-    self.textView.width = self.width - PhotosLeftPadding * 2;
+    self.textView.width = self.width - LeftPadding * 2;
     self.textView.height = TextViewHeight;
-    self.textView.left = PhotosLeftPadding;
-    self.textView.top = PhotosLeftPadding;
+    self.textView.left = LeftPadding;
+    self.textView.top = LeftPadding;
     
+    CGFloat photoWidth = (self.width - (MaxLineNum - 1)*PhotosPadding)/MaxLineNum;
+    self.layout.itemSize = CGSizeMake(photoWidth, photoWidth);
     self.collectioneView.width = self.textView.width;
-    self.collectioneView.height = [[self class]collectionViewHeight:self.photos.count +1];
-    self.collectioneView.left = PhotosLeftPadding;
+    self.collectioneView.height = [[self class]collectionViewHeight:self.photos.count andPreferedWidth:self.width];
+    self.collectioneView.backgroundColor = [UIColor redColor];
+    self.collectioneView.left = LeftPadding;
     self.collectioneView.bottom = self.height;
+    
 }
 
 #pragma mark - 计算高度
-+(CGFloat)heightWithPhotos:(NSArray *)photos{
-    CGFloat height = [[self class]collectionViewHeight:photos.count + 1];
-    
-    CGFloat offset = PhotosLeftPadding;
-    height += TextViewHeight;
-    height += offset * 2;
-    
-    return height;
+
++(CGFloat)heightWithPhotoCount:(NSInteger)photoCount andPreferedWidth:(CGFloat)width{
+    return [[self class]collectionViewHeight:photoCount andPreferedWidth:width] + TextViewHeight;
 }
 
-+(CGFloat)photoHeight{
-    return ([UIScreen mainScreen].bounds.size.width - 2 * PhotosLeftPadding - (MaxLineNum - 1) * PhotosPadding ) / MaxLineNum - 8;
-}
-
-+(CGFloat)collectionViewHeight:(NSInteger)photoCount{
-    CGFloat photoHeight = [LTUploadTextAndPhotosView photoHeight];
-    NSInteger lineNum = (photoCount-1) / MaxLineNum  + 1;
-    return PhotosLeftPadding * 2 + photoHeight * lineNum + PhotosPadding * (lineNum - 1);
++(CGFloat)collectionViewHeight:(NSInteger)photoCount andPreferedWidth:(CGFloat)width{
+    CGFloat itemHeight = (width - (MaxLineNum - 1)*PhotosPadding)/MaxLineNum;
+    NSUInteger lineCount = ((photoCount) / MaxLineNum) + 1;
+    return (lineCount * itemHeight) + (lineCount - 1)*PhotosPadding;
 }
 
 @end
