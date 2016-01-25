@@ -15,103 +15,56 @@
 @implementation LTUploadService
 
 -(void)uploadPost:(NSArray<PHAsset *> *)selectedAsset andContent:(NSAttributedString *)content andBlock:(LTUploadResponse)block{
-    __block LTModelPost *post = [LTModelPost new];
-    post.pubUser              = [LTModelUser currentUser];
-    post.content              = [content dataFromRange:NSMakeRange(0, content.length)
-                                    documentAttributes:@{NSDocumentTypeDocumentAttribute : NSRTFTextDocumentType }
-                                                error:nil];
-    
-    NSUInteger countAll            = selectedAsset.count;
-    __block NSUInteger count       = 0;
-    __block NSUInteger thumbCount  = 0;
-    NSMutableArray *photos = [NSMutableArray array];
-    NSMutableArray *thumbPhotos = [NSMutableArray array];
-    PHImageRequestOptions *option = [PHImageRequestOptions new];
-    option.synchronous = YES;
-    option.version = PHImageRequestOptionsVersionCurrent;
-    for (PHAsset * asset in selectedAsset) {
-        [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:CGSizeMake(300, 300) contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-            AVFile *file = [AVFile fileWithData:UIImagePNGRepresentation(result) ];
-            NSLog(@"缩略图加载完成");
-            [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if (succeeded) {
-                    NSLog(@"缩略图 save succeeded");
-                    [thumbPhotos addObject:file];
-                    thumbCount ++;
-                    if (thumbCount == countAll ) {
-                        post.thumbPhotos = thumbPhotos;
-                        [self uploadPostWithPost:post andBlock:^(BOOL success, NSError *error) {
-                            if (success) {
-                                NSLog(@"uploadPostWithPost success");
-                                
-                            }else{
-                                NSLog(@"%@",error);
-                            }
-                        }];
-                    }
-                    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        __block LTModelPost *post = [LTModelPost new];
+        post.pubUser              = [LTModelUser currentUser];
+        post.content              = [content dataFromRange:NSMakeRange(0, content.length)
+                                        documentAttributes:@{NSDocumentTypeDocumentAttribute : NSRTFTextDocumentType }
+                                                     error:nil];
+        NSMutableArray *thumbFiles = @[].mutableCopy;
+        NSMutableArray *originFiles = @[].mutableCopy;
+        
+        PHImageRequestOptions *option = [PHImageRequestOptions new];
+        option.synchronous = YES;
+        option.version = PHImageRequestOptionsVersionCurrent;
+        
+        for (PHAsset * asset in selectedAsset) {
+            [[PHImageManager defaultManager]requestImageDataForAsset:asset options:option resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+                NSError *error = nil;
+                
+                UIImage *origin = [UIImage imageWithData:imageData];
+                AVFile *originFile = [AVFile fileWithData:UIImageJPEGRepresentation(origin,0.6)];
+                [originFiles addObject:originFile];
+                if ([originFile save:&error]) {
+                    NSLog(@"保存了一张原图");
                 }else{
-                    NSLog(@"%@",error);
+                    NSLog(@"保存原图失败 %@",error);
+                }
+                
+                AVFile *thumbFile = [AVFile fileWithData:UIImageJPEGRepresentation(origin,0.2)];
+                [thumbFiles addObject:thumbFile];
+                if ([thumbFile save:&error]) {
+                    NSLog(@"保存了一张缩略图");
+                }else{
+                    NSLog(@"保存缩略图失败 %@",error);
                 }
             }];
-        }];
-
-        [[PHImageManager defaultManager]requestImageDataForAsset:asset options:option resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
-            AVFile *file = [AVFile fileWithData:imageData];
-            NSLog(@"原图加载完成");
-            [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if (succeeded) {
-                    NSLog(@"原图 save succeeded");
-                    [photos addObject:file];
-                    count ++;
-                    if (count == countAll) {
-                        post.photos = photos;
-                        [self uploadPostWithPost:post andBlock:^(BOOL success, NSError *error) {
-                            if (success) {
-                                NSLog(@"uploadPostWithPost success");
-                            }else{
-                                NSLog(@"%@",error);
-                            }
-                        }];
-                    }
-
-                }else{
-                    NSLog(@"%@",error);
-                }
-            }];
-        }];
-    }
-    
-}
-
-
--(void)uploadPostWithPost:(LTModelPost *)post andBlock:(LTUploadResponse)block{
-    if(post){
-//        NSMutableArray *array = @[].mutableCopy;
-//        for(int i = 0 ;i<60;i++){
-//            LTModelPost *p_post = [LTModelPost new];
-//            p_post.pubUser = post.pubUser;
-//            p_post.thumbPhotos = post.thumbPhotos;
-//            p_post.content = post.content;
-//            p_post.photos = post.photos;
-//            [array addObject:p_post];
-//        }
-//        [LTModelPost saveAllInBackground:array block:^(BOOL succeeded, NSError *error) {
-//            if (succeeded) {
-//                NSLog(@"saveAllInBackground succeeded");
-//            }
-//        }];
+        }
+        post.thumbPhotos = thumbFiles;
+        post.photos = originFiles;
         [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
-                NSLog(@"post sava succeeded");
+                NSLog(@"保存 post 成功");
             }else{
-                NSLog(@"%@",error);
+                NSLog(@"post saveInBackground 失败 %@",error);
             }
+            block(succeeded, error);
         }];
-    }else{
-        block(NO,nil);
-    }
+
+    });
     
 }
+
 
 @end

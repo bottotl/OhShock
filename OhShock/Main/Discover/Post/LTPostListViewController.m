@@ -16,7 +16,7 @@
 #import "LTPostModel.h"
 
 
-static NSUInteger const onceLoadPostNum = 100;
+static NSUInteger const onceLoadPostNum = 2;
 @interface LTPostListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -29,6 +29,7 @@ static NSUInteger const onceLoadPostNum = 100;
 @property (nonatomic, strong) NSMutableDictionary *posts;
 
 @property (nonatomic, assign) NSUInteger lastPostCount;
+@property (nonatomic, strong) UIAlertController *uploadAlert;
 
 /// LTPostModel
 @property (nonatomic, strong) NSMutableArray <LTModelPost *> *dataSource;
@@ -303,23 +304,24 @@ static NSUInteger const onceLoadPostNum = 100;
 
 #pragma mark 按钮点击
 - (void)showPostItems{
-    UIAlertController *uploadAlert = [UIAlertController alertControllerWithTitle:@"上传动态" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
-//    @weakify(self);
-    [uploadAlert addAction:[UIAlertAction actionWithTitle:@"上传图片动态" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-//        @strongify(self);
-//        [self loadMorePostList];
-//        [self.tableView reloadData];
+    self.uploadAlert = [UIAlertController alertControllerWithTitle:@"上传动态" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+    @weakify(self);
+    [self.uploadAlert addAction:[UIAlertAction actionWithTitle:@"上传图片动态" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        @strongify(self);
+        self.uploadAlert = nil;
+        [self loadMorePostList];
+        [self.tableView reloadData];
     }]];
-    [uploadAlert addAction:[UIAlertAction actionWithTitle:@"上传日程动态" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-//        @strongify(self);
-//        UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:[LTUploadPhotosViewController new]];
-//        [self.navigationController showDetailViewController:navi sender:self];
-//        NSLog(@"上传图片动态");
+    [self.uploadAlert addAction:[UIAlertAction actionWithTitle:@"上传日程动态" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        self.uploadAlert = nil;
+        UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:[LTUploadPhotosViewController new]];
+        [self presentViewController:navi animated:YES completion:nil];
+        NSLog(@"上传图片动态");
     }]];
-    [uploadAlert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-        NSLog(@"取消");
+    [self.uploadAlert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        self.uploadAlert = nil;
     }]];
-    [self presentViewController:uploadAlert animated:YES completion:nil];
+    [self presentViewController:self.uploadAlert animated:YES completion:nil];
 }
 
 
