@@ -53,6 +53,26 @@
         }
         post.thumbPhotos = thumbFiles;
         post.photos = originFiles;
+        
+        for (int i = 0; i < 10; i++) {
+            LTModelPost *p_post = post.copy;
+            NSMutableAttributedString *content = [[NSMutableAttributedString alloc]initWithData:p_post.content
+                                                                                        options:@{NSDocumentTypeDocumentAttribute : NSRTFTextDocumentType}
+                                                                             documentAttributes:nil
+                                                                                          error:nil];
+            [content appendAttributedString:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"sa🐶%d",i]]];
+            p_post.content = [content dataFromRange:NSMakeRange(0, content.length)
+                               documentAttributes:@{NSDocumentTypeDocumentAttribute : NSRTFTextDocumentType }
+                                            error:nil];
+            [p_post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    NSLog(@"保存 post 成功");
+                }else{
+                    NSLog(@"post saveInBackground 失败 %@",error);
+                }
+            }];
+        }
+        
         [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
                 NSLog(@"保存 post 成功");

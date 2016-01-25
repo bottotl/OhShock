@@ -37,7 +37,6 @@
     self.needBig = needBig;
     self.itemSpace = itemSpace;
     self.limit = limit;
-    self.collectionView.hidden = NO;
 }
 
 -(instancetype)init{

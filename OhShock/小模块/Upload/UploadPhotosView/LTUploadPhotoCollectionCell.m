@@ -20,6 +20,7 @@
 #pragma mark - property
 
 -(void)setImage:(UIImage *)image{
+    _image = image;
     self.imageView.image = image;
 }
 
@@ -36,7 +37,7 @@
 
 -(void)layoutSubviews{
     [super layoutSubviews];
-    self.imageView.frame = self.bounds;
+    self.imageView.frame = self.contentView.bounds;
 }
 
 
@@ -44,8 +45,6 @@
 
 -(void)configCellWith:(UIImage *)image{
     self.image = image;
-    [self setNeedsLayout];
-    [self layoutIfNeeded];
 }
 
 @end
