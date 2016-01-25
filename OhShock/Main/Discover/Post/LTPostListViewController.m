@@ -304,15 +304,17 @@ static NSUInteger const onceLoadPostNum = 100;
 #pragma mark 按钮点击
 - (void)showPostItems{
     UIAlertController *uploadAlert = [UIAlertController alertControllerWithTitle:@"上传动态" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
-    __weak __typeof(self) weakSelf = self;
+//    @weakify(self);
     [uploadAlert addAction:[UIAlertAction actionWithTitle:@"上传图片动态" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        [weakSelf loadMorePostList];
-        [weakSelf.tableView reloadData];
+//        @strongify(self);
+//        [self loadMorePostList];
+//        [self.tableView reloadData];
     }]];
     [uploadAlert addAction:[UIAlertAction actionWithTitle:@"上传日程动态" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:[LTUploadPhotosViewController new]];
-        [self.navigationController showDetailViewController:navi sender:self];
-        NSLog(@"上传图片动态");
+//        @strongify(self);
+//        UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:[LTUploadPhotosViewController new]];
+//        [self.navigationController showDetailViewController:navi sender:self];
+//        NSLog(@"上传图片动态");
     }]];
     [uploadAlert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
         NSLog(@"取消");

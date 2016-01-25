@@ -172,12 +172,12 @@
     [uploadAlert addAction:[UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
     }]];
-    __weak __typeof(self) weakSelf = self;
+    @weakify(self);
     [uploadAlert addAction:[UIAlertAction actionWithTitle:@"从手机相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        [weakSelf.imagePickerController.selectedAssets removeAllObjects];
-        [weakSelf.imagePickerController.selectedAssets addObjectsFromArray:weakSelf.selectedAsset];
-        
-        [weakSelf presentViewController:weakSelf.imagePickerController animated:YES completion:NULL];
+        @strongify(self);
+        [self.imagePickerController.selectedAssets removeAllObjects];
+        [self.imagePickerController.selectedAssets addObjectsFromArray:self.selectedAsset];
+        [self presentViewController:self.imagePickerController animated:YES completion:NULL];
     }]];
     [uploadAlert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
         NSLog(@"取消");
@@ -206,12 +206,23 @@
 #pragma mark 更新图片
 - (void)updatePhotos{
     [self.photos removeAllObjects];
-    __weak __typeof(self) weakSelf = self;
+    
+    PHImageRequestOptions *option = [[PHImageRequestOptions alloc]init];
+    option.synchronous = YES;// 同步读取
+    option.version = PHImageRequestOptionsVersionCurrent;
     for (int i = 0;i < self.selectedAsset.count; i++){
-        [[PHImageManager defaultManager]requestImageForAsset:self.selectedAsset[i] targetSize:CGSizeMake(40, 40) contentMode:PHImageContentModeAspectFill options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        @weakify(self);
+        [[PHImageManager defaultManager]requestImageForAsset:self.selectedAsset[i] targetSize:CGSizeMake(40, 40) contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
             if (result) {
-                weakSelf.photos[i] = result;
-                [weakSelf.tableView reloadData];
+                @strongify(self);
+                [self.photos addObject:result];
+                if (i == self.selectedAsset.count - 1 ) {
+                    @weakify(self);
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                         @strongify(self);
+                        [self.tableView reloadData];
+                    });
+                }
             }
             
         }];

@@ -40,8 +40,7 @@
                     thumbCount ++;
                     if (thumbCount == countAll ) {
                         post.thumbPhotos = thumbPhotos;
-                        @weakify(self);
-                        [weak_self uploadPostWithPost:post andBlock:^(BOOL success, NSError *error) {
+                        [self uploadPostWithPost:post andBlock:^(BOOL success, NSError *error) {
                             if (success) {
                                 NSLog(@"uploadPostWithPost success");
                                 
@@ -67,8 +66,7 @@
                     count ++;
                     if (count == countAll) {
                         post.photos = photos;
-                        @weakify(self);
-                        [weak_self uploadPostWithPost:post andBlock:^(BOOL success, NSError *error) {
+                        [self uploadPostWithPost:post andBlock:^(BOOL success, NSError *error) {
                             if (success) {
                                 NSLog(@"uploadPostWithPost success");
                             }else{
