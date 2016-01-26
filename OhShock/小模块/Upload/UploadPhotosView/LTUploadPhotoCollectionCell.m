@@ -19,14 +19,10 @@
 
 #pragma mark - property
 
--(void)setImage:(UIImage *)image{
-    _image = image;
-    self.imageView.image = image;
-}
-
 -(UIImageView *)imageView{
     if (!_imageView) {
         _imageView = [UIImageView new];
+        _imageView.clipsToBounds = YES;
         _imageView.contentMode = UIViewContentModeScaleAspectFill;
         [self.contentView addSubview:_imageView];
     }
@@ -44,7 +40,7 @@
 #pragma mark - 配置 Cell 数据
 
 -(void)configCellWith:(UIImage *)image{
-    self.image = image;
+    self.imageView.image = image;
 }
 
 @end

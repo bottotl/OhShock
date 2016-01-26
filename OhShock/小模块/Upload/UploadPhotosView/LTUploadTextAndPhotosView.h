@@ -25,6 +25,7 @@
 
 -(void)configView:(NSArray *)photos;
 
++(CGFloat)heightWithPhotoCount:(NSInteger)photoCount andPreferedViewWidth:(CGFloat)viewWidth;
 
 @end
 
