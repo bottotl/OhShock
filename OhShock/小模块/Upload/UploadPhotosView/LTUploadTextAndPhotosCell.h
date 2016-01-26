@@ -14,10 +14,9 @@ static NSString *const LTUploadTextAndPhotosCellIdentifier = @"LTUploadTextAndPh
 
 @property (nonatomic, strong) LTUploadTextAndPhotosView *richView;
 
-+(CGFloat)photoHeight;
 
 -(void)configCell:(NSArray *)photos;
 
-+(CGFloat)cellHeight:(NSArray *)photos;
++(CGFloat)cellHeightWithPhotoCount:(NSInteger)photoCount andWidth:(CGFloat)width;
 
 @end

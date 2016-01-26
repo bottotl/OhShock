@@ -35,6 +35,11 @@ static CGFloat textViewFontSize = 16.0;
 
 @implementation LTUploadTextAndPhotosView
 
+-(instancetype)init{
+    self = [self initWithFrame:CGRectZero];
+    return self;
+}
+
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     
@@ -62,8 +67,6 @@ static CGFloat textViewFontSize = 16.0;
 -(void)configView:(NSArray *)photos{
     self.photos = photos;
     [self.collectioneView reloadData];
-    [self setNeedsLayout];
-    [self layoutIfNeeded];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -98,7 +101,6 @@ static CGFloat textViewFontSize = 16.0;
     if(indexPath.row != self.photos.count){
         [(LTUploadPhotoCollectionCell *)cell configCellWith:self.photos[indexPath.row]];
     }
-    cell.backgroundColor = [UIColor blueColor];
     
 }
 
@@ -110,23 +112,28 @@ static CGFloat textViewFontSize = 16.0;
     self.textView.left = LeftPadding;
     self.textView.top = LeftPadding;
     
-    CGFloat photoWidth = (self.width - (MaxLineNum - 1)*PhotosPadding)/MaxLineNum;
+    CGFloat photoWidth = (self.textView.width - (MaxLineNum - 1)*PhotosPadding)/MaxLineNum;
     self.layout.itemSize = CGSizeMake(photoWidth, photoWidth);
     self.collectioneView.width = self.textView.width;
-    self.collectioneView.height = [[self class]collectionViewHeight:self.photos.count andPreferedWidth:self.width];
-    self.collectioneView.backgroundColor = [UIColor redColor];
+    self.collectioneView.height = [[self class]collectionViewHeight:self.photos.count andPreferedCollectionViewWidth:self.textView.width];
+    self.collectioneView.top = self.textView.bottom;
     self.collectioneView.left = LeftPadding;
-    self.collectioneView.bottom = self.height;
+}
+
+-(CGSize)sizeThatFits:(CGSize)size{
+    CGFloat width = size.width;
+    CGFloat height = [[self class]heightWithPhotoCount:self.photos.count andPreferedViewWidth:width];
+    return CGSizeMake(width, height);
     
 }
 
 #pragma mark - 计算高度
 
-+(CGFloat)heightWithPhotoCount:(NSInteger)photoCount andPreferedWidth:(CGFloat)width{
-    return [[self class]collectionViewHeight:photoCount andPreferedWidth:width] + TextViewHeight;
++(CGFloat)heightWithPhotoCount:(NSInteger)photoCount andPreferedViewWidth:(CGFloat)viewWidth{
+    return [[self class]collectionViewHeight:photoCount andPreferedCollectionViewWidth:(viewWidth - LeftPadding * 2)] + TextViewHeight + 10;
 }
 
-+(CGFloat)collectionViewHeight:(NSInteger)photoCount andPreferedWidth:(CGFloat)width{
++(CGFloat)collectionViewHeight:(NSInteger)photoCount andPreferedCollectionViewWidth:(CGFloat)width{
     CGFloat itemHeight = (width - (MaxLineNum - 1)*PhotosPadding)/MaxLineNum;
     NSUInteger lineCount = ((photoCount) / MaxLineNum) + 1;
     return (lineCount * itemHeight) + (lineCount - 1)*PhotosPadding;
