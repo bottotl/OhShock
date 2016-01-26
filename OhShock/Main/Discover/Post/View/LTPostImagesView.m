@@ -30,7 +30,6 @@
 @end
 
 @implementation LTPostImagesView
-@synthesize photos = _photos;
 #pragma mark - init
 -(void)configViewWithPicNum:(NSUInteger)picNum needBig:(BOOL)needBig itemSpace:(CGFloat)itemSpace  limit:(NSUInteger )limit{
     self.picNum = picNum;
@@ -61,7 +60,7 @@
     _collectionView.dataSource = self;
     _collectionView.backgroundColor = [UIColor clearColor];
     _collectionView.scrollEnabled = NO;
-    _collectionView.hidden = YES;
+    _collectionView.hidden = NO;
     [_collectionView registerClass:[LTPostImageCollectionViewCell class] forCellWithReuseIdentifier:LTPostImageCollectionCellIdentifier];
     [self addSubview:_collectionView];
     

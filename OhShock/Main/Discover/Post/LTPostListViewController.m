@@ -239,7 +239,6 @@ static NSUInteger const onceLoadPostNum = 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"cellForRowAtIndexPath");
     LTPostViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LTPostViewCellIdentifier forIndexPath:indexPath];
     LTPostView *postView = cell.postView;
     LTPostModel *post = self.posts[[NSString stringWithFormat:@"%d",(int)indexPath.row]];
@@ -254,8 +253,6 @@ static NSUInteger const onceLoadPostNum = 10;
     }
     postView.imagesView.photos = dic;
     cell.loadedData = YES;
-    [cell setNeedsLayout];
-    [cell layoutIfNeeded];
     cell.postView.liked = post.liked;
     
     @weakify(self);
@@ -293,7 +290,6 @@ static NSUInteger const onceLoadPostNum = 10;
     [[cell.postView.rac_commitSignal takeUntil:cell.rac_prepareForReuseSignal]subscribeNext:^(id x){
         NSLog(@"评论 %@",x);
     }];
-    NSLog(@"end cell for row");
     return cell;
 }
 
