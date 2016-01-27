@@ -17,5 +17,6 @@
 @property (nonatomic, strong) NSString *groupIntroduction;//群介绍
 @property (nonatomic, strong) UIImage *groupImage;//群图片
 @property (nonatomic, strong) NSString *groupImageURL;//群图片地址
+@property (nonatomic, strong) NSString *groupThumbnailImgageURL;//群图片缩略图地址
 
 @end

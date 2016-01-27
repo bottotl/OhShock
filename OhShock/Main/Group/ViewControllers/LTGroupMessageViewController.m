@@ -98,5 +98,35 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    LTModelMessage *message = dataSource[indexPath.row];
+    if ([[message objectForKey:@"isGroup"] boolValue]) {
+        NSLog(@"yes");
+    }else{
+        NSLog(@"no");
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertAction *snap = [UIAlertAction actionWithTitle:@"同意" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self getInWithMessage:message];
+        }];
+        UIAlertAction *pick = [UIAlertAction actionWithTitle:@"残忍拒绝" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        }];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        [alertController addAction:snap];
+        [alertController addAction:pick];
+        [alertController addAction:cancel];
+        [self presentViewController:alertController animated:YES completion:nil];
+
+    }
+}
+
+#pragma mark ------
+//同意进群
+- (void)getInWithMessage:(LTModelMessage *)message{
+    AVQuery *query = [LTModelGroup query];
+    [query whereKey:@"groupName" equalTo:[[message objectForKey:@"content"] substringFromIndex:5]];
+    [query getFirstObjectInBackgroundWithBlock:^(AVObject *object, NSError *error) {
+        [service let:[message objectForKey:@"sendFrom"] getInGroup:(LTModelGroup *)object andCallback:^(BOOL succeeded, NSError *error) {
+            
+        }];
+    }];
 }
 @end

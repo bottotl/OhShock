@@ -187,17 +187,11 @@ static NSString *const AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
 
     BOOL isActive = [UIApplication sharedApplication].applicationState == UIApplicationStateActive;//这个要事先保存起来，发现如果由通知打开app，在回调返回后应用状态会从UIApplicationStateInactive变成UIApplicationStateActive
     if ([userInfo[@"type"] isEqualToString:@"0"]) {//添加未读消息
-        LTGroupService *service = [[LTGroupService alloc]init];
-        [service addUnreadMessage:userInfo[@"unReadMessageId"] andCallback:^(BOOL succeeded, NSError *error) {
-            if (succeeded) {
-                
-                if (!isActive) {//保存未读消息成功后，判断应用是否在后台，在后台收到未读消息通知调到未读消息界面
-                    mainViewController.selectedIndex = 1;
-                    LTGroupMessageViewController *controller = [[LTGroupMessageViewController alloc]init];
-                    [mainViewController.selectedViewController pushViewController:controller animated:YES];
-                }
-            }
-        }];
+        if (!isActive) {//保存未读消息成功后，判断应用是否在后台，在后台收到未读消息通知调到未读消息界面
+            mainViewController.selectedIndex = 1;
+            LTGroupMessageViewController *controller = [[LTGroupMessageViewController alloc]init];
+            [mainViewController.selectedViewController pushViewController:controller animated:YES];
+        }
     }
 }
 
@@ -209,6 +203,7 @@ static NSString *const AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
 #pragma mark 注册LeanCloud 子类
 - (void)registerLeanSubClass{
     [LTModelGroup registerSubclass];
+    [LTModelUser registerSubclass];
 }
 
 @end

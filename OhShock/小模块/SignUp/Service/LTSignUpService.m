@@ -8,6 +8,7 @@
 
 #import "LTSignUpService.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "LTModelUserInfo.h"
 
 @implementation LTSignUpService
 
@@ -18,6 +19,12 @@
     //user.email = email;
     //[user setObject:phone forKey:@"phone"];
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            //在注册成功时为用户创建UserInfo表
+            LTModelUserInfo *userInfo = [[LTModelUserInfo alloc]init];
+            [userInfo setObject:user forKey:@"user"];
+            [userInfo saveInBackground];
+        }
         if (completeBlock) {
             completeBlock(succeeded,error);
         }

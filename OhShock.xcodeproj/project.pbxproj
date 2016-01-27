@@ -18,6 +18,7 @@
 		AB3CF3F41C4768F800F1C57B /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FD01C473CD200CD61FE /* LogInViewController.m */; };
 		AB540F591C4A312A0060FE5C /* LTModelMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = AB540F581C4A312A0060FE5C /* LTModelMessage.m */; };
 		AB76B7941C451D42000A2191 /* LTModelGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76B7931C451D42000A2191 /* LTModelGroup.m */; };
+		AB81ECC91C58F5600072EFEC /* LTModelUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81ECC81C58F5600072EFEC /* LTModelUserInfo.m */; };
 		ABE1E8A01C49274C006AA1C1 /* CLSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE1E89F1C49274C006AA1C1 /* CLSearchResultViewController.m */; };
 		ABFBA6991C4949DD00E1863E /* JoinGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFBA6981C4949DD00E1863E /* JoinGroupCell.m */; };
 		B80726721C1AAF2F00E7802A /* LTDiscoverTodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B80726711C1AAF2F00E7802A /* LTDiscoverTodoViewController.m */; };
@@ -850,6 +851,8 @@
 		AB540F581C4A312A0060FE5C /* LTModelMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTModelMessage.m; sourceTree = "<group>"; };
 		AB76B7921C451D42000A2191 /* LTModelGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTModelGroup.h; sourceTree = "<group>"; };
 		AB76B7931C451D42000A2191 /* LTModelGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTModelGroup.m; sourceTree = "<group>"; };
+		AB81ECC71C58F5600072EFEC /* LTModelUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTModelUserInfo.h; sourceTree = "<group>"; };
+		AB81ECC81C58F5600072EFEC /* LTModelUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTModelUserInfo.m; sourceTree = "<group>"; };
 		ABE1E89E1C49274C006AA1C1 /* CLSearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLSearchResultViewController.h; sourceTree = "<group>"; };
 		ABE1E89F1C49274C006AA1C1 /* CLSearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLSearchResultViewController.m; sourceTree = "<group>"; };
 		ABFBA6971C4949DD00E1863E /* JoinGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinGroupCell.h; sourceTree = "<group>"; };
@@ -3058,6 +3061,8 @@
 				AB76B7911C451D23000A2191 /* GroupModel */,
 				B84428741C4264C3005FA556 /* LTModelUser.h */,
 				B84428751C4264C3005FA556 /* LTModelUser.m */,
+				AB81ECC71C58F5600072EFEC /* LTModelUserInfo.h */,
+				AB81ECC81C58F5600072EFEC /* LTModelUserInfo.m */,
 				AB540F571C4A312A0060FE5C /* LTModelMessage.h */,
 				AB540F581C4A312A0060FE5C /* LTModelMessage.m */,
 			);
@@ -5146,6 +5151,7 @@
 				B81CCC461C21408500D642DB /* JSQMessagesLoadEarlierHeaderView.m in Sources */,
 				B80A37901C1DADB600C3B226 /* YYFPSLabel.m in Sources */,
 				B87677DD1C2015C300A0795B /* LTUserInfoSendMessageCell.m in Sources */,
+				AB81ECC91C58F5600072EFEC /* LTModelUserInfo.m in Sources */,
 				B81072751C197FCE0058130E /* JTCalendarMenuMonthView.m in Sources */,
 				B873AC3E1C48F8AB002C04B2 /* LTPostLikedModel.m in Sources */,
 				B873AC3F1C48F8AB002C04B2 /* LTPostModel.m in Sources */,

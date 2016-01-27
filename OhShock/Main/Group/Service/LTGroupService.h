@@ -28,7 +28,7 @@
  *  @param user          (AVUser *)
  *  @param complectBlock Block
  */
-- (void)getGroupOfUser:(AVUser *)group andCallback:(void(^)(BOOL succeeded, NSError *error, NSArray *array))complectBlock;
+- (void)getGroupOfUser:(AVUser *)user andCallback:(void(^)(BOOL succeeded, NSError *error, NSArray *array))complectBlock;
 
 
 /**
@@ -50,6 +50,15 @@
 
 
 /**
+ *  将用户加入群组（群主通过用户申请）
+ *
+ *  @param user          (AVUser *)
+ *  @param group         (LTModelGroup *)
+ *  @param complectBlock Block
+ */
+- (void)let:(AVUser *)user getInGroup:(LTModelGroup *)group andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock;
+
+/**
  *  添加消息
  *
  *  @param message       (LTModelMessage *)
@@ -58,20 +67,22 @@
 - (void)addMessage:(LTModelMessage *)message andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock;
 
 
-/**
- *  添加未读消息到队列（该队列在user表中是一个字段，保存为消息ID数组）
- *
- *  @param message       (LTModelMessage *)
- *  @param complectBlock Block
- */
-- (void)addUnreadMessage:(NSString *)messageID andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock;
+///**
+// *  添加未读消息到队列（该队列在user表中是一个字段，保存为消息ID数组）
+// *
+// *  @param message       (LTModelMessage *)
+// *  @param complectBlock Block
+// */
+//- (void)addUnreadMessage:(NSString *)messageID andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock;
 
 
 /**
- *  获取未读消息队列
+ *  获取未读消息
  *
  *  @param completeBlock 回调 Block
  */
 - (void)getUnReadMessagesWithcomplete:(void(^)(BOOL succeeded, NSError *error, NSArray *array))completeBlock;
+
+
 
 @end

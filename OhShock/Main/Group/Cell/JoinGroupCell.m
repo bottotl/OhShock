@@ -50,14 +50,12 @@
                     [_avatar sd_setImageWithURL:[NSURL URLWithString:urlString]];
                 }
             }];
-            //    NSLog(@"user Name is : %@", [[message objectForKey:@"sendFrom"] objectForKey:@"username"]);
+            //查询有延迟，所以在查询完毕后一起展示
             _userName.text = [object objectForKey:@"username"];
             _message.text = [message objectForKey:@"content"];
-
+            _time.attributedText = [[JSQMessagesTimestampFormatter sharedFormatter] attributedTimestampForDate:[message objectForKey:@"createdAt"]];
         }
     }];
-//    NSLog(@"ddddddd%@", [message objectForKey:@"createdAt"]);
-    _time.attributedText = [[JSQMessagesTimestampFormatter sharedFormatter] attributedTimestampForDate:[message objectForKey:@"createdAt"]];
 }
 
 @end

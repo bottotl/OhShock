@@ -74,22 +74,10 @@
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if (searchText.length) {
         [_service findGroupByPartname:searchText complete:^(BOOL succeeded, NSError *error, NSArray *array) {
-            _dataSource = [NSMutableArray array];
-            for (int i = 0; i < array.count; i++) {
-                AVObject *object = array[i];
-                LTModelGroup *group = [[LTModelGroup alloc]init];
-                group.groupName = [object objectForKey:@"groupName"];
-                group.groupStyle = [object objectForKey:@"groupStyle"];
-                group.groupAddress = [object objectForKey:@"groupAddress"];
-                group.groupLabels = [object objectForKey:@"groupLabels"];
-                group.groupIntroduction = [object objectForKey:@"groupIntroduction"];
-                AVFile *imgData = [object objectForKey:@"groupImage"];
-                group.groupImageURL = [imgData url];
-                
-                [_dataSource addObject:group];
+            if (succeeded) {
+                _dataSource = [array mutableCopy];
+                [self.tableView reloadData];
             }
-            
-            [self.tableView reloadData];
         }];
     }
 }
