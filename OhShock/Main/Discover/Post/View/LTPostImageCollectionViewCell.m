@@ -32,7 +32,8 @@
 
 -(void)prepareForReuse{
     [super prepareForReuse];
-    [self.imageView sd_setImageWithURL:nil];
+    self.imageView.image = nil;
+//    [self.imageView sd_setImageWithURL:nil];
     self.numberLabel.hidden = YES;
     self.numberView.hidden = YES;
 }
@@ -95,6 +96,7 @@
     [self setNeedsLayout];
     [self layoutIfNeeded];
 }
+
 
 
 @end
