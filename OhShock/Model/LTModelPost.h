@@ -12,7 +12,7 @@
 /**
  *  图文动态
  */
-@interface LTModelPost : AVObject <AVSubclassing>
+@interface LTModelPost : AVObject <AVSubclassing, NSCopying>
 
 /** 发布者 */
 @property (nonatomic, strong) LTModelUser *pubUser;
@@ -26,7 +26,7 @@
 /** 评论 NSArray <LTModelPostComment *>* */
 @property (nonatomic, strong) NSArray *comments;
 
-/** 图片 _File */
+/** 原图 _File */
 @property (nonatomic, strong) NSArray *photos;
 
 /** 缩略图 _File */

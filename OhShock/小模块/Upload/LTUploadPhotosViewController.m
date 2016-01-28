@@ -11,6 +11,7 @@
 #import "LTBaseTableViewCell.h"
 #import "QBImagePickerController.h"
 #import "LTUploadService.h"
+#import "UIView+Layout.h"
 
 @interface LTUploadPhotosViewController ()<UITableViewDataSource, UITableViewDelegate, LTUploadTextAndPhotosViewDelegae, QBImagePickerControllerDelegate, YYTextViewDelegate>
 
@@ -139,7 +140,7 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0 && indexPath.row == 0) {
-        return [LTUploadTextAndPhotosCell cellHeight:self.photos];
+        return [LTUploadTextAndPhotosCell cellHeightWithPhotoCount:self.selectedAsset.count andWidth:self.view.width];
     }
     
     return [LTBaseTableViewCell CellHeight];
@@ -191,10 +192,11 @@
 - (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didFinishPickingAssets:(NSArray <PHAsset *>*)assets{
     [self.selectedAsset removeAllObjects];
     self.selectedAsset = assets.mutableCopy;
-    [imagePickerController dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController{
-    [imagePickerController dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
+//    [imagePickerController dismissViewControllerAnimated:YES completion:nil];
 }
 #pragma mark YYTextViewDelegate
 - (void)textViewDidChange:(YYTextView *)textView;{
@@ -212,7 +214,7 @@
     option.version = PHImageRequestOptionsVersionCurrent;
     for (int i = 0;i < self.selectedAsset.count; i++){
         @weakify(self);
-        [[PHImageManager defaultManager]requestImageForAsset:self.selectedAsset[i] targetSize:CGSizeMake(40, 40) contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        [[PHImageManager defaultManager]requestImageForAsset:self.selectedAsset[i] targetSize:CGSizeMake(40, 40) contentMode:PHImageContentModeDefault options:option resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
             if (result) {
                 @strongify(self);
                 [self.photos addObject:result];

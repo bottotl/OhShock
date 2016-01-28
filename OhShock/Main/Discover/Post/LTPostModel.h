@@ -27,4 +27,6 @@
 
 @property (nonatomic, strong) NSArray < NSAttributedString *> *comments;
 
+@property (nonatomic, assign) BOOL liked;///< 是否点赞
+
 @end

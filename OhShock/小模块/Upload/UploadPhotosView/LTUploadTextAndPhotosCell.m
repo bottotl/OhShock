@@ -28,23 +28,22 @@
 
 -(void)layoutSubviews{
     [super layoutSubviews];
-    self.richView.frame = self.bounds;
+    self.richView.width = self.width;
+    [self.richView sizeToFit];
+    self.richView.left = 0;
+    self.richView.top = 0;
 }
 
 -(void)configCell:(NSArray *)photos{
     [self.richView configView:photos];
 }
 
-+(CGFloat)cellHeight:(NSArray *)photos{
-    return [LTUploadTextAndPhotosView heightWithPhotos:photos];
++(CGFloat)cellHeightWithPhotoCount:(NSInteger)photoCount andWidth:(CGFloat)width{
+    return [LTUploadTextAndPhotosView heightWithPhotoCount:photoCount andPreferedViewWidth:width];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:NO animated:animated];
-}
-
-+(CGFloat)photoHeight{
-    return [LTUploadTextAndPhotosView photoHeight];
 }
 
 @end

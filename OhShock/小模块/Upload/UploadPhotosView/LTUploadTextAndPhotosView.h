@@ -23,11 +23,9 @@
 @property (nonatomic, strong) id <LTUploadTextAndPhotosViewDelegae> delegate;
 @property (nonatomic, strong) YYTextView *textView;
 
-+(CGFloat)photoHeight;// 图片展示的大小
-
 -(void)configView:(NSArray *)photos;
 
-+(CGFloat)heightWithPhotos:(NSArray *)photos;
++(CGFloat)heightWithPhotoCount:(NSInteger)photoCount andPreferedViewWidth:(CGFloat)viewWidth;
 
 @end
 

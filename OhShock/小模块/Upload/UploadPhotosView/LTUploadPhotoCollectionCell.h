@@ -15,8 +15,6 @@ static NSString *const LTUploadPhotoCollectionCellIdentifier = @"LTUploadPhotoCo
  */
 @interface LTUploadPhotoCollectionCell : UICollectionViewCell
 
-@property (nonatomic, strong) UIImage *image;
-
 -(void)configCellWith:(UIImage *)image;
 
 @end

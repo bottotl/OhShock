@@ -16,7 +16,7 @@
 #import "LTPostModel.h"
 
 
-static NSUInteger const onceLoadPostNum = 100;
+static NSUInteger const onceLoadPostNum = 10;
 @interface LTPostListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -25,10 +25,11 @@ static NSUInteger const onceLoadPostNum = 100;
 //@property (nonatomic, strong) NSMutableArray *heights;
 
 //@property (nonatomic, strong) LTPostListService *service;
-
+/// @{ int :LTPostModel * }
 @property (nonatomic, strong) NSMutableDictionary *posts;
 
 @property (nonatomic, assign) NSUInteger lastPostCount;
+@property (nonatomic, strong) UIAlertController *uploadAlert;
 
 /// LTPostModel
 @property (nonatomic, strong) NSMutableArray <LTModelPost *> *dataSource;
@@ -50,6 +51,7 @@ static NSUInteger const onceLoadPostNum = 100;
     _tableView = [UITableView new];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.contentInset = UIEdgeInsetsMake(0, 0, 64, 0);
     [self.view addSubview:_tableView];
     
     _tableView.frame = self.view.bounds;
@@ -77,7 +79,7 @@ static NSUInteger const onceLoadPostNum = 100;
     return _posts;
 }
 -(NSUInteger)lastPostCount{
-    return self.posts.count;
+    return self.dataSource.count;
 }
 //-(NSMutableArray *)heights{
 //    if (!_heights) {
@@ -89,26 +91,31 @@ static NSUInteger const onceLoadPostNum = 100;
 #pragma mark - 数据
 // 加载一次 post
 -(void)loadMorePostList{
-    __weak __typeof(self) weakSelf = self;
     AVQuery *query = [LTModelPost query];
     [query orderByDescending:@"createdAt"];
     query.skip = self.lastPostCount ;
     query.limit = onceLoadPostNum;
     [query setCachePolicy:kAVCachePolicyNetworkElseCache];
+    @weakify(self);
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (error) {
             NSLog(@"%@",error);
         }else{
             NSMutableDictionary *onceLoadPosts = @{}.mutableCopy;
+            
             for (int i = 0; i < objects.count; i ++) {
                 LTModelPost *model = objects[i];
-                [weakSelf p_dequePostFromModel:model block:^(LTPostModel *post, NSError *error) {
+                [self p_dequePostFromModel:model block:^(LTPostModel *post, NSError *error) {
                     if (!error) {
+                        @strongify(self);
                         [onceLoadPosts setObject:post forKey:[NSString stringWithFormat:@"%d",(int)(i + self.lastPostCount)]];
                         if (onceLoadPosts.count == objects.count) {
-                            [self.posts addEntriesFromDictionary:onceLoadPosts.copy];
+                            [self.posts addEntriesFromDictionary:onceLoadPosts];
+                            [self.dataSource addObjectsFromArray:objects];
                             NSLog(@"post 加载完成");
+                            @weakify(self);
                             dispatch_async(dispatch_get_main_queue(), ^{
+                                @strongify(self);
                                 [self.tableView reloadData];
                             });
                             
@@ -162,6 +169,14 @@ static NSUInteger const onceLoadPostNum = 100;
             [post.picThumbFiles addObject:file];
             
         }
+        /// 点赞按钮设置
+        NSMutableArray *likedUsers = [[NSMutableArray alloc]initWithArray:model.likedUser];
+        for (LTModelUser *user in likedUsers) {
+            if([user.objectId isEqualToString:([LTModelUser currentUser].objectId)]){
+                post.liked = YES;
+                break;
+            }
+        }
         
         /// 点赞用户填充
         NSMutableAttributedString *likedUsersAttributedString = [[NSMutableAttributedString alloc]init];
@@ -182,9 +197,7 @@ static NSUInteger const onceLoadPostNum = 100;
         }
         NSLog(@"加载了一个 post");
         block(post,error);
-
     });
-    
     
 }
 
@@ -226,7 +239,6 @@ static NSUInteger const onceLoadPostNum = 100;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"cellForRowAtIndexPath");
     LTPostViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LTPostViewCellIdentifier forIndexPath:indexPath];
     LTPostView *postView = cell.postView;
     LTPostModel *post = self.posts[[NSString stringWithFormat:@"%d",(int)indexPath.row]];
@@ -241,39 +253,43 @@ static NSUInteger const onceLoadPostNum = 100;
     }
     postView.imagesView.photos = dic;
     cell.loadedData = YES;
-    [cell setNeedsLayout];
-    [cell layoutIfNeeded];
-
+    cell.postView.liked = post.liked;
     
-    
+    @weakify(self);
     [[cell.postView.rac_likeSignal takeUntil:cell.rac_prepareForReuseSignal]subscribeNext:^(id x) {
         LTPostViewRoundButton *button = x;
-        cell.postView.liked = !cell.postView.liked ;
         button.enabled = NO;/// 点击一次之后不允许点击了
+        @strongify(self);
+        LTModelPost *post = self.dataSource[indexPath.row];
+        BOOL needRemove = NO;// NO： 点赞 ,Yes：取消点赞
+        NSMutableArray *likedUsers = [[NSMutableArray alloc]initWithArray:post.likedUser];
+        for (LTModelUser *user in likedUsers) {
+            if([user.objectId isEqualToString:([LTModelUser currentUser].objectId)]){
+                needRemove = YES;
+                // 取消点赞
+                [likedUsers removeObject:user];
+                
+                break;
+            }
+        }
         
-//        LTPostmod *post = self.posts[indexPath.row];
-//        BOOL needRemove = NO;// 标记需要移除还是添加
-//        NSMutableArray *likedUsers = [[NSMutableArray alloc]initWithArray:post.likedUser];
-//        for (LTModelUser *user in likedUsers) {
-//            if([user.objectId isEqualToString:([LTModelUser currentUser].objectId)]){
-//                [likedUsers removeObject:user];
-//                needRemove = YES;
-//                break;
-//            }
-//        }
-//        
-//        if (needRemove || likedUsers.count == 0) {
-//            [likedUsers addObject:[LTModelUser currentUser]];
-//        }
-//        post.likedUser = likedUsers.copy;
-//        [post saveEventually];
+        if (!needRemove) {
+            // 点赞
+            [likedUsers addObject:[LTModelUser currentUser]];
+        }
+        post.likedUser = likedUsers.copy;
+        [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                NSLog(@"成功修改 post");
+                cell.postView.liked = !needRemove ;
+                button.enabled = YES;
+            }
+        }];
 
     }];
     [[cell.postView.rac_commitSignal takeUntil:cell.rac_prepareForReuseSignal]subscribeNext:^(id x){
         NSLog(@"评论 %@",x);
-        
     }];
-    NSLog(@"end cell for row");
     return cell;
 }
 
@@ -303,23 +319,24 @@ static NSUInteger const onceLoadPostNum = 100;
 
 #pragma mark 按钮点击
 - (void)showPostItems{
-    UIAlertController *uploadAlert = [UIAlertController alertControllerWithTitle:@"上传动态" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
-//    @weakify(self);
-    [uploadAlert addAction:[UIAlertAction actionWithTitle:@"上传图片动态" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-//        @strongify(self);
-//        [self loadMorePostList];
-//        [self.tableView reloadData];
+    self.uploadAlert = [UIAlertController alertControllerWithTitle:@"上传动态" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+    @weakify(self);
+    [self.uploadAlert addAction:[UIAlertAction actionWithTitle:@"上传图片动态" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        @strongify(self);
+        self.uploadAlert = nil;
+        [self loadMorePostList];
+        [self.tableView reloadData];
     }]];
-    [uploadAlert addAction:[UIAlertAction actionWithTitle:@"上传日程动态" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-//        @strongify(self);
-//        UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:[LTUploadPhotosViewController new]];
-//        [self.navigationController showDetailViewController:navi sender:self];
-//        NSLog(@"上传图片动态");
+    [self.uploadAlert addAction:[UIAlertAction actionWithTitle:@"上传日程动态" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        self.uploadAlert = nil;
+        UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:[LTUploadPhotosViewController new]];
+        [self presentViewController:navi animated:YES completion:nil];
+        NSLog(@"上传图片动态");
     }]];
-    [uploadAlert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-        NSLog(@"取消");
+    [self.uploadAlert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        self.uploadAlert = nil;
     }]];
-    [self presentViewController:uploadAlert animated:YES completion:nil];
+    [self presentViewController:self.uploadAlert animated:YES completion:nil];
 }
 
 
