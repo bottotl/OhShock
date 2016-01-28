@@ -97,6 +97,7 @@
 //添加子控制器
 - (void)addChildController{
     LTGroupMemberViewController *memberController = [[LTGroupMemberViewController alloc]init];
+    memberController.group = _group;
     [self addChildViewController:memberController];
     
     LTDiscoverTodoViewController *todoController = [[LTDiscoverTodoViewController alloc]init];

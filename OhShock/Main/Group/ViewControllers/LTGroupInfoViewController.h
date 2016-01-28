@@ -10,7 +10,7 @@
 #import "LTModelGroup.h"
 
 typedef NS_ENUM(NSUInteger, CLGroupMemberType){
-    CLGroupMemberLeader = 0,//群组
+    CLGroupMemberLeader = 0,//群主
     CLGroupMemberManager,//管理员
     CLGroupDefault,//普通群员
     CLGroupStranger//还未入群

@@ -32,6 +32,14 @@
 
 
 /**
+ *  获取群组成员
+ *
+ *  @param group          (LTModelGroup *)
+ *  @param complectBlock Block
+ */
+- (void)getMembersOfGroup:(LTModelGroup *)group andCallback:(void(^)(BOOL succeeded, NSError *error, NSArray *array))complectBlock;
+
+/**
  *  按关键字搜索群组
  *
  *  @param partName      搜索关键字

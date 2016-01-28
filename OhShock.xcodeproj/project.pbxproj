@@ -19,6 +19,7 @@
 		AB540F591C4A312A0060FE5C /* LTModelMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = AB540F581C4A312A0060FE5C /* LTModelMessage.m */; };
 		AB76B7941C451D42000A2191 /* LTModelGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76B7931C451D42000A2191 /* LTModelGroup.m */; };
 		AB81ECC91C58F5600072EFEC /* LTModelUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81ECC81C58F5600072EFEC /* LTModelUserInfo.m */; };
+		AB81ECCC1C5A1F7A0072EFEC /* LTGroupMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81ECCB1C5A1F7A0072EFEC /* LTGroupMemberCell.m */; };
 		ABE1E8A01C49274C006AA1C1 /* CLSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE1E89F1C49274C006AA1C1 /* CLSearchResultViewController.m */; };
 		ABFBA6991C4949DD00E1863E /* JoinGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFBA6981C4949DD00E1863E /* JoinGroupCell.m */; };
 		B80726721C1AAF2F00E7802A /* LTDiscoverTodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B80726711C1AAF2F00E7802A /* LTDiscoverTodoViewController.m */; };
@@ -517,8 +518,6 @@
 		B8E64C651C43F2E100B4CB64 /* GroupLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8E64C2B1C43F2E100B4CB64 /* GroupLabelCell.xib */; };
 		B8E64C661C43F2E100B4CB64 /* LTGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E64C2D1C43F2E100B4CB64 /* LTGroupCell.m */; };
 		B8E64C671C43F2E100B4CB64 /* LTGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8E64C2E1C43F2E100B4CB64 /* LTGroupCell.xib */; };
-		B8E64C681C43F2E100B4CB64 /* LTGroupMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E64C301C43F2E100B4CB64 /* LTGroupMemberCell.m */; };
-		B8E64C691C43F2E100B4CB64 /* LTGroupMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8E64C311C43F2E100B4CB64 /* LTGroupMemberCell.xib */; };
 		B8E64C6A1C43F2E100B4CB64 /* LTGroupMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E64C331C43F2E100B4CB64 /* LTGroupMessageCell.m */; };
 		B8E64C6B1C43F2E100B4CB64 /* LTGroupMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8E64C341C43F2E100B4CB64 /* LTGroupMessageCell.xib */; };
 		B8E64C6C1C43F2E100B4CB64 /* TagsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E64C361C43F2E100B4CB64 /* TagsTableCell.m */; };
@@ -853,6 +852,8 @@
 		AB76B7931C451D42000A2191 /* LTModelGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTModelGroup.m; sourceTree = "<group>"; };
 		AB81ECC71C58F5600072EFEC /* LTModelUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTModelUserInfo.h; sourceTree = "<group>"; };
 		AB81ECC81C58F5600072EFEC /* LTModelUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTModelUserInfo.m; sourceTree = "<group>"; };
+		AB81ECCA1C5A1F7A0072EFEC /* LTGroupMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTGroupMemberCell.h; sourceTree = "<group>"; };
+		AB81ECCB1C5A1F7A0072EFEC /* LTGroupMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroupMemberCell.m; sourceTree = "<group>"; };
 		ABE1E89E1C49274C006AA1C1 /* CLSearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLSearchResultViewController.h; sourceTree = "<group>"; };
 		ABE1E89F1C49274C006AA1C1 /* CLSearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLSearchResultViewController.m; sourceTree = "<group>"; };
 		ABFBA6971C4949DD00E1863E /* JoinGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinGroupCell.h; sourceTree = "<group>"; };
@@ -1537,9 +1538,6 @@
 		B8E64C2C1C43F2E100B4CB64 /* LTGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTGroupCell.h; sourceTree = "<group>"; };
 		B8E64C2D1C43F2E100B4CB64 /* LTGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroupCell.m; sourceTree = "<group>"; };
 		B8E64C2E1C43F2E100B4CB64 /* LTGroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTGroupCell.xib; sourceTree = "<group>"; };
-		B8E64C2F1C43F2E100B4CB64 /* LTGroupMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTGroupMemberCell.h; sourceTree = "<group>"; };
-		B8E64C301C43F2E100B4CB64 /* LTGroupMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroupMemberCell.m; sourceTree = "<group>"; };
-		B8E64C311C43F2E100B4CB64 /* LTGroupMemberCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTGroupMemberCell.xib; sourceTree = "<group>"; };
 		B8E64C321C43F2E100B4CB64 /* LTGroupMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTGroupMessageCell.h; sourceTree = "<group>"; };
 		B8E64C331C43F2E100B4CB64 /* LTGroupMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroupMessageCell.m; sourceTree = "<group>"; };
 		B8E64C341C43F2E100B4CB64 /* LTGroupMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTGroupMessageCell.xib; sourceTree = "<group>"; };
@@ -3380,9 +3378,8 @@
 				B8E64C2C1C43F2E100B4CB64 /* LTGroupCell.h */,
 				B8E64C2D1C43F2E100B4CB64 /* LTGroupCell.m */,
 				B8E64C2E1C43F2E100B4CB64 /* LTGroupCell.xib */,
-				B8E64C2F1C43F2E100B4CB64 /* LTGroupMemberCell.h */,
-				B8E64C301C43F2E100B4CB64 /* LTGroupMemberCell.m */,
-				B8E64C311C43F2E100B4CB64 /* LTGroupMemberCell.xib */,
+				AB81ECCA1C5A1F7A0072EFEC /* LTGroupMemberCell.h */,
+				AB81ECCB1C5A1F7A0072EFEC /* LTGroupMemberCell.m */,
 				B8E64C321C43F2E100B4CB64 /* LTGroupMessageCell.h */,
 				B8E64C331C43F2E100B4CB64 /* LTGroupMessageCell.m */,
 				B8E64C341C43F2E100B4CB64 /* LTGroupMessageCell.xib */,
@@ -4687,7 +4684,6 @@
 				B80728591C1AB2E900E7802A /* intro_icon_5@3x.png in Resources */,
 				B8EEAE1B1C294F5400F861E8 /* rabbit_8.gif in Resources */,
 				B80728581C1AB2E900E7802A /* intro_icon_5@2x.png in Resources */,
-				B8E64C691C43F2E100B4CB64 /* LTGroupMemberCell.xib in Resources */,
 				B80727FE1C1AB2E900E7802A /* coding_emoji_13@2x.png in Resources */,
 				B80728601C1AB2E900E7802A /* intro_tip_2@2x.png in Resources */,
 				B80727EA1C1AB2E900E7802A /* btn_project_add@2x.png in Resources */,
@@ -4938,6 +4934,7 @@
 				B8EEADAC1C294F5400F861E8 /* XHVideoOutputSampleBufferFactory.m in Sources */,
 				B8EEADC81C294F5400F861E8 /* XHViewState.m in Sources */,
 				B8EEADA51C294F5400F861E8 /* XHFileAttribute.m in Sources */,
+				AB81ECCC1C5A1F7A0072EFEC /* LTGroupMemberCell.m in Sources */,
 				B8EEADC91C294F5400F861E8 /* XHZoomingImageView.m in Sources */,
 				B8EEAD881C294F5400F861E8 /* NSString+XHMD5.m in Sources */,
 				B8EEADAD1C294F5400F861E8 /* XHAlbum.m in Sources */,
@@ -5091,7 +5088,6 @@
 				B8EEAD7C1C294F5400F861E8 /* CDChatManager.m in Sources */,
 				B8E64C6A1C43F2E100B4CB64 /* LTGroupMessageCell.m in Sources */,
 				B81CCC281C21408500D642DB /* UIView+JSQMessages.m in Sources */,
-				B8E64C681C43F2E100B4CB64 /* LTGroupMemberCell.m in Sources */,
 				B8EEAD941C294F5400F861E8 /* XHCaptureHelper.m in Sources */,
 				B81CCC3C1C21408500D642DB /* JSQMessagesCellTextView.m in Sources */,
 				B89E0FF51C47568300CD61FE /* LTBaseTableViewCell.m in Sources */,

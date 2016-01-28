@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LTModelGroup.h"
 
 @interface LTGroupMemberViewController : UIViewController
-
+@property (nonatomic, strong) LTModelGroup *group;
 @end

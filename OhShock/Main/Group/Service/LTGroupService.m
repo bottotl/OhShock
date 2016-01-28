@@ -93,6 +93,23 @@
     }];
 }
 
+
+/**
+ *  获取群组成员
+ *
+ *  @param group          (LTModelGroup *)
+ *  @param complectBlock Block
+ */
+- (void)getMembersOfGroup:(LTModelGroup *)group andCallback:(void(^)(BOOL succeeded, NSError *error, NSArray *array))complectBlock{
+    NSMutableArray *members = [(AVObject *)group objectForKey:@"groupMembers"];
+    if (members.count) {
+        complectBlock(YES, nil, members);
+    }else{
+        complectBlock(NO, nil, [NSArray array]);
+    }
+}
+
+
 /**
  *  按关键字搜索群组
  *
@@ -183,19 +200,37 @@
  *  @param complectBlock Block
  */
 - (void)let:(AVUser *)user getInGroup:(LTModelGroup *)group andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock{
+    //将群加到用户所在群数组
     AVQuery *query = [LTModelUserInfo query];
     [query whereKey:@"user" equalTo:user];
     [query getFirstObjectInBackgroundWithBlock:^(AVObject *object, NSError *error) {
-        NSMutableArray *groups = [object objectForKey:@"groups"];
-        if (!groups.count) {
-            groups = [NSMutableArray array];
-        }
-        if (![groups containsObject:group]) {
-            [groups addObject:group];
-            [object setObject:groups forKey:@"groups"];
-            [object saveInBackground];
+        if (!error) {
+            NSMutableArray *groups = [object objectForKey:@"groups"];
+            if (!groups.count) {
+                groups = [NSMutableArray array];
+            }
+            if (![groups containsObject:group]) {//如果已经在群里，跳过，否则加入
+                [groups addObject:group];
+                [object setObject:groups forKey:@"groups"];
+                [object saveInBackground];
+            }
+            //将用户加到群成员数组
+            NSMutableArray *members = [group objectForKey:@"groupMembers"];
+            //这个members至少有一个元素
+            if (![members containsObject:user]) {
+                [members addObject:user];
+                [group setObject:members forKey:@"groupMembers"];
+                [group saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    if (succeeded) {
+                        complectBlock(succeeded, error);
+                    }
+                }];
+            }
+            complectBlock(YES, error);
         }
     }];
+    
+    
 }
 
 

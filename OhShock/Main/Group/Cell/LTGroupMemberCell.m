@@ -2,7 +2,7 @@
 //  LTGroupMemberCell.m
 //  OhShock
 //
-//  Created by chenlong on 16/1/6.
+//  Created by chenlong on 16/1/28.
 //  Copyright © 2016年 Lintao Yu. All rights reserved.
 //
 
@@ -11,25 +11,38 @@
 
 @implementation LTGroupMemberCell
 
-- (void)awakeFromNib {
-    // Initialization code
-//    //如果没有图片，移除imgV,添加新约束
-//    [_attachImg removeFromSuperview];
-//    [self.contentView addConstraint:[NSLayoutConstraint
-//                              constraintWithItem:_msgContent
-//                              attribute:NSLayoutAttributeRight
-//                              relatedBy:NSLayoutRelationEqual
-//                              toItem:[_msgContent superview]
-//                              attribute:NSLayoutAttributeRight
-//                              multiplier:1
-//                              constant:-10]];
-}
-
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        _avatarImg = [[UIImageView alloc] initWithFrame:CGRectMake(15, 10, 46, 46)];
+        _avatarImg.layer.masksToBounds = YES;
+        _avatarImg.layer.cornerRadius = 23;
+        _avatarImg.image = [UIImage imageNamed:@"tasks_all"];
+        [self.contentView addSubview:_avatarImg];
+        
+        _nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(8, 60, 60, 13.5)];
+        _nameLabel.font = [UIFont systemFontOfSize:12];
+        _nameLabel.textAlignment= NSTextAlignmentCenter;
+        _nameLabel.text = @"hzhj";
+        [self.contentView addSubview:_nameLabel];
+        
+        UIView *grayBack = [[UIView alloc]initWithFrame:CGRectMake(69, 8, kScreen_Width - 75, 64)];
+        grayBack.layer.masksToBounds = YES;
+        grayBack.layer.cornerRadius = 10;
+        grayBack.backgroundColor = RGBCOLOR(240, 240, 240);
+        [self.contentView addSubview:grayBack];
+        
+        _contentLabel = [[UILabel alloc]initWithFrame:CGRectMake(4, 8, grayBack.width - 70, 48)];
+        _contentLabel.numberOfLines = 0;
+        _contentLabel.font = [UIFont systemFontOfSize:13];
+        _contentLabel.text = @"出去溜达溜达。哈哈哈出去溜达溜达。哈哈哈出去溜达溜达。哈哈哈";
+        [grayBack addSubview:_contentLabel];
+        
+        _contentImg = [[UIImageView alloc]initWithFrame:CGRectMake(_contentLabel.right + 8, 7, 53, 54)];
+        _contentImg.image = [UIImage imageNamed:@"Sun"];
+        [grayBack addSubview:_contentImg];
+    }
+    return self;
 }
 
 @end

@@ -49,33 +49,34 @@
 
 //刷新数据源
 - (void)refreshTableData{
-    
+    [service getMembersOfGroup:_group andCallback:^(BOOL succeeded, NSError *error, NSArray *array) {
+        dataSource = [array mutableCopy];
+    }];
 }
 
 #pragma mark tableView Delegate
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return dataSource.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
    
-        LTGroupMemberCell *cell = [tableView dequeueReusableCellWithIdentifier:@"groupMemberCell"];
-        if (cell == nil) {
-            [tableView registerNib:[UINib nibWithNibName:@"LTGroupMemberCell" bundle:nil] forCellReuseIdentifier:@"groupMemberCell"];
-            cell = [tableView dequeueReusableCellWithIdentifier:@"groupMemberCell"];
-        }
-    if (indexPath.row % 2 == 0) {
-        [cell.attachImg removeFromSuperview];
-        [cell.contentView addConstraint:[NSLayoutConstraint
-                                         constraintWithItem:cell.msgContent
-                                         attribute:NSLayoutAttributeRight
-                                         relatedBy:NSLayoutRelationEqual
-                                         toItem:[cell.msgContent superview]
-                                         attribute:NSLayoutAttributeRight
-                                         multiplier:1
-                                         constant:-10]];
+    LTGroupMemberCell *cell = [tableView dequeueReusableCellWithIdentifier:@"groupMemberCell"];
+    if (cell == nil) {
+        cell = [[LTGroupMemberCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"groupMemberCell"];
     }
+//    if (indexPath.row % 2 == 0) {
+//        [cell.attachImg removeFromSuperview];
+//        [cell.contentView addConstraint:[NSLayoutConstraint
+//                                         constraintWithItem:cell.msgContent
+//                                         attribute:NSLayoutAttributeRight
+//                                         relatedBy:NSLayoutRelationEqual
+//                                         toItem:[cell.msgContent superview]
+//                                         attribute:NSLayoutAttributeRight
+//                                         multiplier:1
+//                                         constant:-10]];
+//    }
     return cell;
 }
 
