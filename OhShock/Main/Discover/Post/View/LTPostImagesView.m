@@ -172,6 +172,10 @@
     }
     return _photos;
 }
+-(void)setPhotos:(NSMutableDictionary *)photos{
+    _photos = photos;
+    [self.collectionView reloadData];
+}
 
 #pragma mark - 计算总高度
 + (CGFloat)heightWithSuggestThreePicWidth:(CGFloat)width andPicCount:(NSInteger)count andBigPic:(BOOL)bigpic andItemSpace:(CGFloat)space withLimit:(NSInteger)limit{
