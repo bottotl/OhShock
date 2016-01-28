@@ -101,12 +101,18 @@
  *  @param complectBlock Block
  */
 - (void)getMembersOfGroup:(LTModelGroup *)group andCallback:(void(^)(BOOL succeeded, NSError *error, NSArray *array))complectBlock{
-    NSMutableArray *members = [(AVObject *)group objectForKey:@"groupMembers"];
-    if (members.count) {
-        complectBlock(YES, nil, members);
-    }else{
-        complectBlock(NO, nil, [NSArray array]);
-    }
+    AVQuery *query = [LTModelGroup query];
+    [query whereKey:@"groupName" equalTo:group.groupName];
+    [query getFirstObjectInBackgroundWithBlock:^(AVObject *object, NSError *error) {
+        if (!error) {
+            NSMutableArray *members = [object objectForKey:@"groupMembers"];
+            if (members.count) {
+                complectBlock(YES, nil, members);
+            }else{
+                complectBlock(NO, nil, [NSArray array]);
+            }
+        }
+    }];
 }
 
 
@@ -229,8 +235,40 @@
             complectBlock(YES, error);
         }
     }];
-    
-    
+}
+
+
+/**
+ *  将用户移出群组
+ *
+ *  @param user          (AVUser *)
+ *  @param group         (LTModelGroup *)
+ *  @param complectBlock Block
+ */
+- (void)let:(AVUser *)user getOutGroup:(LTModelGroup *)group andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock{
+    //将群移出用户所在群数组
+    AVQuery *query = [LTModelUserInfo query];
+    [query whereKey:@"user" equalTo:user];
+    [query getFirstObjectInBackgroundWithBlock:^(AVObject *object, NSError *error) {
+        if (!error) {
+            NSMutableArray *groups = [object objectForKey:@"groups"];
+            [groups removeObject:user];
+            [object saveInBackground];
+            
+            //将用户移出群成员数组
+            NSMutableArray *members = [group objectForKey:@"groupMembers"];
+            //这个members至少有一个元素
+            [members removeObject:user];
+            [group setObject:members forKey:@"groupMembers"];
+            [group saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    complectBlock(succeeded, error);
+                }
+            }];
+            complectBlock(YES, error);
+            
+        }
+    }];
 }
 
 

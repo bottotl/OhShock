@@ -8,6 +8,8 @@
 
 #import "LTGroupMemberCell.h"
 #import "Header.h"
+#import "LTChatService.h"
+#import "UIImageView+WebCache.h"
 
 @implementation LTGroupMemberCell
 
@@ -17,13 +19,11 @@
         _avatarImg = [[UIImageView alloc] initWithFrame:CGRectMake(15, 10, 46, 46)];
         _avatarImg.layer.masksToBounds = YES;
         _avatarImg.layer.cornerRadius = 23;
-        _avatarImg.image = [UIImage imageNamed:@"tasks_all"];
         [self.contentView addSubview:_avatarImg];
         
         _nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(8, 60, 60, 13.5)];
         _nameLabel.font = [UIFont systemFontOfSize:12];
         _nameLabel.textAlignment= NSTextAlignmentCenter;
-        _nameLabel.text = @"hzhj";
         [self.contentView addSubview:_nameLabel];
         
         UIView *grayBack = [[UIView alloc]initWithFrame:CGRectMake(69, 8, kScreen_Width - 75, 64)];
@@ -43,6 +43,22 @@
         [grayBack addSubview:_contentImg];
     }
     return self;
+}
+
+- (void)setCellWith:(AVObject *)obj{
+    AVQuery *query = [AVQuery queryWithClassName:@"_User"];
+    [query whereKey:@"objectId" equalTo:[obj objectForKey:@"objectId"]];
+    [query getFirstObjectInBackgroundWithBlock:^(AVObject *object, NSError *error) {
+        if (!error) {
+            LTChatService *service = [[LTChatService alloc]init];
+            [service getAvatorUrlString:(AVUser *)object complete:^(NSString *urlString, NSError *error) {
+                if (!error) {
+                    [_avatarImg sd_setImageWithURL:[NSURL URLWithString:urlString]];
+                }
+            }];
+             _nameLabel.text = [object objectForKey:@"username"];
+        }
+    }];
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVOSCloud/AVOSCloud.h>
 
 @interface LTGroupMemberCell : UITableViewCell
 
@@ -14,5 +15,7 @@
 @property (nonatomic, strong) UILabel *nameLabel;//用户名
 @property (nonatomic, strong) UILabel *contentLabel;//动态内容
 @property (nonatomic, strong) UIImageView *contentImg;//动态图片，可有可无
+
+- (void)setCellWith:(AVObject *)obj;
 
 @end

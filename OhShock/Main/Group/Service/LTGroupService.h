@@ -58,13 +58,24 @@
 
 
 /**
- *  将用户加入群组（群主通过用户申请）
+ *  将用户加入群组（通过用户申请）
  *
  *  @param user          (AVUser *)
  *  @param group         (LTModelGroup *)
  *  @param complectBlock Block
  */
 - (void)let:(AVUser *)user getInGroup:(LTModelGroup *)group andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock;
+
+
+/**
+ *  将用户移出群组
+ *
+ *  @param user          (AVUser *)
+ *  @param group         (LTModelGroup *)
+ *  @param complectBlock Block
+ */
+- (void)let:(AVUser *)user getOutGroup:(LTModelGroup *)group andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock;
+
 
 /**
  *  添加消息

@@ -51,6 +51,7 @@
 - (void)refreshTableData{
     [service getMembersOfGroup:_group andCallback:^(BOOL succeeded, NSError *error, NSArray *array) {
         dataSource = [array mutableCopy];
+        [mainTableView reloadData];
     }];
 }
 
@@ -66,6 +67,7 @@
     if (cell == nil) {
         cell = [[LTGroupMemberCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"groupMemberCell"];
     }
+    [cell setCellWith:dataSource[indexPath.row]];
 //    if (indexPath.row % 2 == 0) {
 //        [cell.attachImg removeFromSuperview];
 //        [cell.contentView addConstraint:[NSLayoutConstraint

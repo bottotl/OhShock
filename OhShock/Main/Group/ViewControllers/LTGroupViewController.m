@@ -169,7 +169,7 @@
         //点击进入群详情
         LTGroupInfoViewController *controller = [[LTGroupInfoViewController alloc]init];
         controller.group = groupArray[indexPath.row];
-        controller.groupName = @"XX群";
+        controller.groupName = [groupArray[indexPath.row] objectForKey:@"groupName"];
         [self.navigationController pushViewController:controller animated:YES];
     }
 }
