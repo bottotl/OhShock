@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "LTModelGroup.h"
 #import "LTModelMessage.h"
+#import "LTGroupInfoViewController.h"
 
 @interface LTGroupService : NSObject
 
@@ -67,6 +68,7 @@
 - (void)let:(AVUser *)user getInGroup:(LTModelGroup *)group andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock;
 
 
+
 /**
  *  将用户移出群组
  *
@@ -76,6 +78,15 @@
  */
 - (void)let:(AVUser *)user getOutGroup:(LTModelGroup *)group andCallback:(void(^)(BOOL succeeded, NSError *error))complectBlock;
 
+
+/**
+ *  获取用户在群组中的角色
+ *
+ *  @param user          (AVUser *)
+ *  @param group         (LTModelGroup *)
+ *  @param complectBlock Block
+ */
+- (void)getMemberTypeOf:(AVUser *)user In:(LTModelGroup *)group andCallback:(void(^)(BOOL succeeded, NSError *error, CLGroupMemberType type))complectBlock;
 
 /**
  *  添加消息

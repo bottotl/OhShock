@@ -44,6 +44,7 @@
                         [object setObject:array forKey:@"groups"];
                         [object saveInBackground];
                     }];
+                    //通知群组界面刷新
                     [[NSNotificationCenter defaultCenter]postNotificationName:RefreshNotification object:nil];
                     complectBlock(succeeded, error);
                 }else{
@@ -228,7 +229,21 @@
                 [group setObject:members forKey:@"groupMembers"];
                 [group saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                     if (succeeded) {
-                        complectBlock(succeeded, error);
+                        //向申请者添加未读消息
+                        LTModelMessage *message = [[LTModelMessage alloc]init];
+                        message.content = [NSString stringWithFormat:@"%@已通过你的申请", [group objectForKey:@"groupName"]];
+                        message.sendFrom = (LTModelUser *)[AVUser currentUser];
+                        message.sendTo = (LTModelUser *)user;
+                        message.isRead = NO;
+                        message.isGroup = NO;
+                        message.info = nil;
+                        [self addMessage:message andCallback:^(BOOL succeeded, NSError *error) {
+                            if (succeeded) {
+                                complectBlock(YES, error);
+                            }else{
+                                complectBlock(NO, error);
+                            }
+                        }];
                     }
                 }];
             }
@@ -252,25 +267,87 @@
     [query getFirstObjectInBackgroundWithBlock:^(AVObject *object, NSError *error) {
         if (!error) {
             NSMutableArray *groups = [object objectForKey:@"groups"];
-            [groups removeObject:user];
-            [object saveInBackground];
             
             //将用户移出群成员数组
-            NSMutableArray *members = [group objectForKey:@"groupMembers"];
-            //这个members至少有一个元素
-            [members removeObject:user];
-            [group setObject:members forKey:@"groupMembers"];
-            [group saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if (succeeded) {
-                    complectBlock(succeeded, error);
-                }
+            AVQuery *groupQuery = [LTModelGroup query];
+            [groupQuery whereKey:@"groupName" equalTo:group.groupName];
+            [groupQuery getFirstObjectInBackgroundWithBlock:^(AVObject *groupObj, NSError *error) {
+                [groups removeObject:groupObj];
+                [object setObject:groups forKey:@"groups"];
+                [object saveInBackground];
+                
+                NSMutableArray *members = [groupObj objectForKey:@"groupMembers"];
+                //这个members至少有一个元素
+                [members removeObject:user];
+                [groupObj setObject:members forKey:@"groupMembers"];
+                [groupObj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    if (succeeded) {
+                        if ([[AVUser currentUser] isEqual:[groupObj objectForKey:@"groupCreator"]]) {//群主踢人
+                            LTModelMessage *message = [[LTModelMessage alloc]init];
+                            message.content = [NSString stringWithFormat:@"你被移出%@群", [group objectForKey:@"groupName"]];
+                            message.sendFrom = (LTModelUser *)[AVUser currentUser];
+                            message.sendTo = (LTModelUser *)user;
+                            message.isRead = NO;
+                            message.isGroup = NO;
+                            message.info = nil;
+                            [self addMessage:message andCallback:^(BOOL succeeded, NSError *error) {
+                                if (succeeded) {
+                                    complectBlock(YES, error);
+                                }else{
+                                    complectBlock(NO, error);
+                                }
+                            }];
+                        }else{//自己退出群
+                            LTModelMessage *message = [[LTModelMessage alloc]init];
+                            message.content = [NSString stringWithFormat:@"%@退出%@群", [[AVUser currentUser] objectForKey:@"username"], [group objectForKey:@"groupName"]];
+                            message.sendFrom = (LTModelUser *)[AVUser currentUser];
+                            message.sendTo = (LTModelUser *)[groupObj objectForKey:@"groupCreator"];
+                            message.isRead = NO;
+                            message.isGroup = NO;
+                            message.info = nil;
+                            [self addMessage:message andCallback:^(BOOL succeeded, NSError *error) {
+                                if (succeeded) {
+                                    complectBlock(YES, error);
+                                }else{
+                                    complectBlock(NO, error);
+                                }
+                            }];
+                        }
+                        complectBlock(succeeded, error);
+                    }
+                }];
+                complectBlock(YES, error);
             }];
-            complectBlock(YES, error);
-            
         }
     }];
 }
 
+
+/**
+ *  获取用户在群组中的角色
+ *
+ *  @param user          (AVUser *)
+ *  @param group         (LTModelGroup *)
+ *  @param complectBlock Block
+ */
+- (void)getMemberTypeOf:(AVUser *)user In:(LTModelGroup *)group andCallback:(void(^)(BOOL succeeded, NSError *error, CLGroupMemberType type))complectBlock{
+    AVQuery *query = [LTModelGroup query];
+    [query whereKey:@"groupName" equalTo:group.groupName];
+    [query getFirstObjectInBackgroundWithBlock:^(AVObject *object, NSError *error) {
+        if (!error) {
+            if ([user isEqual:[object objectForKey:@"groupCreator"]]) {
+                //群主
+                complectBlock(YES, nil, CLGroupMemberLeader);
+                return;
+            }
+            if ([(NSArray *)[object objectForKey:@"groupMembers"] containsObject:user]) {
+                complectBlock(YES, nil, CLGroupDefault);
+                return;
+            }
+            complectBlock(YES, nil, CLGroupStranger);
+        }
+    }];
+}
 
 
 /**

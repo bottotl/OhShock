@@ -87,6 +87,9 @@
     [self.view addSubview:self.switcher];
     
     _groupService = [[LTGroupService alloc]init];
+    [_groupService getMemberTypeOf:[AVUser currentUser] In:_group andCallback:^(BOOL succeeded, NSError *error, CLGroupMemberType type) {
+        _memberType = type;
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -112,44 +115,183 @@
 #pragma mark config popMenu
 - (XHPopMenu *)popMenu {
     if (!_popMenu) {
-        NSMutableArray *popMenuItems = [[NSMutableArray alloc] initWithCapacity:3];
-        for (int i = 0; i < 3; i ++) {
-            NSString *imageName;
-            NSString *title;
-            switch (i) {
-                case 0: {
-                    imageName = @"contacts_add_newmessage";
-                    title = @"分享该群";
-                    break;
+        NSMutableArray *popMenuItems = [NSMutableArray array];
+        if (_memberType == CLGroupMemberLeader) {//群主
+            for (int i = 0; i < 8; i++) {
+                NSString *imageName;
+                NSString *title;
+                switch (i) {
+                    case 0:
+                        imageName = @"contacts_add_newmessage";
+                        title =@"发表日程";
+                        break;
+                        
+                    case 1:
+                        imageName = @"contacts_add_newmessage";
+                        title =@"修改群资料";
+                        break;
+                        
+                    case 2:
+                        imageName = @"contacts_add_newmessage";
+                        title =@"管理成员";
+                        break;
+                        
+                    case 3:
+                        imageName = @"contacts_add_newmessage";
+                        title =@"设为星标";
+                        break;
+                        
+                    case 4:
+                        imageName = @"contacts_add_newmessage";
+                        title =@"通知设置";
+                        break;
+                        
+                    case 5:
+                        imageName = @"contacts_add_newmessage";
+                        title =@"设置群隐私";
+                        break;
+                        
+                    case 6:
+                        imageName = @"contacts_add_newmessage";
+                        title =@"分享该群";
+                        break;
+                        
+                    case 7:
+                        imageName = @"contacts_add_newmessage";
+                        title =@"解散该群";
+                        break;
+                        
+                    default:
+                        break;
                 }
-                case 1: {
-                    imageName = @"contacts_add_friend";
-                    title = @"查看群资料";
-                    break;
-                }
-                case 2:{
-                    imageName = @"contacts_add_friend";
-                    title = @"加入该群";
-                }
-                default:
-                    break;
+                XHPopMenuItem *popMenuItem = [[XHPopMenuItem alloc] initWithImage:[UIImage imageNamed:imageName] title:title];
+                [popMenuItems addObject:popMenuItem];
             }
-            XHPopMenuItem *popMenuItem = [[XHPopMenuItem alloc] initWithImage:[UIImage imageNamed:imageName] title:title];
-            [popMenuItems addObject:popMenuItem];
-        }
-        
-        __weak __typeof(self) weakSelf = self;
-        _popMenu = [[XHPopMenu alloc] initWithMenus:popMenuItems];
-        _popMenu.popMenuDidSlectedCompled = ^(NSInteger index, XHPopMenuItem *popMenuItems) {
-            if (index == 1) {
-               
-            }else if (index == 0 ) {
+            __weak __typeof(self) weakSelf = self;
+            _popMenu = [[XHPopMenu alloc] initWithMenus:popMenuItems];
+            _popMenu.popMenuDidSlectedCompled = ^(NSInteger index, XHPopMenuItem *popMenuItems) {
+                if (index == 0) {
+                    
+                }
+                else if (index == 1 ) {
+                    
+                }
+                else if (index == 2 ) {
 
-            }else if (index == 2 ) {
-                [weakSelf joinGroup];
+                }
+                else if (index == 3 ) {
+                    
+                }
+                else if (index == 4 ) {
+                    
+                }
+                else if (index == 5 ) {
+                    
+                }
+                else if (index == 6 ) {
+                    
+                }
+                else if (index == 7 ) {
+                    
+                }
+                
+            };
+        }else if (_memberType == CLGroupDefault){//普通群成员
+            for (int i = 0; i < 6; i++) {
+                NSString *imageName;
+                NSString *title;
+                switch (i) {
+                    case 0:
+                        imageName = @"contacts_add_newmessage";
+                        title = @"设为星标";
+                        break;
+                        
+                    case 1:
+                        imageName = @"contacts_add_newmessage";
+                        title = @"查看群资料";
+                        break;
+                        
+                    case 2:
+                        imageName = @"contacts_add_newmessage";
+                        title = @"通知设置";
+                        break;
+                        
+                    case 3:
+                        imageName = @"contacts_add_newmessage";
+                        title = @"分享该群";
+                        break;
+                        
+                    case 4:
+                        imageName = @"contacts_add_newmessage";
+                        title = @"举报该群";
+                        break;
+                        
+                    case 5:
+                        imageName = @"contacts_add_newmessage";
+                        title = @"退出该群";
+                        break;
+                        
+                    default:
+                        break;
+                }
+                XHPopMenuItem *popMenuItem = [[XHPopMenuItem alloc] initWithImage:[UIImage imageNamed:imageName] title:title];
+                [popMenuItems addObject:popMenuItem];
+            }
+            __weak __typeof(self) weakSelf = self;
+            _popMenu = [[XHPopMenu alloc] initWithMenus:popMenuItems];
+            _popMenu.popMenuDidSlectedCompled = ^(NSInteger index, XHPopMenuItem *popMenuItems) {
+                if (index == 0) {
+                    
+                }else if (index == 1 ) {
+                    
+                }else if (index == 2 ) {
+
+                }else if (index == 3 ) {
+                    
+                }else if (index == 4 ) {
+                    
+                }else if (index == 5 ) {
+                    [weakSelf quitGroup];
+                }
+            };
+        }else{//还未入群
+            for (int i = 0; i < 3; i ++) {
+                NSString *imageName;
+                NSString *title;
+                switch (i) {
+                    case 0: {
+                        imageName = @"contacts_add_newmessage";
+                        title = @"分享该群";
+                        break;
+                    }
+                    case 1: {
+                        imageName = @"contacts_add_friend";
+                        title = @"查看群资料";
+                        break;
+                    }
+                    case 2:{
+                        imageName = @"contacts_add_friend";
+                        title = @"加入该群";
+                    }
+                    default:
+                        break;
+                }
+                XHPopMenuItem *popMenuItem = [[XHPopMenuItem alloc] initWithImage:[UIImage imageNamed:imageName] title:title];
+                [popMenuItems addObject:popMenuItem];
             }
             
-        };
+            __weak __typeof(self) weakSelf = self;
+            _popMenu = [[XHPopMenu alloc] initWithMenus:popMenuItems];
+            _popMenu.popMenuDidSlectedCompled = ^(NSInteger index, XHPopMenuItem *popMenuItems) {
+                if (index == 0) {
+                    
+                }else if (index == 1 ) {
+                    
+                }else if (index == 2 ) {
+                    [weakSelf joinGroup];
+                }
+            };
+        }
     }
     return _popMenu;
 }
@@ -161,6 +303,17 @@
     [_groupService joinGroupWith:_group andCallback:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             [SVProgressHUD showSuccessWithStatus:@"申请成功"];
+        }
+    }];
+}
+
+//退出该群
+- (void)quitGroup{
+    [_groupService let:[AVUser currentUser] getOutGroup:_group andCallback:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [SVProgressHUD showSuccessWithStatus:@"退出成功"];
+            //通知群组界面刷新
+            [[NSNotificationCenter defaultCenter]postNotificationName:RefreshNotification object:nil];
         }
     }];
 }
