@@ -16,7 +16,7 @@
 #import "LTUserInfoSendMessageCell.h"
 #import "LTChatViewController.h"
 #import "LTUserSearchService.h"
-#import <AVOSCloud/AVOSCloud.h>
+#import "LTModelUser.h"
 
 @interface LTUserInfoViewController (){
     LTUserInfoSendMessageCell *messageCell;
@@ -30,7 +30,7 @@
 @end
 
 @implementation LTUserInfoViewController
-- (instancetype)initWithAVUser:(AVUser *)user{
+- (instancetype)initWithAVUser:(LTModelUser *)user{
     self = [super init];
     if (self) {
         self.user = user;
@@ -48,6 +48,7 @@
     [self.tableView registerClass:[LTUserInfoSendMessageCell class] forCellReuseIdentifier:LTUserInfoSendMessageCellIdentifier];
     self.tableViewHeader = [LTUserInfoHeadView new];
     self.tableViewHeader.contentMode = UIViewContentModeScaleAspectFill;
+    self.tableViewHeader.userInfo.userName = self.user.username;
     self.tableViewHeader.avatorUrlString = @"http://img02.ishuhui.com/op/miao809/01-02.jpg";
     [self.tableView addParallaxWithView:self.tableViewHeader andHeight:LTUserInfoHeadViewHeight];
     

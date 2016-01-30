@@ -14,10 +14,13 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "LTModelPost.h"
 #import "LTPostModel.h"
+#import "JSQMessagesInputToolbar.h"
 
 
 static NSUInteger const onceLoadPostNum = 10;
 @interface LTPostListViewController ()<UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) JSQMessagesInputToolbar *inputToolbar;
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -39,7 +42,7 @@ static NSUInteger const onceLoadPostNum = 10;
 
 @implementation LTPostListViewController
 
-#pragma mark - View Life Cycle
+#pragma mark - === View Life Cycle ===
 - (void)viewDidLoad {
     [super viewDidLoad];
     if ([self respondsToSelector:@selector( setAutomaticallyAdjustsScrollViewInsets:)]) {
@@ -57,6 +60,8 @@ static NSUInteger const onceLoadPostNum = 10;
     _tableView.frame = self.view.bounds;
     [_tableView registerClass:[LTPostViewCell class] forCellReuseIdentifier:LTPostViewCellIdentifier];
     
+//    _inputToolbar = [[JSQMessagesInputToolbar alloc]initWithFrame:CGRectMake(0, 0, self.view.width, 80)];
+//    [self.view addSubview:_inputToolbar];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"camer_add_post"] style:UIBarButtonItemStylePlain target:self action:@selector(showPostItems)];
     rightItem.tintColor = UIColorHex(fd8224);
     self.navigationItem.rightBarButtonItem = rightItem;
@@ -65,7 +70,7 @@ static NSUInteger const onceLoadPostNum = 10;
     
 }
 
-#pragma mark property
+#pragma mark === property ===
 -(NSMutableArray *)dataSource{
     if (!_dataSource) {
         _dataSource = @[].mutableCopy;
@@ -81,14 +86,7 @@ static NSUInteger const onceLoadPostNum = 10;
 -(NSUInteger)lastPostCount{
     return self.dataSource.count;
 }
-//-(NSMutableArray *)heights{
-//    if (!_heights) {
-//        _heights = @[].mutableCopy;
-//    }
-//    return _heights;
-//}
-
-#pragma mark - 数据
+#pragma mark - === 数据 ===
 // 加载一次 post
 -(void)loadMorePostList{
     AVQuery *query = [LTModelPost query];
@@ -339,6 +337,6 @@ static NSUInteger const onceLoadPostNum = 10;
     [self presentViewController:self.uploadAlert animated:YES completion:nil];
 }
 
-
-
+#pragma mark -
+//- ()
 @end

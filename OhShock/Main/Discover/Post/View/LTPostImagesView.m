@@ -30,6 +30,7 @@
 @end
 
 @implementation LTPostImagesView
+@synthesize photos = _photos;
 #pragma mark - init
 -(void)configViewWithPicNum:(NSUInteger)picNum needBig:(BOOL)needBig itemSpace:(CGFloat)itemSpace  limit:(NSUInteger )limit{
     self.picNum = picNum;

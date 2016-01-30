@@ -19,20 +19,30 @@
 
 @implementation LTChatModel
 #pragma mark -  初始化
--(instancetype)initWithUser:(AVUser *)user{
+-(instancetype)initWithUser:(LTModelUser *)user{
     self = [self init];
     if (self) {
         self.service = [[LTChatService alloc]initWithUser:user];
         _incomingUser = user;
-        _outgoingUser = [self.service getCurrentUser];
+        _outgoingUser = [LTModelUser currentUser];
         
         self.messages = [[NSMutableArray alloc]initWithCapacity:15];
         /// 获取头像
         [_service getAvatorImageOfUser:_incomingUser complete:^(UIImage *image, NSError *error) {
-            _incomingAvatarImage = [JSQMessagesAvatarImageFactory avatarImageWithImage:image diameter:kJSQMessagesCollectionViewAvatarSizeDefault];
+            if (!error) {
+                _incomingAvatarImage = [JSQMessagesAvatarImageFactory avatarImageWithImage:image diameter:kJSQMessagesCollectionViewAvatarSizeDefault];
+            }else{
+                NSLog(@"getAvatorImageOfUser 错误 ：%@",error);
+            }
+            
         }];
         [_service getAvatorImageOfUser:_outgoingUser complete:^(UIImage *image, NSError *error) {
-            _outgoingAvatarImage = [JSQMessagesAvatarImageFactory avatarImageWithImage:image diameter:kJSQMessagesCollectionViewAvatarSizeDefault];
+            if (!error) {
+                _outgoingAvatarImage = [JSQMessagesAvatarImageFactory avatarImageWithImage:image diameter:kJSQMessagesCollectionViewAvatarSizeDefault];
+            }else{
+                NSLog(@"getAvatorImageOfUser 错误 ：%@",error);
+            }
+            
         }];
 
         [self initConversation];

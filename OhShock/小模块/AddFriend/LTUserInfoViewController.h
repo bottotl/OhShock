@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class AVUser;
+@class LTModelUser;
 /**
  *  @author Lintao Yu, 15-12-18 17:12:23
  *
@@ -15,7 +15,7 @@
  */
 @interface LTUserInfoViewController : UITableViewController
 
-@property (nonatomic, strong) AVUser *user;
+@property (nonatomic, strong) LTModelUser *user;
 
-- (instancetype)initWithAVUser:(AVUser *)user;
+- (instancetype)initWithAVUser:(LTModelUser *)user;
 @end
