@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "JSQMessages.h"
 #import <AVOSCloudIM/AVOSCloudIM.h>
+#import "LTModelUser.h"
+
 @class LTChatService;
 @class AVUser;
 @class AVIMConversation;
@@ -29,9 +31,9 @@ static NSInteger const kPageSize = 15;
  */
 
 /// 她
-@property (nonatomic, strong) AVUser *incomingUser;
+@property (nonatomic, strong) LTModelUser *incomingUser;
 /// 我
-@property (nonatomic, strong) AVUser *outgoingUser;
+@property (nonatomic, strong) LTModelUser *outgoingUser;
 /// 会话
 @property (strong, nonatomic) AVIMConversation *conv;
 
