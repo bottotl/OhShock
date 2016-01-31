@@ -19,6 +19,8 @@
 #import "LTSearchGroupViewController.h"
 #import "CLSearchResultViewController.h"
 
+#import "CLChatRoomVC.h"
+
 @interface LTGroupViewController ()<UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchControllerDelegate>
 
 @property (nonatomic, strong) UISearchController *mySearchController;
@@ -166,11 +168,38 @@
         //点击群组动态
         
     }else{
-        //点击进入群详情
-        LTGroupInfoViewController *controller = [[LTGroupInfoViewController alloc]init];
-        controller.group = groupArray[indexPath.row];
-        controller.groupName = [groupArray[indexPath.row] objectForKey:@"groupName"];
-        [self.navigationController pushViewController:controller animated:YES];
+//        //点击进入群详情
+//        LTGroupInfoViewController *controller = [[LTGroupInfoViewController alloc]init];
+//        controller.group = groupArray[indexPath.row];
+//        controller.groupName = [groupArray[indexPath.row] objectForKey:@"groupName"];
+//        [self.navigationController pushViewController:controller animated:YES];
+        //测试
+        //点击进入群聊界面，先放这
+  
+        WEAKSELF
+        NSMutableArray *memberIds = [NSMutableArray array];
+        LTModelGroup *group = groupArray[indexPath.row];
+        AVQuery *query = [LTModelGroup query];
+        [query whereKey:@"groupName" equalTo:group.groupName];
+        [query getFirstObjectInBackgroundWithBlock:^(AVObject *object, NSError *error) {
+            NSArray *members = [object objectForKey:@"groupMembers"];
+            for (int i = 0; i < members.count; i++) {
+//                if (![members[i] isEqual:[AVUser currentUser]]) {
+                    [memberIds addObject:[members[i] objectForKey:@"objectId"]];
+//                }
+            }
+//            [memberIds addObject:[CDChatManager manager].selfId];
+            [[CDChatManager manager] fetchConvWithMembers:memberIds callback: ^(AVIMConversation *conversation, NSError *error) {
+                if (error) {
+                    DLog(@"%@", error);
+                }
+                else {
+                    CDChatRoomVC *chatRoomVC = [[CDChatRoomVC alloc] initWithConv:conversation];
+                    chatRoomVC.hidesBottomBarWhenPushed = YES;
+                    [weakSelf.navigationController pushViewController:chatRoomVC animated:YES];
+                }
+            }];
+        }];
     }
 }
 

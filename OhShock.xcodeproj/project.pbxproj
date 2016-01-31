@@ -21,6 +21,7 @@
 		AB81ECC91C58F5600072EFEC /* LTModelUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81ECC81C58F5600072EFEC /* LTModelUserInfo.m */; };
 		AB81ECCC1C5A1F7A0072EFEC /* LTGroupMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81ECCB1C5A1F7A0072EFEC /* LTGroupMemberCell.m */; };
 		AB81ECD01C5E515E0072EFEC /* CDUserFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81ECCF1C5E515E0072EFEC /* CDUserFactory.m */; };
+		AB81ECD31C5E5A850072EFEC /* CLChatRoomVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81ECD21C5E5A850072EFEC /* CLChatRoomVC.m */; };
 		ABE1E8A01C49274C006AA1C1 /* CLSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE1E89F1C49274C006AA1C1 /* CLSearchResultViewController.m */; };
 		ABFBA6991C4949DD00E1863E /* JoinGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFBA6981C4949DD00E1863E /* JoinGroupCell.m */; };
 		B80726721C1AAF2F00E7802A /* LTDiscoverTodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B80726711C1AAF2F00E7802A /* LTDiscoverTodoViewController.m */; };
@@ -857,6 +858,8 @@
 		AB81ECCB1C5A1F7A0072EFEC /* LTGroupMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroupMemberCell.m; sourceTree = "<group>"; };
 		AB81ECCE1C5E515E0072EFEC /* CDUserFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDUserFactory.h; sourceTree = "<group>"; };
 		AB81ECCF1C5E515E0072EFEC /* CDUserFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDUserFactory.m; sourceTree = "<group>"; };
+		AB81ECD11C5E5A850072EFEC /* CLChatRoomVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLChatRoomVC.h; sourceTree = "<group>"; };
+		AB81ECD21C5E5A850072EFEC /* CLChatRoomVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLChatRoomVC.m; sourceTree = "<group>"; };
 		ABE1E89E1C49274C006AA1C1 /* CLSearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLSearchResultViewController.h; sourceTree = "<group>"; };
 		ABE1E89F1C49274C006AA1C1 /* CLSearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLSearchResultViewController.m; sourceTree = "<group>"; };
 		ABFBA6971C4949DD00E1863E /* JoinGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinGroupCell.h; sourceTree = "<group>"; };
@@ -2065,6 +2068,8 @@
 			children = (
 				AB81ECCE1C5E515E0072EFEC /* CDUserFactory.h */,
 				AB81ECCF1C5E515E0072EFEC /* CDUserFactory.m */,
+				AB81ECD11C5E5A850072EFEC /* CLChatRoomVC.h */,
+				AB81ECD21C5E5A850072EFEC /* CLChatRoomVC.m */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -5078,6 +5083,7 @@
 				B810728E1C197FCE0058130E /* UIView+Layout.m in Sources */,
 				B8EEADA21C294F5400F861E8 /* XHDisplayTextViewController.m in Sources */,
 				B873AC3C1C48F8AB002C04B2 /* LTPostContentModel.m in Sources */,
+				AB81ECD31C5E5A850072EFEC /* CLChatRoomVC.m in Sources */,
 				B8E64C661C43F2E100B4CB64 /* LTGroupCell.m in Sources */,
 				B80A378F1C1DADB600C3B226 /* YYControl.m in Sources */,
 				B81CCC411C21408500D642DB /* JSQMessagesCollectionViewCellOutgoing.m in Sources */,

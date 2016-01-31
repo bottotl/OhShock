@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+//#import "LeanChatLib.h"
 #import "LeanChatLib.h"
 
 
-@interface CDUserFactory : NSObject
+@interface CDUserFactory : NSObject<CDUserDelegate>
 
 @end

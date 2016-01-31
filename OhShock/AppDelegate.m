@@ -24,6 +24,9 @@
 #import "LTModelPost.h"
 #import "LTGroupService.h"
 #import "LTGroupMessageViewController.h"
+#import "LeanChatLib.h"
+#import "CDUserFactory.h"
+
 
 #warning for test
 #import "LTPostListViewController.h"
@@ -54,6 +57,7 @@ static NSString *const AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
     
     [AVOSCloud setApplicationId:AppID
                       clientKey:AppKey];
+    [CDChatManager manager].userDelegate = [[CDUserFactory alloc] init];
     
     /////////////////////////////////////////////////////////////
     /////////////////界面设置/////////////////////////////////////
