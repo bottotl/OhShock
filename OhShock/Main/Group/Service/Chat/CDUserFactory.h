@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import "LeanChatLib.h"
-#import "LeanChatLib.h"
+#import "CDChatManager.h"
 
 
 @interface CDUserFactory : NSObject<CDUserDelegate>

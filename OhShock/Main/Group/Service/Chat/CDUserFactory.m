@@ -7,7 +7,8 @@
 //
 
 #import "CDUserFactory.h"
-//#import "LeanChatLib.h"
+//#import "CDUserModel.h"
+//#import "CDChatManager.h"
 
 @interface CDUser : NSObject <CDUserModel>
 
@@ -29,7 +30,7 @@
 #pragma mark - CDUserDelegate
 
 // cache users that will be use in getUserById
-- (void)cacheUserByIds:(NSSet *)userIds block:(AVBooleanResultBlock)block {
+- (void)cacheUserByIds:(NSSet *)userIds block:(AVIMBooleanResultBlock)block {
     block(YES, nil); // don't forget it
 }
 

@@ -24,7 +24,7 @@
 #import "LTModelPost.h"
 #import "LTGroupService.h"
 #import "LTGroupMessageViewController.h"
-#import "LeanChatLib.h"
+#import "CDChatManager.h"
 #import "CDUserFactory.h"
 
 
@@ -204,10 +204,5 @@ static NSString *const AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
     NSLog(@"注册失败，无法获取设备 ID, 具体错误: %@", error);
 }
 
-#pragma mark 注册LeanCloud 子类
-- (void)registerLeanSubClass{
-    [LTModelGroup registerSubclass];
-    [LTModelUser registerSubclass];
-}
 
 @end
