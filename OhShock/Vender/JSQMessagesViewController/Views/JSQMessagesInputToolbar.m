@@ -71,7 +71,7 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
 
     self.contentView.leftBarButtonItem = [JSQMessagesToolbarButtonFactory defaultAccessoryButtonItem];
     self.contentView.rightBarButtonItem = [JSQMessagesToolbarButtonFactory defaultSendButtonItem];
-
+    
     [self toggleSendButtonEnabled];
 }
 
@@ -108,6 +108,7 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
 {
     [self.delegate messagesInputToolbar:self didPressRightBarButton:sender];
 }
+
 
 #pragma mark - Input toolbar
 

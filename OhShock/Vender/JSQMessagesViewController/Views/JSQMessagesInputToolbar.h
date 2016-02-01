@@ -41,6 +41,7 @@
 - (void)messagesInputToolbar:(JSQMessagesInputToolbar *)toolbar
       didPressRightBarButton:(UIButton *)sender;
 
+
 /**
  *  Tells the delegate that the toolbar's `leftBarButtonItem` has been pressed.
  *
@@ -49,6 +50,17 @@
  */
 - (void)messagesInputToolbar:(JSQMessagesInputToolbar *)toolbar
        didPressLeftBarButton:(UIButton *)sender;
+
+@optional
+/**
+ *  点击了右边的按钮的 delegate
+ *
+ *  @param toolbar The object representing the toolbar sending this information.
+ *  @param sender  The button that received the touch event.
+ *  @param index   index of button : [0, 1, 2 ...]
+ */
+- (void)messagesInputToolbar:(JSQMessagesInputToolbar *)toolbar
+      didPressRightBarButton:(UIButton *)sender atIndex:(NSUInteger)index;
 
 @end
 
