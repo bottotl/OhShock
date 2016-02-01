@@ -19,9 +19,9 @@
 #import "JSQMessagesToolbarContentView.h"
 
 #import "UIView+JSQMessages.h"
+#import <Masonry/Masonry.h>
 
 const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
-
 
 @interface JSQMessagesToolbarContentView ()
 
@@ -32,6 +32,7 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
 
 @property (weak, nonatomic) IBOutlet UIView *rightBarButtonContainerView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightBarButtonContainerViewWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightBarButtonContainerViewHeightConstraint;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftHorizontalSpacingConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightHorizontalSpacingConstraint;
@@ -151,38 +152,60 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
     _rightBarButtonItem = rightBarButtonItem;
 }
 
-//-(void)setRightBarButtonItems:(NSArray *)rightBarButtonItems{
-//    for (UIButton *button in _rightBarButtonItems) {
-//        [button removeFromSuperview];
-//    }
-//    
-//    if (!rightBarButtonItems) {
-//        _rightBarButtonItems = nil;
-//        self.rightHorizontalSpacingConstraint.constant = 0.0f;
-//        self.rightBarButtonItemWidth = 0.0f;
-//        self.rightBarButtonContainerView.hidden = YES;
-//        return;
-//    }
-//    
-//    for (int i = 0 ;i < rightBarButtonItems.count; i++){
-//        if (CGRectEqualToRect(((UIButton *)rightBarButtonItems[i]).frame, CGRectZero)) {
-//            button.frame = self.rightBarButtonContainerView.bounds;
-//        }
-//    }
-//    
-//    
-//    self.rightBarButtonContainerView.hidden = NO;
-//    self.rightHorizontalSpacingConstraint.constant = kJSQMessagesToolbarContentViewHorizontalSpacingDefault;
-//    self.rightBarButtonItemWidth = CGRectGetWidth(rightBarButtonItem.frame);
-//    
-//    [rightBarButtonItem setTranslatesAutoresizingMaskIntoConstraints:NO];
-//    
-//    [self.rightBarButtonContainerView addSubview:rightBarButtonItem];
-//    [self.rightBarButtonContainerView jsq_pinAllEdgesOfSubview:rightBarButtonItem];
-//    [self setNeedsUpdateConstraints];
-//    
-//    _rightBarButtonItem = rightBarButtonItem;
-//}
+-(void)setRightBarButtonItems:(NSArray < UIButton *>*)rightBarButtonItems andWidths:(NSArray < NSNumber * >*)widths{
+    
+    NSParameterAssert(rightBarButtonItems.count == widths.count);
+    [self.rightBarButtonContainerView removeConstraints:self.rightBarButtonContainerView.constraints];
+    for (UIButton *button in _rightBarButtonItems) {
+        [button removeFromSuperview];
+    }
+    
+    if (!rightBarButtonItems || rightBarButtonItems.count < 1) {
+        _rightBarButtonItems = nil;
+        self.rightHorizontalSpacingConstraint.constant = 0.0f;
+        self.rightBarButtonItemWidth = 0.0f;
+        self.rightBarButtonContainerView.hidden = YES;
+        return;
+    }
+    
+    CGFloat widthTotal = 0;
+    int index = 0;
+    for (UIButton *button in rightBarButtonItems) {
+        [button setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self.rightBarButtonContainerView addSubview:button];
+        widthTotal += widths[index].floatValue;
+        
+        [button mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.rightBarButtonContainerView.mas_top);
+            make.bottom.equalTo(self.rightBarButtonContainerView.mas_bottom);
+            make.width.equalTo(widths[index]);
+            if (index == 0) {
+                make.left.equalTo(self.rightBarButtonContainerView.mas_left);
+            }else{
+                make.left.equalTo(rightBarButtonItems[index - 1].mas_right);
+            }
+            
+            if (index == (rightBarButtonItems.count - 1)) {
+                make.right.equalTo(self.rightBarButtonContainerView.mas_right);
+            }
+            
+        }];
+        
+        index ++;
+    }
+    
+    self.rightBarButtonContainerView.hidden = NO;
+    self.rightHorizontalSpacingConstraint.constant = kJSQMessagesToolbarContentViewHorizontalSpacingDefault;
+    
+    [self.rightBarButtonContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(32));
+        make.width.greaterThanOrEqualTo(@(widthTotal));
+    }];
+    
+    [self setNeedsUpdateConstraints];
+    
+    _rightBarButtonItems = rightBarButtonItems;
+}
 
 - (void)setRightBarButtonItemWidth:(CGFloat)rightBarButtonItemWidth
 {

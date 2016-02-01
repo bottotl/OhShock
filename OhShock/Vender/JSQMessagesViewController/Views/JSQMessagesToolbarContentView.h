@@ -86,8 +86,18 @@ FOUNDATION_EXPORT const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingD
  *  Set this value to `nil` to remove the button.
  */
 @property (weak, nonatomic) UIButton *rightBarButtonItem;
-@property (weak, nonatomic) NSArray *rightBarButtonItems;
 
+/**
+ *  自己加的东西，为了实现多个按钮
+ */
+@property (strong, nonatomic) NSArray *rightBarButtonItems;
+/**
+ *  添加按钮方法
+ *
+ *  @param rightBarButtonItems buttons
+ *  @param widths              button widths
+ */
+-(void)setRightBarButtonItems:(NSArray < UIButton *>*)rightBarButtonItems andWidths:(NSArray < NSNumber * >*)widths;
 /**
  *  Specifies the width of the rightBarButtonItem.
  *
