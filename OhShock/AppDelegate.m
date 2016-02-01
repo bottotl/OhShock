@@ -17,11 +17,8 @@
 #import "UIImage+Common.h"
 #import <AMapLocationKit/AMapLocationKit.h>
 #import <AMapSearchKit/AMapSearchKit.h>
-#import "LTModelGroup.h"
-#import "LTModelUser.h"
-#import "LTModelPost.h"
-#import "LTModelUser.h"
-#import "LTModelPost.h"
+#import "LTModels.h"
+
 #import "LTGroupService.h"
 #import "LTGroupMessageViewController.h"
 #import "CDChatManager.h"
@@ -46,14 +43,8 @@ static NSString *const AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    /////////////////////////////////////////////////////////////
-    /////////////////云服务注册////////////////////////////////////
-    [LTModelUser registerSubclass];
-    [LTModelPost registerSubclass];
-    
-    [AVOSCloud setApplicationId:AppID
-                      clientKey:AppKey];
-    [CDChatManager manager].userDelegate = [[CDUserFactory alloc] init];
+    //云服务注册
+    [self leanChatInit];
     
     /////////////////////////////////////////////////////////////
     /////////////////界面设置/////////////////////////////////////
@@ -105,6 +96,17 @@ static NSString *const AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
     [application cancelAllLocalNotifications];
 }
 
+#pragma mark - LeanChat 相关类初始化
+- (void)leanChatInit{
+    [LTModelUser registerSubclass];
+    [LTModelPost registerSubclass];
+    [LTModelPostComment registerSubclass];
+    
+    [AVOSCloud setApplicationId:AppID
+                      clientKey:AppKey];
+    [CDChatManager manager].userDelegate = [[CDUserFactory alloc] init];
+}
+
 #pragma mark - 页面跳转
 #pragma mark 跳转到引导页面
 
@@ -118,6 +120,7 @@ static NSString *const AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
     mainViewController = [LTMainTabBarController new];
     [self.window setRootViewController:mainViewController];
 }
+
 
 #pragma mark - Interface
 /**

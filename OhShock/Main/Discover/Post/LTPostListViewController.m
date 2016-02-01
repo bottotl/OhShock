@@ -17,7 +17,8 @@
 #import "JSQMessagesInputToolbar.h"
 
 
-static NSUInteger const onceLoadPostNum = 10;
+
+static NSUInteger const onceLoadPostNum = 1;
 @interface LTPostListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) JSQMessagesInputToolbar *inputToolbar;
@@ -86,7 +87,7 @@ static NSUInteger const onceLoadPostNum = 10;
 -(NSUInteger)lastPostCount{
     return self.dataSource.count;
 }
-#pragma mark - === 数据 ===
+#pragma mark - === 网络相关数据 ===
 // 加载一次 post
 -(void)loadMorePostList{
     AVQuery *query = [LTModelPost query];
@@ -126,6 +127,38 @@ static NSUInteger const onceLoadPostNum = 10;
         }
     }];
 }
+
+-(void)p_addCommentPost:(LTModelPost *)post andContent:(NSString *)content fromUser:(LTModelUser *)fromUser toUser:(LTModelUser *)toUser block:(void(^)(LTModelPost *post, NSError *error))block {
+    LTModelPostComment *comment = [LTModelPostComment new];
+    comment.content = content;
+    comment.toUser = toUser;
+    comment.fromUser = fromUser;
+    [comment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            NSMutableArray *comments;
+            if(post.comments){
+                comments = post.comments.mutableCopy;
+            }else{
+                comments = @[].mutableCopy;
+            }
+            
+            [comments addObject:comment];
+            post.comments = comments.copy;
+            [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                block(post, error);
+                if (succeeded) {
+                    NSLog(@"添加评论成功");
+                }else{
+                    NSLog(@"添加评论失败:%@",error);
+                }
+            }];
+        }else{
+            NSLog(@"comment saveEventually 出错:%@",error);
+        }
+    }];
+}
+
+
 
 -(void)p_dequePostFromModel:(LTModelPost *)model block:(void(^)(LTPostModel *post, NSError *error))block{
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
@@ -181,7 +214,6 @@ static NSUInteger const onceLoadPostNum = 10;
         for (int i = 0; i < model.likedUser.count; i++) {
             LTModelUser *modelUser = model.likedUser[i];
             AVQuery *userQuery = [AVQuery queryWithClassName:@"_User"];
-            //        [userQuery setCachePolicy:kAVCachePolicyNetworkElseCache];
             [userQuery whereKey:@"objectId" equalTo:modelUser.objectId];
             LTModelUser *user = [[userQuery findObjects:&error] firstObject];
             if (error) {
@@ -193,46 +225,47 @@ static NSUInteger const onceLoadPostNum = 10;
                 
             }
         }
+        
+        /// 评论内容填充
+        NSMutableArray *comments = @[].mutableCopy;
+        [AVObject fetchAll:model.comments];
+        for (LTModelPostComment *comment in model.comments) {
+            
+            [AVObject fetchAll:@[comment.toUser,comment.fromUser]];
+            NSString *fromUserName = comment.fromUser.username;
+            NSString *toUserName = comment.toUser.username;
+            
+            NSString *commentContent = comment.content;
+            
+            NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
+            NSMutableAttributedString *text = [NSMutableAttributedString new];
+            if (fromUserName.length) {
+                NSAttributedString *fromUser = [[NSAttributedString alloc] initWithString:fromUserName attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithHexString:@"446889"], NSParagraphStyleAttributeName : style}];
+                [text appendAttributedString:fromUser];
+            }
+            if (toUserName.length) {
+                NSAttributedString *returnKey = [[NSAttributedString alloc] initWithString:@"回复" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithHexString:@"333333"], NSParagraphStyleAttributeName : style}];
+                [text appendAttributedString:returnKey];
+                
+                NSAttributedString *toUser = [[NSAttributedString alloc] initWithString:toUserName attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithHexString:@"446889"], NSParagraphStyleAttributeName : style}];
+//                _toUserRange = NSMakeRange(self.fromUserRange.length + 2, comment.toUser.userName.length);
+                [text appendAttributedString:toUser];
+            }
+            if (commentContent.length) {
+                [text appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@":%@",commentContent] attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithHexString:@"333333"], NSParagraphStyleAttributeName : style}]];
+            }
+            [comments addObject:text];
+        }
+        
+        post.comments = comments;
         NSLog(@"加载了一个 post");
         block(post,error);
     });
     
 }
-
-/// 更新高度数据
-//- (void)updateHeight{
-//    __weak __typeof(self) weakSelf = self;
-//    for (LTModelPost *model in self.dataSource) {
-//        LTModelUser *user = [model objectForKey:@"pubUser"];
-//        AVQuery *query = [AVQuery queryWithClassName:@"_User"];
-//        [query whereKey:@"objectId" equalTo:user.objectId];
-//        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//            if (objects && objects.count > 0) {
-//                LTModelUser *user = [objects firstObject];
-//                NSDictionary *options = @{NSDocumentTypeDocumentAttribute : NSRTFTextDocumentType};
-//                NSAttributedString *content = [[NSAttributedString alloc]initWithData:[model objectForKey:@"content"] options:options documentAttributes:nil error:nil];
-//                
-//                [weakSelf.heights addObject:@([LTPostView heightWithContent:content
-//                                                                andPicCound:model.photos.count
-//                                                               andUsersName:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@",user.username]]
-//                                                                andComments:model.comments
-//                                                             andCommitLimit:6
-//                                                             andCommentFold:NO
-//                                                           andPreferedWidth:[UIScreen mainScreen].bounds.size.width])];
-//                [weakSelf.tableView reloadData];
-//                
-//            }
-//        }];
-//        
-//    }
-//}
-//- (LTModelUser *)p_getUser:(LTModelUser *)user{
-//    AVQuery *queue = [LTModelUser query];
-//}
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"numberOfRowsInSection = %lu",self.posts.count);
     return self.posts.count;
 }
 
@@ -251,8 +284,12 @@ static NSUInteger const onceLoadPostNum = 10;
     }
     postView.imagesView.photos = dic;
     cell.loadedData = YES;
+    
+    
     cell.postView.liked = post.liked;
     
+    cell.postView.commentsView.comments = post.comments;
+    /// 点赞按钮点击
     @weakify(self);
     [[cell.postView.rac_likeSignal takeUntil:cell.rac_prepareForReuseSignal]subscribeNext:^(id x) {
         LTPostViewRoundButton *button = x;
@@ -279,15 +316,59 @@ static NSUInteger const onceLoadPostNum = 10;
         [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
                 NSLog(@"成功修改 post");
+                ((LTPostModel *)self.posts[[NSString stringWithFormat:@"%d",(int)indexPath.row]]).liked = !needRemove;
                 cell.postView.liked = !needRemove ;
                 button.enabled = YES;
             }
         }];
 
     }];
+    
+    /// 评论按钮点击
     [[cell.postView.rac_commitSignal takeUntil:cell.rac_prepareForReuseSignal]subscribeNext:^(id x){
-        NSLog(@"评论 %@",x);
+        @strongify(self);
+        LTModelPost *post = self.dataSource[indexPath.row];
+        @weakify(self);
+        [self p_addCommentPost:post andContent:@"我是英雄" fromUser:[LTModelUser currentUser] toUser:post.pubUser block:^(LTModelPost *post, NSError *error) {
+            @strongify(self);
+            if(post){
+                self.dataSource[indexPath.row] = post;
+                LTModelPostComment *modelPostComment  = post.comments.lastObject;
+                [AVObject fetchAll:@[modelPostComment.toUser,modelPostComment.fromUser]];
+                NSString *fromUserName = modelPostComment.fromUser.username;
+                NSString *toUserName = modelPostComment.toUser.username;
+                NSString *commentContent = modelPostComment.content;
+                
+                NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
+                NSMutableAttributedString *text = [NSMutableAttributedString new];
+                if (fromUserName.length) {
+                    NSAttributedString *fromUser = [[NSAttributedString alloc] initWithString:fromUserName attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithHexString:@"446889"], NSParagraphStyleAttributeName : style}];
+                    [text appendAttributedString:fromUser];
+                }
+                if (toUserName.length) {
+                    NSAttributedString *returnKey = [[NSAttributedString alloc] initWithString:@"回复" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithHexString:@"333333"], NSParagraphStyleAttributeName : style}];
+                    [text appendAttributedString:returnKey];
+                    
+                    NSAttributedString *toUser = [[NSAttributedString alloc] initWithString:toUserName attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithHexString:@"446889"], NSParagraphStyleAttributeName : style}];
+                    //                _toUserRange = NSMakeRange(self.fromUserRange.length + 2, comment.toUser.userName.length);
+                    [text appendAttributedString:toUser];
+                }
+                if (commentContent.length) {
+                    [text appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@":%@",commentContent] attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithHexString:@"333333"], NSParagraphStyleAttributeName : style}]];
+                }
+
+                
+                [((LTPostModel *)self.posts[[NSString stringWithFormat:@"%d",(int)indexPath.row]]).comments addObject:text.copy];
+                @weakify(self);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    @strongify(self);
+                    [self.tableView reloadData];
+                });
+            }
+        }];
     }];
+    
+    
     return cell;
 }
 
@@ -295,7 +376,6 @@ static NSUInteger const onceLoadPostNum = 10;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     LTPostModel *post = self.posts[[NSString stringWithFormat:@"%d",(int)indexPath.row]];
-    NSLog(@"算高");
     CGFloat height = [LTPostView heightWithContent:post.content
                                andPicCound:post.picThumbFiles.count
                               andUsersName:[[NSAttributedString alloc]initWithString:post.userName]
@@ -303,7 +383,6 @@ static NSUInteger const onceLoadPostNum = 10;
                             andCommitLimit:6
                             andCommentFold:NO
                           andPreferedWidth:[UIScreen mainScreen].bounds.size.width];
-    NSLog(@"end heightForRowAtIndexPath ");
     return height;
 
 }
@@ -329,7 +408,6 @@ static NSUInteger const onceLoadPostNum = 10;
         self.uploadAlert = nil;
         UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:[LTUploadPhotosViewController new]];
         [self presentViewController:navi animated:YES completion:nil];
-        NSLog(@"上传图片动态");
     }]];
     [self.uploadAlert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
         self.uploadAlert = nil;

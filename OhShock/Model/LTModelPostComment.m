@@ -11,5 +11,7 @@
 
 @implementation LTModelPostComment
 @dynamic content, toUser, fromUser;
-
++ (NSString *)parseClassName {
+    return @"PostComment";
+}
 @end

@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <AVOSCloud/AVOSCloud.h>
-#import "LTModelUser.h"
 #import "LTModelPostComment.h"
-
+#import "LTModelGroup.h"
+#import "LTModelUser.h"
+#import "LTModelPost.h"
 
