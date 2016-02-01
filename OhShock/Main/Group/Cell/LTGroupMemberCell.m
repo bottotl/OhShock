@@ -7,7 +7,7 @@
 //
 
 #import "LTGroupMemberCell.h"
-#import "Header.h"
+#import "UIView+Layout.h"
 #import "LTChatService.h"
 #import "UIImageView+WebCache.h"
 

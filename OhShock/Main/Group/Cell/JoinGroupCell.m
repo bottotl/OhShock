@@ -7,7 +7,7 @@
 //
 
 #import "JoinGroupCell.h"
-#import "Header.h"
+#import "UIView+Layout.h"
 #import "UIImageView+WebCache.h"
 #import "LTChatService.h"
 #import "JSQMessagesTimestampFormatter.h"

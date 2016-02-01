@@ -711,6 +711,10 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
     }
 }
 
+- (void)messagesInputToolbar:(JSQMessagesInputToolbar *)toolbar didPressRightBarButton:(UIButton *)sender atIndex:(NSUInteger)index{
+    NSLog(@"%ld", (long)index);
+}
+
 - (NSString *)jsq_currentlyComposedMessageText
 {
     //  auto-accept any auto-correct suggestions
