@@ -74,7 +74,7 @@
 #pragma mark - table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    AVUser *user = _dataSource[indexPath.row];
+    LTModelUser *user = _dataSource[indexPath.row];
     [self.navigationController pushViewController:[[LTUserInfoViewController alloc]initWithAVUser:user] animated:YES];
 }
 

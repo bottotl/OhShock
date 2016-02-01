@@ -5266,7 +5266,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OhShock/Frameworks/AVOSCloud",
-					"$(PROJECT_DIR)/OhShock/Main/Discover/Dynamic/Compose",
 					"$(PROJECT_DIR)/OhShock/Main/Group/Widget",
 				);
 				INFOPLIST_FILE = OhShock/Info.plist;
