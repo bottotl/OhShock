@@ -19,7 +19,7 @@
         LTModelUser *me = [LTModelUser currentUser];
         completeBlock(me,error);
     }];
-}
+} 
 
 
 @end
