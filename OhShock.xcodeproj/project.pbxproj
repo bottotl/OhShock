@@ -16,7 +16,6 @@
 		AB3CF3EF1C46493700F1C57B /* LTGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3CF3EA1C46493700F1C57B /* LTGroupViewController.m */; };
 		AB3CF3F21C46495900F1C57B /* LTSearchGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3CF3F11C46495900F1C57B /* LTSearchGroupViewController.m */; };
 		AB3CF3F41C4768F800F1C57B /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E0FD01C473CD200CD61FE /* LogInViewController.m */; };
-		AB76B7941C451D42000A2191 /* LTGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76B7931C451D42000A2191 /* LTGroup.m */; };
 		ABE1E8A01C49274C006AA1C1 /* CLSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE1E89F1C49274C006AA1C1 /* CLSearchResultViewController.m */; };
 		ABFBA6991C4949DD00E1863E /* JoinGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFBA6981C4949DD00E1863E /* JoinGroupCell.m */; };
 		B80726721C1AAF2F00E7802A /* LTDiscoverTodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B80726711C1AAF2F00E7802A /* LTDiscoverTodoViewController.m */; };
@@ -482,6 +481,11 @@
 		B8BD1A851C3BA12A0011178F /* LTPostProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8BD1A841C3BA12A0011178F /* LTPostProfileView.m */; };
 		B8C336081C40D6D2001A06BF /* LTPostViewRoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C336071C40D6D2001A06BF /* LTPostViewRoundButton.m */; };
 		B8C3360B1C40E7EE001A06BF /* LTPostLikedView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C3360A1C40E7EE001A06BF /* LTPostLikedView.m */; };
+		B8CC9DCE1C5F2A0300261A55 /* LTModelGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CC9DCD1C5F2A0300261A55 /* LTModelGroup.m */; };
+		B8CC9DD11C5F2A3300261A55 /* LTModelMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CC9DD01C5F2A3300261A55 /* LTModelMessage.m */; };
+		B8CC9DD41C5F2A4800261A55 /* LTModelUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CC9DD31C5F2A4800261A55 /* LTModelUserInfo.m */; };
+		B8CC9DDA1C5F2AA300261A55 /* CDUserFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CC9DD71C5F2AA300261A55 /* CDUserFactory.m */; };
+		B8CC9DDB1C5F2AA300261A55 /* CLChatRoomVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CC9DD91C5F2AA300261A55 /* CLChatRoomVC.m */; };
 		B8D1D52C1C33EB2B00DC4EDC /* LTPostListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D1D52B1C33EB2B00DC4EDC /* LTPostListViewController.m */; };
 		B8D2B3A81C4CF70600F3E066 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D2B3A71C4CF70600F3E066 /* libz.tbd */; };
 		B8D2B3C71C4E53F400F3E066 /* LTLiteUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D2B3AC1C4E53F400F3E066 /* LTLiteUserCell.m */; };
@@ -512,7 +516,6 @@
 		B8E64C661C43F2E100B4CB64 /* LTGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E64C2D1C43F2E100B4CB64 /* LTGroupCell.m */; };
 		B8E64C671C43F2E100B4CB64 /* LTGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8E64C2E1C43F2E100B4CB64 /* LTGroupCell.xib */; };
 		B8E64C681C43F2E100B4CB64 /* LTGroupMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E64C301C43F2E100B4CB64 /* LTGroupMemberCell.m */; };
-		B8E64C691C43F2E100B4CB64 /* LTGroupMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8E64C311C43F2E100B4CB64 /* LTGroupMemberCell.xib */; };
 		B8E64C6A1C43F2E100B4CB64 /* LTGroupMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E64C331C43F2E100B4CB64 /* LTGroupMessageCell.m */; };
 		B8E64C6B1C43F2E100B4CB64 /* LTGroupMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8E64C341C43F2E100B4CB64 /* LTGroupMessageCell.xib */; };
 		B8E64C6C1C43F2E100B4CB64 /* TagsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E64C361C43F2E100B4CB64 /* TagsTableCell.m */; };
@@ -841,8 +844,6 @@
 		AB3CF3EA1C46493700F1C57B /* LTGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroupViewController.m; sourceTree = "<group>"; };
 		AB3CF3F01C46495900F1C57B /* LTSearchGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTSearchGroupViewController.h; sourceTree = "<group>"; };
 		AB3CF3F11C46495900F1C57B /* LTSearchGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTSearchGroupViewController.m; sourceTree = "<group>"; };
-		AB76B7921C451D42000A2191 /* LTGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTGroup.h; sourceTree = "<group>"; };
-		AB76B7931C451D42000A2191 /* LTGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroup.m; sourceTree = "<group>"; };
 		ABE1E89E1C49274C006AA1C1 /* CLSearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLSearchResultViewController.h; sourceTree = "<group>"; };
 		ABE1E89F1C49274C006AA1C1 /* CLSearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLSearchResultViewController.m; sourceTree = "<group>"; };
 		ABFBA6971C4949DD00E1863E /* JoinGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinGroupCell.h; sourceTree = "<group>"; };
@@ -1462,6 +1463,16 @@
 		B8C336071C40D6D2001A06BF /* LTPostViewRoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostViewRoundButton.m; sourceTree = "<group>"; };
 		B8C336091C40E7EE001A06BF /* LTPostLikedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostLikedView.h; sourceTree = "<group>"; };
 		B8C3360A1C40E7EE001A06BF /* LTPostLikedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostLikedView.m; sourceTree = "<group>"; };
+		B8CC9DCC1C5F2A0300261A55 /* LTModelGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTModelGroup.h; path = GroupModel/LTModelGroup.h; sourceTree = "<group>"; };
+		B8CC9DCD1C5F2A0300261A55 /* LTModelGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTModelGroup.m; path = GroupModel/LTModelGroup.m; sourceTree = "<group>"; };
+		B8CC9DCF1C5F2A3300261A55 /* LTModelMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTModelMessage.h; sourceTree = "<group>"; };
+		B8CC9DD01C5F2A3300261A55 /* LTModelMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTModelMessage.m; sourceTree = "<group>"; };
+		B8CC9DD21C5F2A4800261A55 /* LTModelUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTModelUserInfo.h; sourceTree = "<group>"; };
+		B8CC9DD31C5F2A4800261A55 /* LTModelUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTModelUserInfo.m; sourceTree = "<group>"; };
+		B8CC9DD61C5F2AA300261A55 /* CDUserFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDUserFactory.h; sourceTree = "<group>"; };
+		B8CC9DD71C5F2AA300261A55 /* CDUserFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDUserFactory.m; sourceTree = "<group>"; };
+		B8CC9DD81C5F2AA300261A55 /* CLChatRoomVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLChatRoomVC.h; sourceTree = "<group>"; };
+		B8CC9DD91C5F2AA300261A55 /* CLChatRoomVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLChatRoomVC.m; sourceTree = "<group>"; };
 		B8D1D52A1C33EB2B00DC4EDC /* LTPostListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostListViewController.h; sourceTree = "<group>"; };
 		B8D1D52B1C33EB2B00DC4EDC /* LTPostListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostListViewController.m; sourceTree = "<group>"; };
 		B8D2B3A71C4CF70600F3E066 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -1520,7 +1531,6 @@
 		B8E64C2E1C43F2E100B4CB64 /* LTGroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTGroupCell.xib; sourceTree = "<group>"; };
 		B8E64C2F1C43F2E100B4CB64 /* LTGroupMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTGroupMemberCell.h; sourceTree = "<group>"; };
 		B8E64C301C43F2E100B4CB64 /* LTGroupMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroupMemberCell.m; sourceTree = "<group>"; };
-		B8E64C311C43F2E100B4CB64 /* LTGroupMemberCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTGroupMemberCell.xib; sourceTree = "<group>"; };
 		B8E64C321C43F2E100B4CB64 /* LTGroupMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTGroupMessageCell.h; sourceTree = "<group>"; };
 		B8E64C331C43F2E100B4CB64 /* LTGroupMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTGroupMessageCell.m; sourceTree = "<group>"; };
 		B8E64C341C43F2E100B4CB64 /* LTGroupMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTGroupMessageCell.xib; sourceTree = "<group>"; };
@@ -2026,19 +2036,11 @@
 		AB3CF3DD1C46417C00F1C57B /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				B8CC9DD51C5F2AA300261A55 /* Chat */,
 				AB3CF3DE1C4641BC00F1C57B /* LTGroupService.h */,
 				AB3CF3DF1C4641BC00F1C57B /* LTGroupService.m */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		AB76B7911C451D23000A2191 /* GroupModel */ = {
-			isa = PBXGroup;
-			children = (
-				AB76B7921C451D42000A2191 /* LTGroup.h */,
-				AB76B7931C451D42000A2191 /* LTGroup.m */,
-			);
-			path = GroupModel;
 			sourceTree = "<group>";
 		};
 		B08F36B2DD64CD5785D60B66 /* Pods */ = {
@@ -3022,7 +3024,12 @@
 				B873AC2C1C48DBB4002C04B2 /* LTModelPost.m */,
 				B873AC411C48F8DC002C04B2 /* LTModelPostComment.h */,
 				B873AC421C48F8DC002C04B2 /* LTModelPostComment.m */,
-				AB76B7911C451D23000A2191 /* GroupModel */,
+				B8CC9DCF1C5F2A3300261A55 /* LTModelMessage.h */,
+				B8CC9DD01C5F2A3300261A55 /* LTModelMessage.m */,
+				B8CC9DCC1C5F2A0300261A55 /* LTModelGroup.h */,
+				B8CC9DCD1C5F2A0300261A55 /* LTModelGroup.m */,
+				B8CC9DD21C5F2A4800261A55 /* LTModelUserInfo.h */,
+				B8CC9DD31C5F2A4800261A55 /* LTModelUserInfo.m */,
 				B84428741C4264C3005FA556 /* LTModelUser.h */,
 				B84428751C4264C3005FA556 /* LTModelUser.m */,
 			);
@@ -3242,6 +3249,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B8CC9DD51C5F2AA300261A55 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				B8CC9DD61C5F2AA300261A55 /* CDUserFactory.h */,
+				B8CC9DD71C5F2AA300261A55 /* CDUserFactory.m */,
+				B8CC9DD81C5F2AA300261A55 /* CLChatRoomVC.h */,
+				B8CC9DD91C5F2AA300261A55 /* CLChatRoomVC.m */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
 		B8D1D5291C33EB0200DC4EDC /* Post */ = {
 			isa = PBXGroup;
 			children = (
@@ -3351,7 +3369,6 @@
 				B8E64C2E1C43F2E100B4CB64 /* LTGroupCell.xib */,
 				B8E64C2F1C43F2E100B4CB64 /* LTGroupMemberCell.h */,
 				B8E64C301C43F2E100B4CB64 /* LTGroupMemberCell.m */,
-				B8E64C311C43F2E100B4CB64 /* LTGroupMemberCell.xib */,
 				B8E64C321C43F2E100B4CB64 /* LTGroupMessageCell.h */,
 				B8E64C331C43F2E100B4CB64 /* LTGroupMessageCell.m */,
 				B8E64C341C43F2E100B4CB64 /* LTGroupMessageCell.xib */,
@@ -4656,7 +4673,6 @@
 				B80728591C1AB2E900E7802A /* intro_icon_5@3x.png in Resources */,
 				B8EEAE1B1C294F5400F861E8 /* rabbit_8.gif in Resources */,
 				B80728581C1AB2E900E7802A /* intro_icon_5@2x.png in Resources */,
-				B8E64C691C43F2E100B4CB64 /* LTGroupMemberCell.xib in Resources */,
 				B80727FE1C1AB2E900E7802A /* coding_emoji_13@2x.png in Resources */,
 				B80728601C1AB2E900E7802A /* intro_tip_2@2x.png in Resources */,
 				B80727EA1C1AB2E900E7802A /* btn_project_add@2x.png in Resources */,
@@ -4937,6 +4953,7 @@
 				B8EEADCB1C294F5400F861E8 /* XHSoundManager.m in Sources */,
 				B81CCC391C21408500D642DB /* JSQMessagesBubbleImage.m in Sources */,
 				B81072721C197FCE0058130E /* JTCalendarContentView.m in Sources */,
+				B8CC9DD11C5F2A3300261A55 /* LTModelMessage.m in Sources */,
 				B8C3360B1C40E7EE001A06BF /* LTPostLikedView.m in Sources */,
 				B8EEADCD1C294F5400F861E8 /* XHBaseCollectionViewCell.m in Sources */,
 				B87677D01C1FEC9900A0795B /* UISearchBar+RACSignalSupport.m in Sources */,
@@ -4975,6 +4992,7 @@
 				B8EEADDC1C294F5400F861E8 /* XHShareMenuView.m in Sources */,
 				B8EEAD9A1C294F5400F861E8 /* XHVoiceRecordHelper.m in Sources */,
 				B81CCC2C1C21408500D642DB /* JSQMessagesAvatarImageFactory.m in Sources */,
+				B8CC9DDA1C5F2AA300261A55 /* CDUserFactory.m in Sources */,
 				B89E0FF11C474DE200CD61FE /* LTUploadTextAndPhotosCell.m in Sources */,
 				B8EEADD21C294F5400F861E8 /* XHMessageStatusView.m in Sources */,
 				B8EEAD8D1C294F5400F861E8 /* UIImage+Utility.m in Sources */,
@@ -5017,6 +5035,7 @@
 				B8DCE4081C49287D00C233AD /* DiscoverTodoCell.m in Sources */,
 				B82BA3C11C2BDED7004AFC37 /* ActionSheetCustomPicker.m in Sources */,
 				B8EEAD861C294F5400F861E8 /* NSString+MessageInputView.m in Sources */,
+				B8CC9DCE1C5F2A0300261A55 /* LTModelGroup.m in Sources */,
 				B89E0FDB1C473CD200CD61FE /* LTChatViewController.m in Sources */,
 				B8D2B3C91C4E53F400F3E066 /* LTUserInfoHeadView.m in Sources */,
 				B8EEAD8B1C294F5400F861E8 /* UIImage+Resize.m in Sources */,
@@ -5039,7 +5058,6 @@
 				B80A378F1C1DADB600C3B226 /* YYControl.m in Sources */,
 				B81CCC411C21408500D642DB /* JSQMessagesCollectionViewCellOutgoing.m in Sources */,
 				B81CCC221C21408500D642DB /* JSQSystemSoundPlayer+JSQMessages.m in Sources */,
-				AB76B7941C451D42000A2191 /* LTGroup.m in Sources */,
 				AB3CF3EE1C46493700F1C57B /* LTGroupMessageViewController.m in Sources */,
 				B810728C1C197FCE0058130E /* UIColor+expanded.m in Sources */,
 				B81072771C197FCE0058130E /* JTCalendarMonthView.m in Sources */,
@@ -5062,6 +5080,7 @@
 				B81CCC3C1C21408500D642DB /* JSQMessagesCellTextView.m in Sources */,
 				B89E0FF51C47568300CD61FE /* LTBaseTableViewCell.m in Sources */,
 				B8DCE3FD1C4927D900C233AD /* LTPostViewCell.m in Sources */,
+				B8CC9DD41C5F2A4800261A55 /* LTModelUserInfo.m in Sources */,
 				B8A128481C1984B100ECA6CD /* NSObject+LKModel.m in Sources */,
 				B8EEADC31C294F5400F861E8 /* SETextMagnifierRanged.m in Sources */,
 				B8EEAD7B1C294F5400F861E8 /* AVIMEmotionMessage.m in Sources */,
@@ -5142,6 +5161,7 @@
 				B81CCC291C21408500D642DB /* JSQMessagesKeyboardController.m in Sources */,
 				B89E0FEE1C474DC900CD61FE /* LTUploadTextAndPhotosView.m in Sources */,
 				B89E0FDE1C473CD200CD61FE /* IntroductionViewController.m in Sources */,
+				B8CC9DDB1C5F2AA300261A55 /* CLChatRoomVC.m in Sources */,
 				B8EEADA91C294F5400F861E8 /* XHMessageBubbleFactory.m in Sources */,
 				B81072861C197FCE0058130E /* XHPopMenu.m in Sources */,
 				B81071B01C197F6F0058130E /* main.m in Sources */,
