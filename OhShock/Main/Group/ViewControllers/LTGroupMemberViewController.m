@@ -7,7 +7,7 @@
 //
 
 #import "LTGroupMemberViewController.h"
-#import "Header.h"
+#import "UIView+Layout.h"
 #import "LTGroupMemberCell.h"
 #import "LTGroupService.h"
 

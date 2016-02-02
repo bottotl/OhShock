@@ -9,6 +9,7 @@
 #import "LTGroupInfoViewController.h"
 #import "XHPopMenu.h"
 #import "DVSwitch.h"
+#import "UIView+Layout.h"
 #import "Header.h"
 #import "LTDiscoverTodoViewController.h"
 #import "LTGroupMemberViewController.h"

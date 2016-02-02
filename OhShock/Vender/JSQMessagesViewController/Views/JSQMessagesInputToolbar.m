@@ -35,6 +35,7 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
 
 - (void)jsq_leftBarButtonPressed:(UIButton *)sender;
 - (void)jsq_rightBarButtonPressed:(UIButton *)sender;
+- (void)jsq_rightBarButtonPressed:(UIButton *)sender atIndex:(NSUInteger) index;
 
 - (void)jsq_addObservers;
 - (void)jsq_removeObservers;
@@ -66,11 +67,18 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
     [self jsq_pinAllEdgesOfSubview:toolbarContentView];
     [self setNeedsUpdateConstraints];
     _contentView = toolbarContentView;
-
+     
+    
+    
     [self jsq_addObservers];
-
     self.contentView.leftBarButtonItem = [JSQMessagesToolbarButtonFactory defaultAccessoryButtonItem];
-    self.contentView.rightBarButtonItem = [JSQMessagesToolbarButtonFactory defaultSendButtonItem];
+//    self.contentView.rightBarButtonItem = [JSQMessagesToolbarButtonFactory defaultSendButtonItem];
+    //添加右侧多个按钮
+    [self.contentView setRightBarButtonItems:@[[JSQMessagesToolbarButtonFactory defaultAccessoryButtonItem], [JSQMessagesToolbarButtonFactory defaultAccessoryButtonItem]] andWidths:@[@40, @40]];
+    [self jsq_addTargetsForRightButtons];
+    
+    
+   
     
     [self toggleSendButtonEnabled];
 }
@@ -107,6 +115,10 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
 - (void)jsq_rightBarButtonPressed:(UIButton *)sender
 {
     [self.delegate messagesInputToolbar:self didPressRightBarButton:sender];
+}
+
+- (void)jsq_rightBarButtonPressed:(UIButton *)sender atIndex:(NSUInteger)index{
+    [self.delegate messagesInputToolbar:self didPressRightBarButton:sender atIndex:sender.tag];
 }
 
 
@@ -151,9 +163,19 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
                                                         action:@selector(jsq_rightBarButtonPressed:)
                                               forControlEvents:UIControlEventTouchUpInside];
             }
-
+            
             [self toggleSendButtonEnabled];
         }
+    }
+}
+
+- (void)jsq_addTargetsForRightButtons{
+    //为右侧按钮添加事件
+    for (int i = 0; i <  self.contentView.rightBarButtonItems.count; i++) {
+        UIButton *rightButtonItem = self.contentView.rightBarButtonItems[i];
+        rightButtonItem.tag = i;//给button加标记方便识别
+        [rightButtonItem removeTarget:self action:NULL forControlEvents:UIControlEventTouchUpInside];
+        [rightButtonItem addTarget:self action:@selector(jsq_rightBarButtonPressed:atIndex:) forControlEvents:UIControlEventTouchUpInside];
     }
 }
 
@@ -173,6 +195,7 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
                           options:0
                           context:kJSQMessagesInputToolbarKeyValueObservingContext];
 
+    
     self.jsq_isObserving = YES;
 }
 

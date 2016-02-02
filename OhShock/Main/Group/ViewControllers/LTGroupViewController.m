@@ -7,7 +7,7 @@
 //
 
 #import "LTGroupViewController.h"
-#import "Header.h"
+#import "UIView+Layout.h"
 #import "LTGroupCell.h"
 #import "XHPopMenu.h"
 #import "LTGroupMessageViewController.h"
@@ -18,6 +18,8 @@
 #import "LTGroupService.h"
 #import "LTSearchGroupViewController.h"
 #import "CLSearchResultViewController.h"
+#import "Header.h"
+
 
 #import "CLChatRoomVC.h"
 

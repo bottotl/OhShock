@@ -7,7 +7,7 @@
 //
 
 #import "SetGroupLabelsViewController.h"
-#import "Header.h"
+#import "UIView+Layout.h"
 #import "GroupLabelCell.h"
 
 @interface SetGroupLabelsViewController ()<UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
