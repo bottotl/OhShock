@@ -1590,7 +1590,6 @@
 		B8EEABDE1C294F5400F861E8 /* CDSoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDSoundManager.h; sourceTree = "<group>"; };
 		B8EEABDF1C294F5400F861E8 /* CDSoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDSoundManager.m; sourceTree = "<group>"; };
 		B8EEABE01C294F5400F861E8 /* CDUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDUserModel.h; sourceTree = "<group>"; };
-		B8EEABE11C294F5400F861E8 /* LeanChatLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeanChatLib.h; sourceTree = "<group>"; };
 		B8EEABE41C294F5400F861E8 /* Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Emoji.h; sourceTree = "<group>"; };
 		B8EEABE51C294F5400F861E8 /* Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Emoji.m; sourceTree = "<group>"; };
 		B8EEABE61C294F5400F861E8 /* EmojiEmoticons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiEmoticons.h; sourceTree = "<group>"; };
@@ -3481,7 +3480,6 @@
 			children = (
 				B8EEABC81C294F5400F861E8 /* controllers */,
 				B8EEABCD1C294F5400F861E8 /* data */,
-				B8EEABE11C294F5400F861E8 /* LeanChatLib.h */,
 				B8EEABE21C294F5400F861E8 /* vendor */,
 			);
 			path = Classes;
@@ -5289,7 +5287,7 @@
 					"$(PROJECT_DIR)/OhShock/Main/Group/Widget",
 				);
 				INFOPLIST_FILE = OhShock/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vp.jft0m.OhShock;
 				PRODUCT_NAME = OhShock;
@@ -5312,7 +5310,7 @@
 					"$(PROJECT_DIR)/OhShock/Main/Group/Widget",
 				);
 				INFOPLIST_FILE = OhShock/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vp.jft0m.OhShock;
 				PRODUCT_NAME = OhShock;

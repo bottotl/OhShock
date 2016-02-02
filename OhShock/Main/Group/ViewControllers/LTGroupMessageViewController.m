@@ -7,7 +7,7 @@
 //
 
 #import "LTGroupMessageViewController.h"
-#import "Header.h"
+#import "UIView+Layout.h"
 #import "LTGroupMessageCell.h"
 #import "LTGroupService.h"
 #import "JoinGroupCell.h"

@@ -7,7 +7,7 @@
 //
 
 #import "GroupIntroductionViewController.h"
-#import "Header.h"
+#import "UIView+Layout.h"
 #import "SVProgressHUD.h"
 
 @interface GroupIntroductionViewController ()
