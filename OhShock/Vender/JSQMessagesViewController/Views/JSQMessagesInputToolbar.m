@@ -73,14 +73,24 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
     [self jsq_addObservers];
     self.contentView.leftBarButtonItem = [JSQMessagesToolbarButtonFactory defaultAccessoryButtonItem];
 //    self.contentView.rightBarButtonItem = [JSQMessagesToolbarButtonFactory defaultSendButtonItem];
-    //添加右侧多个按钮
-    [self.contentView setRightBarButtonItems:@[[JSQMessagesToolbarButtonFactory defaultAccessoryButtonItem], [JSQMessagesToolbarButtonFactory defaultAccessoryButtonItem]] andWidths:@[@40, @40]];
-    [self jsq_addTargetsForRightButtons];
+//    //添加右侧多个按钮
+//    [self.contentView setRightBarButtonItems:@[[JSQMessagesToolbarButtonFactory defaultAccessoryButtonItem], [JSQMessagesToolbarButtonFactory defaultAccessoryButtonItem]] andWidths:@[@40, @40]];
+//    [self jsq_addTargetsForRightButtons];
     
-    
-   
     
     [self toggleSendButtonEnabled];
+}
+
+/**
+ *  添加按钮方法
+ *
+ *  @param rightBarButtonItems buttons
+ *  @param widths              button widths
+ */
+-(void)setRightBarButtonItems:(NSArray < UIButton *>*)rightBarButtonItems andWidths:(NSArray < NSNumber * >*)widths{
+    [self.contentView setRightBarButtonItems:rightBarButtonItems andWidths:widths];
+    ////为右侧按钮添加事件
+    [self jsq_addTargetsForRightButtons];
 }
 
 - (JSQMessagesToolbarContentView *)loadToolbarContentView

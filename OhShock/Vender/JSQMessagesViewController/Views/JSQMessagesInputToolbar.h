@@ -119,4 +119,12 @@
  */
 - (JSQMessagesToolbarContentView *)loadToolbarContentView;
 
+/**
+ *  添加按钮方法
+ *
+ *  @param rightBarButtonItems buttons
+ *  @param widths              button widths
+ */
+-(void)setRightBarButtonItems:(NSArray < UIButton *>*)rightBarButtonItems andWidths:(NSArray < NSNumber * >*)widths;
+
 @end
