@@ -320,6 +320,7 @@
     
     if (!self.calendar.calendarAppearance.isWeekMode) {
         self.calendar.calendarAppearance.isWeekMode = true;
+        [self.changeDateBtn setImage:[UIImage imageNamed:@"multiply_down"] forState:UIControlStateNormal];
         [self transitionExample];
     }
     
