@@ -9,6 +9,9 @@
 #import "LTLogInService.h"
 #import "LTModelUser.h"
 
+static NSString *const AppID = @"AeqpkvIfdCdKWr080LveKfEl";
+static NSString *const AppKey = @"UwgavmLDCILH6xr6P7gXob8J";
+
 @implementation LTLogInService
 
 + (id)currentUser{
@@ -24,6 +27,10 @@
             AVInstallation *installation = [AVInstallation currentInstallation];
             [installation setObject:[[AVUser currentUser]objectForKey:@"objectId"] forKey:@"Token"];
             [installation saveInBackground];
+            
+            //登录时候重新设置一次
+            [AVOSCloud setApplicationId:AppID
+                              clientKey:AppKey];
         }
     }];
 }

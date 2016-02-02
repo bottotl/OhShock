@@ -13,4 +13,5 @@
 @interface LTChatViewController : JSQMessagesViewController<JSQMessagesComposerTextViewPasteDelegate>
 
 -(instancetype)initWithUser:(AVUser *)user;
+-(instancetype)initWithMembers:(NSArray *)members;
 @end

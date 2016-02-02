@@ -21,7 +21,8 @@
 #import "Header.h"
 
 
-#import "CLChatRoomVC.h"
+//#import "CLChatRoomVC.h"
+#import "LTChatViewController.h"
 
 @interface LTGroupViewController ()<UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchControllerDelegate>
 
@@ -78,6 +79,7 @@
     _mySearchController.searchBar.frame = CGRectMake(0, 64, 0, 44.0);
     [_mySearchController.searchBar sizeToFit];
     mainTableView.tableHeaderView = self.mySearchController.searchBar;
+
     
     //有新消息时候加上小红点，先放在这边
     UIView *red = [[UIView alloc] initWithFrame:CGRectMake(30, 0, 10, 10)];
@@ -177,31 +179,48 @@
 //        [self.navigationController pushViewController:controller animated:YES];
         //测试
         //点击进入群聊界面，先放这
-  
-        WEAKSELF
-        NSMutableArray *memberIds = [NSMutableArray array];
+    
         LTModelGroup *group = groupArray[indexPath.row];
         AVQuery *query = [LTModelGroup query];
         [query whereKey:@"groupName" equalTo:group.groupName];
         [query getFirstObjectInBackgroundWithBlock:^(AVObject *object, NSError *error) {
             NSArray *members = [object objectForKey:@"groupMembers"];
-            for (int i = 0; i < members.count; i++) {
-//                if (![members[i] isEqual:[AVUser currentUser]]) {
-                    [memberIds addObject:[members[i] objectForKey:@"objectId"]];
-//                }
+            NSMutableArray *memberIdsArray = [NSMutableArray array];
+            for (int i = 0; i < members.count; i ++) {
+                [memberIdsArray addObject:[members[i] objectForKey:@"objectId"]];
             }
-//            [memberIds addObject:[CDChatManager manager].selfId];
-            [[CDChatManager manager] fetchConvWithMembers:memberIds callback: ^(AVIMConversation *conversation, NSError *error) {
-                if (error) {
-                    DLog(@"%@", error);
-                }
-                else {
-                    CDChatRoomVC *chatRoomVC = [[CDChatRoomVC alloc] initWithConv:conversation];
-                    chatRoomVC.hidesBottomBarWhenPushed = YES;
-                    [weakSelf.navigationController pushViewController:chatRoomVC animated:YES];
-                }
-            }];
+            LTChatViewController *ctl = [[LTChatViewController alloc]initWithMembers:memberIdsArray];
+            ctl.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:ctl animated:YES];
         }];
+
+        
+        
+  
+//        WEAKSELF
+//        NSMutableArray *memberIds = [NSMutableArray array];
+//        LTModelGroup *group = groupArray[indexPath.row];
+//        AVQuery *query = [LTModelGroup query];
+//        [query whereKey:@"groupName" equalTo:group.groupName];
+//        [query getFirstObjectInBackgroundWithBlock:^(AVObject *object, NSError *error) {
+//            NSArray *members = [object objectForKey:@"groupMembers"];
+//            for (int i = 0; i < members.count; i++) {
+////                if (![members[i] isEqual:[AVUser currentUser]]) {
+//                    [memberIds addObject:[members[i] objectForKey:@"objectId"]];
+////                }
+//            }
+////            [memberIds addObject:[CDChatManager manager].selfId];
+//            [[CDChatManager manager] fetchConvWithMembers:memberIds callback: ^(AVIMConversation *conversation, NSError *error) {
+//                if (error) {
+//                    DLog(@"%@", error);
+//                }
+//                else {
+//                    CDChatRoomVC *chatRoomVC = [[CDChatRoomVC alloc] initWithConv:conversation];
+//                    chatRoomVC.hidesBottomBarWhenPushed = YES;
+//                    [weakSelf.navigationController pushViewController:chatRoomVC animated:YES];
+//                }
+//            }];
+//        }];
     }
 }
 
@@ -220,15 +239,13 @@
 }
 
 
-//在这两个方法中改变tableview frame是因为点击searchbar 时会出现把searchbar弹出顶部的bug，暂时没找到好的解决方法
+
 -(void)willPresentSearchController:(UISearchController *)searchController{
-    [UIView animateWithDuration:0.2 animations:^{
-        mainTableView.top = 64;
-    }];
+    searchController.searchBar.top = 64;
 }
 
 -(void)willDismissSearchController:(UISearchController *)searchController{
-     mainTableView.top = 0;
+
 }
 
 #pragma mark 导航栏点击事件

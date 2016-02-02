@@ -29,6 +29,14 @@
     }
     return self;
 }
+
+-(instancetype)initWithMembers:(NSArray *)members{
+    self = [super init];
+    if (self){
+        self.dataSource = [[LTChatModel alloc]initWithMembers:members];
+    }
+    return self;
+}
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,8 +45,8 @@
      */
     self.title = @"JSQMessages";
     /// 设置用户名
-    self.senderId = _dataSource.outgoingID;
-    self.senderDisplayName = _dataSource.outgoingDisplayName;
+    self.senderId = _dataSource.outgoingUser.objectId;
+    self.senderDisplayName = [_dataSource.outgoingUser objectForKey:@"username"];
     self.inputToolbar.contentView.textView.pasteDelegate = self;
     
     /// 显示更多的标题头
@@ -62,6 +70,10 @@
 
 
 #pragma mark - JSQMessagesViewController method overrides
+#pragma mark 左侧按钮点击回调
+-(void)didPressAccessoryButton:(UIButton *)sender{
+    NSLog(@"left click@");
+}
 #pragma mark 发送按钮点击回调
 /// 发送按钮点击回调
 - (void)didPressSendButton:(UIButton *)button
@@ -92,6 +104,7 @@
     
     [self.dataSource sendMessage:text];
 }
+
 
 
 #pragma mark - JSQMessages CollectionView DataSource
@@ -130,8 +143,6 @@
         return self.dataSource.outgoingAvatarImage;
     }
     return self.dataSource.incomingAvatarImage;
-    
-
 }
 #pragma mark 时间戳
 /// 时间戳

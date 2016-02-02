@@ -7,6 +7,7 @@
 //
 
 #import "CDUserFactory.h"
+#import "LTModelUser.h"
 //#import "CDUserModel.h"
 //#import "CDChatManager.h"
 

@@ -45,10 +45,36 @@
             
         }];
 
-        [self initConversation];
+        [self initSingleConversation];
 #pragma mark 设置代理
         [AVIMClient defaultClient].delegate = self;
     }
+    return self;
+}
+
+-(instancetype) initWithMembers:(NSArray *)members{
+    self = [self init];
+    if (self) {
+        self.service = [[LTChatService alloc]init];
+        _outgoingUser = [LTModelUser currentUser];
+        _members = members;
+        
+        self.messages = [NSMutableArray array];
+        
+        //获取自己的头像
+        [_service getAvatorImageOfUser:_outgoingUser complete:^(UIImage *image, NSError *error) {
+            if (!error) {
+                _outgoingAvatarImage = [JSQMessagesAvatarImageFactory avatarImageWithImage:image diameter:kJSQMessagesCollectionViewAvatarSizeDefault];
+            }else{
+                NSLog(@"getAvatorImageOfUser 错误 ：%@",error);
+            }
+            
+        }];
+    }
+    [self initGroupConversation];
+#pragma mark 设置代理
+    [AVIMClient defaultClient].delegate = self;
+
     return self;
 }
 
@@ -69,7 +95,7 @@
 /**
  *  获取会话
  */
--(void)initConversation{
+-(void)initSingleConversation{
     __weak __typeof(self) weakSelf = self;
     [[CDChatManager manager] fetchConvWithOtherId:self.incomingUser.objectId callback: ^(AVIMConversation *conversation, NSError *error) {
         if (error) {
@@ -80,9 +106,22 @@
             //查询成功后加载会话
             [weakSelf loadMessagesWhenInit];
         }
-        
     }];
-    
+}
+
+- (void)initGroupConversation{
+    __weak __typeof(self) weakSelf = self;
+    [[CDChatManager manager] fetchConvWithMembers:_members callback:^(AVIMConversation *conversation, NSError *error) {
+        if (error) {
+            NSLog(@"fetchConvWithOtherId %@",error);
+        }else{
+            weakSelf.conv = conversation;
+            NSLog(@"fetchConvWithOtherId 成功");
+            //查询成功后加载会话
+            [weakSelf loadMessagesWhenInit];
+        }
+    }];
+
 }
 
 - (void)loadMessagesWhenInit {
@@ -93,6 +132,7 @@
         }else{
             NSLog(@"查询消息成功： objects :%@",objects);
             for (AVIMTypedMessage *message in objects) {
+                NSLog(@"%@", message.attributes);
                 [weakSelf.messages addObject:[message toJSQMessagesWithSenderId:message.clientId andDisplayName:[message.attributes valueForKey:@"username"] andDate:[NSDate dateWithTimeIntervalSince1970:message.sendTimestamp]]];
             }
             self.messagesCount = self.messages.count;
@@ -103,10 +143,10 @@
 -(void)sendMessage:(NSString *)text{
     AVIMTextMessage *msg = [AVIMTextMessage messageWithText:[CDEmotionUtils plainStringFromEmojiString:text] attributes:nil];
     [msg.attributes setValue:self.outgoingDisplayName forKey:@"username"];
-    
     [self sendMsg:msg originFilePath:nil];
 }
 - (void)sendMsg:(AVIMTypedMessage *)msg originFilePath:(NSString *)path {
+    NSLog(@"%@", msg.attributes);
     [[CDChatManager manager] sendMessage:msg conversation:self.conv callback:^(BOOL succeeded, NSError *error) {
         if (error) {
             NSLog(@"发送消息失败%@",error);

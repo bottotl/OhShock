@@ -197,13 +197,13 @@ static CDChatManager *instance;
 #pragma mark - utils
 
 - (void)sendMessage:(AVIMTypedMessage*)message conversation:(AVIMConversation *)conversation callback:(AVBooleanResultBlock)block {
-    id<CDUserModel> selfUser = [[CDChatManager manager].userDelegate getUserById:self.selfId];
+//    id<CDUserModel> selfUser = [[CDChatManager manager].userDelegate getUserById:self.selfId];
     NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
     // 云代码中获取到用户名，来设置推送消息, 老王:今晚约吗？
-    if (selfUser.username) {
+//    if (selfUser.username) {
         // 避免为空造成崩溃
-        [attributes setObject:selfUser.username forKey:@"username"];
-    }
+        [attributes setObject:[[AVUser currentUser] objectForKey:@"username"] forKey:@"username"];
+//    }
     if (self.useDevPushCerticate) {
         [attributes setObject:@YES forKey:@"dev"];
     }

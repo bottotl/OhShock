@@ -36,9 +36,7 @@
                 complectBlock([UIImage imageNamed:@"zxyxwanzi_mobile"],error);;
             }
         }];
-        
     }
-    
 }
 
 - (void)getAvatorUrlString:(AVUser *)user complete:(void(^)(NSString *urlString, NSError *error))completeBlock{

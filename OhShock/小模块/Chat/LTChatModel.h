@@ -60,6 +60,8 @@ static NSInteger const kPageSize = 15;
 @property (strong, nonatomic) JSQMessagesBubbleImage *outgoingBubbleImageData;
 /// 发送方的气泡背景
 @property (strong, nonatomic) JSQMessagesBubbleImage *incomingBubbleImageData;
+///聊天成员(保存的是objectId数组
+@property (strong, nonatomic) NSArray *members;
 /// 我的 ID
 -(NSString *)outgoingID;
 /// 对方的 ID
@@ -68,6 +70,15 @@ static NSInteger const kPageSize = 15;
 -(NSString *)outgoingDisplayName;
 /// 对方的用户名
 -(NSString *)incomingDisplayName;
+
+/**
+ *  初始化方法（必须调用这个初始化）
+ *
+ *  @param user (AVUser *)
+ *
+ *  @return self
+ */
+-(instancetype)initWithMembers:(NSArray *)members;
 
 /**
  *  初始化方法（必须调用这个初始化）

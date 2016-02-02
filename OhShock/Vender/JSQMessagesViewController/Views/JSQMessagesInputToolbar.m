@@ -72,10 +72,10 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
     
     [self jsq_addObservers];
     self.contentView.leftBarButtonItem = [JSQMessagesToolbarButtonFactory defaultAccessoryButtonItem];
-//    self.contentView.rightBarButtonItem = [JSQMessagesToolbarButtonFactory defaultSendButtonItem];
+    self.contentView.rightBarButtonItem = [JSQMessagesToolbarButtonFactory defaultSendButtonItem];
     //添加右侧多个按钮
-    [self.contentView setRightBarButtonItems:@[[JSQMessagesToolbarButtonFactory defaultAccessoryButtonItem], [JSQMessagesToolbarButtonFactory defaultAccessoryButtonItem]] andWidths:@[@40, @40]];
-    [self jsq_addTargetsForRightButtons];
+//    [self.contentView setRightBarButtonItems:@[[JSQMessagesToolbarButtonFactory defaultAccessoryButtonItem], [JSQMessagesToolbarButtonFactory defaultAccessoryButtonItem]] andWidths:@[@40, @40]];
+//    [self jsq_addTargetsForRightButtons];
     
     
    
