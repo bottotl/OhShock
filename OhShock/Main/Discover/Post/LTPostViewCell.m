@@ -43,7 +43,7 @@
     self.loadedData = NO;
     self.postView.profileView.avatarUrlString = nil;
     self.postView.contentView.content = nil;
-    self.postView.imagesView.photos = nil;
+    self.postView.imagesView.thumbPhotos = nil;
 }
 
 

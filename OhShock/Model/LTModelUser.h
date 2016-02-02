@@ -11,5 +11,4 @@
 @interface LTModelUser : AVUser <AVSubclassing>
 
 @property (nonatomic, strong) AVFile *avatar;
-
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "LTPostImagesView.h"
-#import "LTPostImageCollectionViewCell.h"
 #import "UIView+Layout.h"
 #import "YYPhotoGroupView.h"
 #import <Foundation/Foundation.h>
@@ -26,11 +25,12 @@
 @property (nonatomic, strong) RACSignal                  *imageTapSignal;///< 图片点击
 
 @property (nonatomic, strong) UICollectionViewFlowLayout *layout;
+@property (nonatomic, strong) UICollectionView    *collectionView;
 
 @end
 
 @implementation LTPostImagesView
-@synthesize photos = _photos;
+@synthesize thumbPhotos = _thumbPhotos;
 #pragma mark - init
 -(void)configViewWithPicNum:(NSUInteger)picNum needBig:(BOOL)needBig itemSpace:(CGFloat)itemSpace  limit:(NSUInteger )limit{
     self.picNum = picNum;
@@ -111,8 +111,8 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     LTPostImageCollectionViewCell *p_cell = [collectionView dequeueReusableCellWithReuseIdentifier:LTPostImageCollectionCellIdentifier forIndexPath:indexPath];
-    if (self.photos.count > indexPath.row) {
-        [p_cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.photos[[NSString stringWithFormat:@"%d",(int)indexPath.row]]]];
+    if (self.thumbPhotos.count > indexPath.row) {
+        [p_cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.thumbPhotos[[NSString stringWithFormat:@"%d",(int)indexPath.row]]]];
     }
     return p_cell;
 }
@@ -122,36 +122,31 @@
 //        [p_cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.photos[[NSString stringWithFormat:@"%d",(int)indexPath.row]]]];
 //    }
     
-    
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-//    LTPostImageCollectionViewCell *cell = (LTPostImageCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-//    LTPostImageModel *pic = self.data[indexPath.row];
-//    [cell configCellWithImageUrl:pic.smallUrlString];
-//    
-//    NSMutableArray *items = @[].mutableCopy;
-//    NSIndexPath * index = [NSIndexPath indexPathForRow:0 inSection:0];
-//    for (NSUInteger i = 0 ; i < self.limit && i < self.data.count; i++) {
-//        LTPostImageCollectionViewCell *cell = (LTPostImageCollectionViewCell *)[collectionView cellForItemAtIndexPath:index];
-//        LTPostImageModel *pic = self.data[index.row];
-//        [cell configCellWithImageUrl:pic.smallUrlString];
-//        
-//        YYPhotoGroupItem *item = [YYPhotoGroupItem new];
-//        item.thumbView = cell.imageView;
-//        item.largeImageURL = [NSURL URLWithString:((LTPostImageModel *)self.data[index.row]).bigUrlString];
-//        item.largeImageSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
-//        [items addObject:item];
-//        index = [NSIndexPath indexPathForRow:(index.row + 1) inSection:0];;
-//    }
-//    UINavigationController * viewController = [self theNavi];
-//
-//    NSLog(@"%@",[NSValue valueWithCGRect:[self convertRect:cell.frame toView:viewController.view]]) ;
-//    YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:items];
-//    [v presentFromView:self andFromItemIndex:indexPath.row andCellView:cell toContainer:viewController.view animated:YES completion:nil];
-
+    LTPostImageCollectionViewCell *cell = (LTPostImageCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    NSMutableArray *items = @[].mutableCopy;
+    NSIndexPath * index = [NSIndexPath indexPathForRow:0 inSection:0];
+    for (NSUInteger i = 0 ; i < self.bigPhotos.count; i++) {
+        LTPostImageCollectionViewCell *cell = (LTPostImageCollectionViewCell *)[collectionView cellForItemAtIndexPath:index];
+        
+        YYPhotoGroupItem *item = [YYPhotoGroupItem new];
+        item.thumbView = cell.imageView;
+        item.largeImageURL = [NSURL URLWithString:self.bigPhotos[[NSString stringWithFormat:@"%d",(int)i]]];
+        item.largeImageSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
+        [items addObject:item];
+        index = [NSIndexPath indexPathForRow:(index.row + 1) inSection:0];;
+    }
+    UINavigationController * viewController = [self theNavi];
+    
+    YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:items];
+    [v presentFromView:self andFromItemIndex:indexPath.row andCellView:cell toContainer:viewController.view animated:YES completion:nil];
+    
 }
-
+- (nullable UICollectionViewCell *)cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    return [self.collectionView cellForItemAtIndexPath:indexPath];
+}
 
 
 - (UINavigationController *)theNavi{
@@ -165,14 +160,15 @@
     self.layout.minimumLineSpacing = itemSpace;
     self.layout.minimumInteritemSpacing = itemSpace;
 }
--(NSMutableDictionary *)photos{
-    if (!_photos) {
-        _photos = @{}.mutableCopy;
+-(NSMutableDictionary *)thumbPhotos{
+    if (!_thumbPhotos) {
+        _thumbPhotos = @{}.mutableCopy;
     }
-    return _photos;
+    return _thumbPhotos;
 }
--(void)setPhotos:(NSMutableDictionary *)photos{
-    _photos = photos;
+
+-(void)setThumbPhotos:(NSMutableDictionary *)thumbPhotos{
+    _thumbPhotos = thumbPhotos;
     [self.collectionView reloadData];
 }
 

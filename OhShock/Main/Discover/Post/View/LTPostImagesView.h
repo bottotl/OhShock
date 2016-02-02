@@ -8,15 +8,23 @@
 
 #import <UIKit/UIKit.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import "LTPostImageCollectionViewCell.h"
+
+@class LTPostImagesView;
+@protocol LTPostImagesViewDelegate <UICollectionViewDelegate>
+@required 
+- (void)imagesView:(LTPostImagesView *)imagesView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
+@end
 
 /**
  *  多图显示控件
  */
 @interface LTPostImagesView : UIView
 
-@property (nonatomic, strong) NSMutableDictionary *photos;          ///< 图片数据(urlString) @{index:NSString}
+@property (nonatomic, strong) NSMutableDictionary      *thumbPhotos;///< 缩略图片数据(urlString) @{index:NSString}
+@property (nonatomic, strong) NSMutableDictionary      *bigPhotos;///< 大图数据(urlString) @{index:NSString}
 
-@property (nonatomic, strong) UICollectionView    *collectionView;  ///< 暴露出来方便设置 delegate
+@property (nonatomic, weak  ) id <LTPostImagesViewDelegate > delegate;
 
 /**
  *  配置 View
@@ -27,7 +35,7 @@
  *  @param limit     最多显示多少图片
  */
 -(void)configViewWithPicNum:(NSUInteger)picNum needBig:(BOOL)needBig itemSpace:(CGFloat)itemSpace limit:(NSUInteger)limit;
-
+- (UICollectionViewCell *)cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 /**
  *  计算图片显示控件的高度
  *

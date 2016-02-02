@@ -15,11 +15,11 @@
 #import "LTModelPost.h"
 #import "LTPostModel.h"
 #import "JSQMessagesInputToolbar.h"
+#import "LTModelPostComment+NSAttributedString.h"
+#import "AVFile+Category.h"
 
-
-
-static NSUInteger const onceLoadPostNum = 1;
-@interface LTPostListViewController ()<UITableViewDelegate, UITableViewDataSource>
+static NSUInteger const onceLoadPostNum = 5;
+@interface LTPostListViewController ()<UITableViewDelegate, UITableViewDataSource >
 
 @property (nonatomic, strong) JSQMessagesInputToolbar *inputToolbar;
 
@@ -158,14 +158,13 @@ static NSUInteger const onceLoadPostNum = 1;
     }];
 }
 
-
-
 -(void)p_dequePostFromModel:(LTModelPost *)model block:(void(^)(LTPostModel *post, NSError *error))block{
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
         __block LTPostModel *post = [LTPostModel new];
         NSError *error = nil;
         /// 个人信息
+
         LTModelUser *modelUser = [model objectForKey:@"pubUser"];
         AVQuery *userQuery = [AVQuery queryWithClassName:@"_User"];
         //    [userQuery setCachePolicy:kAVCachePolicyNetworkElseCache];
@@ -176,30 +175,17 @@ static NSUInteger const onceLoadPostNum = 1;
         }
         LTModelUser *user = [array firstObject];
         post.userName = user.username;
-        
         // 填充头像 url
         AVFile *avatarFile = user.avatar;
         post.avatarUrlString = [avatarFile getThumbnailURLWithScaleToFit:false width:60 height:60];
-        
+
         /// 文字内容填充
-        NSDictionary *options = @{NSDocumentTypeDocumentAttribute : NSRTFTextDocumentType};
-        if([model objectForKey:@"content"]){
-           post.content = [[NSAttributedString alloc]initWithData:[model objectForKey:@"content"] options:options documentAttributes:nil error:nil].copy;
-        }
-        
+        post.content = [self p_contentAttributedString:model.content];
         
         /// 图片内容填充
-        post.picFiles = model.photos.copy;
-        post.picThumbFiles = @[].mutableCopy;
-        for (int i = 0; i < model.thumbPhotos.count; i++) {
-            AVFile *thumbPhoto = model.thumbPhotos[i];
-            // 这时候 photo 内部没有数据 得去查一遍
-            AVQuery *query = [AVFile query];
-            [query setCachePolicy:kAVCachePolicyCacheElseNetwork];
-            AVFile *file = [AVFile fileWithAVObject:[query getObjectWithId:thumbPhoto.objectId]];
-            [post.picThumbFiles addObject:file];
-            
-        }
+        post.picFiles = [AVFile fetchAll:model.photos error:&error];
+        post.picThumbFiles = [AVFile fetchAll:model.thumbPhotos error:&error].mutableCopy;
+        
         /// 点赞按钮设置
         NSMutableArray *likedUsers = [[NSMutableArray alloc]initWithArray:model.likedUser];
         for (LTModelUser *user in likedUsers) {
@@ -210,59 +196,61 @@ static NSUInteger const onceLoadPostNum = 1;
         }
         
         /// 点赞用户填充
-        NSMutableAttributedString *likedUsersAttributedString = [[NSMutableAttributedString alloc]init];
-        for (int i = 0; i < model.likedUser.count; i++) {
-            LTModelUser *modelUser = model.likedUser[i];
-            AVQuery *userQuery = [AVQuery queryWithClassName:@"_User"];
-            [userQuery whereKey:@"objectId" equalTo:modelUser.objectId];
-            LTModelUser *user = [[userQuery findObjects:&error] firstObject];
-            if (error) {
-                block(nil, error);
-            }
-            [likedUsersAttributedString appendString:user.username];
-            if (i == model.likedUser.count - 1) {
-                post.likedUsersAttributedString = likedUsersAttributedString.copy;
-                
-            }
-        }
-        
+        post.likedUsersAttributedString = [self p_likedUsersAttributedString:model.likedUser];
+
         /// 评论内容填充
-        NSMutableArray *comments = @[].mutableCopy;
-        [AVObject fetchAll:model.comments];
-        for (LTModelPostComment *comment in model.comments) {
-            
-            [AVObject fetchAll:@[comment.toUser,comment.fromUser]];
-            NSString *fromUserName = comment.fromUser.username;
-            NSString *toUserName = comment.toUser.username;
-            
-            NSString *commentContent = comment.content;
-            
-            NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
-            NSMutableAttributedString *text = [NSMutableAttributedString new];
-            if (fromUserName.length) {
-                NSAttributedString *fromUser = [[NSAttributedString alloc] initWithString:fromUserName attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithHexString:@"446889"], NSParagraphStyleAttributeName : style}];
-                [text appendAttributedString:fromUser];
-            }
-            if (toUserName.length) {
-                NSAttributedString *returnKey = [[NSAttributedString alloc] initWithString:@"回复" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithHexString:@"333333"], NSParagraphStyleAttributeName : style}];
-                [text appendAttributedString:returnKey];
-                
-                NSAttributedString *toUser = [[NSAttributedString alloc] initWithString:toUserName attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithHexString:@"446889"], NSParagraphStyleAttributeName : style}];
-//                _toUserRange = NSMakeRange(self.fromUserRange.length + 2, comment.toUser.userName.length);
-                [text appendAttributedString:toUser];
-            }
-            if (commentContent.length) {
-                [text appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@":%@",commentContent] attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithHexString:@"333333"], NSParagraphStyleAttributeName : style}]];
-            }
-            [comments addObject:text];
-        }
-        
-        post.comments = comments;
+        post.comments = [self p_comments:model.comments];
         NSLog(@"加载了一个 post");
         block(post,error);
     });
     
 }
+
+-(void)p_likeButtonOnClick:(LTPostViewCell *)cell button:(UIButton *)button indexPath:(NSIndexPath *)indexPath{
+    
+    LTPostModel *model =  self.posts[[NSString stringWithFormat:@"%d",(int)indexPath.row]];
+    
+    button.enabled = NO;/// 点击一次之后不允许点击了
+    LTModelPost *post = self.dataSource[indexPath.row];
+    BOOL needRemove = NO;// NO： 点赞 ,Yes：取消点赞
+    NSMutableArray *likedUsers = [[NSMutableArray alloc]initWithArray:post.likedUser];
+    for (LTModelUser *user in likedUsers) {
+        if([user.objectId isEqualToString:([LTModelUser currentUser].objectId)]){
+            needRemove = YES;
+            // 取消点赞
+            [likedUsers removeObject:user];
+            break;
+        }
+    }
+    if (!needRemove) {
+        // 点赞
+        [likedUsers addObject:[LTModelUser currentUser]];
+    }
+    post.likedUser = likedUsers.copy;
+    // 先修改本地数据
+    // 如果上传失败，把本地数据改回来、重新刷新列表
+    model.likedUsersAttributedString = [self p_likedUsersAttributedString:post.likedUser];
+    model.liked = !needRemove;
+    [self.tableView reloadRow:indexPath.row inSection:indexPath.section withRowAnimation:UITableViewRowAnimationNone];
+    @weakify(self);
+    [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        @strongify(self);
+        if (succeeded) {
+            NSLog(@"成功修改 post");
+            button.enabled = YES;
+            [self.tableView reloadRow:indexPath.row inSection:indexPath.section withRowAnimation:UITableViewRowAnimationNone];
+        }else{
+            NSLog(@"post saveInBackgroundWithBlock 出错%@",error);
+            model.liked = !model.liked;
+            button.enabled = YES;
+            [self.tableView reloadRow:indexPath.row inSection:indexPath.section withRowAnimation:UITableViewRowAnimationNone];
+        }
+    }];
+
+}
+
+//-(void)p_commentButtonOnClick:()
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -278,50 +266,30 @@ static NSUInteger const onceLoadPostNum = 1;
     postView.profileView.avatarUrlString = post.avatarUrlString;
     
     postView.contentView.content = post.content;
-    NSMutableDictionary *dic = @{}.mutableCopy;
+    NSMutableDictionary *thumbPhotosDic = @{}.mutableCopy;
     for (int i = 0; i < post.picThumbFiles.count; i++) {
-        [dic setValue:post.picThumbFiles[i].url forKey:[NSString stringWithFormat:@"%d",i]];
+        [thumbPhotosDic setValue:post.picThumbFiles[i].url forKey:[NSString stringWithFormat:@"%d",i]];
     }
-    postView.imagesView.photos = dic;
+    postView.imagesView.thumbPhotos = thumbPhotosDic;
+    
+    NSMutableDictionary *bigPhotosDic = @{}.mutableCopy;
+    for (int i = 0; i < post.picFiles.count; i++) {
+        [bigPhotosDic setValue:post.picFiles[i].url forKey:[NSString stringWithFormat:@"%d",i]];
+    }
+    postView.imagesView.bigPhotos = bigPhotosDic;
+
     cell.loadedData = YES;
     
     
     cell.postView.liked = post.liked;
-    
+    cell.postView.likedView.usersName = post.likedUsersAttributedString;
     cell.postView.commentsView.comments = post.comments;
+    
     /// 点赞按钮点击
     @weakify(self);
     [[cell.postView.rac_likeSignal takeUntil:cell.rac_prepareForReuseSignal]subscribeNext:^(id x) {
-        LTPostViewRoundButton *button = x;
-        button.enabled = NO;/// 点击一次之后不允许点击了
         @strongify(self);
-        LTModelPost *post = self.dataSource[indexPath.row];
-        BOOL needRemove = NO;// NO： 点赞 ,Yes：取消点赞
-        NSMutableArray *likedUsers = [[NSMutableArray alloc]initWithArray:post.likedUser];
-        for (LTModelUser *user in likedUsers) {
-            if([user.objectId isEqualToString:([LTModelUser currentUser].objectId)]){
-                needRemove = YES;
-                // 取消点赞
-                [likedUsers removeObject:user];
-                
-                break;
-            }
-        }
-        
-        if (!needRemove) {
-            // 点赞
-            [likedUsers addObject:[LTModelUser currentUser]];
-        }
-        post.likedUser = likedUsers.copy;
-        [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (succeeded) {
-                NSLog(@"成功修改 post");
-                ((LTPostModel *)self.posts[[NSString stringWithFormat:@"%d",(int)indexPath.row]]).liked = !needRemove;
-                cell.postView.liked = !needRemove ;
-                button.enabled = YES;
-            }
-        }];
-
+        [self p_likeButtonOnClick:cell button:x indexPath:indexPath];
     }];
     
     /// 评论按钮点击
@@ -329,36 +297,13 @@ static NSUInteger const onceLoadPostNum = 1;
         @strongify(self);
         LTModelPost *post = self.dataSource[indexPath.row];
         @weakify(self);
-        [self p_addCommentPost:post andContent:@"我是英雄" fromUser:[LTModelUser currentUser] toUser:post.pubUser block:^(LTModelPost *post, NSError *error) {
+        /// 模拟假数据
+        [self p_addCommentPost:post andContent:@"一首《求佛》成就了誓言，也让他独特的嗓音像曾经的刀郎一样铭刻在了无数歌迷心中。曾在2006年无线音乐咪咕汇上获得年度十大畅销金曲奖" fromUser:[LTModelUser currentUser] toUser:post.pubUser block:^(LTModelPost *post, NSError *error) {
             @strongify(self);
             if(post){
                 self.dataSource[indexPath.row] = post;
-                LTModelPostComment *modelPostComment  = post.comments.lastObject;
-                [AVObject fetchAll:@[modelPostComment.toUser,modelPostComment.fromUser]];
-                NSString *fromUserName = modelPostComment.fromUser.username;
-                NSString *toUserName = modelPostComment.toUser.username;
-                NSString *commentContent = modelPostComment.content;
-                
-                NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
-                NSMutableAttributedString *text = [NSMutableAttributedString new];
-                if (fromUserName.length) {
-                    NSAttributedString *fromUser = [[NSAttributedString alloc] initWithString:fromUserName attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithHexString:@"446889"], NSParagraphStyleAttributeName : style}];
-                    [text appendAttributedString:fromUser];
-                }
-                if (toUserName.length) {
-                    NSAttributedString *returnKey = [[NSAttributedString alloc] initWithString:@"回复" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithHexString:@"333333"], NSParagraphStyleAttributeName : style}];
-                    [text appendAttributedString:returnKey];
-                    
-                    NSAttributedString *toUser = [[NSAttributedString alloc] initWithString:toUserName attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithHexString:@"446889"], NSParagraphStyleAttributeName : style}];
-                    //                _toUserRange = NSMakeRange(self.fromUserRange.length + 2, comment.toUser.userName.length);
-                    [text appendAttributedString:toUser];
-                }
-                if (commentContent.length) {
-                    [text appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@":%@",commentContent] attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithHexString:@"333333"], NSParagraphStyleAttributeName : style}]];
-                }
-
-                
-                [((LTPostModel *)self.posts[[NSString stringWithFormat:@"%d",(int)indexPath.row]]).comments addObject:text.copy];
+                LTModelPostComment *modelPostComment = post.comments.lastObject;
+                [((LTPostModel *)self.posts[[NSString stringWithFormat:@"%d",(int)indexPath.row]]).comments addObject:[modelPostComment toAttributedString]];
                 @weakify(self);
                 dispatch_async(dispatch_get_main_queue(), ^{
                     @strongify(self);
@@ -378,7 +323,7 @@ static NSUInteger const onceLoadPostNum = 1;
     LTPostModel *post = self.posts[[NSString stringWithFormat:@"%d",(int)indexPath.row]];
     CGFloat height = [LTPostView heightWithContent:post.content
                                andPicCound:post.picThumbFiles.count
-                              andUsersName:[[NSAttributedString alloc]initWithString:post.userName]
+                              andUsersName:post.likedUsersAttributedString
                                andComments:post.comments
                             andCommitLimit:6
                             andCommentFold:NO
@@ -391,6 +336,31 @@ static NSUInteger const onceLoadPostNum = 1;
     return NO;
 }
 
+//#pragma mark LTPostImagesViewDelegate
+//- (void)imagesView:(LTPostImagesView *)imagesView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+//    
+//    LTPostImageCollectionViewCell *cell = (LTPostImageCollectionViewCell *)[imagesView cellForItemAtIndexPath:indexPath];
+//
+//    NSMutableArray *items = @[].mutableCopy;
+//    NSIndexPath * index = [NSIndexPath indexPathForRow:0 inSection:0];
+//    for (NSUInteger i = 0 ; self.posts; i++) {
+//        LTPostImageCollectionViewCell *cell = (LTPostImageCollectionViewCell *)[collectionView cellForItemAtIndexPath:index];
+//        LTPostImageModel *pic = self.data[index.row];
+//        [cell configCellWithImageUrl:pic.smallUrlString];
+//        
+//        YYPhotoGroupItem *item = [YYPhotoGroupItem new];
+//        item.thumbView = cell.imageView;
+//        item.largeImageURL = [NSURL URLWithString:((LTPostImageModel *)self.data[index.row]).bigUrlString];
+//        item.largeImageSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
+//        [items addObject:item];
+//        index = [NSIndexPath indexPathForRow:(index.row + 1) inSection:0];;
+//    }
+//    UINavigationController * viewController = [self theNavi];
+//    
+//    NSLog(@"%@",[NSValue valueWithCGRect:[self convertRect:cell.frame toView:viewController.view]]) ;
+//    YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:items];
+//    [v presentFromView:self andFromItemIndex:indexPath.row andCellView:cell toContainer:viewController.view animated:YES completion:nil];
+//}
 
 #pragma mark - 上传事件
 
@@ -415,6 +385,53 @@ static NSUInteger const onceLoadPostNum = 1;
     [self presentViewController:self.uploadAlert animated:YES completion:nil];
 }
 
-#pragma mark -
-//- ()
+#pragma mark - === 工具 ===
+/// 单个点赞用户名富文本
+-(NSAttributedString *)p_likedUserAttributedString:(LTModelUser *)user{
+    UIFont *likedUsersfont = [UIFont systemFontOfSize:16];
+    NSAttributedString *usernameText = [[NSAttributedString alloc] initWithString:user.username attributes:@{NSFontAttributeName : likedUsersfont, NSForegroundColorAttributeName : [UIColor colorWithHexString:@"446889"], NSParagraphStyleAttributeName : [NSMutableParagraphStyle new]}];
+    return usernameText;
+}
+/// 总的点赞列表富文本
+-(NSAttributedString *)p_likedUsersAttributedString:(NSArray <LTModelUser *> *)users{
+    if(!users||users.count == 0){
+        return nil;
+    }
+    [AVObject fetchAllIfNeeded:users];
+    NSMutableAttributedString *likedUsersAttributedString = [[NSMutableAttributedString alloc]init];
+    
+    UIFont *likedUsersfont = [UIFont systemFontOfSize:16];
+    UIImage *image = [UIImage imageNamed:@"post_like_selected_btn"];// 点赞头图
+    image = [UIImage imageWithCGImage:image.CGImage scale:1 orientation:UIImageOrientationUp];
+    NSMutableAttributedString *attachText = [NSMutableAttributedString attachmentStringWithContent:image contentMode:UIViewContentModeCenter attachmentSize:image.size alignToFont:likedUsersfont alignment:YYTextVerticalAlignmentCenter];
+    [likedUsersAttributedString appendAttributedString:attachText];
+    
+    for (int i = 0; i < users.count; i++) {
+        [likedUsersAttributedString appendAttributedString:[self p_likedUserAttributedString:users[i]]];
+        if (i != users.count - 1) {
+            [likedUsersAttributedString appendString:@","];
+        }
+    }
+    return likedUsersAttributedString;
+    
+}
+
+-(NSAttributedString *)p_contentAttributedString:(NSData *)content{
+    if (content) {
+        NSDictionary *options = @{NSDocumentTypeDocumentAttribute : NSRTFTextDocumentType};
+        return [[NSAttributedString alloc]initWithData:content options:options documentAttributes:nil error:nil].copy;
+    }
+    return nil;
+}
+
+/// 所有的评论
+-(NSMutableArray <NSAttributedString *> *)p_comments:(NSArray <LTModelPostComment *> *)comments{
+    [AVObject fetchAllIfNeeded:comments];
+    NSMutableArray <NSAttributedString *>* p_comments = @[].mutableCopy;
+    for (LTModelPostComment *comment in comments) {
+        [p_comments addObject:[comment toAttributedString]];
+    }
+    return p_comments;
+}
+
 @end

@@ -42,6 +42,9 @@
     return self.usersNameLabel.size;
 }
 
+-(void)setUsersName:(NSAttributedString *)usersName{
+    _usersName = usersName;
+}
 #pragma mark - 计算高度
 +(CGFloat)heightWithUsersName:(NSAttributedString *)usersName andWith:(CGFloat)width{
     CGSize size = CGSizeMake(width, CGFLOAT_MAX);

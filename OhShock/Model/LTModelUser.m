@@ -10,7 +10,7 @@
 
 @implementation LTModelUser
 
-@dynamic avatar;
+@dynamic avatar,username;
 + (NSString *)parseClassName {
     return @"_User";
 }
