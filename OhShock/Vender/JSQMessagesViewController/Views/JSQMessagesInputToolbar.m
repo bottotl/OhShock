@@ -68,7 +68,7 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
     [self setNeedsUpdateConstraints];
     _contentView = toolbarContentView;
      
-    
+     
     
     [self jsq_addObservers];
     self.contentView.leftBarButtonItem = [JSQMessagesToolbarButtonFactory defaultAccessoryButtonItem];
