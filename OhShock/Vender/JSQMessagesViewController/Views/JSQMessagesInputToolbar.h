@@ -30,26 +30,26 @@
  */
 @protocol JSQMessagesInputToolbarDelegate <UIToolbarDelegate>
 
-@required
+//@required
 
-/**
- *  Tells the delegate that the toolbar's `rightBarButtonItem` has been pressed.
- *
- *  @param toolbar The object representing the toolbar sending this information.
- *  @param sender  The button that received the touch event.
- */
-- (void)messagesInputToolbar:(JSQMessagesInputToolbar *)toolbar
-      didPressRightBarButton:(UIButton *)sender;
-
-
-/**
- *  Tells the delegate that the toolbar's `leftBarButtonItem` has been pressed.
- *
- *  @param toolbar The object representing the toolbar sending this information.
- *  @param sender  The button that received the touch event.
- */
-- (void)messagesInputToolbar:(JSQMessagesInputToolbar *)toolbar
-       didPressLeftBarButton:(UIButton *)sender;
+///**
+// *  Tells the delegate that the toolbar's `rightBarButtonItem` has been pressed.
+// *
+// *  @param toolbar The object representing the toolbar sending this information.
+// *  @param sender  The button that received the touch event.
+// */
+//- (void)messagesInputToolbar:(JSQMessagesInputToolbar *)toolbar
+//      didPressRightBarButton:(UIButton *)sender;
+//
+//
+///**
+// *  Tells the delegate that the toolbar's `leftBarButtonItem` has been pressed.
+// *
+// *  @param toolbar The object representing the toolbar sending this information.
+// *  @param sender  The button that received the touch event.
+// */
+//- (void)messagesInputToolbar:(JSQMessagesInputToolbar *)toolbar
+//       didPressLeftBarButton:(UIButton *)sender;
 
 @optional
 /**
@@ -92,7 +92,7 @@
  *  It only specifies whether the `rightBarButtonItem `or the `leftBarButtonItem` is the send button.
  *  The other button then acts as the accessory button.
  */
-@property (assign, nonatomic) BOOL sendButtonOnRight;
+//@property (assign, nonatomic) BOOL sendButtonOnRight;
 
 /**
  *  Specifies the default (minimum) height for the toolbar. The default value is `44.0f`. This value must be positive.
@@ -104,12 +104,13 @@
  */
 @property (assign, nonatomic) NSUInteger maximumHeight;
 
-/**
- *  Enables or disables the send button based on whether or not its `textView` has text.
- *  That is, the send button will be enabled if there is text in the `textView`, and disabled otherwise.
- */
-- (void)toggleSendButtonEnabled;
+///**
+// *  Enables or disables the send button based on whether or not its `textView` has text.
+// *  That is, the send button will be enabled if there is text in the `textView`, and disabled otherwise.
+// */
+//- (void)toggleSendButtonEnabled;
 
+-(instancetype)initWithSubView:(UIView *)SubView;
 /**
  *  Loads the content view for the toolbar.
  *
@@ -120,11 +121,18 @@
 - (JSQMessagesToolbarContentView *)loadToolbarContentView;
 
 /**
- *  添加按钮方法
+ *  添加右边按钮方法
  *
  *  @param rightBarButtonItems buttons
  *  @param widths              button widths
  */
 -(void)setRightBarButtonItems:(NSArray < UIButton *>*)rightBarButtonItems andWidths:(NSArray < NSNumber * >*)widths;
+/**
+ *  添加左边按钮方法
+ *
+ *  @param leftBarButtonItems buttons
+ *  @param widths             button widths
+ */
+-(void)setLeftBarButtonItems:(NSArray < UIButton *>*)leftBarButtonItems andWidths:(NSArray < NSNumber * >*)widths;
 
 @end

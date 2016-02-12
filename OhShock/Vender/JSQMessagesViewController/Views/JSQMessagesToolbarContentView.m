@@ -68,8 +68,7 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
 - (void)dealloc
 {
     _textView = nil;
-    _leftBarButtonItem = nil;
-    _rightBarButtonItem = nil;
+    _leftBarButtonItems = nil;
     _rightBarButtonItems = nil;
     _leftBarButtonContainerView = nil;
     _rightBarButtonContainerView = nil;
@@ -84,36 +83,36 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
     self.rightBarButtonContainerView.backgroundColor = backgroundColor;
 }
 
-- (void)setLeftBarButtonItem:(UIButton *)leftBarButtonItem
-{
-    if (_leftBarButtonItem) {
-        [_leftBarButtonItem removeFromSuperview];
-    }
-
-    if (!leftBarButtonItem) {
-        _leftBarButtonItem = nil;
-        self.leftHorizontalSpacingConstraint.constant = 0.0f;
-        self.leftBarButtonItemWidth = 0.0f;
-        self.leftBarButtonContainerView.hidden = YES;
-        return;
-    }
-
-    if (CGRectEqualToRect(leftBarButtonItem.frame, CGRectZero)) {
-        leftBarButtonItem.frame = self.leftBarButtonContainerView.bounds;
-    }
-
-    self.leftBarButtonContainerView.hidden = NO;
-    self.leftHorizontalSpacingConstraint.constant = kJSQMessagesToolbarContentViewHorizontalSpacingDefault;
-    self.leftBarButtonItemWidth = CGRectGetWidth(leftBarButtonItem.frame);
-
-    [leftBarButtonItem setTranslatesAutoresizingMaskIntoConstraints:NO];
-
-    [self.leftBarButtonContainerView addSubview:leftBarButtonItem];
-    [self.leftBarButtonContainerView jsq_pinAllEdgesOfSubview:leftBarButtonItem];
-    [self setNeedsUpdateConstraints];
-
-    _leftBarButtonItem = leftBarButtonItem;
-}
+//- (void)setLeftBarButtonItem:(UIButton *)leftBarButtonItem
+//{
+//    if (_leftBarButtonItem) {
+//        [_leftBarButtonItem removeFromSuperview];
+//    }
+//
+//    if (!leftBarButtonItem) {
+//        _leftBarButtonItem = nil;
+//        self.leftHorizontalSpacingConstraint.constant = 0.0f;
+//        self.leftBarButtonItemWidth = 0.0f;
+//        self.leftBarButtonContainerView.hidden = YES;
+//        return;
+//    }
+//
+//    if (CGRectEqualToRect(leftBarButtonItem.frame, CGRectZero)) {
+//        leftBarButtonItem.frame = self.leftBarButtonContainerView.bounds;
+//    }
+//
+//    self.leftBarButtonContainerView.hidden = NO;
+//    self.leftHorizontalSpacingConstraint.constant = kJSQMessagesToolbarContentViewHorizontalSpacingDefault;
+//    self.leftBarButtonItemWidth = CGRectGetWidth(leftBarButtonItem.frame);
+//
+//    [leftBarButtonItem setTranslatesAutoresizingMaskIntoConstraints:NO];
+//
+//    [self.leftBarButtonContainerView addSubview:leftBarButtonItem];
+//    [self.leftBarButtonContainerView jsq_pinAllEdgesOfSubview:leftBarButtonItem];
+//    [self setNeedsUpdateConstraints];
+//
+//    _leftBarButtonItem = leftBarButtonItem;
+//}
 
 - (void)setLeftBarButtonItemWidth:(CGFloat)leftBarButtonItemWidth
 {
@@ -121,37 +120,90 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
     [self setNeedsUpdateConstraints];
 }
 
-- (void)setRightBarButtonItem:(UIButton *)rightBarButtonItem
-{
-    if (_rightBarButtonItem) {
-        [_rightBarButtonItem removeFromSuperview];
-    }
+//- (void)setRightBarButtonItem:(UIButton *)rightBarButtonItem
+//{
+//    if (_rightBarButtonItem) {
+//        [_rightBarButtonItem removeFromSuperview];
+//    }
+//
+//    if (!rightBarButtonItem) {
+//        _rightBarButtonItem = nil;
+//        self.rightHorizontalSpacingConstraint.constant = 0.0f;
+//        self.rightBarButtonItemWidth = 0.0f;
+//        self.rightBarButtonContainerView.hidden = YES;
+//        return;
+//    }
+//
+//    if (CGRectEqualToRect(rightBarButtonItem.frame, CGRectZero)) {
+//        rightBarButtonItem.frame = self.rightBarButtonContainerView.bounds;
+//    }
+//
+//    self.rightBarButtonContainerView.hidden = NO;
+//    self.rightHorizontalSpacingConstraint.constant = kJSQMessagesToolbarContentViewHorizontalSpacingDefault;
+//    self.rightBarButtonItemWidth = CGRectGetWidth(rightBarButtonItem.frame);
+//
+//    [rightBarButtonItem setTranslatesAutoresizingMaskIntoConstraints:NO];
+//
+//    [self.rightBarButtonContainerView addSubview:rightBarButtonItem];
+//    [self.rightBarButtonContainerView jsq_pinAllEdgesOfSubview:rightBarButtonItem];
+//    [self setNeedsUpdateConstraints];
+//
+//    _rightBarButtonItem = rightBarButtonItem;
+//}
 
-    if (!rightBarButtonItem) {
-        _rightBarButtonItem = nil;
+-(void)setLeftBarButtonItems:(NSArray<UIButton *> *)leftBarButtonItems andWidths:(NSArray<NSNumber *> *)widths{
+    NSParameterAssert(leftBarButtonItems.count == widths.count);
+    for (UIButton *button in _leftBarButtonItems) {
+        [button removeFromSuperview];
+    }
+    
+    if (!leftBarButtonItems || leftBarButtonItems.count < 1) {
+        _leftBarButtonItems = nil;
         self.rightHorizontalSpacingConstraint.constant = 0.0f;
         self.rightBarButtonItemWidth = 0.0f;
         self.rightBarButtonContainerView.hidden = YES;
         return;
     }
-
-    if (CGRectEqualToRect(rightBarButtonItem.frame, CGRectZero)) {
-        rightBarButtonItem.frame = self.rightBarButtonContainerView.bounds;
+    
+    CGFloat widthTotal = 0;
+    int index = 0;
+    for (UIButton *button in leftBarButtonItems) {
+        [button setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self.leftBarButtonContainerView addSubview:button];
+        widthTotal += widths[index].floatValue;
+        
+        [button mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.leftBarButtonContainerView.mas_top);
+            make.bottom.equalTo(self.leftBarButtonContainerView.mas_bottom);
+            make.width.equalTo(widths[index]);
+            if (index == 0) {
+                make.left.equalTo(self.leftBarButtonContainerView.mas_left);
+            }else{
+                make.left.equalTo(leftBarButtonItems[index - 1].mas_right);
+            }
+            
+            if (index == (leftBarButtonItems.count - 1)) {
+                make.right.equalTo(self.leftBarButtonContainerView.mas_right);
+            }
+            
+        }];
+        
+        index ++;
     }
-
-    self.rightBarButtonContainerView.hidden = NO;
-    self.rightHorizontalSpacingConstraint.constant = kJSQMessagesToolbarContentViewHorizontalSpacingDefault;
-    self.rightBarButtonItemWidth = CGRectGetWidth(rightBarButtonItem.frame);
-
-    [rightBarButtonItem setTranslatesAutoresizingMaskIntoConstraints:NO];
-
-    [self.rightBarButtonContainerView addSubview:rightBarButtonItem];
-    [self.rightBarButtonContainerView jsq_pinAllEdgesOfSubview:rightBarButtonItem];
+    
+    self.leftBarButtonContainerView.hidden = NO;
+    self.leftHorizontalSpacingConstraint.constant = kJSQMessagesToolbarContentViewHorizontalSpacingDefault;
+    
+    [self.leftBarButtonContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(32));
+        make.width.greaterThanOrEqualTo(@(widthTotal));
+    }];
+    
     [self setNeedsUpdateConstraints];
-
-    _rightBarButtonItem = rightBarButtonItem;
+    
+    _leftBarButtonItems = leftBarButtonItems;
+    
 }
-
 -(void)setRightBarButtonItems:(NSArray < UIButton *>*)rightBarButtonItems andWidths:(NSArray < NSNumber * >*)widths{
     
     NSParameterAssert(rightBarButtonItems.count == widths.count);

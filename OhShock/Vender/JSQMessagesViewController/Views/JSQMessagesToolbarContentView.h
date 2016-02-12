@@ -49,7 +49,7 @@ FOUNDATION_EXPORT const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingD
  *  If the frame of this button is equal to `CGRectZero` when set, then a default frame size will be used.
  *  Set this value to `nil` to remove the button.
  */
-@property (weak, nonatomic) UIButton *leftBarButtonItem;
+//@property (weak, nonatomic) UIButton *leftBarButtonItem;
 
 /**
  *  Specifies the width of the leftBarButtonItem.
@@ -85,19 +85,32 @@ FOUNDATION_EXPORT const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingD
  *  If the frame of this button is equal to `CGRectZero` when set, then a default frame size will be used.
  *  Set this value to `nil` to remove the button.
  */
-@property (weak, nonatomic) UIButton *rightBarButtonItem;
+//@property (weak, nonatomic) UIButton *rightBarButtonItem;
 
 /**
- *  自己加的东西，为了实现多个按钮
+ *  右边多个按钮
  */
 @property (strong, nonatomic) NSArray *rightBarButtonItems;
+
 /**
- *  添加按钮方法
+ *  左边的多个按钮
+ */
+@property (strong, nonatomic) NSArray *leftBarButtonItems;
+
+/**
+ *  设置右边按钮方法
  *
  *  @param rightBarButtonItems buttons
  *  @param widths              button widths
  */
 -(void)setRightBarButtonItems:(NSArray < UIButton *>*)rightBarButtonItems andWidths:(NSArray < NSNumber * >*)widths;
+/**
+ *  设置左边按钮方法
+ *
+ *  @param leftBarButtonItems buttons
+ *  @param widths             button widths
+ */
+-(void)setLeftBarButtonItems:(NSArray < UIButton *>*)leftBarButtonItems andWidths:(NSArray < NSNumber * >*)widths;
 /**
  *  Specifies the width of the rightBarButtonItem.
  *

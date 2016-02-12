@@ -354,7 +354,7 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
     textView.text = nil;
     [textView.undoManager removeAllActions];
 
-    [self.inputToolbar toggleSendButtonEnabled];
+//    [self.inputToolbar toggleSendButtonEnabled];
 
     [[NSNotificationCenter defaultCenter] postNotificationName:UITextViewTextDidChangeNotification object:textView];
 
@@ -681,35 +681,35 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
  didTapCellAtIndexPath:(NSIndexPath *)indexPath
          touchLocation:(CGPoint)touchLocation { }
 
-#pragma mark - Input toolbar delegate
-
-- (void)messagesInputToolbar:(JSQMessagesInputToolbar *)toolbar didPressLeftBarButton:(UIButton *)sender
-{
-    if (toolbar.sendButtonOnRight) {
-        [self didPressAccessoryButton:sender];
-    }
-    else {
-        [self didPressSendButton:sender
-                 withMessageText:[self jsq_currentlyComposedMessageText]
-                        senderId:self.senderId
-               senderDisplayName:self.senderDisplayName
-                            date:[NSDate date]];
-    }
-}
-
-- (void)messagesInputToolbar:(JSQMessagesInputToolbar *)toolbar didPressRightBarButton:(UIButton *)sender
-{
-    if (toolbar.sendButtonOnRight) {
-        [self didPressSendButton:sender
-                 withMessageText:[self jsq_currentlyComposedMessageText]
-                        senderId:self.senderId
-               senderDisplayName:self.senderDisplayName
-                            date:[NSDate date]];
-    }
-    else {
-        [self didPressAccessoryButton:sender];
-    }
-}
+//#pragma mark - Input toolbar delegate
+//
+//- (void)messagesInputToolbar:(JSQMessagesInputToolbar *)toolbar didPressLeftBarButton:(UIButton *)sender
+//{
+//    if (toolbar.sendButtonOnRight) {
+//        [self didPressAccessoryButton:sender];
+//    }
+//    else {
+//        [self didPressSendButton:sender
+//                 withMessageText:[self jsq_currentlyComposedMessageText]
+//                        senderId:self.senderId
+//               senderDisplayName:self.senderDisplayName
+//                            date:[NSDate date]];
+//    }
+//}
+//
+//- (void)messagesInputToolbar:(JSQMessagesInputToolbar *)toolbar didPressRightBarButton:(UIButton *)sender
+//{
+//    if (toolbar.sendButtonOnRight) {
+//        [self didPressSendButton:sender
+//                 withMessageText:[self jsq_currentlyComposedMessageText]
+//                        senderId:self.senderId
+//               senderDisplayName:self.senderDisplayName
+//                            date:[NSDate date]];
+//    }
+//    else {
+//        [self didPressAccessoryButton:sender];
+//    }
+//}
 
 - (void)messagesInputToolbar:(JSQMessagesInputToolbar *)toolbar didPressRightBarButton:(UIButton *)sender atIndex:(NSUInteger)index{
     NSLog(@"%ld", (long)index);
@@ -745,7 +745,7 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
         return;
     }
 
-    [self.inputToolbar toggleSendButtonEnabled];
+//    [self.inputToolbar toggleSendButtonEnabled];
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView
