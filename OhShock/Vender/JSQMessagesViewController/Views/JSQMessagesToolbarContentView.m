@@ -114,11 +114,11 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
 //    _leftBarButtonItem = leftBarButtonItem;
 //}
 
-- (void)setLeftBarButtonItemWidth:(CGFloat)leftBarButtonItemWidth
-{
-    self.leftBarButtonContainerViewWidthConstraint.constant = leftBarButtonItemWidth;
-    [self setNeedsUpdateConstraints];
-}
+//- (void)setLeftBarButtonItemWidth:(CGFloat)leftBarButtonItemWidth
+//{
+//    self.leftBarButtonContainerViewWidthConstraint.constant = leftBarButtonItemWidth;
+//    [self setNeedsUpdateConstraints];
+//}
 
 //- (void)setRightBarButtonItem:(UIButton *)rightBarButtonItem
 //{
@@ -160,7 +160,8 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
     if (!leftBarButtonItems || leftBarButtonItems.count < 1) {
         _leftBarButtonItems = nil;
         self.rightHorizontalSpacingConstraint.constant = 0.0f;
-        self.rightBarButtonItemWidth = 0.0f;
+        self.leftBarButtonContainerViewWidthConstraint.constant = 0.0f;
+        [self setNeedsUpdateConstraints];
         self.rightBarButtonContainerView.hidden = YES;
         return;
     }
@@ -215,7 +216,8 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
     if (!rightBarButtonItems || rightBarButtonItems.count < 1) {
         _rightBarButtonItems = nil;
         self.rightHorizontalSpacingConstraint.constant = 0.0f;
-        self.rightBarButtonItemWidth = 0.0f;
+        self.leftBarButtonContainerViewWidthConstraint.constant = 0.0f;
+        [self setNeedsUpdateConstraints];
         self.rightBarButtonContainerView.hidden = YES;
         return;
     }
@@ -259,11 +261,11 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
     _rightBarButtonItems = rightBarButtonItems;
 }
 
-- (void)setRightBarButtonItemWidth:(CGFloat)rightBarButtonItemWidth
-{
-    self.rightBarButtonContainerViewWidthConstraint.constant = rightBarButtonItemWidth;
-    [self setNeedsUpdateConstraints];
-}
+//- (void)setRightBarButtonItemWidth:(CGFloat)rightBarButtonItemWidth
+//{
+//    self.rightBarButtonContainerViewWidthConstraint.constant = rightBarButtonItemWidth;
+//    [self setNeedsUpdateConstraints];
+//}
 
 - (void)setRightContentPadding:(CGFloat)rightContentPadding
 {

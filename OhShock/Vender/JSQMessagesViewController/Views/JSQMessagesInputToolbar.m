@@ -108,6 +108,7 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
 }
 
 -(void)setLeftBarButtonItems:(NSArray<UIButton *> *)leftBarButtonItems andWidths:(NSArray<NSNumber *> *)widths{
+    [self.contentView setLeftBarButtonItems:leftBarButtonItems andWidths:widths];
     
 }
 
@@ -147,6 +148,9 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
 //}
 
 - (void)jsq_rightBarButtonPressed:(UIButton *)sender atIndex:(NSUInteger)index{
+    [self.delegate messagesInputToolbar:self didPressRightBarButton:sender atIndex:sender.tag];
+}
+- (void)jsq_leftBarButtonPressed:(UIButton *)sender atIndex:(NSUInteger)index{
     [self.delegate messagesInputToolbar:self didPressRightBarButton:sender atIndex:sender.tag];
 }
 
@@ -205,6 +209,15 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
         rightButtonItem.tag = i;//给button加标记方便识别
         [rightButtonItem removeTarget:self action:NULL forControlEvents:UIControlEventTouchUpInside];
         [rightButtonItem addTarget:self action:@selector(jsq_rightBarButtonPressed:atIndex:) forControlEvents:UIControlEventTouchUpInside];
+    }
+}
+
+- (void)jsq_addTargetsForLeftButtons{
+    for (int i = 0; i <  self.contentView.leftBarButtonItems.count; i++) {
+        UIButton *leftButtonItem = self.contentView.leftBarButtonItems[i];
+        leftButtonItem.tag = i;//给button加标记方便识别
+        [leftButtonItem removeTarget:self action:NULL forControlEvents:UIControlEventTouchUpInside];
+        [leftButtonItem addTarget:self action:@selector(jsq_rightBarButtonPressed:atIndex:) forControlEvents:UIControlEventTouchUpInside];
     }
 }
 
